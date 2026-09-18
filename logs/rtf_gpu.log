@@ -1,0 +1,25 @@
+Built Zipformer encoder: causal=True, chunk_size=(32,), left_context_frames=(128,)
+Loaded: 64556023/64556023 params (100.0%)
+Missing keys: 0
+Unexpected keys: 0
+Multi-scale hypercolumn enabled: stack dims [192, 256, 384, 512, 384, 256] + final=False (alignment=average) -> concat dim 1984
+Detected backbone output_dim: 1984
+device=cuda (GPU) files=10 warmup_chunks/file=5
+  abjxc.wav                                dur=  68.4s chunks= 102 compute= 2102.1ms feat=  33.0ms
+  afjiv.wav                                dur= 151.2s chunks= 232 compute= 4843.6ms feat=  67.2ms
+  ahnss.wav                                dur= 664.3s chunks=1033 compute=21344.5ms feat= 791.1ms
+  aisvi.wav                                dur= 469.1s chunks= 728 compute=15157.8ms feat= 549.4ms
+  akthc.wav                                dur= 114.5s chunks= 174 compute= 3592.0ms feat= 109.0ms
+  ampme.wav                                dur= 148.3s chunks= 227 compute= 4718.2ms feat= 119.0ms
+  asxwr.wav                                dur= 237.8s chunks= 367 compute= 7593.4ms feat= 277.9ms
+  atgpi.wav                                dur= 121.8s chunks= 186 compute= 3898.4ms feat= 107.3ms
+  aufkn.wav                                dur= 181.5s chunks= 279 compute= 5794.0ms feat= 197.0ms
+  azisu.wav                                dur= 194.1s chunks= 299 compute= 6217.2ms feat= 156.4ms
+
+===== RTF summary: device=cuda (GPU) =====
+total audio: 2351.0s over 10 files
+per-chunk model compute (640ms cadence, n=3627, warmup excluded):
+  mean=20.75ms  p50=20.61ms  p95=21.94ms  max=33.12ms
+feature extraction: 240.7ms avg/file (computed once per file here, NOT per-chunk; a deployed system would extract it incrementally -- reported separately, not folded into RTF, so the two costs stay legible)
+RTF (model compute only) = 0.0320 (faster than real-time)
+chunk cadence budget: 640ms | mean headroom = 619.2ms | p95 headroom = 618.1ms

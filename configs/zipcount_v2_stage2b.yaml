@@ -1,0 +1,103 @@
+# ZipCount v2 — STAGE 2b: domain adaptation, round 2.
+#
+# Stage-2 (r5) plateaued at macroF1 0.60 on AMI-SDM dev. Diagnosis:
+#   - real meetings were only 9% of the train mix (LibriMix drowned them out)
+#   - backbone fully frozen: 1.3M head params can't bridge clean-synthetic
+#     -> far-field-real on their own
+#   - RIR aug was applied to already-reverberant AMI/NSF windows
+#   - SORD alpha 1.5 encourages hedging one class down (confusion showed
+#     true2->pred1 57%, true3->pred2 59%)
+# Changes vs zipcount_v2_stage2.yaml:
+#   - train on the x4-oversampled manifest (real share 9% -> 29%)
+#   - unfreeze the last 2 Zipformer stacks (stage2_unfreeze_last_stacks)
+#   - lr 3e-4 -> 1e-4 (backbone now trains too)
+#   - sord_alpha 1.5 -> 2.5, class_weights [1,1,1,1] -> [1,1,1.5,3]
+#   - rir_skip_sources: no synthetic RIR on top of real far-field audio
+#
+# Run:
+#   PYTHONPATH=. nohup python src/train.py --config configs/zipcount_v2_stage2b.yaml \
+#       --init-from logs/r5_v2_stage2/best_macro_f1.pt \
+#       > logs/r6_v2_stage2b_train.log 2>&1 &
+
+model:
+  variant: "E"
+  encoder:
+    type: "zipformer"
+    zipformer_dir: "/home/edabk/hoangbpm/diar/diar_new/third_party/icefall/egs/librispeech/ASR/zipformer"
+    checkpoint: "/home/edabk/hoangbpm/diar/diar_new/data_ext/models/icefall-asr-librispeech-streaming-zipformer-2023-05-17/exp/pretrained.pt"
+    causal: true
+    chunk_size: "32"
+    left_context_frames: "128"
+    encoder_dim: "192,256,384,512,384,256"
+    downsampling_factor: "1,2,4,8,4,2"
+    num_encoder_layers: "2,2,3,4,3,2"
+    num_heads: "4,4,4,8,4,4"
+    feedforward_dim: "512,768,1024,1536,1024,768"
+    cnn_module_kernel: "31,31,15,15,15,31"
+    encoder_unmasked_dim: "192,192,256,256,256,192"
+    query_head_dim: 32
+    value_head_dim: 12
+    pos_head_dim: 4
+    pos_dim: 48
+    strict_load: false
+    min_load_ratio: 0.90
+    freeze_backbone: true
+    unfreeze_last_n: 2        # last 2 stacks (the 384/256 up-branch) train
+    multiscale: true
+  head:
+    type: "deformable_ordinal"
+    d_model: 256
+    num_layers: 2
+    num_points: 4
+    num_groups: 4
+    max_offset: 16
+    dropout: 0.1
+    head_hidden_dim: 0
+  num_count_classes: 4
+
+loss:
+  count_loss_type: "sord"
+  sord_alpha: 2.5             # sharper targets: stop hedging one class down
+  class_weights: [1.0, 1.0, 1.5, 3.0]   # overlap classes are rare on AMI dev
+  lambda_vad: 0.3
+  lambda_overlap: 0.5
+  lambda_emae: 0.2
+  lambda_consistency: 0.2
+  lambda_monotonic: 0.1
+  lambda_dice: 0.5
+  lambda_smooth: 0.02
+  smooth_type: "kl"
+
+training:
+  batch_size: 16              # drop to 12/8 if OOM (last-2-stack grads)
+  lr: 1.0e-4
+  warmup_steps: 500
+  max_steps: 25000            # ~2.3 epochs of the oversampled set (176.9k)
+  grad_clip: 5.0
+  use_amp: false
+  eval_interval: 1000
+  num_workers: 8
+  stage: "stage2_unfreeze_last_stacks"
+  log_dir: "logs/r6_v2_stage2b"
+
+data:
+  # Combined manifest with ami_train/nsf_train repeated 4x (28.8% real).
+  # Build with: python scripts/oversample_manifest.py \
+  #   --in data/combined/train_manifest.json \
+  #   --out data/combined/train_manifest_realx4.json \
+  #   --sources ami_train,nsf_train --times 4
+  train_manifest: "/home/edabk/hoangbpm/diar/diar_new/data/combined/train_manifest_realx4.json"
+  val_manifest: "/home/edabk/hoangbpm/diar/diar_new/data/meetings/val_manifest.json"
+  stats_file: "/home/edabk/hoangbpm/diar/diar_new/data/librimix/stats.json"   # informational only
+  feature_dim: 80
+  sample_rate: 16000
+  label_downsample: "majority_vote"
+  augment:
+    gain_db: [-28, 3]
+    rir_dir: "/home/edabk/hoangbpm/diar/diar_new/data_ext/RIRS_NOISES/simulated_rirs"
+    rir_prob: 0.35
+    rir_skip_sources: ["ami", "nsf"]   # already far-field: no double reverb
+
+streaming:
+  chunk_size: 32
+  left_context_frames: 128

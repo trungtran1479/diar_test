@@ -1,0 +1,17 @@
+/home/edabk/miniconda3/envs/.zipformer/lib/python3.10/site-packages/torch/nn/functional.py:5962: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  warnings.warn(
+Built WavLM backbone: microsoft/wavlm-large, 24 layers, d_model=1024, causal=False (bidirectional by construction), native_rate=50.0Hz -> downsample /2 -> 25.0Hz, hypercolumn_taps=[0, 5, 9, 14, 18, 23] output_dim=6144
+Head 'tcn_ordinal': 2,091,852 params, input dim (backbone output_dim / hypercolumn width) = 6144. NOTE: the head's own param count scales with this input dim (e.g. StackGatedProjection's first Linear is stack_dims -> d_model), so two systems with the same head TYPE but a different backbone output_dim are NOT parameter-matched — report cross-backbone comparisons as a system comparison, not an architecture-isolated one, unless a param-matched control is run.
+dipco_eval: scoring 107 windows (restricted to the common set)
+wrote per-window confusions for 107 windows -> logs/wavlm_hc6_causalhead_s2345_eval/dipco_eval_conf.json
+
+===== dipco_eval — same protocol as competitors (107 windows, 100 Hz, upsample x[4]) =====
+acc=0.674  mae=0.358  macroF1=0.564
+f1/cls = [0.674 0.789 0.396 0.397]
+VAD:  F1=0.963 (P=0.971 R=0.956)
+OSD (count>=2): F1=0.581 (P=0.553 R=0.612)
+confusion P(pred|true):  pred0   pred1   pred2   pred3
+  true0:               0.722   0.255   0.019   0.003
+  true1:               0.051   0.764   0.164   0.020
+  true2:               0.027   0.419   0.415   0.140
+  true3:               0.017   0.169   0.384   0.430

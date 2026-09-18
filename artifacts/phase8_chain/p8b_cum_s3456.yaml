@@ -1,0 +1,154 @@
+data:
+  augment:
+    gain_db:
+    - -28
+    - 3
+    noise_dir: /home/edabk/hoangbpm/diar/diar_new/musan/noise
+    noise_prob: 0.5
+    noise_skip_sources:
+    - ami
+    - nsf
+    - alimeeting
+    - aishell4
+    - msdwild
+    - voxconverse
+    - ramc
+    noise_snr_db:
+    - 0
+    - 20
+    rir_dir: /home/edabk/hoangbpm/diar/diar_new/data_ext/RIRS_NOISES/simulated_rirs
+    rir_prob: 0.8
+    rir_skip_sources:
+    - ami
+    - nsf
+    - alimeeting
+    - aishell4
+    - msdwild
+    - voxconverse
+    - ramc
+  feature_dim: 80
+  label_downsample: majority_vote
+  sample_rate: 16000
+  stats_file: /home/edabk/hoangbpm/diar/diar_new/data/librimix/stats.json
+  train_manifest: /media/edabk/500GB Hard Disk/data_diar/manifests/train_manifest_v3.json
+  val_manifest: /home/edabk/hoangbpm/diar/diar_new/data/meetings/val_manifest.json
+distill:
+  lambda_kd: 0.0
+  mask_mode: agree
+  teacher_dir: ''
+  temperature: 1.0
+loss:
+  boundary_kernel:
+  - 0.25
+  - 0.75
+  - 1.0
+  - 0.75
+  - 0.25
+  class_weights:
+  - 1.0
+  - 1.0
+  - 1.5
+  - 3.0
+  count_loss_type: cumulative
+  direction_class_weights:
+  - 1.0
+  - 1.0
+  lambda_boundary: 0.0
+  lambda_boundary_smooth: 0.0
+  lambda_consistency: 0.0
+  lambda_delta: 0.0
+  lambda_dice: 0.0
+  lambda_direction: 0.0
+  lambda_emae: 0.0
+  lambda_event: 0.0
+  lambda_monotonic: 0.0
+  lambda_overlap: 0.0
+  lambda_raw_anchor: 0.0
+  lambda_segment: 0.0
+  lambda_smooth: 0.0
+  lambda_stage1: 0.0
+  lambda_t_mse: 0.0
+  lambda_vad: 0.0
+  sord_alpha: 2.5
+  t_mse_tau: 4.0
+  type: pyramid_structured
+model:
+  encoder:
+    causal: true
+    checkpoint: /home/edabk/hoangbpm/diar/diar_new/data_ext/models/icefall-asr-librispeech-streaming-zipformer-2023-05-17/exp/pretrained.pt
+    chunk_size: '32'
+    cnn_module_kernel: 31,31,15,15,15,31
+    downsampling_factor: 1,2,4,8,4,2
+    encoder_dim: 192,256,384,512,384,256
+    encoder_unmasked_dim: 192,192,256,256,256,192
+    feedforward_dim: 512,768,1024,1536,1024,768
+    freeze_backbone: true
+    left_context_frames: '128'
+    min_load_ratio: 0.9
+    multiscale: true
+    multiscale_alignment: average
+    multiscale_include_final: false
+    num_encoder_layers: 2,2,3,4,3,2
+    num_heads: 4,4,4,8,4,4
+    pos_dim: 48
+    pos_head_dim: 4
+    query_head_dim: 32
+    strict_load: false
+    type: zipformer
+    unfreeze_last_n: 0
+    value_head_dim: 12
+    zipformer_dir: /home/edabk/hoangbpm/diar/diar_new/third_party/icefall/egs/librispeech/ASR/zipformer
+  head:
+    d_model: 192
+    dilations:
+    - 1
+    - 2
+    - 4
+    - 8
+    - 16
+    - 32
+    dropout: 0.1
+    edge_hidden_dim: 96
+    gate_mode: global
+    kernel: 3
+    ordinal_mode: softmax
+    stack_input_mask:
+    - 1
+    - 1
+    - 1
+    - 0
+    - 0
+    - 0
+    type: gated_pyramid_ordinal
+    use_stage2: false
+  num_count_classes: 4
+  variant: gated_pyramid_ordinal
+streaming:
+  chunk_size: 32
+  left_context_frames: 128
+training:
+  amp_growth_interval: 2000
+  amp_init_scale: 4096.0
+  batch_size: 24
+  early_phase_steps: 3000
+  eval_interval: 300
+  eval_interval_early: 300
+  freeze_backbone_all: true
+  grad_clip: 5.0
+  init_backbone_only: true
+  log_dir: logs/p8b_cum_s3456
+  lr: 0.001
+  lr_schedule: cosine
+  max_amp_overflows: 0
+  max_steps: 3000
+  num_workers: 12
+  require_backbone_complete: true
+  reset_rng_after_init: true
+  save_best: false
+  save_every_eval: true
+  save_last: false
+  seed: 3456
+  snapshot_weights_only: true
+  stage: stage1_freeze_backbone
+  use_amp: true
+  warmup_steps: 500

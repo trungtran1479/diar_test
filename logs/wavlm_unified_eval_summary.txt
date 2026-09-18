@@ -1,0 +1,43 @@
+=== wavlm_hc6_s1234 (2026-08-05T12:56:32+07:00) ===
+ami_test: FAILED (see logs/wavlm_hc6_s1234_eval/ami_test.log)
+dipco_eval: FAILED (see logs/wavlm_hc6_s1234_eval/dipco_eval.log)
+msdwild_manyval: FAILED (see logs/wavlm_hc6_s1234_eval/msdwild_manyval.log)
+voxconverse_voxlock: FAILED (see logs/wavlm_hc6_s1234_eval/voxconverse_voxlock.log)
+
+=== wavlm_hc6_s2345 (2026-08-05T14:33:06+07:00) ===
+ami_test: FAILED (see logs/wavlm_hc6_s2345_eval/ami_test.log)
+dipco_eval: FAILED (see logs/wavlm_hc6_s2345_eval/dipco_eval.log)
+msdwild_manyval: FAILED (see logs/wavlm_hc6_s2345_eval/msdwild_manyval.log)
+voxconverse_voxlock: FAILED (see logs/wavlm_hc6_s2345_eval/voxconverse_voxlock.log)
+
+=== wavlm_hc6_s3456 (2026-08-05T16:09:31+07:00) ===
+ami_test: FAILED (see logs/wavlm_hc6_s3456_eval/ami_test.log)
+dipco_eval: FAILED (see logs/wavlm_hc6_s3456_eval/dipco_eval.log)
+msdwild_manyval: FAILED (see logs/wavlm_hc6_s3456_eval/msdwild_manyval.log)
+voxconverse_voxlock: FAILED (see logs/wavlm_hc6_s3456_eval/voxconverse_voxlock.log)
+
+PIPELINE_ALL_DONE
+=== EVAL-ONLY RERUN (batch-size=1) 2026-08-05T16:21:23+07:00 ===
+=== GATED EVAL RERUN 2026-08-05T16:33:38+07:00 ===
+=== wavlm_hc6_s1234 (gated rerun, 2026-08-05T17:03:41+07:00) ===
+ami_test: macroF1=0.692
+dipco_eval: macroF1=0.562
+msdwild_manyval: macroF1=0.580
+voxconverse_voxlock: macroF1=0.568
+mean (4 corpora) = 0.6005
+
+=== wavlm_hc6_s2345 (gated rerun, 2026-08-05T17:33:34+07:00) ===
+ami_test: macroF1=0.692
+dipco_eval: macroF1=0.573
+msdwild_manyval: macroF1=0.595
+voxconverse_voxlock: macroF1=0.565
+mean (4 corpora) = 0.6062
+
+=== wavlm_hc6_s3456 (gated rerun, 2026-08-05T18:03:25+07:00) ===
+ami_test: macroF1=0.688
+dipco_eval: macroF1=0.575
+msdwild_manyval: macroF1=0.586
+voxconverse_voxlock: macroF1=0.556
+mean (4 corpora) = 0.6012
+
+GATED_EVAL_ALL_DONE

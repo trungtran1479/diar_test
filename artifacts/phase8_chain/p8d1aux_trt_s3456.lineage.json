@@ -1,0 +1,14 @@
+{
+ "inputs": {
+  "config_sha": "917c79be2b47aa3876692054653dd77eaf46434c15c8c8ba488631708f7e398f",
+  "init_sha": "050e1dab9fc628a8beb3c1697a13a5e7add34cc5fa68a2fbb2f6b5cdb8aa0841",
+  "train_manifest_sha": "fee646152c558cf14f64994927645220e571071d766c3ea3dcf3bcb08cd5474a",
+  "eval_manifest_sha": "f3de8712054f617c731c10c5de356c4b61a3c7e8db30e8704dda11f3c01f7025",
+  "source_sha": "32e71a89f46d543de4cadc7aef389a43539099774813252b4b4f56204f65f9e7"
+ },
+ "outputs": {
+  "result_sha": "8f1ac2bfd280581517ea73268f2b19e5fac619871524112718695cba00e4eba9",
+  "checkpoint_sha": "72d2f9153b82e9a10b7160acad38828566020f2678c17a60b9aff275ddce4bb9",
+  "arm_config_sha": "917c79be2b47aa3876692054653dd77eaf46434c15c8c8ba488631708f7e398f"
+ }
+}

@@ -1,0 +1,190 @@
+############ mask_s1234 ############
+>>> mask_s1234 / ami-sdm dev
+>>> mask_s1234 / ami-sdm test
+>>> mask_s1234 / dipco-mdm dev
+>>> mask_s1234 / dipco-mdm eval
+>>> mask_s1234 / libricount
+reuse results/stackgrad_pre012_s1234_voxsel.json -> results/bench_paper/mask_s1234__voxsel_perrec.json
+>>> mask_s1234 / voxsel sequence metrics
+>>> mask_s1234 / voxfull per-recording
+>>> mask_s1234 / voxfull sequence metrics
+>>> mask_s1234 / voxlock per-recording
+>>> mask_s1234 / voxlock sequence metrics
+>>> mask_s1234 / msdwild per-recording
+>>> mask_s1234 / msdwild sequence metrics
+>>> mask_s1234 / vox_sel boundary AP
+  FAILED
+############ mask_s2345 ############
+>>> mask_s2345 / ami-sdm dev
+>>> mask_s2345 / ami-sdm test
+>>> mask_s2345 / dipco-mdm dev
+>>> mask_s2345 / dipco-mdm eval
+>>> mask_s2345 / libricount
+reuse results/stackgrad_pre012_s2345_voxsel.json -> results/bench_paper/mask_s2345__voxsel_perrec.json
+>>> mask_s2345 / voxsel sequence metrics
+>>> mask_s2345 / voxfull per-recording
+>>> mask_s2345 / voxfull sequence metrics
+>>> mask_s2345 / voxlock per-recording
+>>> mask_s2345 / voxlock sequence metrics
+>>> mask_s2345 / msdwild per-recording
+>>> mask_s2345 / msdwild sequence metrics
+>>> mask_s2345 / vox_sel boundary AP
+  FAILED
+############ mask_s3456 ############
+>>> mask_s3456 / ami-sdm dev
+>>> mask_s3456 / ami-sdm test
+>>> mask_s3456 / dipco-mdm dev
+>>> mask_s3456 / dipco-mdm eval
+>>> mask_s3456 / libricount
+reuse results/stackgrad_pre012_s3456_voxsel.json -> results/bench_paper/mask_s3456__voxsel_perrec.json
+>>> mask_s3456 / voxsel sequence metrics
+>>> mask_s3456 / voxfull per-recording
+>>> mask_s3456 / voxfull sequence metrics
+>>> mask_s3456 / voxlock per-recording
+>>> mask_s3456 / voxlock sequence metrics
+>>> mask_s3456 / msdwild per-recording
+>>> mask_s3456 / msdwild sequence metrics
+>>> mask_s3456 / vox_sel boundary AP
+  FAILED
+############ root_s1234 ############
+>>> root_s1234 / ami-sdm dev
+>>> root_s1234 / ami-sdm test
+>>> root_s1234 / dipco-mdm dev
+>>> root_s1234 / dipco-mdm eval
+>>> root_s1234 / libricount
+reuse results/p8a_average_s1234_voxsel.json -> results/bench_paper/root_s1234__voxsel_perrec.json
+>>> root_s1234 / voxsel sequence metrics
+>>> root_s1234 / voxfull per-recording
+>>> root_s1234 / voxfull sequence metrics
+>>> root_s1234 / voxlock per-recording
+>>> root_s1234 / voxlock sequence metrics
+>>> root_s1234 / msdwild per-recording
+>>> root_s1234 / msdwild sequence metrics
+>>> root_s1234 / vox_sel boundary AP
+  FAILED
+############ root_s2345 ############
+>>> root_s2345 / ami-sdm dev
+>>> root_s2345 / ami-sdm test
+>>> root_s2345 / dipco-mdm dev
+>>> root_s2345 / dipco-mdm eval
+>>> root_s2345 / libricount
+reuse results/p8a_average_s2345_voxsel.json -> results/bench_paper/root_s2345__voxsel_perrec.json
+>>> root_s2345 / voxsel sequence metrics
+>>> root_s2345 / voxfull per-recording
+>>> root_s2345 / voxfull sequence metrics
+>>> root_s2345 / voxlock per-recording
+>>> root_s2345 / voxlock sequence metrics
+>>> root_s2345 / msdwild per-recording
+>>> root_s2345 / msdwild sequence metrics
+>>> root_s2345 / vox_sel boundary AP
+  FAILED
+############ root_s3456 ############
+>>> root_s3456 / ami-sdm dev
+>>> root_s3456 / ami-sdm test
+>>> root_s3456 / dipco-mdm dev
+>>> root_s3456 / dipco-mdm eval
+>>> root_s3456 / libricount
+reuse results/p8a_average_s3456_voxsel.json -> results/bench_paper/root_s3456__voxsel_perrec.json
+>>> root_s3456 / voxsel sequence metrics
+>>> root_s3456 / voxfull per-recording
+>>> root_s3456 / voxfull sequence metrics
+>>> root_s3456 / voxlock per-recording
+>>> root_s3456 / voxlock sequence metrics
+>>> root_s3456 / msdwild per-recording
+>>> root_s3456 / msdwild sequence metrics
+>>> root_s3456 / vox_sel boundary AP
+  FAILED
+
+=== ALL PAPER BENCHMARK RUNS DONE ===
+############ mask_s1234 ############
+skip results/bench_paper/mask_s1234__ami-sdm_dev.log
+skip results/bench_paper/mask_s1234__ami-sdm_test.log
+skip results/bench_paper/mask_s1234__dipco-mdm_dev.log
+skip results/bench_paper/mask_s1234__dipco-mdm_eval.log
+skip results/bench_paper/mask_s1234__voxsel_perrec.json
+>>> mask_s1234 / voxsel sequence metrics
+skip results/bench_paper/mask_s1234__voxfull_perrec.json
+>>> mask_s1234 / voxfull sequence metrics
+skip results/bench_paper/mask_s1234__voxlock_perrec.json
+>>> mask_s1234 / voxlock sequence metrics
+skip results/bench_paper/mask_s1234__msdwild_perrec.json
+>>> mask_s1234 / msdwild sequence metrics
+>>> mask_s1234 / vox_sel boundary AP
+  FAILED
+############ mask_s2345 ############
+skip results/bench_paper/mask_s2345__ami-sdm_dev.log
+skip results/bench_paper/mask_s2345__ami-sdm_test.log
+skip results/bench_paper/mask_s2345__dipco-mdm_dev.log
+skip results/bench_paper/mask_s2345__dipco-mdm_eval.log
+skip results/bench_paper/mask_s2345__voxsel_perrec.json
+>>> mask_s2345 / voxsel sequence metrics
+skip results/bench_paper/mask_s2345__voxfull_perrec.json
+>>> mask_s2345 / voxfull sequence metrics
+skip results/bench_paper/mask_s2345__voxlock_perrec.json
+>>> mask_s2345 / voxlock sequence metrics
+skip results/bench_paper/mask_s2345__msdwild_perrec.json
+>>> mask_s2345 / msdwild sequence metrics
+>>> mask_s2345 / vox_sel boundary AP
+  FAILED
+############ mask_s3456 ############
+skip results/bench_paper/mask_s3456__ami-sdm_dev.log
+skip results/bench_paper/mask_s3456__ami-sdm_test.log
+skip results/bench_paper/mask_s3456__dipco-mdm_dev.log
+skip results/bench_paper/mask_s3456__dipco-mdm_eval.log
+skip results/bench_paper/mask_s3456__voxsel_perrec.json
+>>> mask_s3456 / voxsel sequence metrics
+skip results/bench_paper/mask_s3456__voxfull_perrec.json
+>>> mask_s3456 / voxfull sequence metrics
+skip results/bench_paper/mask_s3456__voxlock_perrec.json
+>>> mask_s3456 / voxlock sequence metrics
+skip results/bench_paper/mask_s3456__msdwild_perrec.json
+>>> mask_s3456 / msdwild sequence metrics
+>>> mask_s3456 / vox_sel boundary AP
+  FAILED
+############ root_s1234 ############
+skip results/bench_paper/root_s1234__ami-sdm_dev.log
+skip results/bench_paper/root_s1234__ami-sdm_test.log
+skip results/bench_paper/root_s1234__dipco-mdm_dev.log
+skip results/bench_paper/root_s1234__dipco-mdm_eval.log
+skip results/bench_paper/root_s1234__voxsel_perrec.json
+>>> root_s1234 / voxsel sequence metrics
+skip results/bench_paper/root_s1234__voxfull_perrec.json
+>>> root_s1234 / voxfull sequence metrics
+skip results/bench_paper/root_s1234__voxlock_perrec.json
+>>> root_s1234 / voxlock sequence metrics
+skip results/bench_paper/root_s1234__msdwild_perrec.json
+>>> root_s1234 / msdwild sequence metrics
+>>> root_s1234 / vox_sel boundary AP
+  FAILED
+############ root_s2345 ############
+skip results/bench_paper/root_s2345__ami-sdm_dev.log
+skip results/bench_paper/root_s2345__ami-sdm_test.log
+skip results/bench_paper/root_s2345__dipco-mdm_dev.log
+skip results/bench_paper/root_s2345__dipco-mdm_eval.log
+skip results/bench_paper/root_s2345__voxsel_perrec.json
+>>> root_s2345 / voxsel sequence metrics
+skip results/bench_paper/root_s2345__voxfull_perrec.json
+>>> root_s2345 / voxfull sequence metrics
+skip results/bench_paper/root_s2345__voxlock_perrec.json
+>>> root_s2345 / voxlock sequence metrics
+skip results/bench_paper/root_s2345__msdwild_perrec.json
+>>> root_s2345 / msdwild sequence metrics
+>>> root_s2345 / vox_sel boundary AP
+  FAILED
+############ root_s3456 ############
+skip results/bench_paper/root_s3456__ami-sdm_dev.log
+skip results/bench_paper/root_s3456__ami-sdm_test.log
+skip results/bench_paper/root_s3456__dipco-mdm_dev.log
+skip results/bench_paper/root_s3456__dipco-mdm_eval.log
+skip results/bench_paper/root_s3456__voxsel_perrec.json
+>>> root_s3456 / voxsel sequence metrics
+skip results/bench_paper/root_s3456__voxfull_perrec.json
+>>> root_s3456 / voxfull sequence metrics
+skip results/bench_paper/root_s3456__voxlock_perrec.json
+>>> root_s3456 / voxlock sequence metrics
+skip results/bench_paper/root_s3456__msdwild_perrec.json
+>>> root_s3456 / msdwild sequence metrics
+>>> root_s3456 / vox_sel boundary AP
+  FAILED
+
+=== ALL PAPER BENCHMARK RUNS DONE ===

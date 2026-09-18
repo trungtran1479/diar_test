@@ -1,0 +1,36 @@
+/home/edabk/hoangbpm/diar/diar_new/third_party/icefall/egs/librispeech/ASR/zipformer/scaling.py:1310: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(ctx, x, y, alpha):
+/home/edabk/hoangbpm/diar/diar_new/third_party/icefall/egs/librispeech/ASR/zipformer/scaling.py:1319: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, ans_grad):
+/home/edabk/hoangbpm/diar/diar_new/third_party/icefall/egs/librispeech/ASR/zipformer/scaling.py:1529: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(
+/home/edabk/hoangbpm/diar/diar_new/third_party/icefall/egs/librispeech/ASR/zipformer/scaling.py:1568: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, ans_grad: Tensor):
+fatal: not a git repository (or any of the parent directories): .git
+fatal: not a git repository (or any of the parent directories): .git
+fatal: not a git repository (or any of the parent directories): .git
+Built Zipformer encoder: causal=True, chunk_size=(32,), left_context_frames=(128,)
+Loaded: 64556023/64556023 params (100.0%)
+Missing keys: 0
+Unexpected keys: 0
+Multi-scale hypercolumn enabled: stack dims [192, 256, 384, 512, 384, 256] -> concat dim 1984
+Detected backbone output_dim: 1984
+Loaded logs/p2_ctrl_s3456/step400.pt on cuda
+dipco-mdm eval: 5 recordings, 3405 supervisions (0 with word alignment = 0%)
+  [1/5] S01 (47 min)
+  [2/5] S03 (47 min)
+  [3/5] S06 (20 min)
+  [4/5] S07 (26 min)
+  [5/5] S08 (16 min)
+
+===== dipco-mdm eval — frame-level (25 Hz) =====
+acc=0.682  mae=0.352  macroF1=0.531
+f1/cls = [0.633 0.798 0.376 0.317]
+VAD:  F1=0.954 (P=0.974 R=0.936)
+OSD (count>=2): F1=0.533 (P=0.599 R=0.480)
+OSD (aux head): F1=0.523 (P=0.613 R=0.456)
+confusion P(pred|true):  pred0   pred1   pred2   pred3
+  true0:               0.773   0.200   0.023   0.003
+  true1:               0.081   0.802   0.108   0.009
+  true2:               0.047   0.537   0.349   0.067
+  true3:               0.019   0.276   0.451   0.253

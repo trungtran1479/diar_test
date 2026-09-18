@@ -1,0 +1,6 @@
+Phase 7 event-state preregistration
+launched=2026-07-23T00:53:00+07:00
+primary=vox_sel recording macro-F1 at step 400
+seeds=1234 2345 3456
+arms=c0 c1 c2
+NVIDIA GeForce RTX 3090, 580.173.02, 24576 MiB

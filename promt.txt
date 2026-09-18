@@ -1,0 +1,156 @@
+Implement Streaming ZipCountFormer-v1.
+
+Task:
+Frame-level active speaker counting for streaming audio.
+Classes:
+0 = non-speech
+1 = one active speaker
+2 = two active speakers
+3 = three or more active speakers
+
+Architecture:
+1. Input: log-mel features [B, T, 80]
+2. Backbone: StreamingZipformerEncoder
+   - returns h [B, T_enc, D]
+   - supports frozen and partially-finetuned mode
+3. TemporalAdaptiveCountAdapter:
+   - causal depthwise temporal convolution
+   - pointwise projection
+   - gated residual
+   - optional local causal attention block, disabled by default
+   - must preserve shape [B, T_enc, D]
+4. Heads:
+   - count_head: Linear/MLP to 4 logits
+   - vad_head: Linear/MLP to 1 logit
+   - overlap_head: Linear/MLP to 1 logit
+
+Loss:
+Implement ZipCountLoss:
+L = L_count + lambda_vad * L_vad + lambda_overlap * L_overlap + lambda_smooth * L_smooth
+
+Where:
+- L_count = weighted cross entropy or focal cross entropy
+- L_vad = BCEWithLogitsLoss, label = count >= 1
+- L_overlap = BCEWithLogitsLoss, label = count >= 2
+- L_smooth = temporal smoothness over count posterior:
+    mean KL(p_t || p_{t-1}) or mean L1(p_t - p_{t-1})
+  It must be optional and small.
+
+Training modes:
+- stage1_freeze_backbone:
+    freeze all Zipformer parameters, train adapter + heads
+- stage2_unfreeze_last_stacks:
+    unfreeze only the last N Zipformer blocks/stacks
+- stage3_finetune:
+    optionally unfreeze more with smaller LR
+
+Config options:
+model:
+  num_count_classes: 4
+  adapter_dim: 256
+  adapter_kernel_size: 5
+  adapter_dropout: 0.1
+  use_local_attention: false
+  freeze_backbone: true
+  unfreeze_last_n: 0
+
+loss:
+  lambda_vad: 0.3
+  lambda_overlap: 0.5
+  lambda_smooth: 0.05
+  count_loss_type: focal
+  class_weights: [0.5, 1.0, 2.5, 4.0]
+
+Streaming:
+- infer_streaming.py must process audio chunks.
+- It must keep encoder states if the Zipformer wrapper supports streaming states.
+- It must output timestamps and posterior:
+    time_sec, p0, p1, p2, p3plus, pred_count
+
+Metrics:
+- frame accuracy
+- macro-F1 over 0/1/2/3+
+- per-class precision/recall/F1
+- overlap F1 where overlap = count >= 2
+- count MAE
+- RTF and latency estimate
+
+Implement data preparation for public/fair active-speaker-counting experiments.
+
+Goal:
+Create frame-level count labels from either:
+A. synthetic mixtures generated from single-speaker corpora
+B. real meeting annotations in RTTM format
+
+Target label:
+count[t] = number of active speakers at frame t
+mapped to:
+0, 1, 2, 3+.
+
+Auxiliary labels:
+vad[t] = count[t] >= 1
+overlap[t] = count[t] >= 2
+
+Part A: Synthetic mixture generation
+Use public English speech data such as LibriSpeech or LibriTTS.
+
+Requirements:
+1. Speaker-disjoint split:
+   - train speakers
+   - dev speakers
+   - test speakers
+   No speaker leakage across splits.
+2. Generate mixtures with 0/1/2/3 active speakers.
+3. Include variable overlap:
+   - no overlap
+   - short overlap/backchannel-like
+   - medium overlap
+   - long overlap
+4. Randomize:
+   - speaker gain
+   - SNR
+   - offset
+   - duration
+   - silence gaps
+   - optional room impulse response
+   - optional background noise
+5. Save:
+   - mixture wav
+   - metadata json
+   - RTTM-like activity annotation
+   - frame-level labels npy/parquet
+
+Manifest format:
+Each item should contain:
+{
+  "audio_filepath": "...",
+  "duration": float,
+  "label_filepath": "...",
+  "rttm_filepath": "...",
+  "source": "synthetic_librispeech",
+  "sample_rate": 16000
+}
+
+Part B: Real annotation support
+Support parsing RTTM to frame-level count labels.
+Datasets to support later:
+- AMI
+- LibriCSS
+- VoxConverse if available
+- DIHARD-style RTTM if available
+
+Feature extraction:
+- 16 kHz mono
+- 80-dim log-mel
+- 25 ms window
+- 10 ms hop
+
+Label alignment:
+- If encoder output frame rate differs from 100 Hz feature frame rate,
+  downsample labels by majority vote or center-frame sampling.
+- Implement both strategies and make it configurable.
+
+Important:
+Do not use transcripts.
+Do not use speaker identity as training target.
+Speaker IDs are only used to compute count[t].

@@ -1,0 +1,50 @@
+{
+  "completed_at": "2026-07-23T19:17:02.916084+00:00",
+  "inputs": {
+    "config_sha": "6d8f774f064b8b2ff5f5c470913c324e279c6cfb97cf390ae8d6c4a5a41ce41d",
+    "encoder_pretrained_sha": "e44bb7c8d3985a7cf0089020d227aecd71e323dcaaabcaed90e4a792e1385342",
+    "eval_manifest_sha": "f3de8712054f617c731c10c5de356c4b61a3c7e8db30e8704dda11f3c01f7025",
+    "init_sha": "050e1dab9fc628a8beb3c1697a13a5e7add34cc5fa68a2fbb2f6b5cdb8aa0841",
+    "locked_step": 3000,
+    "source_combined_sha": "a84f5059374830b218a59ca5c5f0827c2a56cc924ef881738f056511dbaa262e",
+    "source_files": {
+      "STACK_MASK_GRADUATION_PREREG.md": "c2dba2931111adcdc7a3e3bf0047788188b6e2c86929b1bb66ef4bb11ce2f88a",
+      "configs/zipcount_v4_distill.yaml": "edea34380ba7a5df302ec7ecb238c2b8e3ab66b5603e85701341bf644c4754f3",
+      "scripts/eval_per_recording.py": "f9146f0f31caa078e0666cf84ff84bb8f64a0ada4afee6c5f5fdbc6a664d501a",
+      "scripts/run_stack_mask_graduation.py": "c2569416c0e9667144e105eb0eeb216796bc2ccbee34a2219a524e6b568de590",
+      "src/data/dataset.py": "45e84003e60134994a8dcad9f5b795169c480c6a1c2ce65950128e39855a65b8",
+      "src/data/feature_extractor.py": "101e9050c7be40c1521024864dfc6abc66bd3136c21ef5647e376dcf1f4a86bd",
+      "src/data/label_utils.py": "306da20c9967cbb50e23f1da387b7717c62a5452097ff6c381c0e47a019907c1",
+      "src/models/crnn_baseline.py": "a25a1f419f2d1bf1fa435b69228121a2b554099dd37d658a4f361cde47f3e8bb",
+      "src/models/deformable.py": "6acaae916badfdc3e1f921ac5bd09574672fbf927fd2597b3bc57e29422cb0d6",
+      "src/models/heads.py": "d5071fe0c045b9dd85bbfe8747498cf948b5f4b1afda0ce59b8bf83f1750cab2",
+      "src/models/losses.py": "5844b96e9e9547966da340773644c5dd181d0372e604567092abe7f53b2d92ff",
+      "src/models/pyramid_head.py": "1d9b8b43e836da6295fd1a629e957932786247bd8fd5d5f2d60e5abfd4e3fa4f",
+      "src/models/structured_losses.py": "9ce2681f94da92e5c786347912396685627f9df8d0a7422c90092cc968de0e08",
+      "src/models/zipcount_v1.py": "3ec4ec0c304fc84449e6bcc044b1596418de0a462eba7e7591f1dd505df763ab",
+      "src/models/zipformer_wrapper.py": "90c917f48db24250db99f46e1fec6c195e349ece63fb6d85049b53e049fcb9b0",
+      "src/train.py": "29fb9302fef95fc8563b2f8270dfff18a455fbad88784f9791855b643770822f",
+      "src/utils/metrics.py": "914f617f74e6be7f8495bd02bf74b6f1227a3cfd01f64c9665e714aa8f5661b9",
+      "third_party/icefall/egs/librispeech/ASR/zipformer/asr_datamodule.py": "a7dd8e1fc26413d2f0097931fa3ccc77e514068d2761ce2b5140d65bf8c1c036",
+      "third_party/icefall/egs/librispeech/ASR/zipformer/decoder.py": "92ee967e4b927a3ef2e4cc2d900756609a191f859c956a400cfe642d6ef0cf52",
+      "third_party/icefall/egs/librispeech/ASR/zipformer/encoder_interface.py": "fc70f530c33e2489435ff2cb4bb0dad8b9d6f58a248c425cbd6100c62f628569",
+      "third_party/icefall/egs/librispeech/ASR/zipformer/finetune.py": "e7a563db28d1e5fc4639bc39fb1bdf40e057971bf4be6f80e2f361c3287c718d",
+      "third_party/icefall/egs/librispeech/ASR/zipformer/joiner.py": "2d924a5a00f7a2bb2340c1a991f8a71037bcfbc7e98cbabe26527ffa7d4030d4",
+      "third_party/icefall/egs/librispeech/ASR/zipformer/model.py": "1e516fec1ad65220470a7db69bf3d16e4736a0b9943ef8f5ad75bb962d7a3296",
+      "third_party/icefall/egs/librispeech/ASR/zipformer/optim.py": "7282cd6db1d234e086110feb1f39f076a76095a6b026b939cebc81f2ed0f5d45",
+      "third_party/icefall/egs/librispeech/ASR/zipformer/scaling.py": "06e17bccb7669bb022545fba18fec87f0f5c62167ba7edb006ecaea8656b922b",
+      "third_party/icefall/egs/librispeech/ASR/zipformer/subsampling.py": "e04de281f136560e2d44b5f7df174d0364b5feb2c22608173b60de02630c2a66",
+      "third_party/icefall/egs/librispeech/ASR/zipformer/zipformer.py": "794a05ae32cc5ef6d96a4d16ba30df97822c841a0453b654335e98b328067638"
+    },
+    "stats_sha": "0b724c7430f7865802adb0d106f489aa1cbd399becb3f0013bc47a501350e956",
+    "train_manifest_sha": "fee646152c558cf14f64994927645220e571071d766c3ea3dcf3bcb08cd5474a",
+    "val_manifest_sha": "c5e44d1e839a474049c1518fd5508f4c6ac7bca9963d4e5a2ca44fe576482961"
+  },
+  "outputs": {
+    "checkpoint_sha": "6dccb48d136d3f9c9f59c14f12c437715307260985c8d5551d1a88f042163205",
+    "config_file_sha": "6d8f774f064b8b2ff5f5c470913c324e279c6cfb97cf390ae8d6c4a5a41ce41d",
+    "config_sha": "6d8f774f064b8b2ff5f5c470913c324e279c6cfb97cf390ae8d6c4a5a41ce41d",
+    "n_recordings": 116,
+    "result_sha": "5bf8fcdedcef605dfe1e3ff02c1a7c47b76130b42a4389687dfa8f85599346ff"
+  }
+}

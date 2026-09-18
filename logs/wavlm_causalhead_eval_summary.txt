@@ -1,0 +1,22 @@
+=== wavlm_hc6_causalhead_s1234 (2026-08-05T22:21:04+07:00) ===
+ami_test: macroF1=0.683
+dipco_eval: macroF1=0.549
+msdwild_manyval: macroF1=0.560
+voxconverse_voxlock: macroF1=0.568
+mean (4 corpora) = 0.5900
+
+=== wavlm_hc6_causalhead_s2345 (2026-08-06T00:27:56+07:00) ===
+ami_test: macroF1=0.688
+dipco_eval: macroF1=0.564
+msdwild_manyval: macroF1=0.586
+voxconverse_voxlock: macroF1=0.577
+mean (4 corpora) = 0.6037
+
+=== wavlm_hc6_causalhead_s3456 (2026-08-06T02:34:49+07:00) ===
+ami_test: macroF1=0.678
+dipco_eval: macroF1=0.567
+msdwild_manyval: macroF1=0.563
+voxconverse_voxlock: macroF1=0.551
+mean (4 corpora) = 0.5897
+
+CAUSALHEAD_ABLATION_ALL_DONE

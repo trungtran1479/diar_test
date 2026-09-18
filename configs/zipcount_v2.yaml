@@ -1,0 +1,84 @@
+# ZipCount v2 — CV-inspired streaming speaker-state architecture.
+#
+#   Frozen streaming Zipformer2 (U-Net multi-rate encoder)
+#     -> per-stack hypercolumn [B, T_enc, 1984]      (U-Net skip / hypercolumn, cf. UME multi-layer fusion)
+#     -> StackGatedProjection (FPN-lite, learnable per-scale gates)
+#     -> CausalDeformableTemporalBlock x2            (InternImage/DCNv3 -> 1D causal, offsets <= 0)
+#     -> OrdinalConsistentHead                       (powerset-style 4-class + CORAL-style cumulative VAD/OSD)
+#
+# Loss: SORD soft-ordinal CE + expected-count MAE + cumulative BCE (VAD/OSD)
+#       + consistency + monotonicity + dice on overlap + light smoothness.
+
+model:
+  variant: "E"
+  encoder:
+    type: "zipformer"
+    zipformer_dir: "/home/edabk/hoangbpm/diar/diar_new/third_party/icefall/egs/librispeech/ASR/zipformer"
+    checkpoint: "/home/edabk/hoangbpm/diar/diar_new/data_ext/models/icefall-asr-librispeech-streaming-zipformer-2023-05-17/exp/pretrained.pt"
+    causal: true
+    chunk_size: "32"            # encoder-embed frames at 50 Hz -> 640 ms chunks
+    left_context_frames: "128"  # 2.56 s left context
+    encoder_dim: "192,256,384,512,384,256"
+    downsampling_factor: "1,2,4,8,4,2"
+    num_encoder_layers: "2,2,3,4,3,2"
+    num_heads: "4,4,4,8,4,4"
+    feedforward_dim: "512,768,1024,1536,1024,768"
+    cnn_module_kernel: "31,31,15,15,15,31"
+    encoder_unmasked_dim: "192,192,256,256,256,192"
+    query_head_dim: 32
+    value_head_dim: 12
+    pos_head_dim: 4
+    pos_dim: 48
+    strict_load: false
+    min_load_ratio: 0.90
+    freeze_backbone: true
+    unfreeze_last_n: 0
+    multiscale: true            # expose per-stack outputs as a hypercolumn (dim 1984)
+  head:
+    type: "deformable_ordinal"
+    d_model: 256                # fused width after StackGatedProjection
+    num_layers: 2               # deformable temporal layers
+    num_points: 4               # sampling points per group (K)
+    num_groups: 4               # channel groups (G, DCNv3-style)
+    max_offset: 16              # farthest look-back in 25 Hz frames (16 = 640 ms)
+    dropout: 0.1
+    head_hidden_dim: 0
+  num_count_classes: 4
+
+loss:
+  count_loss_type: "sord"       # soft ordinal targets (count is ordinal)
+  sord_alpha: 1.5               # sharpness of the soft target decay
+  class_weights: [1.0, 1.0, 1.0, 1.0]   # uniform — see note in zipcount_v1.yaml
+  lambda_vad: 0.3               # BCE on cumulative P(count>=1)
+  lambda_overlap: 0.5           # BCE on cumulative P(count>=2)
+  lambda_emae: 0.2              # expected-count MAE
+  lambda_consistency: 0.2       # softmax-derived cumulative <-> aux heads
+  lambda_monotonic: 0.1         # P(>=2) <= P(>=1)
+  lambda_dice: 0.5              # dice on overlap (rare class)
+  lambda_smooth: 0.02
+  smooth_type: "kl"
+
+training:
+  batch_size: 16
+  lr: 1.0e-3
+  warmup_steps: 1000
+  max_steps: 50000
+  grad_clip: 5.0
+  use_amp: false
+  eval_interval: 1000
+  stage: "stage1_freeze_backbone"
+  log_dir: "logs/zipcount_v2_E"
+
+data:
+  # Cleaned LibriMix (per-source VAD labels, solo/noise balancing, speaker-disjoint val)
+  # built by src/data/prepare_from_lhotse.py — see README section 4.
+  train_manifest: "/home/edabk/hoangbpm/diar/diar_new/data/librimix/train_manifest.json"
+  val_manifest: "/home/edabk/hoangbpm/diar/diar_new/data/librimix/val_manifest.json"
+  stats_file: "/home/edabk/hoangbpm/diar/diar_new/data/librimix/stats.json"
+  feature_dim: 80
+  sample_rate: 16000
+  label_downsample: "majority_vote"
+
+streaming:
+  chunk_size: 32
+  left_context_frames: 128

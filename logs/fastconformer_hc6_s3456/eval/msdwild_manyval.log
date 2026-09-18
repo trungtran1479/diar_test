@@ -1,0 +1,103 @@
+OneLogger: Setting error_handling_strategy to DISABLE_QUIETLY_AND_REPORT_METRIC_ERROR for rank (rank=0) with OneLogger disabled. To override: explicitly set error_handling_strategy parameter.
+No exporters were provided. This means that no telemetry data will be collected.
+Multiple distributions found for package optimum. Picked distribution: optimum-onnx
+[NeMo W 2026-08-05 10:04:46 warnings:109] /home/edabk/miniconda3/envs/.zipformer/lib/python3.10/site-packages/pydub/utils.py:170: RuntimeWarning: Couldn't find ffmpeg or avconv - defaulting to ffmpeg, but may not work
+      warn("Couldn't find ffmpeg or avconv - defaulting to ffmpeg, but may not work", RuntimeWarning)
+    
+[NeMo I 2026-08-05 10:04:46 common:935] Found existing object /home/edabk/.cache/torch/NeMo/NeMo_2.7.2/stt_en_fastconformer_hybrid_large_streaming_480ms/2aadc9278db6e8ff23f9244f9fd2b6d7/stt_en_fastconformer_hybrid_large_streaming_480ms.nemo.
+[NeMo I 2026-08-05 10:04:46 common:935] Re-using file from: /home/edabk/.cache/torch/NeMo/NeMo_2.7.2/stt_en_fastconformer_hybrid_large_streaming_480ms/2aadc9278db6e8ff23f9244f9fd2b6d7/stt_en_fastconformer_hybrid_large_streaming_480ms.nemo
+[NeMo I 2026-08-05 10:04:46 common:869] Instantiating model from pre-trained checkpoint
+[NeMo I 2026-08-05 10:04:47 mixins:69] Tokenizer SentencePieceTokenizer initialized with 1024 tokens
+[NeMo W 2026-08-05 10:04:48 rnnt_models:63] If you intend to do training or fine-tuning, please call the ModelPT.setup_training_data() method and provide a valid configuration file to setup the train data loader.
+    Train config : 
+    manifest_filepath:
+    - - /raid/local//bucket1/tarred_audio_manifest.json
+    - - /raid/local//bucket2/tarred_audio_manifest.json
+    - - /raid/local//bucket3/tarred_audio_manifest.json
+    - - /raid/local//bucket4/tarred_audio_manifest.json
+    - - /raid/local//bucket5/tarred_audio_manifest.json
+    - - /raid/local//bucket6/tarred_audio_manifest.json
+    - - /raid/local//bucket7/tarred_audio_manifest.json
+    - - /raid/local//bucket8/tarred_audio_manifest.json
+    sample_rate: 16000
+    batch_size: 1
+    shuffle: true
+    num_workers: 4
+    pin_memory: true
+    use_start_end_token: false
+    trim_silence: false
+    max_duration: 25
+    min_duration: 0.1
+    is_tarred: true
+    tarred_audio_filepaths:
+    - - /data2/nemo_asr/nemo_asr_set_3.0//bucket1/audio__OP_0..8191_CL_.tar
+    - - /data2/nemo_asr/nemo_asr_set_3.0//bucket2/audio__OP_0..8191_CL_.tar
+    - - /data2/nemo_asr/nemo_asr_set_3.0//bucket3/audio__OP_0..8191_CL_.tar
+    - - /data2/nemo_asr/nemo_asr_set_3.0//bucket4/audio__OP_0..8191_CL_.tar
+    - - /data2/nemo_asr/nemo_asr_set_3.0//bucket5/audio__OP_0..8191_CL_.tar
+    - - /data2/nemo_asr/nemo_asr_set_3.0//bucket6/audio__OP_0..8191_CL_.tar
+    - - /data2/nemo_asr/nemo_asr_set_3.0//bucket7/audio__OP_0..8191_CL_.tar
+    - - /data2/nemo_asr/nemo_asr_set_3.0//bucket8/audio__OP_0..8191_CL_.tar
+    shuffle_n: 2048
+    bucketing_strategy: fully_randomized
+    bucketing_batch_size:
+    - 72
+    - 64
+    - 56
+    - 48
+    - 40
+    - 32
+    - 24
+    - 16
+    
+[NeMo W 2026-08-05 10:04:48 rnnt_models:63] If you intend to do validation, please call the ModelPT.setup_validation_data() or ModelPT.setup_multiple_validation_data() method and provide a valid configuration file to setup the validation data loader(s). 
+    Validation config : 
+    manifest_filepath:
+    - /manifests/librispeech/librivox-dev-other.json
+    - /manifests/librispeech/librivox-dev-clean.json
+    - /manifests/librispeech/librivox-test-other.json
+    - /manifests/librispeech/librivox-test-clean.json
+    sample_rate: 16000
+    batch_size: 16
+    shuffle: false
+    num_workers: 8
+    pin_memory: true
+    use_start_end_token: false
+    
+[NeMo W 2026-08-05 10:04:48 rnnt_models:63] Please call the ModelPT.setup_test_data() or ModelPT.setup_multiple_test_data() method and provide a valid configuration file to setup the test data loader(s).
+    Test config : 
+    manifest_filepath:
+    - /manifests/librispeech/librivox-dev-other.json
+    - /manifests/librispeech/librivox-dev-clean.json
+    - /manifests/librispeech/librivox-test-other.json
+    - /manifests/librispeech/librivox-test-clean.json
+    sample_rate: 16000
+    batch_size: 16
+    shuffle: false
+    num_workers: 8
+    pin_memory: true
+    use_start_end_token: false
+    
+[NeMo I 2026-08-05 10:04:49 rnnt_models:83] Using RNNT Loss : warprnnt_numba
+    Loss warprnnt_numba_kwargs: {'fastemit_lambda': 0.001, 'clamp': -1.0}
+[NeMo I 2026-08-05 10:04:49 rnnt_models:231] Using RNNT Loss : warprnnt_numba
+    Loss warprnnt_numba_kwargs: {'fastemit_lambda': 0.001, 'clamp': -1.0}
+[NeMo I 2026-08-05 10:04:49 rnnt_models:231] Using RNNT Loss : warprnnt_numba
+    Loss warprnnt_numba_kwargs: {'fastemit_lambda': 0.001, 'clamp': -1.0}
+[NeMo I 2026-08-05 10:04:52 modelPT:501] Model EncDecHybridRNNTCTCBPEModel was successfully restored from /home/edabk/.cache/torch/NeMo/NeMo_2.7.2/stt_en_fastconformer_hybrid_large_streaming_480ms/2aadc9278db6e8ff23f9244f9fd2b6d7/stt_en_fastconformer_hybrid_large_streaming_480ms.nemo.
+FastConformer causality check passed: att_context_style=chunked_limited att_context_size=[70, 6] conv_context_size=[8, 0]
+Built FastConformer backbone: stt_en_fastconformer_hybrid_large_streaming_480ms, 17 layers, d_model=512, causal(chunked_limited)=True, native_rate=12.5Hz -> upsample x2 -> 25.0Hz, hypercolumn_taps=[0, 3, 6, 10, 13, 16] output_dim=3072
+Head 'tcn_ordinal': 1,495,884 params, input dim (backbone output_dim / hypercolumn width) = 3072. NOTE: the head's own param count scales with this input dim (e.g. StackGatedProjection's first Linear is stack_dims -> d_model), so two systems with the same head TYPE but a different backbone output_dim are NOT parameter-matched — report cross-backbone comparisons as a system comparison, not an architecture-isolated one, unless a param-matched control is run.
+msdwild_manyval: scoring 268 windows (restricted to the common set)
+wrote per-window confusions for 268 windows -> logs/fastconformer_hc6_s3456/eval/msdwild_manyval_conf.json
+
+===== msdwild_manyval — same protocol as competitors (268 windows, 100 Hz, upsample x[4]) =====
+acc=0.757  mae=0.278  macroF1=0.562
+f1/cls = [0.638 0.856 0.480 0.273]
+VAD:  F1=0.945 (P=0.929 R=0.961)
+OSD (count>=2): F1=0.600 (P=0.530 R=0.692)
+confusion P(pred|true):  pred0   pred1   pred2   pred3
+  true0:               0.574   0.350   0.054   0.023
+  true1:               0.042   0.846   0.095   0.017
+  true2:               0.022   0.312   0.547   0.120
+  true3:               0.021   0.171   0.475   0.333

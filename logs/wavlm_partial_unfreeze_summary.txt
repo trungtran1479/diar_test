@@ -1,0 +1,48 @@
+=== head_only pre-run diagnostics (2026-08-06T16:23:06+07:00) ===
+Stage 1: Freezing entire backbone, training only head.
+[diag] trainable_backbone_params=0 trainable_head_params=2091852
+[diag] trainable WavLM layer indices: []
+[diag] WavLM per-layer .training mode after set_train_mode(): [False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False]
+[diag] Gradient accumulation: micro_batch_size=4 x grad_accum_steps=6 -> effective_batch_size=24
+  warnings.warn(
+  ami_dev: macro_f1=0.7115 (1735 windows/recordings)
+  dipco_dev: macro_f1=0.4940 (329 windows/recordings)
+  vox_sel: macro_f1=0.6239 (2565 windows/recordings)
+composite DEV (mean of ['ami_dev', 'dipco_dev', 'vox_sel']) = 0.6098
+-> results/partial_unfreeze_head_only_step100_composite_dev.json
+  warnings.warn(
+  ami_dev: macro_f1=0.7130 (1735 windows/recordings)
+  dipco_dev: macro_f1=0.4970 (329 windows/recordings)
+  vox_sel: macro_f1=0.6145 (2565 windows/recordings)
+composite DEV (mean of ['ami_dev', 'dipco_dev', 'vox_sel']) = 0.6082
+-> results/partial_unfreeze_head_only_step200_composite_dev.json
+  warnings.warn(
+  ami_dev: macro_f1=0.7109 (1735 windows/recordings)
+  dipco_dev: macro_f1=0.4893 (329 windows/recordings)
+  vox_sel: macro_f1=0.6152 (2565 windows/recordings)
+composite DEV (mean of ['ami_dev', 'dipco_dev', 'vox_sel']) = 0.6051
+-> results/partial_unfreeze_head_only_step400_composite_dev.json
+
+=== unfreeze_last2 pre-run diagnostics (2026-08-06T17:11:42+07:00) ===
+Unfrozen last 2 WavLM transformer layers (indices [22, 23]).
+Stage 2: Unfreezing last 2 stacks of backbone and training head.
+[diag] trainable_backbone_params=25193520 trainable_head_params=2091852
+[diag] trainable WavLM layer indices: [22, 23]
+[diag] WavLM per-layer .training mode after set_train_mode(): [False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, True, True]
+[diag] Gradient accumulation: micro_batch_size=4 x grad_accum_steps=6 -> effective_batch_size=24
+  [unfreeze_last2] MISSING checkpoint step100.pt, skipping composite-DEV eval
+  [unfreeze_last2] MISSING checkpoint step200.pt, skipping composite-DEV eval
+  [unfreeze_last2] MISSING checkpoint step400.pt, skipping composite-DEV eval
+
+=== unfreeze_last4 pre-run diagnostics (2026-08-06T17:43:03+07:00) ===
+Unfrozen last 4 WavLM transformer layers (indices [20, 21, 22, 23]).
+Stage 2: Unfreezing last 4 stacks of backbone and training head.
+[diag] trainable_backbone_params=50387040 trainable_head_params=2091852
+[diag] trainable WavLM layer indices: [20, 21, 22, 23]
+[diag] WavLM per-layer .training mode after set_train_mode(): [False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, True, True, True, True]
+[diag] Gradient accumulation: micro_batch_size=4 x grad_accum_steps=6 -> effective_batch_size=24
+  [unfreeze_last4] MISSING checkpoint step100.pt, skipping composite-DEV eval
+  [unfreeze_last4] MISSING checkpoint step200.pt, skipping composite-DEV eval
+  [unfreeze_last4] MISSING checkpoint step400.pt, skipping composite-DEV eval
+
+PARTIAL_UNFREEZE_ALL_DONE

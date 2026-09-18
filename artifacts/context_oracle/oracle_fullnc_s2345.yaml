@@ -1,0 +1,115 @@
+model:
+  variant: E
+  encoder:
+    type: zipformer
+    zipformer_dir: /home/edabk/hoangbpm/diar/diar_new/third_party/icefall/egs/librispeech/ASR/zipformer
+    checkpoint: /home/edabk/hoangbpm/diar/diar_new/data_ext/models/icefall-asr-librispeech-streaming-zipformer-2023-05-17/exp/pretrained.pt
+    causal: true
+    chunk_size: '4096'
+    left_context_frames: '-1'
+    encoder_dim: 192,256,384,512,384,256
+    downsampling_factor: 1,2,4,8,4,2
+    num_encoder_layers: 2,2,3,4,3,2
+    num_heads: 4,4,4,8,4,4
+    feedforward_dim: 512,768,1024,1536,1024,768
+    cnn_module_kernel: 31,31,15,15,15,31
+    encoder_unmasked_dim: 192,192,256,256,256,192
+    query_head_dim: 32
+    value_head_dim: 12
+    pos_head_dim: 4
+    pos_dim: 48
+    strict_load: false
+    min_load_ratio: 0.9
+    freeze_backbone: true
+    unfreeze_last_n: 0
+    multiscale: true
+  head:
+    type: tcn_ordinal
+    d_model: 192
+    dropout: 0.1
+    causal: false
+  num_count_classes: 4
+loss:
+  count_loss_type: sord
+  sord_alpha: 2.5
+  class_weights:
+  - 1.0
+  - 1.0
+  - 1.5
+  - 3.0
+  lambda_vad: 0.3
+  lambda_overlap: 0.5
+  lambda_emae: 0.2
+  lambda_consistency: 0.2
+  lambda_monotonic: 0.1
+  lambda_dice: 0.5
+  lambda_smooth: 0.02
+  smooth_type: kl
+  lambda_event: 0.0
+  event_class_weights:
+  - 12.0
+  - 1.0
+  - 12.0
+  lambda_raw_anchor: 0.0
+  lambda_boundary_smooth: 0.0
+training:
+  batch_size: 24
+  lr: 3.0e-05
+  lr_schedule: cosine
+  warmup_steps: 500
+  max_steps: 800
+  grad_clip: 5.0
+  use_amp: true
+  eval_interval: 200
+  eval_interval_early: 200
+  early_phase_steps: 800
+  num_workers: 12
+  stage: stage3_finetune
+  log_dir: logs/oracle_fullnc_s2345
+  seed: 2345
+  amp_init_scale: 4096.0
+  max_amp_overflows: 0
+  expected_init_missing: []
+  require_no_unexpected_init_keys: true
+  save_every_eval: true
+data:
+  train_manifest: /media/edabk/500GB Hard Disk/data_diar/manifests/train_manifest_v3.json
+  val_manifest: /home/edabk/hoangbpm/diar/diar_new/data/meetings/val_manifest.json
+  stats_file: /home/edabk/hoangbpm/diar/diar_new/data/librimix/stats.json
+  feature_dim: 80
+  sample_rate: 16000
+  label_downsample: majority_vote
+  augment:
+    gain_db:
+    - -28
+    - 3
+    rir_dir: /home/edabk/hoangbpm/diar/diar_new/data_ext/RIRS_NOISES/simulated_rirs
+    rir_prob: 0.8
+    rir_skip_sources:
+    - ami
+    - nsf
+    - alimeeting
+    - aishell4
+    - msdwild
+    - voxconverse
+    - ramc
+    noise_dir: /home/edabk/hoangbpm/diar/diar_new/musan/noise
+    noise_prob: 0.5
+    noise_snr_db:
+    - 0
+    - 20
+    noise_skip_sources:
+    - ami
+    - nsf
+    - alimeeting
+    - aishell4
+    - msdwild
+    - voxconverse
+    - ramc
+distill:
+  teacher_dir: /media/edabk/500GB Hard Disk/data_diar/teacher_post
+  lambda_kd: 0.0
+  temperature: 2.0
+streaming:
+  chunk_size: 32
+  left_context_frames: 128

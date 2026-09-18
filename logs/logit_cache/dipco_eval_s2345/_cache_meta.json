@@ -1,0 +1,26 @@
+{
+  "source": "nemo",
+  "corpus_id": "dipco_eval",
+  "seed": 2345,
+  "manifest": "data_ext/nemo_eval/dipco_eval/manifest.json",
+  "manifest_sha256": "9bae64af1d61a488876202768a63aef830c5f512634f70082d86837288b43809",
+  "config": "artifacts/wavlm_offline/wavlm_hc6_s2345.yaml",
+  "config_sha256": "a95f83851a8f891af999a46d16cb559ac433ad279cbb46ac40f33b83ce23a46b",
+  "canonical_config_sha256": "972e9ac8015eb10d2d02dcc43bff799d640db8d8e6a54789e6603b92d32ec397",
+  "checkpoint": "logs/wavlm_hc6_s2345/step3000.pt",
+  "checkpoint_sha256": "f19e01ab467177aa15360460d8e09169c85351ea3905368f682de18fc40166f7",
+  "restrict_to_dir": "logs/diarizen_dipco_eval/pred_rttms",
+  "restrict_set_sha256": "7b34eee8b58c54b881b4c02f1017807eaef4187cda14decac92625d6aa53bd43",
+  "support_sha256": "b0c6b52e165721771bb80efe37db1eac4d879448d5bcc2a18cb59ace6bd2fc1a",
+  "content_sha256": "278dc64f6b0aa2d6645a8856264f6be1fd52949406eceedeb9013cc9222a5724",
+  "protocol_sha256": "430b43a37eac483a80c34024e94a64926a02250847708bb78cf9a252533cb2d8",
+  "frame_rate_hz": 25.0,
+  "n_recordings": 5,
+  "recordings": [
+    "S01",
+    "S03",
+    "S06",
+    "S07",
+    "S08"
+  ]
+}

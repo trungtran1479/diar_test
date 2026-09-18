@@ -1,0 +1,145 @@
+model,corpus,source,reference,n_windows,same_window_ids,reference_frames,model_frames,frame_shortfall,shortfall_percent,windows_with_different_gt_counts
+ZipCount mask,ami,results/bootstrap/ami_zipcount.json,results/bootstrap/ami_diarizen.json,570,True,5066043,5061468,4575,0.09030716873109841,570
+ZipCount mask,dipco,results/bootstrap/dipco_zipcount.json,results/bootstrap/dipco_diarizen.json,107,True,936979,936120,859,0.0916776149732278,107
+ZipCount mask,voxlock,results/bootstrap/voxlock_zipcount.json,results/bootstrap/voxlock_diarizen.json,964,True,8072450,8064608,7842,0.09714522852417791,964
+ZipCount mask,msdwild,results/bootstrap/msdwild_zipcount.json,results/bootstrap/msdwild_diarizen.json,268,True,1474592,1472312,2280,0.1546190403854083,268
+ZipCount mask,ami,results/bootstrap/ami_mask_s2345.json,results/bootstrap/ami_diarizen.json,570,True,5066043,5061468,4575,0.09030716873109841,570
+ZipCount mask,dipco,results/bootstrap/dipco_mask_s2345.json,results/bootstrap/dipco_diarizen.json,107,True,936979,936120,859,0.0916776149732278,107
+ZipCount mask,voxlock,results/bootstrap/voxlock_mask_s2345.json,results/bootstrap/voxlock_diarizen.json,964,True,8072450,8064608,7842,0.09714522852417791,964
+ZipCount mask,msdwild,results/bootstrap/msdwild_mask_s2345.json,results/bootstrap/msdwild_diarizen.json,268,True,1474592,1472312,2280,0.1546190403854083,268
+ZipCount mask,ami,results/bootstrap/ami_mask_s3456.json,results/bootstrap/ami_diarizen.json,570,True,5066043,5061468,4575,0.09030716873109841,570
+ZipCount mask,dipco,results/bootstrap/dipco_mask_s3456.json,results/bootstrap/dipco_diarizen.json,107,True,936979,936120,859,0.0916776149732278,107
+ZipCount mask,voxlock,results/bootstrap/voxlock_mask_s3456.json,results/bootstrap/voxlock_diarizen.json,964,True,8072450,8064608,7842,0.09714522852417791,964
+ZipCount mask,msdwild,results/bootstrap/msdwild_mask_s3456.json,results/bootstrap/msdwild_diarizen.json,268,True,1474592,1472312,2280,0.1546190403854083,268
+Final stack only,ami,results/bootstrap/ami_only5_s1234.json,results/bootstrap/ami_diarizen.json,570,True,5066043,5061468,4575,0.09030716873109841,570
+Final stack only,dipco,results/bootstrap/dipco_only5_s1234.json,results/bootstrap/dipco_diarizen.json,107,True,936979,936120,859,0.0916776149732278,107
+Final stack only,voxlock,results/bootstrap/voxlock_only5_s1234.json,results/bootstrap/voxlock_diarizen.json,964,True,8072450,8064608,7842,0.09714522852417791,964
+Final stack only,msdwild,results/bootstrap/msdwild_only5_s1234.json,results/bootstrap/msdwild_diarizen.json,268,True,1474592,1472312,2280,0.1546190403854083,268
+Final stack only,ami,results/bootstrap/ami_only5_s2345.json,results/bootstrap/ami_diarizen.json,570,True,5066043,5061468,4575,0.09030716873109841,570
+Final stack only,dipco,results/bootstrap/dipco_only5_s2345.json,results/bootstrap/dipco_diarizen.json,107,True,936979,936120,859,0.0916776149732278,107
+Final stack only,voxlock,results/bootstrap/voxlock_only5_s2345.json,results/bootstrap/voxlock_diarizen.json,964,True,8072450,8064608,7842,0.09714522852417791,964
+Final stack only,msdwild,results/bootstrap/msdwild_only5_s2345.json,results/bootstrap/msdwild_diarizen.json,268,True,1474592,1472312,2280,0.1546190403854083,268
+Final stack only,ami,results/bootstrap/ami_only5_s3456.json,results/bootstrap/ami_diarizen.json,570,True,5066043,5061468,4575,0.09030716873109841,570
+Final stack only,dipco,results/bootstrap/dipco_only5_s3456.json,results/bootstrap/dipco_diarizen.json,107,True,936979,936120,859,0.0916776149732278,107
+Final stack only,voxlock,results/bootstrap/voxlock_only5_s3456.json,results/bootstrap/voxlock_diarizen.json,964,True,8072450,8064608,7842,0.09714522852417791,964
+Final stack only,msdwild,results/bootstrap/msdwild_only5_s3456.json,results/bootstrap/msdwild_diarizen.json,268,True,1474592,1472312,2280,0.1546190403854083,268
+Logmel scratch,ami,results/bootstrap/ami_logmel_s1234.json,results/bootstrap/ami_diarizen.json,570,True,5066043,5061468,4575,0.09030716873109841,570
+Logmel scratch,dipco,results/bootstrap/dipco_logmel_s1234.json,results/bootstrap/dipco_diarizen.json,107,True,936979,936120,859,0.0916776149732278,107
+Logmel scratch,voxlock,results/bootstrap/voxlock_logmel_s1234.json,results/bootstrap/voxlock_diarizen.json,964,True,8072450,8064608,7842,0.09714522852417791,964
+Logmel scratch,msdwild,results/bootstrap/msdwild_logmel_s1234.json,results/bootstrap/msdwild_diarizen.json,268,True,1474592,1472312,2280,0.1546190403854083,268
+Logmel scratch,ami,results/bootstrap/ami_logmel_s2345.json,results/bootstrap/ami_diarizen.json,570,True,5066043,5061468,4575,0.09030716873109841,570
+Logmel scratch,dipco,results/bootstrap/dipco_logmel_s2345.json,results/bootstrap/dipco_diarizen.json,107,True,936979,936120,859,0.0916776149732278,107
+Logmel scratch,voxlock,results/bootstrap/voxlock_logmel_s2345.json,results/bootstrap/voxlock_diarizen.json,964,True,8072450,8064608,7842,0.09714522852417791,964
+Logmel scratch,msdwild,results/bootstrap/msdwild_logmel_s2345.json,results/bootstrap/msdwild_diarizen.json,268,True,1474592,1472312,2280,0.1546190403854083,268
+Logmel scratch,ami,results/bootstrap/ami_logmel_s3456.json,results/bootstrap/ami_diarizen.json,570,True,5066043,5061468,4575,0.09030716873109841,570
+Logmel scratch,dipco,results/bootstrap/dipco_logmel_s3456.json,results/bootstrap/dipco_diarizen.json,107,True,936979,936120,859,0.0916776149732278,107
+Logmel scratch,voxlock,results/bootstrap/voxlock_logmel_s3456.json,results/bootstrap/voxlock_diarizen.json,964,True,8072450,8064608,7842,0.09714522852417791,964
+Logmel scratch,msdwild,results/bootstrap/msdwild_logmel_s3456.json,results/bootstrap/msdwild_diarizen.json,268,True,1474592,1472312,2280,0.1546190403854083,268
+Gate renorm,ami,results/bootstrap/ami_renorm_s1234.json,results/bootstrap/ami_diarizen.json,570,True,5066043,5061468,4575,0.09030716873109841,570
+Gate renorm,dipco,results/bootstrap/dipco_renorm_s1234.json,results/bootstrap/dipco_diarizen.json,107,True,936979,936120,859,0.0916776149732278,107
+Gate renorm,voxlock,results/bootstrap/voxlock_renorm_s1234.json,results/bootstrap/voxlock_diarizen.json,964,True,8072450,8064608,7842,0.09714522852417791,964
+Gate renorm,msdwild,results/bootstrap/msdwild_renorm_s1234.json,results/bootstrap/msdwild_diarizen.json,268,True,1474592,1472312,2280,0.1546190403854083,268
+Gate renorm,ami,results/bootstrap/ami_renorm_s2345.json,results/bootstrap/ami_diarizen.json,570,True,5066043,5061468,4575,0.09030716873109841,570
+Gate renorm,dipco,results/bootstrap/dipco_renorm_s2345.json,results/bootstrap/dipco_diarizen.json,107,True,936979,936120,859,0.0916776149732278,107
+Gate renorm,voxlock,results/bootstrap/voxlock_renorm_s2345.json,results/bootstrap/voxlock_diarizen.json,964,True,8072450,8064608,7842,0.09714522852417791,964
+Gate renorm,msdwild,results/bootstrap/msdwild_renorm_s2345.json,results/bootstrap/msdwild_diarizen.json,268,True,1474592,1472312,2280,0.1546190403854083,268
+Gate renorm,ami,results/bootstrap/ami_renorm_s3456.json,results/bootstrap/ami_diarizen.json,570,True,5066043,5061468,4575,0.09030716873109841,570
+Gate renorm,dipco,results/bootstrap/dipco_renorm_s3456.json,results/bootstrap/dipco_diarizen.json,107,True,936979,936120,859,0.0916776149732278,107
+Gate renorm,voxlock,results/bootstrap/voxlock_renorm_s3456.json,results/bootstrap/voxlock_diarizen.json,964,True,8072450,8064608,7842,0.09714522852417791,964
+Gate renorm,msdwild,results/bootstrap/msdwild_renorm_s3456.json,results/bootstrap/msdwild_diarizen.json,268,True,1474592,1472312,2280,0.1546190403854083,268
+Loss countonly,ami,results/bootstrap/ami_lossabl_countonly_s1234.json,results/bootstrap/ami_diarizen.json,570,True,5066043,5061468,4575,0.09030716873109841,570
+Loss countonly,dipco,results/bootstrap/dipco_lossabl_countonly_s1234.json,results/bootstrap/dipco_diarizen.json,107,True,936979,936120,859,0.0916776149732278,107
+Loss countonly,voxlock,results/bootstrap/voxlock_lossabl_countonly_s1234.json,results/bootstrap/voxlock_diarizen.json,964,True,8072450,8064608,7842,0.09714522852417791,964
+Loss countonly,msdwild,results/bootstrap/msdwild_lossabl_countonly_s1234.json,results/bootstrap/msdwild_diarizen.json,268,True,1474592,1472312,2280,0.1546190403854083,268
+Loss countonly,ami,results/bootstrap/ami_lossabl_countonly_s2345.json,results/bootstrap/ami_diarizen.json,570,True,5066043,5061468,4575,0.09030716873109841,570
+Loss countonly,dipco,results/bootstrap/dipco_lossabl_countonly_s2345.json,results/bootstrap/dipco_diarizen.json,107,True,936979,936120,859,0.0916776149732278,107
+Loss countonly,voxlock,results/bootstrap/voxlock_lossabl_countonly_s2345.json,results/bootstrap/voxlock_diarizen.json,964,True,8072450,8064608,7842,0.09714522852417791,964
+Loss countonly,msdwild,results/bootstrap/msdwild_lossabl_countonly_s2345.json,results/bootstrap/msdwild_diarizen.json,268,True,1474592,1472312,2280,0.1546190403854083,268
+Loss countonly,ami,results/bootstrap/ami_lossabl_countonly_s3456.json,results/bootstrap/ami_diarizen.json,570,True,5066043,5061468,4575,0.09030716873109841,570
+Loss countonly,dipco,results/bootstrap/dipco_lossabl_countonly_s3456.json,results/bootstrap/dipco_diarizen.json,107,True,936979,936120,859,0.0916776149732278,107
+Loss countonly,voxlock,results/bootstrap/voxlock_lossabl_countonly_s3456.json,results/bootstrap/voxlock_diarizen.json,964,True,8072450,8064608,7842,0.09714522852417791,964
+Loss countonly,msdwild,results/bootstrap/msdwild_lossabl_countonly_s3456.json,results/bootstrap/msdwild_diarizen.json,268,True,1474592,1472312,2280,0.1546190403854083,268
+Loss auxvad,ami,results/bootstrap/ami_lossabl_auxvad_s1234.json,results/bootstrap/ami_diarizen.json,570,True,5066043,5061468,4575,0.09030716873109841,570
+Loss auxvad,dipco,results/bootstrap/dipco_lossabl_auxvad_s1234.json,results/bootstrap/dipco_diarizen.json,107,True,936979,936120,859,0.0916776149732278,107
+Loss auxvad,voxlock,results/bootstrap/voxlock_lossabl_auxvad_s1234.json,results/bootstrap/voxlock_diarizen.json,964,True,8072450,8064608,7842,0.09714522852417791,964
+Loss auxvad,msdwild,results/bootstrap/msdwild_lossabl_auxvad_s1234.json,results/bootstrap/msdwild_diarizen.json,268,True,1474592,1472312,2280,0.1546190403854083,268
+Loss auxvad,ami,results/bootstrap/ami_lossabl_auxvad_s2345.json,results/bootstrap/ami_diarizen.json,570,True,5066043,5061468,4575,0.09030716873109841,570
+Loss auxvad,dipco,results/bootstrap/dipco_lossabl_auxvad_s2345.json,results/bootstrap/dipco_diarizen.json,107,True,936979,936120,859,0.0916776149732278,107
+Loss auxvad,voxlock,results/bootstrap/voxlock_lossabl_auxvad_s2345.json,results/bootstrap/voxlock_diarizen.json,964,True,8072450,8064608,7842,0.09714522852417791,964
+Loss auxvad,msdwild,results/bootstrap/msdwild_lossabl_auxvad_s2345.json,results/bootstrap/msdwild_diarizen.json,268,True,1474592,1472312,2280,0.1546190403854083,268
+Loss auxvad,ami,results/bootstrap/ami_lossabl_auxvad_s3456.json,results/bootstrap/ami_diarizen.json,570,True,5066043,5061468,4575,0.09030716873109841,570
+Loss auxvad,dipco,results/bootstrap/dipco_lossabl_auxvad_s3456.json,results/bootstrap/dipco_diarizen.json,107,True,936979,936120,859,0.0916776149732278,107
+Loss auxvad,voxlock,results/bootstrap/voxlock_lossabl_auxvad_s3456.json,results/bootstrap/voxlock_diarizen.json,964,True,8072450,8064608,7842,0.09714522852417791,964
+Loss auxvad,msdwild,results/bootstrap/msdwild_lossabl_auxvad_s3456.json,results/bootstrap/msdwild_diarizen.json,268,True,1474592,1472312,2280,0.1546190403854083,268
+Loss ordinal,ami,results/bootstrap/ami_lossabl_ordinal_s1234.json,results/bootstrap/ami_diarizen.json,570,True,5066043,5061468,4575,0.09030716873109841,570
+Loss ordinal,dipco,results/bootstrap/dipco_lossabl_ordinal_s1234.json,results/bootstrap/dipco_diarizen.json,107,True,936979,936120,859,0.0916776149732278,107
+Loss ordinal,voxlock,results/bootstrap/voxlock_lossabl_ordinal_s1234.json,results/bootstrap/voxlock_diarizen.json,964,True,8072450,8064608,7842,0.09714522852417791,964
+Loss ordinal,msdwild,results/bootstrap/msdwild_lossabl_ordinal_s1234.json,results/bootstrap/msdwild_diarizen.json,268,True,1474592,1472312,2280,0.1546190403854083,268
+Loss ordinal,ami,results/bootstrap/ami_lossabl_ordinal_s2345.json,results/bootstrap/ami_diarizen.json,570,True,5066043,5061468,4575,0.09030716873109841,570
+Loss ordinal,dipco,results/bootstrap/dipco_lossabl_ordinal_s2345.json,results/bootstrap/dipco_diarizen.json,107,True,936979,936120,859,0.0916776149732278,107
+Loss ordinal,voxlock,results/bootstrap/voxlock_lossabl_ordinal_s2345.json,results/bootstrap/voxlock_diarizen.json,964,True,8072450,8064608,7842,0.09714522852417791,964
+Loss ordinal,msdwild,results/bootstrap/msdwild_lossabl_ordinal_s2345.json,results/bootstrap/msdwild_diarizen.json,268,True,1474592,1472312,2280,0.1546190403854083,268
+Loss ordinal,ami,results/bootstrap/ami_lossabl_ordinal_s3456.json,results/bootstrap/ami_diarizen.json,570,True,5066043,5061468,4575,0.09030716873109841,570
+Loss ordinal,dipco,results/bootstrap/dipco_lossabl_ordinal_s3456.json,results/bootstrap/dipco_diarizen.json,107,True,936979,936120,859,0.0916776149732278,107
+Loss ordinal,voxlock,results/bootstrap/voxlock_lossabl_ordinal_s3456.json,results/bootstrap/voxlock_diarizen.json,964,True,8072450,8064608,7842,0.09714522852417791,964
+Loss ordinal,msdwild,results/bootstrap/msdwild_lossabl_ordinal_s3456.json,results/bootstrap/msdwild_diarizen.json,268,True,1474592,1472312,2280,0.1546190403854083,268
+diarizen,ami,results/bootstrap/ami_diarizen.json,results/bootstrap/ami_diarizen.json,570,True,5066043,5066043,0,0.0,0
+diarizen,dipco,results/bootstrap/dipco_diarizen.json,results/bootstrap/dipco_diarizen.json,107,True,936979,936979,0,0.0,0
+diarizen,voxlock,results/bootstrap/voxlock_diarizen.json,results/bootstrap/voxlock_diarizen.json,964,True,8072450,8072450,0,0.0,0
+diarizen,msdwild,results/bootstrap/msdwild_diarizen.json,results/bootstrap/msdwild_diarizen.json,268,True,1474592,1474592,0,0.0,0
+sortformer_str_default,ami,results/bootstrap/ami_sortformer_str_default.json,results/bootstrap/ami_diarizen.json,570,True,5066043,5066043,0,0.0,0
+sortformer_str_default,dipco,results/bootstrap/dipco_sortformer_str_default.json,results/bootstrap/dipco_diarizen.json,107,True,936979,936979,0,0.0,0
+sortformer_str_default,voxlock,results/bootstrap/voxlock_sortformer_str_default.json,results/bootstrap/voxlock_diarizen.json,964,True,8072450,8072450,0,0.0,0
+sortformer_str_default,msdwild,results/bootstrap/msdwild_sortformer_str_default.json,results/bootstrap/msdwild_diarizen.json,268,True,1474592,1474592,0,0.0,0
+sortformer_offline,ami,results/bootstrap/ami_sortformer_offline.json,results/bootstrap/ami_diarizen.json,570,True,5066043,5066043,0,0.0,0
+sortformer_offline,dipco,results/bootstrap/dipco_sortformer_offline.json,results/bootstrap/dipco_diarizen.json,107,True,936979,936979,0,0.0,0
+sortformer_offline,voxlock,results/bootstrap/voxlock_sortformer_offline.json,results/bootstrap/voxlock_diarizen.json,964,True,8072450,8072450,0,0.0,0
+sortformer_offline,msdwild,results/bootstrap/msdwild_sortformer_offline.json,results/bootstrap/msdwild_diarizen.json,268,True,1474592,1474592,0,0.0,0
+sortformer_str_640,ami,results/bootstrap/ami_sortformer_str_640.json,results/bootstrap/ami_diarizen.json,570,True,5066043,5066043,0,0.0,0
+sortformer_str_640,dipco,results/bootstrap/dipco_sortformer_str_640.json,results/bootstrap/dipco_diarizen.json,107,True,936979,936979,0,0.0,0
+sortformer_str_640,voxlock,results/bootstrap/voxlock_sortformer_str_640.json,results/bootstrap/voxlock_diarizen.json,964,True,8072450,8072450,0,0.0,0
+sortformer_str_640,msdwild,results/bootstrap/msdwild_sortformer_str_640.json,results/bootstrap/msdwild_diarizen.json,268,True,1474592,1474592,0,0.0,0
+pyannote,ami,results/bootstrap/ami_pyannote.json,results/bootstrap/ami_diarizen.json,570,True,5066043,5066043,0,0.0,0
+pyannote,dipco,results/bootstrap/dipco_pyannote.json,results/bootstrap/dipco_diarizen.json,107,True,936979,936979,0,0.0,0
+pyannote,voxlock,results/bootstrap/voxlock_pyannote.json,results/bootstrap/voxlock_diarizen.json,964,True,8072450,8072450,0,0.0,0
+pyannote,msdwild,results/bootstrap/msdwild_pyannote.json,results/bootstrap/msdwild_diarizen.json,268,True,1474592,1474592,0,0.0,0
+FastConformer hc6,ami,logs/fastconformer_hc6_s1234/eval/ami_conf.json,results/bootstrap/ami_diarizen.json,570,True,5066043,5066043,0,0.0,0
+FastConformer hc6,dipco,logs/fastconformer_hc6_s1234/eval/dipco_conf.json,results/bootstrap/dipco_diarizen.json,107,True,936979,936979,0,0.0,0
+FastConformer hc6,voxlock,logs/fastconformer_hc6_s1234/eval/vox_conf.json,results/bootstrap/voxlock_diarizen.json,964,True,8072450,8072450,0,0.0,0
+FastConformer hc6,msdwild,logs/fastconformer_hc6_s1234/eval/msdwild_conf.json,results/bootstrap/msdwild_diarizen.json,268,True,1474592,1474592,0,0.0,0
+FastConformer hc6,ami,logs/fastconformer_hc6_s2345/eval/ami_test_conf.json,results/bootstrap/ami_diarizen.json,570,True,5066043,5066043,0,0.0,0
+FastConformer hc6,dipco,logs/fastconformer_hc6_s2345/eval/dipco_eval_conf.json,results/bootstrap/dipco_diarizen.json,107,True,936979,936979,0,0.0,0
+FastConformer hc6,voxlock,logs/fastconformer_hc6_s2345/eval/voxconverse_voxlock_conf.json,results/bootstrap/voxlock_diarizen.json,964,True,8072450,8072450,0,0.0,0
+FastConformer hc6,msdwild,logs/fastconformer_hc6_s2345/eval/msdwild_manyval_conf.json,results/bootstrap/msdwild_diarizen.json,268,True,1474592,1474592,0,0.0,0
+FastConformer hc6,ami,logs/fastconformer_hc6_s3456/eval/ami_test_conf.json,results/bootstrap/ami_diarizen.json,570,True,5066043,5066043,0,0.0,0
+FastConformer hc6,dipco,logs/fastconformer_hc6_s3456/eval/dipco_eval_conf.json,results/bootstrap/dipco_diarizen.json,107,True,936979,936979,0,0.0,0
+FastConformer hc6,voxlock,logs/fastconformer_hc6_s3456/eval/voxconverse_voxlock_conf.json,results/bootstrap/voxlock_diarizen.json,964,True,8072450,8072450,0,0.0,0
+FastConformer hc6,msdwild,logs/fastconformer_hc6_s3456/eval/msdwild_manyval_conf.json,results/bootstrap/msdwild_diarizen.json,268,True,1474592,1474592,0,0.0,0
+FastConformer frontloaded,ami,logs/fastconformer_frontloaded_s1234/eval/ami_test_conf.json,results/bootstrap/ami_diarizen.json,570,True,5066043,5066043,0,0.0,0
+FastConformer frontloaded,dipco,logs/fastconformer_frontloaded_s1234/eval/dipco_eval_conf.json,results/bootstrap/dipco_diarizen.json,107,True,936979,936979,0,0.0,0
+FastConformer frontloaded,voxlock,logs/fastconformer_frontloaded_s1234/eval/voxconverse_voxlock_conf.json,results/bootstrap/voxlock_diarizen.json,964,True,8072450,8072450,0,0.0,0
+FastConformer frontloaded,msdwild,logs/fastconformer_frontloaded_s1234/eval/msdwild_manyval_conf.json,results/bootstrap/msdwild_diarizen.json,268,True,1474592,1474592,0,0.0,0
+wavlm_hc6,ami,logs/wavlm_hc6_s1234_eval/ami_test_conf.json,results/bootstrap/ami_diarizen.json,570,True,5066043,5063796,2247,0.04435414385547063,569
+wavlm_hc6,dipco,logs/wavlm_hc6_s1234_eval/dipco_eval_conf.json,results/bootstrap/dipco_diarizen.json,107,True,936979,936560,419,0.044718184719187946,107
+wavlm_hc6,voxlock,logs/wavlm_hc6_s1234_eval/voxconverse_voxlock_conf.json,results/bootstrap/voxlock_diarizen.json,964,True,8072450,8068792,3658,0.045314619477358174,964
+wavlm_hc6,msdwild,logs/wavlm_hc6_s1234_eval/msdwild_manyval_conf.json,results/bootstrap/msdwild_diarizen.json,268,True,1474592,1473824,768,0.052082203077190165,263
+wavlm_hc6,ami,logs/wavlm_hc6_s2345_eval/ami_test_conf.json,results/bootstrap/ami_diarizen.json,570,True,5066043,5063796,2247,0.04435414385547063,569
+wavlm_hc6,dipco,logs/wavlm_hc6_s2345_eval/dipco_eval_conf.json,results/bootstrap/dipco_diarizen.json,107,True,936979,936560,419,0.044718184719187946,107
+wavlm_hc6,voxlock,logs/wavlm_hc6_s2345_eval/voxconverse_voxlock_conf.json,results/bootstrap/voxlock_diarizen.json,964,True,8072450,8068792,3658,0.045314619477358174,964
+wavlm_hc6,msdwild,logs/wavlm_hc6_s2345_eval/msdwild_manyval_conf.json,results/bootstrap/msdwild_diarizen.json,268,True,1474592,1473824,768,0.052082203077190165,263
+wavlm_hc6,ami,logs/wavlm_hc6_s3456_eval/ami_test_conf.json,results/bootstrap/ami_diarizen.json,570,True,5066043,5063796,2247,0.04435414385547063,569
+wavlm_hc6,dipco,logs/wavlm_hc6_s3456_eval/dipco_eval_conf.json,results/bootstrap/dipco_diarizen.json,107,True,936979,936560,419,0.044718184719187946,107
+wavlm_hc6,voxlock,logs/wavlm_hc6_s3456_eval/voxconverse_voxlock_conf.json,results/bootstrap/voxlock_diarizen.json,964,True,8072450,8068792,3658,0.045314619477358174,964
+wavlm_hc6,msdwild,logs/wavlm_hc6_s3456_eval/msdwild_manyval_conf.json,results/bootstrap/msdwild_diarizen.json,268,True,1474592,1473824,768,0.052082203077190165,263
+wavlm_hc6_causalhead,ami,logs/wavlm_hc6_causalhead_s1234_eval/ami_test_conf.json,results/bootstrap/ami_diarizen.json,570,True,5066043,5063796,2247,0.04435414385547063,569
+wavlm_hc6_causalhead,dipco,logs/wavlm_hc6_causalhead_s1234_eval/dipco_eval_conf.json,results/bootstrap/dipco_diarizen.json,107,True,936979,936560,419,0.044718184719187946,107
+wavlm_hc6_causalhead,voxlock,logs/wavlm_hc6_causalhead_s1234_eval/voxconverse_voxlock_conf.json,results/bootstrap/voxlock_diarizen.json,964,True,8072450,8068792,3658,0.045314619477358174,964
+wavlm_hc6_causalhead,msdwild,logs/wavlm_hc6_causalhead_s1234_eval/msdwild_manyval_conf.json,results/bootstrap/msdwild_diarizen.json,268,True,1474592,1473824,768,0.052082203077190165,263
+wavlm_hc6_causalhead,ami,logs/wavlm_hc6_causalhead_s2345_eval/ami_test_conf.json,results/bootstrap/ami_diarizen.json,570,True,5066043,5063796,2247,0.04435414385547063,569
+wavlm_hc6_causalhead,dipco,logs/wavlm_hc6_causalhead_s2345_eval/dipco_eval_conf.json,results/bootstrap/dipco_diarizen.json,107,True,936979,936560,419,0.044718184719187946,107
+wavlm_hc6_causalhead,voxlock,logs/wavlm_hc6_causalhead_s2345_eval/voxconverse_voxlock_conf.json,results/bootstrap/voxlock_diarizen.json,964,True,8072450,8068792,3658,0.045314619477358174,964
+wavlm_hc6_causalhead,msdwild,logs/wavlm_hc6_causalhead_s2345_eval/msdwild_manyval_conf.json,results/bootstrap/msdwild_diarizen.json,268,True,1474592,1473824,768,0.052082203077190165,263
+wavlm_hc6_causalhead,ami,logs/wavlm_hc6_causalhead_s3456_eval/ami_test_conf.json,results/bootstrap/ami_diarizen.json,570,True,5066043,5063796,2247,0.04435414385547063,569
+wavlm_hc6_causalhead,dipco,logs/wavlm_hc6_causalhead_s3456_eval/dipco_eval_conf.json,results/bootstrap/dipco_diarizen.json,107,True,936979,936560,419,0.044718184719187946,107
+wavlm_hc6_causalhead,voxlock,logs/wavlm_hc6_causalhead_s3456_eval/voxconverse_voxlock_conf.json,results/bootstrap/voxlock_diarizen.json,964,True,8072450,8068792,3658,0.045314619477358174,964
+wavlm_hc6_causalhead,msdwild,logs/wavlm_hc6_causalhead_s3456_eval/msdwild_manyval_conf.json,results/bootstrap/msdwild_diarizen.json,268,True,1474592,1473824,768,0.052082203077190165,263

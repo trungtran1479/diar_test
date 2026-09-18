@@ -1,0 +1,65 @@
+model:
+  variant: C
+  encoder:
+    type: zipformer
+    zipformer_dir: /home/edabk/hoangbpm/diar/diar_new/third_party/icefall/egs/librispeech/ASR/zipformer
+    checkpoint: /home/edabk/hoangbpm/diar/diar_new/data_ext/models/icefall-asr-librispeech-streaming-zipformer-2023-05-17/exp/pretrained.pt
+    causal: true
+    chunk_size: '32'
+    left_context_frames: '128'
+    encoder_dim: 192,256,384,512,384,256
+    downsampling_factor: 1,2,4,8,4,2
+    num_encoder_layers: 2,2,3,4,3,2
+    num_heads: 4,4,4,8,4,4
+    feedforward_dim: 512,768,1024,1536,1024,768
+    cnn_module_kernel: 31,31,15,15,15,31
+    encoder_unmasked_dim: 192,192,256,256,256,192
+    query_head_dim: 32
+    value_head_dim: 12
+    pos_head_dim: 4
+    pos_dim: 48
+    output_dim: 512
+    strict_load: false
+    print_state_dict_summary: true
+    min_load_ratio: 0.9
+    freeze_backbone: true
+    unfreeze_last_n: 0
+  head:
+    type: temporal_adaptive
+    adapter_dim: 256
+    adapter_kernel_size: 5
+    adapter_dropout: 0.1
+    use_local_attention: false
+  num_count_classes: 4
+loss:
+  count_loss_type: focal
+  focal_gamma: 2.0
+  # Uniform: inverse-freq "auto" weights ([2.0,0.5,0.4,1.09]) made class-2
+  # errors 2.7x cheaper than class-3 -> model predicted 3 for nearly all
+  # overlap (val r_2=0.015, r_3=0.963 at step 4000). Set "auto" to re-enable.
+  class_weights: [1.0, 1.0, 1.0, 1.0]
+  lambda_vad: 0.3
+  lambda_overlap: 0.5
+  lambda_smooth: 0.05
+  smooth_type: kl
+training:
+  batch_size: 16
+  lr: 0.001
+  warmup_steps: 1000
+  max_steps: 50000
+  grad_clip: 5.0
+  use_amp: false
+  stage: stage1_freeze_backbone
+  num_workers: 8
+  eval_interval: 2000
+  log_dir: logs/zipcount_v1_C
+data:
+  train_manifest: /home/edabk/hoangbpm/diar/diar_new/data/librimix/train_manifest.json
+  val_manifest: /home/edabk/hoangbpm/diar/diar_new/data/librimix/val_manifest.json
+  stats_file: /home/edabk/hoangbpm/diar/diar_new/data/librimix/stats.json
+  feature_dim: 80
+  sample_rate: 16000
+  label_downsample: majority_vote
+streaming:
+  chunk_size: 32
+  left_context_frames: 128

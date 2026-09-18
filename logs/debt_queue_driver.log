@@ -1,0 +1,7 @@
+[queue] 2026-07-23T14:56:35+07:00 preflight: full test suite
+70 passed in 1.89s
+[queue] 2026-07-23T14:56:37+07:00 START run_context_oracle
+[queue] 2026-07-23T15:00:31+07:00 FAILED run_context_oracle (see logs/run_context_oracle_queue.log) — continuing
+[queue] 2026-07-23T15:00:31+07:00 START run_stack_probe
+[queue] 2026-07-23T15:27:22+07:00 FAILED run_stack_probe (see logs/run_stack_probe_queue.log) — continuing
+[queue] 2026-07-23T15:27:22+07:00 START phase8 chain

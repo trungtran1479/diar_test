@@ -1,0 +1,99 @@
+=== p8ft_s1234 (full finetune from p8a0_pyr head-only, seed=1234) ===
+[val@400] macroF1=0.662 f1/cls=[0.81 0.90 0.60 0.34] ovF1=0.699 vadF1=0.954
+=== p8ft_s2345 (full finetune from p8a0_pyr head-only, seed=2345) ===
+[val@400] macroF1=0.659 f1/cls=[0.81 0.90 0.62 0.31] ovF1=0.697 vadF1=0.954
+=== p8ft_s3456 (full finetune from p8a0_pyr head-only, seed=3456) ===
+[val@400] macroF1=0.662 f1/cls=[0.81 0.90 0.62 0.32] ovF1=0.698 vadF1=0.954
+=== PHASE 8 FINETUNE TRAINING DONE — scoring the LOCKED step400 endpoint ===
+/home/edabk/hoangbpm/diar/diar_new/third_party/icefall/egs/librispeech/ASR/zipformer/scaling.py:1310: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(ctx, x, y, alpha):
+/home/edabk/hoangbpm/diar/diar_new/third_party/icefall/egs/librispeech/ASR/zipformer/scaling.py:1319: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, ans_grad):
+/home/edabk/hoangbpm/diar/diar_new/third_party/icefall/egs/librispeech/ASR/zipformer/scaling.py:1529: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(
+/home/edabk/hoangbpm/diar/diar_new/third_party/icefall/egs/librispeech/ASR/zipformer/scaling.py:1568: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, ans_grad: Tensor):
+fatal: not a git repository (or any of the parent directories): .git
+fatal: not a git repository (or any of the parent directories): .git
+fatal: not a git repository (or any of the parent directories): .git
+Built Zipformer encoder: causal=True, chunk_size=(32,), left_context_frames=(128,)
+Loaded: 64556023/64556023 params (100.0%)
+Missing keys: 0
+Unexpected keys: 0
+Multi-scale hypercolumn enabled: stack dims [192, 256, 384, 512, 384, 256] + final=False (alignment=average) -> concat dim 1984
+Detected backbone output_dim: 1984
+step400.pt: pooled macro=0.5708 osd=0.5404 | unweighted-over-rec macro=0.5065 | 116 recordings -> results/p8ft_s1234_voxsel.json
+/home/edabk/hoangbpm/diar/diar_new/third_party/icefall/egs/librispeech/ASR/zipformer/scaling.py:1310: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(ctx, x, y, alpha):
+/home/edabk/hoangbpm/diar/diar_new/third_party/icefall/egs/librispeech/ASR/zipformer/scaling.py:1319: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, ans_grad):
+/home/edabk/hoangbpm/diar/diar_new/third_party/icefall/egs/librispeech/ASR/zipformer/scaling.py:1529: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(
+/home/edabk/hoangbpm/diar/diar_new/third_party/icefall/egs/librispeech/ASR/zipformer/scaling.py:1568: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, ans_grad: Tensor):
+fatal: not a git repository (or any of the parent directories): .git
+fatal: not a git repository (or any of the parent directories): .git
+fatal: not a git repository (or any of the parent directories): .git
+Built Zipformer encoder: causal=True, chunk_size=(32,), left_context_frames=(128,)
+Loaded: 64556023/64556023 params (100.0%)
+Missing keys: 0
+Unexpected keys: 0
+Multi-scale hypercolumn enabled: stack dims [192, 256, 384, 512, 384, 256] + final=False (alignment=average) -> concat dim 1984
+Detected backbone output_dim: 1984
+step400.pt: pooled macro=0.5311 osd=0.4581 | unweighted-over-rec macro=0.4829 | 116 recordings -> results/p8ft_s2345_voxsel.json
+/home/edabk/hoangbpm/diar/diar_new/third_party/icefall/egs/librispeech/ASR/zipformer/scaling.py:1310: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(ctx, x, y, alpha):
+/home/edabk/hoangbpm/diar/diar_new/third_party/icefall/egs/librispeech/ASR/zipformer/scaling.py:1319: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, ans_grad):
+/home/edabk/hoangbpm/diar/diar_new/third_party/icefall/egs/librispeech/ASR/zipformer/scaling.py:1529: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(
+/home/edabk/hoangbpm/diar/diar_new/third_party/icefall/egs/librispeech/ASR/zipformer/scaling.py:1568: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, ans_grad: Tensor):
+fatal: not a git repository (or any of the parent directories): .git
+fatal: not a git repository (or any of the parent directories): .git
+fatal: not a git repository (or any of the parent directories): .git
+Built Zipformer encoder: causal=True, chunk_size=(32,), left_context_frames=(128,)
+Loaded: 64556023/64556023 params (100.0%)
+Missing keys: 0
+Unexpected keys: 0
+Multi-scale hypercolumn enabled: stack dims [192, 256, 384, 512, 384, 256] + final=False (alignment=average) -> concat dim 1984
+Detected backbone output_dim: 1984
+step400.pt: pooled macro=0.5751 osd=0.5458 | unweighted-over-rec macro=0.5113 | 116 recordings -> results/p8ft_s3456_voxsel.json
+=== PRIMARY: p2_ctrl vs p8ft (system, paired) ===
+=== p8ft  vs  p2_ctrl   [macro_f1] ===
+
+per-seed (paired: same seed, same batch order):
+  seed1: p2_ctrl=0.5620  p8ft=0.5708  delta=+0.0088
+  seed2: p2_ctrl=0.5426  p8ft=0.5311  delta=-0.0115
+  seed3: p2_ctrl=0.5606  p8ft=0.5751  delta=+0.0145
+  -> mean delta +0.0039, all same sign: False
+
+recording-level paired bootstrap (116 recordings, seeds averaged):
+  mean delta +0.0056   95% CI [+0.0018, +0.0093]
+  recordings improved: 79/116
+  CI excludes zero: True
+
+  most negative recordings: voxconverse_test_kpjud(-0.060), voxconverse_test_lbfnx(-0.051), voxconverse_test_jttar(-0.046), voxconverse_test_wwzsk(-0.046), voxconverse_test_eucfa(-0.034)
+  most positive recordings: voxconverse_test_ytula(+0.082), voxconverse_test_isrps(+0.068), voxconverse_test_ikhje(+0.046), voxconverse_test_fowhl(+0.038), voxconverse_test_gtjow(+0.037)
+  top-5 recordings carry 14% of the total |delta|
+
+VERDICT: SUGGESTIVE — mean positive but not established (check CI / seed signs)
+=== SECONDARY: p6c_tcnft vs p8ft (architecture, symmetric finetune history) ===
+=== p8ft  vs  p6c_tcnft   [macro_f1] ===
+
+per-seed (paired: same seed, same batch order):
+  seed1: p6c_tcnft=0.5774  p8ft=0.5708  delta=-0.0066
+  seed2: p6c_tcnft=0.5374  p8ft=0.5311  delta=-0.0063
+  seed3: p6c_tcnft=0.5675  p8ft=0.5751  delta=+0.0077
+  -> mean delta -0.0017, all same sign: False
+
+recording-level paired bootstrap (116 recordings, seeds averaged):
+  mean delta +0.0005   95% CI [-0.0031, +0.0043]
+  recordings improved: 66/116
+  CI excludes zero: False
+
+  most negative recordings: voxconverse_test_kpjud(-0.083), voxconverse_test_vylyk(-0.054), voxconverse_test_wwzsk(-0.051), voxconverse_test_lbfnx(-0.039), voxconverse_test_wcxfk(-0.037)
+  most positive recordings: voxconverse_test_ytula(+0.084), voxconverse_test_isrps(+0.075), voxconverse_test_fowhl(+0.048), voxconverse_test_dkabn(+0.037), voxconverse_test_gfneh(+0.030)
+  top-5 recordings carry 19% of the total |delta|
+
+VERDICT: NO EFFECT / NEGATIVE

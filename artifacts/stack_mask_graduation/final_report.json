@@ -1,0 +1,252 @@
+{
+  "comparisons": {
+    "only1_vs_all6": {
+      "bootstrap": {
+        "ci95": [
+          -0.00764979204331737,
+          0.0011088160413103175
+        ],
+        "mean_delta": -0.0031084239726009055,
+        "n_boot": 20000,
+        "n_improved": 60,
+        "n_recordings": 116,
+        "rng_seed": 0,
+        "seeds_averaged_within_recording": true,
+        "unit": "recording"
+      },
+      "control": "all6",
+      "delta_f1_2": 0.0017469612893933895,
+      "delta_osd": 0.012546026361468546,
+      "evidence": "NONE",
+      "mean_pooled_delta": -0.0011823478024772793,
+      "operational_mean_only_noninferior": true,
+      "per_seed": {
+        "1234": -0.0005099040761807894,
+        "2345": -0.005340348494439873,
+        "3456": 0.002303209163188824
+      },
+      "practical_adoption": true,
+      "practical_r2": false,
+      "practical_r3": true,
+      "strict_noninferior": false,
+      "treatment": "only1"
+    },
+    "pre012_vs_all6": {
+      "bootstrap": {
+        "ci95": [
+          -0.002514927237159264,
+          0.005206002174694357
+        ],
+        "mean_delta": 0.0014352744449883908,
+        "n_boot": 20000,
+        "n_improved": 72,
+        "n_recordings": 116,
+        "rng_seed": 0,
+        "seeds_averaged_within_recording": true,
+        "unit": "recording"
+      },
+      "control": "all6",
+      "delta_f1_2": 0.01638795999559863,
+      "delta_osd": 0.02505016922607617,
+      "evidence": "SUGGESTIVE",
+      "mean_pooled_delta": 0.0042602594905758835,
+      "operational_mean_only_noninferior": true,
+      "per_seed": {
+        "1234": 0.003112216581214078,
+        "2345": 0.0044304849088151466,
+        "3456": 0.005238076981698425
+      },
+      "practical_adoption": true,
+      "practical_r2": false,
+      "practical_r3": true,
+      "strict_noninferior": false,
+      "treatment": "pre012"
+    },
+    "pre012_vs_only1": {
+      "bootstrap": {
+        "ci95": [
+          0.002470044233105072,
+          0.00661320482451931
+        ],
+        "mean_delta": 0.004543698417589298,
+        "n_boot": 20000,
+        "n_improved": 79,
+        "n_recordings": 116,
+        "rng_seed": 0,
+        "seeds_averaged_within_recording": true,
+        "unit": "recording"
+      },
+      "control": "only1",
+      "delta_f1_2": 0.01464099870620524,
+      "delta_osd": 0.012504142864607623,
+      "evidence": "REAL",
+      "mean_pooled_delta": 0.005442607293053163,
+      "operational_mean_only_noninferior": true,
+      "per_seed": {
+        "1234": 0.003622120657394867,
+        "2345": 0.00977083340325502,
+        "3456": 0.002934867818509601
+      },
+      "practical_adoption": true,
+      "practical_r2": true,
+      "practical_r3": true,
+      "strict_noninferior": true,
+      "treatment": "pre012"
+    }
+  },
+  "decision": {
+    "adoption_reason": "both pass vs all6; pre012 also passes R2/R3 vs only1",
+    "current_mask_adoption_recommendation": "pre012",
+    "phase8_base_mutated": false,
+    "slim_followup_authorized": false,
+    "slim_followup_candidate": "none",
+    "slim_reason": "neither sparse view passes strict non-inferiority"
+  },
+  "generated_at": "2026-07-23T20:30:00.468855+00:00",
+  "lineage": {
+    "all6": {
+      "1234": {
+        "outputs": {
+          "checkpoint_sha": "a4fd5e74b426b77963aaeb7df007f3dac9ec3dbd6ba412697b9aa2e0cc5f14eb",
+          "config_file_sha": "68bccb2c64863ac02f541012a9188f2e0a4724cf2bfe5114fe49350de38f8ce3",
+          "config_sha": "68bccb2c64863ac02f541012a9188f2e0a4724cf2bfe5114fe49350de38f8ce3",
+          "n_recordings": 116,
+          "result_sha": "aba7f9aa014405e062e64763987f895df81ea2c23b9ca49939e38f4196d6da5c"
+        },
+        "result": "results/stackgrad_all6_s1234_voxsel.json",
+        "sidecar_sha": "41c7e0a6d4087ee724068d4cb47a54030e02a47c4151f62d94d2643b5ab94d1e"
+      },
+      "2345": {
+        "outputs": {
+          "checkpoint_sha": "6dccb48d136d3f9c9f59c14f12c437715307260985c8d5551d1a88f042163205",
+          "config_file_sha": "6d8f774f064b8b2ff5f5c470913c324e279c6cfb97cf390ae8d6c4a5a41ce41d",
+          "config_sha": "6d8f774f064b8b2ff5f5c470913c324e279c6cfb97cf390ae8d6c4a5a41ce41d",
+          "n_recordings": 116,
+          "result_sha": "5bf8fcdedcef605dfe1e3ff02c1a7c47b76130b42a4389687dfa8f85599346ff"
+        },
+        "result": "results/stackgrad_all6_s2345_voxsel.json",
+        "sidecar_sha": "ce238baa5522b53cdc904ca736c28e337465694816c7ef69dbe72adcf20173d0"
+      },
+      "3456": {
+        "outputs": {
+          "checkpoint_sha": "b25ed513efb584e6597e77a86e05d4e87c7daed6da07a62c796988c51a0eeee8",
+          "config_file_sha": "07b111610874980e06dad42f3af5fd7aa8da10fb2915411629cead7fcbb1b119",
+          "config_sha": "07b111610874980e06dad42f3af5fd7aa8da10fb2915411629cead7fcbb1b119",
+          "n_recordings": 116,
+          "result_sha": "3369a7368b609609f33df57e468dc64d503ca6ed3e8262a97d745479fd8c781c"
+        },
+        "result": "results/stackgrad_all6_s3456_voxsel.json",
+        "sidecar_sha": "535c92ec622d06a8e395a170ee4c11ce2bdd13fedd9ab4907a996f2618fa7e68"
+      }
+    },
+    "only1": {
+      "1234": {
+        "outputs": {
+          "checkpoint_sha": "c6827dcb69c02ffcb44c03167decd66fa9209ff68f5865d4715a224398bd686d",
+          "config_file_sha": "fbad30acf3b7a8ccf2f7316f1ede20171dc034ff711482bffd96d8cf9bc3eb88",
+          "config_sha": "fbad30acf3b7a8ccf2f7316f1ede20171dc034ff711482bffd96d8cf9bc3eb88",
+          "n_recordings": 116,
+          "result_sha": "3fa978eb20ea46cc04f63cb3afeaab896f5f628e4c61862b53278d1bb239c135"
+        },
+        "result": "results/stackgrad_only1_s1234_voxsel.json",
+        "sidecar_sha": "27040c0494e60152533e27aa8d69b40ab617f495696cc8e409e5f6dce458fdd9"
+      },
+      "2345": {
+        "outputs": {
+          "checkpoint_sha": "07722924deb700eafcc21ef10c2c73c9690c14c39f2e622cd7b0b9853476fafc",
+          "config_file_sha": "6209829aa2c0e5ece328e1dc60474bcdd27a6ceb3f145c648e09833279a5037d",
+          "config_sha": "6209829aa2c0e5ece328e1dc60474bcdd27a6ceb3f145c648e09833279a5037d",
+          "n_recordings": 116,
+          "result_sha": "959ba2049770b4e38b40829dcde658e90e5db244169d22f56037a3ab190967a4"
+        },
+        "result": "results/stackgrad_only1_s2345_voxsel.json",
+        "sidecar_sha": "e7dcd804fe79add9e8584b3c01076ed5bba840456f0df6c1aa3591433249c5c7"
+      },
+      "3456": {
+        "outputs": {
+          "checkpoint_sha": "47453422d4f034e77de118132f8457d62c29f09a88b32069b45a155e304d87b1",
+          "config_file_sha": "d92e66b976dd111b7d0e06616691b35ab2e646ac6cee1b8361faf0600c54a654",
+          "config_sha": "d92e66b976dd111b7d0e06616691b35ab2e646ac6cee1b8361faf0600c54a654",
+          "n_recordings": 116,
+          "result_sha": "4aa722a04b5414b7ec6b9a15683a0b6dca9f9de1af55d4bbd50e62c0f1563ac0"
+        },
+        "result": "results/stackgrad_only1_s3456_voxsel.json",
+        "sidecar_sha": "a9ba93894e9f3eed6c64b3f0c981c9acf3d3254d17435df2f0d5de5376569e18"
+      }
+    },
+    "pre012": {
+      "1234": {
+        "outputs": {
+          "checkpoint_sha": "c11a421cc1ff8738e1b5dbcb623534caca4a57477807269b334207aa4d0058bb",
+          "config_file_sha": "a0f15e92c0398bce101c69f6b7fa4bc8463f51e0ad753055cce691c06c76978a",
+          "config_sha": "a0f15e92c0398bce101c69f6b7fa4bc8463f51e0ad753055cce691c06c76978a",
+          "n_recordings": 116,
+          "result_sha": "5097d35b7d406698609202dabb997d1e92c2ccb4b3f772d6f828fd919ba5ec2c"
+        },
+        "result": "results/stackgrad_pre012_s1234_voxsel.json",
+        "sidecar_sha": "2113a647082a8ed20746cdf0d037cf707ee9e519ca591eb5181ba962ec7a9adf"
+      },
+      "2345": {
+        "outputs": {
+          "checkpoint_sha": "efcfb83d4c8fabc648ccfaa569c9473063c37f9bd3d6a634745d6e8b9e381305",
+          "config_file_sha": "5f0b1bfd940566ff967b5b8d1f073cfcc3c286b51ad9ea77040bc4db1d3a2128",
+          "config_sha": "5f0b1bfd940566ff967b5b8d1f073cfcc3c286b51ad9ea77040bc4db1d3a2128",
+          "n_recordings": 116,
+          "result_sha": "e1f4442010085d7ca67f206a2e6fc7b7087eb75c088600813cc10b5a8e97a660"
+        },
+        "result": "results/stackgrad_pre012_s2345_voxsel.json",
+        "sidecar_sha": "8644c38931aad436203a980f2362b56fe563ad17ab4bc434ba9ca7aa426fa889"
+      },
+      "3456": {
+        "outputs": {
+          "checkpoint_sha": "1968b0124516ecc4b4e0410ec2209d7124d8dfb192d762c8770de9a032736b7a",
+          "config_file_sha": "0993a593c3ceb1eeff006789702ef702da1c1147e1e61397fa29df035f6e7920",
+          "config_sha": "0993a593c3ceb1eeff006789702ef702da1c1147e1e61397fa29df035f6e7920",
+          "n_recordings": 116,
+          "result_sha": "2132c59ce0c90cff522734d255d812fdc546f764f41ff127f5e3658dbefe5fa5"
+        },
+        "result": "results/stackgrad_pre012_s3456_voxsel.json",
+        "sidecar_sha": "2154cfbb7d3e983191eb18e847e6209948f940c60114e3f8e0655890912488b7"
+      }
+    }
+  },
+  "protocol": "stack-mask-graduation-v1",
+  "rules": {
+    "noninferiority_margin": -0.002,
+    "r2": "mean pooled delta >= +0.005",
+    "r3": "delta class-2 or OSD >= +0.010 and macro delta >= -0.002",
+    "strict_noninferiority": "all seed deltas >= margin and bootstrap lower CI > margin"
+  },
+  "source_snapshot": {
+    "combined_sha": "a84f5059374830b218a59ca5c5f0827c2a56cc924ef881738f056511dbaa262e",
+    "files": {
+      "STACK_MASK_GRADUATION_PREREG.md": "c2dba2931111adcdc7a3e3bf0047788188b6e2c86929b1bb66ef4bb11ce2f88a",
+      "configs/zipcount_v4_distill.yaml": "edea34380ba7a5df302ec7ecb238c2b8e3ab66b5603e85701341bf644c4754f3",
+      "scripts/eval_per_recording.py": "f9146f0f31caa078e0666cf84ff84bb8f64a0ada4afee6c5f5fdbc6a664d501a",
+      "scripts/run_stack_mask_graduation.py": "c2569416c0e9667144e105eb0eeb216796bc2ccbee34a2219a524e6b568de590",
+      "src/data/dataset.py": "45e84003e60134994a8dcad9f5b795169c480c6a1c2ce65950128e39855a65b8",
+      "src/data/feature_extractor.py": "101e9050c7be40c1521024864dfc6abc66bd3136c21ef5647e376dcf1f4a86bd",
+      "src/data/label_utils.py": "306da20c9967cbb50e23f1da387b7717c62a5452097ff6c381c0e47a019907c1",
+      "src/models/crnn_baseline.py": "a25a1f419f2d1bf1fa435b69228121a2b554099dd37d658a4f361cde47f3e8bb",
+      "src/models/deformable.py": "6acaae916badfdc3e1f921ac5bd09574672fbf927fd2597b3bc57e29422cb0d6",
+      "src/models/heads.py": "d5071fe0c045b9dd85bbfe8747498cf948b5f4b1afda0ce59b8bf83f1750cab2",
+      "src/models/losses.py": "5844b96e9e9547966da340773644c5dd181d0372e604567092abe7f53b2d92ff",
+      "src/models/pyramid_head.py": "1d9b8b43e836da6295fd1a629e957932786247bd8fd5d5f2d60e5abfd4e3fa4f",
+      "src/models/structured_losses.py": "9ce2681f94da92e5c786347912396685627f9df8d0a7422c90092cc968de0e08",
+      "src/models/zipcount_v1.py": "3ec4ec0c304fc84449e6bcc044b1596418de0a462eba7e7591f1dd505df763ab",
+      "src/models/zipformer_wrapper.py": "90c917f48db24250db99f46e1fec6c195e349ece63fb6d85049b53e049fcb9b0",
+      "src/train.py": "29fb9302fef95fc8563b2f8270dfff18a455fbad88784f9791855b643770822f",
+      "src/utils/metrics.py": "914f617f74e6be7f8495bd02bf74b6f1227a3cfd01f64c9665e714aa8f5661b9",
+      "third_party/icefall/egs/librispeech/ASR/zipformer/asr_datamodule.py": "a7dd8e1fc26413d2f0097931fa3ccc77e514068d2761ce2b5140d65bf8c1c036",
+      "third_party/icefall/egs/librispeech/ASR/zipformer/decoder.py": "92ee967e4b927a3ef2e4cc2d900756609a191f859c956a400cfe642d6ef0cf52",
+      "third_party/icefall/egs/librispeech/ASR/zipformer/encoder_interface.py": "fc70f530c33e2489435ff2cb4bb0dad8b9d6f58a248c425cbd6100c62f628569",
+      "third_party/icefall/egs/librispeech/ASR/zipformer/finetune.py": "e7a563db28d1e5fc4639bc39fb1bdf40e057971bf4be6f80e2f361c3287c718d",
+      "third_party/icefall/egs/librispeech/ASR/zipformer/joiner.py": "2d924a5a00f7a2bb2340c1a991f8a71037bcfbc7e98cbabe26527ffa7d4030d4",
+      "third_party/icefall/egs/librispeech/ASR/zipformer/model.py": "1e516fec1ad65220470a7db69bf3d16e4736a0b9943ef8f5ad75bb962d7a3296",
+      "third_party/icefall/egs/librispeech/ASR/zipformer/optim.py": "7282cd6db1d234e086110feb1f39f076a76095a6b026b939cebc81f2ed0f5d45",
+      "third_party/icefall/egs/librispeech/ASR/zipformer/scaling.py": "06e17bccb7669bb022545fba18fec87f0f5c62167ba7edb006ecaea8656b922b",
+      "third_party/icefall/egs/librispeech/ASR/zipformer/subsampling.py": "e04de281f136560e2d44b5f7df174d0364b5feb2c22608173b60de02630c2a66",
+      "third_party/icefall/egs/librispeech/ASR/zipformer/zipformer.py": "794a05ae32cc5ef6d96a4d16ba30df97822c841a0453b654335e98b328067638"
+    }
+  }
+}

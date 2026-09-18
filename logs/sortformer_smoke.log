@@ -1,0 +1,113 @@
+OneLogger: Setting error_handling_strategy to DISABLE_QUIETLY_AND_REPORT_METRIC_ERROR for rank (rank=0) with OneLogger disabled. To override: explicitly set error_handling_strategy parameter.
+No exporters were provided. This means that no telemetry data will be collected.
+[NeMo W 2026-07-12 21:16:27 warnings:109] /home/edabk/miniconda3/envs/.zipformer/lib/python3.10/site-packages/pydub/utils.py:170: RuntimeWarning: Couldn't find ffmpeg or avconv - defaulting to ffmpeg, but may not work
+      warn("Couldn't find ffmpeg or avconv - defaulting to ffmpeg, but may not work", RuntimeWarning)
+    
+[NeMo W 2026-07-12 21:17:50 sortformer_diar_models:94] If you intend to do training or fine-tuning, please call the ModelPT.setup_training_data() method and provide a valid configuration file to setup the train data loader.
+    Train config : 
+    manifest_filepath: null
+    sample_rate: 16000
+    num_spks: 4
+    session_len_sec: 90
+    soft_label_thres: 0.5
+    soft_targets: false
+    labels: null
+    batch_size: 4
+    shuffle: true
+    num_workers: 18
+    validation_mode: false
+    use_lhotse: false
+    use_bucketing: false
+    num_buckets: 10
+    bucket_duration_bins:
+    - 10
+    - 20
+    - 30
+    - 40
+    - 50
+    - 60
+    - 70
+    - 80
+    - 90
+    pin_memory: true
+    min_duration: 80
+    max_duration: 90
+    batch_duration: 400
+    quadratic_duration: 1200
+    bucket_buffer_size: 20000
+    shuffle_buffer_size: 10000
+    window_stride: 0.01
+    subsampling_factor: 8
+    
+[NeMo W 2026-07-12 21:17:50 sortformer_diar_models:94] If you intend to do validation, please call the ModelPT.setup_validation_data() or ModelPT.setup_multiple_validation_data() method and provide a valid configuration file to setup the validation data loader(s). 
+    Validation config : 
+    manifest_filepath: null
+    is_tarred: false
+    tarred_audio_filepaths: null
+    sample_rate: 16000
+    num_spks: 4
+    session_len_sec: 90
+    soft_label_thres: 0.5
+    soft_targets: false
+    labels: null
+    batch_size: 4
+    shuffle: false
+    num_workers: 18
+    validation_mode: true
+    use_lhotse: false
+    use_bucketing: false
+    drop_last: false
+    pin_memory: true
+    window_stride: 0.01
+    subsampling_factor: 8
+    
+[NeMo W 2026-07-12 21:17:50 sortformer_diar_models:94] Please call the ModelPT.setup_test_data() or ModelPT.setup_multiple_test_data() method and provide a valid configuration file to setup the test data loader(s).
+    Test config : 
+    manifest_filepath: null
+    is_tarred: false
+    tarred_audio_filepaths: null
+    sample_rate: 16000
+    num_spks: 4
+    session_len_sec: 90
+    soft_label_thres: 0.5
+    soft_targets: false
+    labels: null
+    batch_size: 4
+    shuffle: false
+    seq_eval_mode: true
+    num_workers: 18
+    validation_mode: true
+    use_lhotse: false
+    use_bucketing: false
+    drop_last: false
+    pin_memory: true
+    window_stride: 0.01
+    subsampling_factor: 8
+    
+[NeMo I 2026-07-12 21:17:51 modelPT:501] Model SortformerEncLabelModel was successfully restored from /home/edabk/.cache/huggingface/hub/models--nvidia--diar_sortformer_4spk-v1/snapshots/9f17b10df44c0a4c8f3c86fbddc9ee2d6ab9ac08/diar_sortformer_4spk-v1.nemo.
+Loaded nvidia/diar_sortformer_4spk-v1
+AMI-SDM test: 1 recordings, win=90.0s
+[NeMo I 2026-07-12 21:17:51 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-12 21:17:51 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:17:52 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-12 21:17:52 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:17:53 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-12 21:17:53 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:17:53 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-12 21:17:53 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:17:54 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-12 21:17:54 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:17:55 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-12 21:17:55 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+  [1/1] EN2002a (36 min)
+
+===== Sortformer 4spk-v1 (offline) — AMI-SDM test, frame-level (100 Hz) =====
+acc=0.677  mae=0.369  macroF1=0.530
+f1/cls = [0.567 0.790 0.421 0.343]
+VAD:  F1=0.893 (P=0.995 R=0.810)
+OSD (count>=2): F1=0.587 (P=0.922 R=0.430)
+confusion P(pred|true):  pred0   pred1   pred2   pred3
+  true0:               0.971   0.029   0.000   0.000
+  true1:               0.218   0.768   0.013   0.000
+  true2:               0.131   0.499   0.307   0.063
+  true3:               0.061   0.282   0.399   0.257

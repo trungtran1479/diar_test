@@ -1,0 +1,67 @@
+=== unfreeze_last2 step100 ===
+Unfrozen last 2 WavLM transformer layers (indices [22, 23]).
+Built WavLM backbone: microsoft/wavlm-large, 24 layers, d_model=1024, causal=False (bidirectional by construction), native_rate=50.0Hz -> downsample /2 -> 25.0Hz, hypercolumn_taps=[0, 5, 9, 14, 18, 23] output_dim=6144, backbone_trainable_params=25193520
+Head 'tcn_ordinal': 2,091,852 params, input dim (backbone output_dim / hypercolumn width) = 6144. NOTE: the head's own param count scales with this input dim (e.g. StackGatedProjection's first Linear is stack_dims -> d_model), so two systems with the same head TYPE but a different backbone output_dim are NOT parameter-matched — report cross-backbone comparisons as a system comparison, not an architecture-isolated one, unless a param-matched control is run.
+/home/edabk/miniconda3/envs/.zipformer/lib/python3.10/site-packages/torch/nn/functional.py:5962: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  warnings.warn(
+  ami_dev: macro_f1=0.7117 (1735 windows/recordings)
+  dipco_dev: macro_f1=0.4952 (329 windows/recordings)
+  vox_sel: macro_f1=0.6224 (2565 windows/recordings)
+composite DEV (mean of ['ami_dev', 'dipco_dev', 'vox_sel']) = 0.6098
+-> results/partial_unfreeze_unfreeze_last2_step100_composite_dev.json
+=== unfreeze_last2 step200 ===
+Unfrozen last 2 WavLM transformer layers (indices [22, 23]).
+Built WavLM backbone: microsoft/wavlm-large, 24 layers, d_model=1024, causal=False (bidirectional by construction), native_rate=50.0Hz -> downsample /2 -> 25.0Hz, hypercolumn_taps=[0, 5, 9, 14, 18, 23] output_dim=6144, backbone_trainable_params=25193520
+Head 'tcn_ordinal': 2,091,852 params, input dim (backbone output_dim / hypercolumn width) = 6144. NOTE: the head's own param count scales with this input dim (e.g. StackGatedProjection's first Linear is stack_dims -> d_model), so two systems with the same head TYPE but a different backbone output_dim are NOT parameter-matched — report cross-backbone comparisons as a system comparison, not an architecture-isolated one, unless a param-matched control is run.
+/home/edabk/miniconda3/envs/.zipformer/lib/python3.10/site-packages/torch/nn/functional.py:5962: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  warnings.warn(
+  ami_dev: macro_f1=0.7134 (1735 windows/recordings)
+  dipco_dev: macro_f1=0.4968 (329 windows/recordings)
+  vox_sel: macro_f1=0.6153 (2565 windows/recordings)
+composite DEV (mean of ['ami_dev', 'dipco_dev', 'vox_sel']) = 0.6085
+-> results/partial_unfreeze_unfreeze_last2_step200_composite_dev.json
+=== unfreeze_last2 step400 ===
+Unfrozen last 2 WavLM transformer layers (indices [22, 23]).
+Built WavLM backbone: microsoft/wavlm-large, 24 layers, d_model=1024, causal=False (bidirectional by construction), native_rate=50.0Hz -> downsample /2 -> 25.0Hz, hypercolumn_taps=[0, 5, 9, 14, 18, 23] output_dim=6144, backbone_trainable_params=25193520
+Head 'tcn_ordinal': 2,091,852 params, input dim (backbone output_dim / hypercolumn width) = 6144. NOTE: the head's own param count scales with this input dim (e.g. StackGatedProjection's first Linear is stack_dims -> d_model), so two systems with the same head TYPE but a different backbone output_dim are NOT parameter-matched — report cross-backbone comparisons as a system comparison, not an architecture-isolated one, unless a param-matched control is run.
+/home/edabk/miniconda3/envs/.zipformer/lib/python3.10/site-packages/torch/nn/functional.py:5962: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  warnings.warn(
+  ami_dev: macro_f1=0.7099 (1735 windows/recordings)
+  dipco_dev: macro_f1=0.4881 (329 windows/recordings)
+  vox_sel: macro_f1=0.6157 (2565 windows/recordings)
+composite DEV (mean of ['ami_dev', 'dipco_dev', 'vox_sel']) = 0.6046
+-> results/partial_unfreeze_unfreeze_last2_step400_composite_dev.json
+=== unfreeze_last4 step100 ===
+Unfrozen last 4 WavLM transformer layers (indices [20, 21, 22, 23]).
+Built WavLM backbone: microsoft/wavlm-large, 24 layers, d_model=1024, causal=False (bidirectional by construction), native_rate=50.0Hz -> downsample /2 -> 25.0Hz, hypercolumn_taps=[0, 5, 9, 14, 18, 23] output_dim=6144, backbone_trainable_params=50387040
+Head 'tcn_ordinal': 2,091,852 params, input dim (backbone output_dim / hypercolumn width) = 6144. NOTE: the head's own param count scales with this input dim (e.g. StackGatedProjection's first Linear is stack_dims -> d_model), so two systems with the same head TYPE but a different backbone output_dim are NOT parameter-matched — report cross-backbone comparisons as a system comparison, not an architecture-isolated one, unless a param-matched control is run.
+/home/edabk/miniconda3/envs/.zipformer/lib/python3.10/site-packages/torch/nn/functional.py:5962: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  warnings.warn(
+  ami_dev: macro_f1=0.7120 (1735 windows/recordings)
+  dipco_dev: macro_f1=0.4941 (329 windows/recordings)
+  vox_sel: macro_f1=0.6210 (2565 windows/recordings)
+composite DEV (mean of ['ami_dev', 'dipco_dev', 'vox_sel']) = 0.6090
+-> results/partial_unfreeze_unfreeze_last4_step100_composite_dev.json
+=== unfreeze_last4 step200 ===
+Unfrozen last 4 WavLM transformer layers (indices [20, 21, 22, 23]).
+Built WavLM backbone: microsoft/wavlm-large, 24 layers, d_model=1024, causal=False (bidirectional by construction), native_rate=50.0Hz -> downsample /2 -> 25.0Hz, hypercolumn_taps=[0, 5, 9, 14, 18, 23] output_dim=6144, backbone_trainable_params=50387040
+Head 'tcn_ordinal': 2,091,852 params, input dim (backbone output_dim / hypercolumn width) = 6144. NOTE: the head's own param count scales with this input dim (e.g. StackGatedProjection's first Linear is stack_dims -> d_model), so two systems with the same head TYPE but a different backbone output_dim are NOT parameter-matched — report cross-backbone comparisons as a system comparison, not an architecture-isolated one, unless a param-matched control is run.
+/home/edabk/miniconda3/envs/.zipformer/lib/python3.10/site-packages/torch/nn/functional.py:5962: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  warnings.warn(
+  ami_dev: macro_f1=0.7138 (1735 windows/recordings)
+  dipco_dev: macro_f1=0.4968 (329 windows/recordings)
+  vox_sel: macro_f1=0.6146 (2565 windows/recordings)
+composite DEV (mean of ['ami_dev', 'dipco_dev', 'vox_sel']) = 0.6084
+-> results/partial_unfreeze_unfreeze_last4_step200_composite_dev.json
+=== unfreeze_last4 step400 ===
+Unfrozen last 4 WavLM transformer layers (indices [20, 21, 22, 23]).
+Built WavLM backbone: microsoft/wavlm-large, 24 layers, d_model=1024, causal=False (bidirectional by construction), native_rate=50.0Hz -> downsample /2 -> 25.0Hz, hypercolumn_taps=[0, 5, 9, 14, 18, 23] output_dim=6144, backbone_trainable_params=50387040
+Head 'tcn_ordinal': 2,091,852 params, input dim (backbone output_dim / hypercolumn width) = 6144. NOTE: the head's own param count scales with this input dim (e.g. StackGatedProjection's first Linear is stack_dims -> d_model), so two systems with the same head TYPE but a different backbone output_dim are NOT parameter-matched — report cross-backbone comparisons as a system comparison, not an architecture-isolated one, unless a param-matched control is run.
+/home/edabk/miniconda3/envs/.zipformer/lib/python3.10/site-packages/torch/nn/functional.py:5962: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  warnings.warn(
+  ami_dev: macro_f1=0.7090 (1735 windows/recordings)
+  dipco_dev: macro_f1=0.4882 (329 windows/recordings)
+  vox_sel: macro_f1=0.6132 (2565 windows/recordings)
+composite DEV (mean of ['ami_dev', 'dipco_dev', 'vox_sel']) = 0.6035
+-> results/partial_unfreeze_unfreeze_last4_step400_composite_dev.json
+MANUAL_COMPOSITE_DEV_DONE

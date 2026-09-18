@@ -1,0 +1,18 @@
+############ lossabl_countonly_s1234 (already done, skipping) ############
+############ lossabl_countonly_s2345 ############
+lossabl_countonly_s2345 exit=0
+############ lossabl_countonly_s3456 ############
+lossabl_countonly_s3456 exit=0
+############ lossabl_auxvad_s1234 ############
+lossabl_auxvad_s1234 exit=0
+############ lossabl_auxvad_s2345 ############
+lossabl_auxvad_s2345 exit=0
+############ lossabl_auxvad_s3456 ############
+lossabl_auxvad_s3456 exit=0
+############ lossabl_ordinal_s1234 ############
+lossabl_ordinal_s1234 exit=0
+############ lossabl_ordinal_s2345 ############
+lossabl_ordinal_s2345 exit=0
+############ lossabl_ordinal_s3456 ############
+lossabl_ordinal_s3456 exit=0
+ALL_DONE

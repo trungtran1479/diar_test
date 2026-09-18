@@ -1,0 +1,130 @@
+# ZipCount v2 — STAGE 3: full finetune + far-field simulation + 3+spk boost.
+#
+# r6 (stage-2b) reached macroF1 0.627 / ovF1 0.641 on AMI-SDM dev and
+# plateaued from ~step 9k. Three levers combined here:
+#   1. FULL backbone finetune (stage3_finetune) at low LR, cosine decay —
+#      the last-2-stacks budget of r6 was the remaining adaptation bottleneck
+#   2. far-field simulation on the synthetic majority: rir_prob 0.35 -> 0.8
+#      + MUSAN additive noise at random SNR 0-20 dB (labels are noise-invariant)
+#   3. 3+ speaker windows (the weakest class, F1 0.27) boosted x10 in the
+#      manifest — that class needs data, not just loss weights
+# Speed: batch 32 + fp16 AMP + TF32 + fused k2 swoosh (reinstalled wheel).
+#
+# Run:
+#   bash scripts/run_distill.sh
+# (inits from logs/r8_v3_diverse/best_macro_f1.pt — v3, macroF1 0.653 on AMI test)
+# Do NOT use scripts/run_stage3.sh: it hard-codes the v2 config, which has no
+# `distill:` block, so it would train without any KD at all.
+
+model:
+  variant: "E"
+  encoder:
+    type: "zipformer"
+    zipformer_dir: "/home/edabk/hoangbpm/diar/diar_new/third_party/icefall/egs/librispeech/ASR/zipformer"
+    checkpoint: "/home/edabk/hoangbpm/diar/diar_new/data_ext/models/icefall-asr-librispeech-streaming-zipformer-2023-05-17/exp/pretrained.pt"
+    causal: true
+    chunk_size: "32"
+    left_context_frames: "128"
+    encoder_dim: "192,256,384,512,384,256"
+    downsampling_factor: "1,2,4,8,4,2"
+    num_encoder_layers: "2,2,3,4,3,2"
+    num_heads: "4,4,4,8,4,4"
+    feedforward_dim: "512,768,1024,1536,1024,768"
+    cnn_module_kernel: "31,31,15,15,15,31"
+    encoder_unmasked_dim: "192,192,256,256,256,192"
+    query_head_dim: 32
+    value_head_dim: 12
+    pos_head_dim: 4
+    pos_dim: 48
+    strict_load: false
+    min_load_ratio: 0.90
+    freeze_backbone: true      # overridden by stage3_finetune (unfreezes all)
+    unfreeze_last_n: 0
+    multiscale: true
+  head:
+    type: "deformable_ordinal"
+    d_model: 256
+    num_layers: 2
+    num_points: 4
+    num_groups: 4
+    max_offset: 16
+    dropout: 0.1
+    head_hidden_dim: 0
+  num_count_classes: 4
+
+loss:
+  count_loss_type: "sord"
+  sord_alpha: 2.5
+  class_weights: [1.0, 1.0, 1.5, 3.0]
+  lambda_vad: 0.3
+  lambda_overlap: 0.5
+  lambda_emae: 0.2
+  lambda_consistency: 0.2
+  lambda_monotonic: 0.1
+  lambda_dice: 0.5
+  lambda_smooth: 0.02
+  smooth_type: "kl"
+  # Event-state losses are opt-in and require head.type=tcn_state_ordinal.
+  # Stable event order is DOWN/STAY/UP; defaults preserve every legacy run.
+  lambda_event: 0.0
+  event_class_weights: [12.0, 1.0, 12.0]
+  lambda_raw_anchor: 0.0
+
+training:
+  batch_size: 24              # 32 peaked at 23.9/24.6 GB — too close to OOM
+  lr: 3.0e-5                  # full finetune: all 66M params train
+  lr_schedule: "cosine"       # decay to 10% floor by max_steps
+  warmup_steps: 500
+  max_steps: 10000            # ~2 epochs of the 253k-window manifest @ batch 24
+  grad_clip: 5.0
+  use_amp: true               # fp16 autocast + GradScaler (icefall-standard)
+  eval_interval: 1000
+  # v3 peaked at its FIRST eval (step 1000) and never recovered, so the real
+  # optimum may sit before it. Sample every 200 steps until 2000 to actually
+  # catch the peak; ~40 s per eval, so this costs ~7 min total.
+  eval_interval_early: 200
+  early_phase_steps: 2000
+  num_workers: 12
+  stage: "stage3_finetune"
+  log_dir: "logs/r9_v4_distill"
+
+data:
+  # v3: proven r7 stage3 base (synthetic+AMI+NSF, 197.8k) + real diarization
+  # data from DiariZen's corpora for domain diversity (built by
+  # scripts/prep_diarizen_dataset.py from ground-truth RTTMs):
+  #   AliMeeting x2 (26.9k, richest overlap 26%), AISHELL-4 (11.7k),
+  #   MSDWild (8.6k), VoxConverse dev (2.5k), RAMC subsample (6k). Total 253k.
+  train_manifest: "/media/edabk/500GB Hard Disk/data_diar/manifests/train_manifest_v3.json"
+  val_manifest: "/home/edabk/hoangbpm/diar/diar_new/data/meetings/val_manifest.json"
+  stats_file: "/home/edabk/hoangbpm/diar/diar_new/data/librimix/stats.json"   # informational only
+  feature_dim: 80
+  sample_rate: 16000
+  label_downsample: "majority_vote"
+  augment:
+    gain_db: [-28, 3]
+    rir_dir: "/home/edabk/hoangbpm/diar/diar_new/data_ext/RIRS_NOISES/simulated_rirs"
+    rir_prob: 0.8               # aggressive far-field sim for the SYNTHETIC part only
+    # all real corpora already carry their own room acoustics/noise — skip
+    # RIR + added noise for them (double-reverb/double-noise hurts)
+    rir_skip_sources: ["ami", "nsf", "alimeeting", "aishell4", "msdwild", "voxconverse", "ramc"]
+    noise_dir: "/home/edabk/hoangbpm/diar/diar_new/musan/noise"
+    noise_prob: 0.5
+    noise_snr_db: [0, 20]
+    noise_skip_sources: ["ami", "nsf", "alimeeting", "aishell4", "msdwild", "voxconverse", "ramc"]
+
+distill:
+  # DiariZen (offline WavLM+Conformer) -> ZipCount (causal streaming) KD.
+  # Teacher posteriors are the 16-class powerset marginalised onto the 4 count
+  # classes (permutation-invariant, so exact for counting).
+  # Extracted by scripts/extract_teacher_posteriors.py for REAL sources only:
+  # on synthetic LibriMix the teacher agrees with GT just 25% (it labels
+  # fully-overlapped mixes "1 speaker"), vs 87.5% on real conversation.
+  # KD is further restricted at train time to frames where the teacher's
+  # argmax MATCHES ground truth - we never learn from a wrong teacher.
+  teacher_dir: "/media/edabk/500GB Hard Disk/data_diar/teacher_post"
+  lambda_kd: 1.0
+  temperature: 2.0
+
+streaming:
+  chunk_size: 32
+  left_context_frames: 128

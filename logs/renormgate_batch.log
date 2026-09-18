@@ -1,0 +1,7 @@
+############ renormgate_s1234 ############
+renormgate_s1234 exit=0
+############ renormgate_s2345 ############
+renormgate_s2345 exit=0
+############ renormgate_s3456 ############
+renormgate_s3456 exit=0
+ALL_DONE

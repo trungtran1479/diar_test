@@ -1,0 +1,31 @@
+diff --git a/egs/librispeech/ASR/zipformer/export-onnx.py b/egs/librispeech/ASR/zipformer/export-onnx.py
+index 03c7d6f8..fc5f3244 100755
+--- a/egs/librispeech/ASR/zipformer/export-onnx.py
++++ b/egs/librispeech/ASR/zipformer/export-onnx.py
+@@ -1,7 +1,8 @@
+ #!/usr/bin/env python3
+ #
+ # Copyright 2023 Xiaomi Corporation (Author: Fangjun Kuang, Wei Kang)
+-# Copyright 2023 Danqing Fu (danqing.fu@gmail.com)
++# Copyright 2023 Danqing Fu (danqing VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
++#.fu@gmail.com)
+ 
+ """
+ This script exports a transducer model from PyTorch to ONNX.
+@@ -182,12 +183,12 @@ def add_meta_data(filename: str, meta_data: Dict[str, str]):
+ 
+ 
+ def export_onnx_fp16(onnx_fp32_path, onnx_fp16_path):
+-    import onnxmltools
+-    from onnxmltools.utils.float16_converter import convert_float_to_float16
++    import onnx
++    from onnxconverter_common.float16 import convert_float_to_float16
+ 
+-    onnx_fp32_model = onnxmltools.utils.load_model(onnx_fp32_path)
++    onnx_fp32_model = onnx.load(onnx_fp32_path)
+     onnx_fp16_model = convert_float_to_float16(onnx_fp32_model, keep_io_types=True)
+-    onnxmltools.utils.save_model(onnx_fp16_model, onnx_fp16_path)
++    onnx.save(onnx_fp16_model, onnx_fp16_path)
+ 
+ 
+ class OnnxEncoder(nn.Module):

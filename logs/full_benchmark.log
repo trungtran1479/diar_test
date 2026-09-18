@@ -1,0 +1,53 @@
+>>> v3_base / ami-sdm dev
+>>> v3_base / ami-sdm test
+>>> v3_base / dipco-mdm dev
+>>> v3_base / dipco-mdm eval
+>>> v3_base / libricount
+>>> v3_base / voxfull
+>>> v3_base / voxlock
+>>> v3_base / msdwild
+>>> ft_s1234 / ami-sdm dev
+>>> ft_s1234 / ami-sdm test
+>>> ft_s1234 / dipco-mdm dev
+>>> ft_s1234 / dipco-mdm eval
+>>> ft_s1234 / libricount
+>>> ft_s1234 / voxfull
+>>> ft_s1234 / voxlock
+>>> ft_s1234 / msdwild
+>>> ft_s2345 / ami-sdm dev
+>>> ft_s2345 / ami-sdm test
+>>> ft_s2345 / dipco-mdm dev
+>>> ft_s2345 / dipco-mdm eval
+>>> ft_s2345 / libricount
+>>> ft_s2345 / voxfull
+>>> ft_s2345 / voxlock
+>>> ft_s2345 / msdwild
+>>> ft_s3456 / ami-sdm dev
+>>> ft_s3456 / ami-sdm test
+>>> ft_s3456 / dipco-mdm dev
+>>> ft_s3456 / dipco-mdm eval
+>>> ft_s3456 / libricount
+>>> ft_s3456 / voxfull
+>>> ft_s3456 / voxlock
+>>> ft_s3456 / msdwild
+
+=== ALL BENCHMARKS DONE ===
+
+============================================================================================
+ZipCount — full benchmark, metric = macro_f1
+finetuned = uniform LR 3e-5, lambda_kd=0, step 400 (the selected config)
+============================================================================================
+benchmark            v3 base    s1234    s2345    s3456     mean   range    vs v3   note
+--------------------------------------------------------------------------------------------
+AMI-SDM dev           0.6510   0.6510   0.6440   0.6460   0.6470  0.0070  -0.0040   in-domain (AMI train was in the mix)
+AMI-SDM test          0.6530   0.6400   0.6390   0.6290   0.6360  0.0110  -0.0170   in-domain
+DipCo-MDM dev         0.4790   0.4650   0.4660   0.4520   0.4610  0.0140  -0.0180   OUT-of-domain, never trained on
+DipCo-MDM eval        0.5460   0.5420   0.5390   0.5310   0.5373  0.0110  -0.0087   OUT-of-domain, never trained on
+LibriCount                 —        —        —        —        —       —        —   synthetic, clip-level
+VoxConverse test      0.5167   0.5439   0.5232   0.5431   0.5367  0.0208  +0.0201   in-domain
+vox_lock              0.4987   0.5279   0.5059   0.5275   0.5204  0.0221  +0.0218   LOCKED until now
+MSDWild many.val      0.5213   0.5526   0.5424   0.5501   0.5484  0.0102  +0.0271   LOCKED, 0 overlap with train
+--------------------------------------------------------------------------------------------
+range = max-min across the three seeds. Any 'vs v3' smaller than the
+range on the same row is inside seed noise and must not be reported
+as an improvement.

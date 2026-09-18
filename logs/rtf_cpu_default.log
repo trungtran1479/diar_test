@@ -1,0 +1,20 @@
+Built Zipformer encoder: causal=True, chunk_size=(32,), left_context_frames=(128,)
+Loaded: 64556023/64556023 params (100.0%)
+Missing keys: 0
+Unexpected keys: 0
+Multi-scale hypercolumn enabled: stack dims [192, 256, 384, 512, 384, 256] + final=False (alignment=average) -> concat dim 1984
+Detected backbone output_dim: 1984
+device=cpu (default-thread) files=5 warmup_chunks/file=5
+  abjxc.wav                                dur=  68.4s chunks= 102 compute= 5265.3ms feat=  25.0ms
+  afjiv.wav                                dur= 151.2s chunks= 232 compute=11962.2ms feat=  69.6ms
+  ahnss.wav                                dur= 664.3s chunks=1033 compute=53374.3ms feat= 479.7ms
+  aisvi.wav                                dur= 469.1s chunks= 728 compute=37686.5ms feat= 336.0ms
+  akthc.wav                                dur= 114.5s chunks= 174 compute= 9034.1ms feat=  59.6ms
+
+===== RTF summary: device=cpu (default-thread) =====
+total audio: 1467.5s over 5 files
+per-chunk model compute (640ms cadence, n=2269, warmup excluded):
+  mean=51.71ms  p50=51.60ms  p95=53.25ms  max=63.05ms
+feature extraction: 194.0ms avg/file (computed once per file here, NOT per-chunk; a deployed system would extract it incrementally -- reported separately, not folded into RTF, so the two costs stay legible)
+RTF (model compute only) = 0.0799 (faster than real-time)
+chunk cadence budget: 640ms | mean headroom = 588.3ms | p95 headroom = 586.7ms

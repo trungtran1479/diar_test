@@ -1,0 +1,412 @@
+OneLogger: Setting error_handling_strategy to DISABLE_QUIETLY_AND_REPORT_METRIC_ERROR for rank (rank=0) with OneLogger disabled. To override: explicitly set error_handling_strategy parameter.
+No exporters were provided. This means that no telemetry data will be collected.
+[NeMo W 2026-07-30 11:35:27 warnings:109] /home/edabk/miniconda3/envs/.zipformer/lib/python3.10/site-packages/pydub/utils.py:170: RuntimeWarning: Couldn't find ffmpeg or avconv - defaulting to ffmpeg, but may not work
+      warn("Couldn't find ffmpeg or avconv - defaulting to ffmpeg, but may not work", RuntimeWarning)
+    
+[NeMo W 2026-07-30 11:35:28 sortformer_diar_models:94] If you intend to do training or fine-tuning, please call the ModelPT.setup_training_data() method and provide a valid configuration file to setup the train data loader.
+    Train config : 
+    manifest_filepath: null
+    sample_rate: 16000
+    num_spks: 4
+    session_len_sec: 90
+    soft_label_thres: 0.5
+    soft_targets: false
+    labels: null
+    batch_size: 4
+    shuffle: true
+    num_workers: 18
+    validation_mode: false
+    use_lhotse: false
+    use_bucketing: false
+    pin_memory: true
+    window_stride: 0.01
+    subsampling_factor: 8
+    
+[NeMo W 2026-07-30 11:35:28 sortformer_diar_models:94] If you intend to do validation, please call the ModelPT.setup_validation_data() or ModelPT.setup_multiple_validation_data() method and provide a valid configuration file to setup the validation data loader(s). 
+    Validation config : 
+    manifest_filepath: null
+    is_tarred: false
+    tarred_audio_filepaths: null
+    sample_rate: 16000
+    num_spks: 4
+    session_len_sec: 90
+    soft_label_thres: 0.5
+    soft_targets: false
+    labels: null
+    batch_size: 4
+    shuffle: false
+    num_workers: 18
+    validation_mode: true
+    use_lhotse: false
+    use_bucketing: false
+    drop_last: false
+    pin_memory: true
+    window_stride: 0.01
+    subsampling_factor: 8
+    
+[NeMo W 2026-07-30 11:35:28 sortformer_diar_models:94] Please call the ModelPT.setup_test_data() or ModelPT.setup_multiple_test_data() method and provide a valid configuration file to setup the test data loader(s).
+    Test config : 
+    manifest_filepath: null
+    is_tarred: false
+    tarred_audio_filepaths: null
+    sample_rate: 16000
+    num_spks: 4
+    session_len_sec: 90
+    soft_label_thres: 0.5
+    soft_targets: false
+    labels: null
+    batch_size: 4
+    shuffle: false
+    seq_eval_mode: true
+    num_workers: 18
+    validation_mode: true
+    use_lhotse: false
+    use_bucketing: false
+    drop_last: false
+    pin_memory: true
+    window_stride: 0.01
+    subsampling_factor: 8
+    
+[NeMo I 2026-07-30 11:35:29 modelPT:501] Model SortformerEncLabelModel was successfully restored from /home/edabk/MinhDuc/zipformer-vi/nemo/model/diar_streaming_sortformer_4spk-v2.1.nemo.
+Loaded /home/edabk/MinhDuc/zipformer-vi/nemo/model/diar_streaming_sortformer_4spk-v2.1.nemo
+streaming params: chunk_len=188 chunk_right_context=1 spkcache_len=188 fifo_len=0 spkcache_update_period=188
+algorithmic latency: 15120 ms (chunk_len + chunk_right_context, in subsampled frames @ 80 ms/frame)
+dipco-streaming-default: scoring 107 windows (restricted to the common set)
+[NeMo I 2026-07-30 11:35:29 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:29 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps:  17%|█▋        | 1/6 [00:00<00:00,  9.56it/s]Streaming Steps:  83%|████████▎ | 5/6 [00:00<00:00, 24.93it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 24.72it/s]
+  [1/107]
+[NeMo I 2026-07-30 11:35:29 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:29 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 53.07it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 52.99it/s]
+[NeMo I 2026-07-30 11:35:29 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:29 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.87it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.78it/s]
+[NeMo I 2026-07-30 11:35:30 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:30 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.46it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.38it/s]
+[NeMo I 2026-07-30 11:35:30 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:30 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.36it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.26it/s]
+[NeMo I 2026-07-30 11:35:30 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:30 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.71it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.62it/s]
+[NeMo I 2026-07-30 11:35:30 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:30 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.00it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 55.91it/s]
+[NeMo I 2026-07-30 11:35:30 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:30 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.89it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.81it/s]
+[NeMo I 2026-07-30 11:35:31 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:31 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.50it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.41it/s]
+[NeMo I 2026-07-30 11:35:31 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:31 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.27it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.18it/s]
+[NeMo I 2026-07-30 11:35:31 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:31 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.74it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.65it/s]
+[NeMo I 2026-07-30 11:35:31 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:31 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.79it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.70it/s]
+[NeMo I 2026-07-30 11:35:31 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:31 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.28it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.19it/s]
+[NeMo I 2026-07-30 11:35:32 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:32 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.57it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.49it/s]
+[NeMo I 2026-07-30 11:35:32 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:32 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.12it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.03it/s]
+[NeMo I 2026-07-30 11:35:32 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:32 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.17it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.08it/s]
+[NeMo I 2026-07-30 11:35:32 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:32 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.25it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.16it/s]
+[NeMo I 2026-07-30 11:35:33 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:33 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.18it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.11it/s]
+[NeMo I 2026-07-30 11:35:33 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:33 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.74it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.65it/s]
+[NeMo I 2026-07-30 11:35:33 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:33 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.68it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.58it/s]
+[NeMo I 2026-07-30 11:35:33 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:33 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.69it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.61it/s]
+  [21/107]
+[NeMo I 2026-07-30 11:35:33 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:33 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.43it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.34it/s]
+[NeMo I 2026-07-30 11:35:34 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:34 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.60it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.51it/s]
+[NeMo I 2026-07-30 11:35:34 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:34 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.53it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.44it/s]
+[NeMo I 2026-07-30 11:35:34 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:34 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.16it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.08it/s]
+[NeMo I 2026-07-30 11:35:34 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:34 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.30it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.21it/s]
+[NeMo I 2026-07-30 11:35:34 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:34 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.73it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.63it/s]
+[NeMo I 2026-07-30 11:35:35 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:35 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 55.91it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 55.82it/s]
+[NeMo I 2026-07-30 11:35:35 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:35 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.39it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.30it/s]
+[NeMo I 2026-07-30 11:35:35 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:35 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.60it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.51it/s]
+[NeMo I 2026-07-30 11:35:35 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:35 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.95it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.86it/s]
+[NeMo I 2026-07-30 11:35:35 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:36 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/4 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 4/4 [00:00<00:00, 57.14it/s]
+[NeMo I 2026-07-30 11:35:36 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:36 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.39it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.31it/s]
+[NeMo I 2026-07-30 11:35:36 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:36 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.47it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.39it/s]
+[NeMo I 2026-07-30 11:35:36 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:36 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.50it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.41it/s]
+[NeMo I 2026-07-30 11:35:36 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:36 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.27it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.18it/s]
+[NeMo I 2026-07-30 11:35:36 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:36 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 55.16it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 55.07it/s]
+[NeMo I 2026-07-30 11:35:37 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:37 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.66it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.56it/s]
+[NeMo I 2026-07-30 11:35:37 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:37 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.67it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.58it/s]
+[NeMo I 2026-07-30 11:35:37 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:37 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.47it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.38it/s]
+[NeMo I 2026-07-30 11:35:37 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:37 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.47it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.39it/s]
+  [41/107]
+[NeMo I 2026-07-30 11:35:38 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:38 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.19it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.10it/s]
+[NeMo I 2026-07-30 11:35:38 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:38 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.56it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.47it/s]
+[NeMo I 2026-07-30 11:35:38 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:38 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.49it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.39it/s]
+[NeMo I 2026-07-30 11:35:38 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:38 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 55.85it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 55.76it/s]
+[NeMo I 2026-07-30 11:35:38 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:38 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.20it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.11it/s]
+[NeMo I 2026-07-30 11:35:39 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:39 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.38it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.28it/s]
+[NeMo I 2026-07-30 11:35:39 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:39 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 55.81it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 55.72it/s]
+[NeMo I 2026-07-30 11:35:39 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:39 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.68it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.60it/s]
+[NeMo I 2026-07-30 11:35:39 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:39 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.42it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.33it/s]
+[NeMo I 2026-07-30 11:35:39 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:39 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.71it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.62it/s]
+[NeMo I 2026-07-30 11:35:40 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:40 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.13it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.04it/s]
+[NeMo I 2026-07-30 11:35:40 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:40 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.16it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.07it/s]
+[NeMo I 2026-07-30 11:35:40 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:40 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.93it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.84it/s]
+[NeMo I 2026-07-30 11:35:40 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:40 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.06it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.97it/s]
+[NeMo I 2026-07-30 11:35:41 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:41 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.16it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.07it/s]
+[NeMo I 2026-07-30 11:35:41 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:41 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.39it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.30it/s]
+[NeMo I 2026-07-30 11:35:41 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:41 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.78it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.69it/s]
+[NeMo I 2026-07-30 11:35:41 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:41 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.67it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.59it/s]
+[NeMo I 2026-07-30 11:35:41 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:41 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.61it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.52it/s]
+[NeMo I 2026-07-30 11:35:42 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:42 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.43it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.35it/s]
+  [61/107]
+[NeMo I 2026-07-30 11:35:42 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:42 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.37it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.29it/s]
+[NeMo I 2026-07-30 11:35:42 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:42 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 55.76it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 55.67it/s]
+[NeMo I 2026-07-30 11:35:42 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:42 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/1 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 1/1 [00:00<00:00, 49.66it/s]
+[NeMo I 2026-07-30 11:35:42 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:42 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.40it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.32it/s]
+[NeMo I 2026-07-30 11:35:42 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:42 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.31it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.22it/s]
+[NeMo I 2026-07-30 11:35:43 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:43 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.56it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.46it/s]
+[NeMo I 2026-07-30 11:35:43 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:43 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.62it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.53it/s]
+[NeMo I 2026-07-30 11:35:43 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:43 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.01it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 55.91it/s]
+[NeMo I 2026-07-30 11:35:43 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:43 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.78it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.69it/s]
+[NeMo I 2026-07-30 11:35:44 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:44 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.00it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.91it/s]
+[NeMo I 2026-07-30 11:35:44 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:44 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 54.78it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 54.71it/s]
+[NeMo I 2026-07-30 11:35:44 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:44 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.28it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.19it/s]
+[NeMo I 2026-07-30 11:35:44 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:44 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.01it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.92it/s]
+[NeMo I 2026-07-30 11:35:44 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:44 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.42it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.33it/s]
+[NeMo I 2026-07-30 11:35:45 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:45 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.10it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.00it/s]
+[NeMo I 2026-07-30 11:35:45 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:45 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.43it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.34it/s]
+[NeMo I 2026-07-30 11:35:45 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:45 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/3 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 3/3 [00:00<00:00, 55.76it/s]
+[NeMo I 2026-07-30 11:35:45 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:45 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.74it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.65it/s]
+[NeMo I 2026-07-30 11:35:45 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:45 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.11it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.01it/s]
+[NeMo I 2026-07-30 11:35:46 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:46 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.99it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.91it/s]
+  [81/107]
+[NeMo I 2026-07-30 11:35:46 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:46 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 55.87it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 55.78it/s]
+[NeMo I 2026-07-30 11:35:46 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:46 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.68it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.58it/s]
+[NeMo I 2026-07-30 11:35:46 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:46 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.08it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.99it/s]
+[NeMo I 2026-07-30 11:35:46 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:46 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.05it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.95it/s]
+[NeMo I 2026-07-30 11:35:47 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:47 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 55.20it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 55.12it/s]
+[NeMo I 2026-07-30 11:35:47 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:47 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.45it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.37it/s]
+[NeMo I 2026-07-30 11:35:47 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:47 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 51.36it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 51.28it/s]
+[NeMo I 2026-07-30 11:35:47 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:47 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 54.68it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 54.58it/s]
+[NeMo I 2026-07-30 11:35:47 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:47 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 55.99it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 55.90it/s]
+[NeMo I 2026-07-30 11:35:48 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:48 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.82it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.73it/s]
+[NeMo I 2026-07-30 11:35:48 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:48 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 55.78it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 55.70it/s]
+[NeMo I 2026-07-30 11:35:48 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:48 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.75it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.65it/s]
+[NeMo I 2026-07-30 11:35:48 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:48 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.02it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.92it/s]
+[NeMo I 2026-07-30 11:35:49 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:49 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.94it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.86it/s]
+[NeMo I 2026-07-30 11:35:49 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:49 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/4 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 4/4 [00:00<00:00, 52.57it/s]
+[NeMo I 2026-07-30 11:35:49 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:49 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.51it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.41it/s]
+[NeMo I 2026-07-30 11:35:49 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:49 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 57.07it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.97it/s]
+[NeMo I 2026-07-30 11:35:49 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:49 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.28it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.21it/s]
+[NeMo I 2026-07-30 11:35:50 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:50 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 55.93it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 55.85it/s]
+[NeMo I 2026-07-30 11:35:50 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:50 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.24it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.15it/s]
+  [101/107]
+[NeMo I 2026-07-30 11:35:50 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:50 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 55.62it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 55.53it/s]
+[NeMo I 2026-07-30 11:35:50 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:50 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 55.52it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 55.44it/s]
+[NeMo I 2026-07-30 11:35:50 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:50 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.31it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 56.23it/s]
+[NeMo I 2026-07-30 11:35:51 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:51 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 55.12it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 55.04it/s]
+[NeMo I 2026-07-30 11:35:51 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:51 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/6 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 55.32it/s]Streaming Steps: 100%|██████████| 6/6 [00:00<00:00, 55.23it/s]
+[NeMo I 2026-07-30 11:35:51 diarization:203] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+[NeMo W 2026-07-30 11:35:51 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: soft_label_thres,num_spks,session_len_sec
+Streaming Steps:   0%|          | 0/4 [00:00<?, ?it/s]Streaming Steps: 100%|██████████| 4/4 [00:00<00:00, 56.12it/s]
+
+===== Sortformer-dipco-streaming-default (streaming, 15120 ms) — unified protocol (107 windows, 100 Hz) =====
+acc=0.677  mae=0.377  macroF1=0.518
+f1/cls = [0.533 0.799 0.395 0.346]
+VAD:  F1=0.918 (P=0.982 R=0.861)
+OSD (count>=2): F1=0.560 (P=0.751 R=0.447)
+confusion P(pred|true):  pred0   pred1   pred2   pred3
+  true0:               0.849   0.125   0.013   0.013
+  true1:               0.155   0.793   0.041   0.012
+  true2:               0.108   0.510   0.309   0.073
+  true3:               0.054   0.273   0.378   0.296

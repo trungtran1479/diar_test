@@ -1,0 +1,9 @@
+=== ctrl_s1234 (lambda=0.0 T=1.0 seed=1234) ===
+[val@400] macroF1=0.651 f1/cls=[0.81 0.90 0.61 0.28] ovF1=0.680 vadF1=0.954
+=== kd_s1234 (lambda=0.25 T=2.0 seed=1234) ===
+[val@400] macroF1=0.651 f1/cls=[0.81 0.90 0.61 0.28] ovF1=0.679 vadF1=0.953
+=== ctrl_s2345 (lambda=0.0 T=1.0 seed=2345) ===
+[val@400] macroF1=0.644 f1/cls=[0.81 0.90 0.61 0.25] ovF1=0.679 vadF1=0.954
+=== kd_s2345 (lambda=0.25 T=2.0 seed=2345) ===
+[val@400] macroF1=0.641 f1/cls=[0.81 0.90 0.61 0.24] ovF1=0.678 vadF1=0.954
+=== ctrl_s3456 (lambda=0.0 T=1.0 seed=3456) ===

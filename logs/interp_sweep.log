@@ -1,0 +1,71 @@
+=== interpolating a0.25_s1234 ===
+alpha=0.25: lerped 1709 float tensors, copied 0 non-float from B -> /tmp/claude-1000/-home-edabk-hoangbpm/c22de1cf-7989-4e68-989d-f720938175c6/scratchpad/interp.pt
+  ami_dev   macroF1=0.652
+  dipco_dev macroF1=0.476
+  voxsel     macroF1=0.5446
+=== interpolating a0.50_s1234 ===
+alpha=0.5: lerped 1709 float tensors, copied 0 non-float from B -> /tmp/claude-1000/-home-edabk-hoangbpm/c22de1cf-7989-4e68-989d-f720938175c6/scratchpad/interp.pt
+  ami_dev   macroF1=0.653
+  dipco_dev macroF1=0.473
+  voxsel     macroF1=0.5513
+=== interpolating a0.75_s1234 ===
+alpha=0.75: lerped 1709 float tensors, copied 0 non-float from B -> /tmp/claude-1000/-home-edabk-hoangbpm/c22de1cf-7989-4e68-989d-f720938175c6/scratchpad/interp.pt
+  ami_dev   macroF1=0.652
+  dipco_dev macroF1=0.469
+  voxsel     macroF1=0.5570
+=== interpolating a0.25_s2345 ===
+alpha=0.25: lerped 1709 float tensors, copied 0 non-float from B -> /tmp/claude-1000/-home-edabk-hoangbpm/c22de1cf-7989-4e68-989d-f720938175c6/scratchpad/interp.pt
+  ami_dev   macroF1=0.651
+  dipco_dev macroF1=0.478
+  voxsel     macroF1=0.5406
+=== interpolating a0.50_s2345 ===
+alpha=0.5: lerped 1709 float tensors, copied 0 non-float from B -> /tmp/claude-1000/-home-edabk-hoangbpm/c22de1cf-7989-4e68-989d-f720938175c6/scratchpad/interp.pt
+  ami_dev   macroF1=0.649
+  dipco_dev macroF1=0.475
+  voxsel     macroF1=0.5427
+=== interpolating a0.75_s2345 ===
+alpha=0.75: lerped 1709 float tensors, copied 0 non-float from B -> /tmp/claude-1000/-home-edabk-hoangbpm/c22de1cf-7989-4e68-989d-f720938175c6/scratchpad/interp.pt
+  ami_dev   macroF1=0.647
+  dipco_dev macroF1=0.471
+  voxsel     macroF1=0.5436
+=== interpolating a0.25_s3456 ===
+alpha=0.25: lerped 1709 float tensors, copied 0 non-float from B -> /tmp/claude-1000/-home-edabk-hoangbpm/c22de1cf-7989-4e68-989d-f720938175c6/scratchpad/interp.pt
+  ami_dev   macroF1=0.652
+  dipco_dev macroF1=0.475
+  voxsel     macroF1=0.5443
+=== interpolating a0.50_s3456 ===
+alpha=0.5: lerped 1709 float tensors, copied 0 non-float from B -> /tmp/claude-1000/-home-edabk-hoangbpm/c22de1cf-7989-4e68-989d-f720938175c6/scratchpad/interp.pt
+  ami_dev   macroF1=0.651
+  dipco_dev macroF1=0.468
+  voxsel     macroF1=0.5503
+=== interpolating a0.75_s3456 ===
+alpha=0.75: lerped 1709 float tensors, copied 0 non-float from B -> /tmp/claude-1000/-home-edabk-hoangbpm/c22de1cf-7989-4e68-989d-f720938175c6/scratchpad/interp.pt
+  ami_dev   macroF1=0.649
+  dipco_dev macroF1=0.460
+  voxsel     macroF1=0.5558
+
+=== INTERPOLATION SWEEP DONE ===
+
+================================================================================================
+Weight-space interpolation  v3 (alpha=0)  ->  step400 fine-tune (alpha=1)
+composite dev = unweighted mean macro-F1 over AMI-dev, DipCo-dev, vox_sel
+================================================================================================
+ alpha   AMI-dev  DipCo-dev   vox_sel |    MEAN   WORST | above-chord in
+------------------------------------------------------------------------------------------------
+  0.00    0.6510     0.4790    0.5370 |  0.5557  0.4790 | -  (endpoint)
+  0.25    0.6517     0.4763    0.5432 |  0.5571  0.4763 | ami_dev,dipco_dev,voxsel
+  0.50    0.6510     0.4720    0.5481 |  0.5570  0.4720 | ami_dev,dipco_dev,voxsel
+  0.75    0.6493     0.4667    0.5521 |  0.5560  0.4667 | ami_dev,dipco_dev,voxsel
+  1.00    0.6470     0.4610    0.5551 |  0.5544  0.4610 | -  (endpoint)
+------------------------------------------------------------------------------------------------
+endpoint composites: alpha=0 0.5557   alpha=1 0.5544
+
+SELECTED alpha* = 0.25 on the primary composite (0.5571 vs 0.5557 for the better endpoint)
+  worst-domain (secondary, reported not optimised): 0.4763
+
+GEOMETRY
+  domains above the endpoint chord at alpha*: ami_dev,dipco_dev,voxsel
+  alpha* beats the CHORD in every domain but does not dominate both
+  endpoints outright: the trade-off is convex-favourable, i.e. mixing
+  is cheaper than the linear trade-off implies, but each endpoint
+  still wins its own home domain.

@@ -1,0 +1,493 @@
+OneLogger: Setting error_handling_strategy to DISABLE_QUIETLY_AND_REPORT_METRIC_ERROR for rank (rank=0) with OneLogger disabled. To override: explicitly set error_handling_strategy parameter.
+No exporters were provided. This means that no telemetry data will be collected.
+[NeMo W 2026-07-12 22:08:21 warnings:109] /home/edabk/miniconda3/envs/.zipformer/lib/python3.10/site-packages/pydub/utils.py:170: RuntimeWarning: Couldn't find ffmpeg or avconv - defaulting to ffmpeg, but may not work
+      warn("Couldn't find ffmpeg or avconv - defaulting to ffmpeg, but may not work", RuntimeWarning)
+    
+Seed set to 42
+[NeMo W 2026-07-12 22:08:22 sortformer_diar_models:94] If you intend to do training or fine-tuning, please call the ModelPT.setup_training_data() method and provide a valid configuration file to setup the train data loader.
+    Train config : 
+    manifest_filepath: null
+    sample_rate: 16000
+    num_spks: 4
+    session_len_sec: 90
+    soft_label_thres: 0.5
+    soft_targets: false
+    labels: null
+    batch_size: 4
+    shuffle: true
+    num_workers: 18
+    validation_mode: false
+    use_lhotse: false
+    use_bucketing: false
+    num_buckets: 10
+    bucket_duration_bins:
+    - 10
+    - 20
+    - 30
+    - 40
+    - 50
+    - 60
+    - 70
+    - 80
+    - 90
+    pin_memory: true
+    min_duration: 80
+    max_duration: 90
+    batch_duration: 400
+    quadratic_duration: 1200
+    bucket_buffer_size: 20000
+    shuffle_buffer_size: 10000
+    window_stride: 0.01
+    subsampling_factor: 8
+    
+[NeMo W 2026-07-12 22:08:22 sortformer_diar_models:94] If you intend to do validation, please call the ModelPT.setup_validation_data() or ModelPT.setup_multiple_validation_data() method and provide a valid configuration file to setup the validation data loader(s). 
+    Validation config : 
+    manifest_filepath: null
+    is_tarred: false
+    tarred_audio_filepaths: null
+    sample_rate: 16000
+    num_spks: 4
+    session_len_sec: 90
+    soft_label_thres: 0.5
+    soft_targets: false
+    labels: null
+    batch_size: 4
+    shuffle: false
+    num_workers: 18
+    validation_mode: true
+    use_lhotse: false
+    use_bucketing: false
+    drop_last: false
+    pin_memory: true
+    window_stride: 0.01
+    subsampling_factor: 8
+    
+[NeMo W 2026-07-12 22:08:22 sortformer_diar_models:94] Please call the ModelPT.setup_test_data() or ModelPT.setup_multiple_test_data() method and provide a valid configuration file to setup the test data loader(s).
+    Test config : 
+    manifest_filepath: null
+    is_tarred: false
+    tarred_audio_filepaths: null
+    sample_rate: 16000
+    num_spks: 4
+    session_len_sec: 90
+    soft_label_thres: 0.5
+    soft_targets: false
+    labels: null
+    batch_size: 4
+    shuffle: false
+    seq_eval_mode: true
+    num_workers: 18
+    validation_mode: true
+    use_lhotse: false
+    use_bucketing: false
+    drop_last: false
+    pin_memory: true
+    window_stride: 0.01
+    subsampling_factor: 8
+    
+[NeMo I 2026-07-12 22:08:23 modelPT:501] Model SortformerEncLabelModel was successfully restored from /home/edabk/.cache/huggingface/hub/models--nvidia--diar_sortformer_4spk-v1/snapshots/9f17b10df44c0a4c8f3c86fbddc9ee2d6ab9ac08/diar_sortformer_4spk-v1.nemo.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+[NeMo I 2026-07-12 22:08:23 e2e_diarize_speech:367] Number of files to diarize: 107
+[NeMo I 2026-07-12 22:08:23 dataloader:301] We will be using a Lhotse DataLoader.
+[NeMo W 2026-07-12 22:08:23 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: seq_eval_mode,soft_label_thres,validation_mode,subsampling_factor,soft_targets,is_tarred,num_spks,labels,window_stride,session_len_sec
+Initializing Lhotse CutSet from a single NeMo manifest
+            (is_tarred=False): '/tmp/tmpa9q6j38w.json'
+[NeMo I 2026-07-12 22:08:23 dataloader:341] Creating a Lhotse DynamicCutSampler (bucketing is disabled, (max_batch_duration=100000.0 max_batch_size=1)
+[NeMo I 2026-07-12 22:08:23 e2e_diarize_speech:399] No postprocessing YAML file has been provided. Default postprocessing configurations will be applied.
+No saved prediction tensors found. Running inference on the dataset...
+0it [00:00, ?it/s][NeMo I 2026-07-12 22:08:23 sortformer_diar_models:1095] batch 0: f1_acc=0.050847407430410385, precision=0.9999999403953552, recall=0.0260869562625885
+[NeMo I 2026-07-12 22:08:23 sortformer_diar_models:1095] batch 0: f1_acc_ats=0.004237238317728043, precision_ats=0.0833333283662796, recall_ats=0.0021739129442721605
+1it [00:00,  2.95it/s][NeMo I 2026-07-12 22:08:23 sortformer_diar_models:1095] batch 1: f1_acc=0.6337281465530396, precision=0.7911184430122375, recall=0.5285714268684387
+[NeMo I 2026-07-12 22:08:23 sortformer_diar_models:1095] batch 1: f1_acc_ats=0.32674527168273926, precision_ats=0.40789473056793213, recall_ats=0.2725274860858917
+2it [00:00,  4.95it/s][NeMo I 2026-07-12 22:08:23 sortformer_diar_models:1095] batch 2: f1_acc=0.7687742114067078, precision=0.8963133692741394, recall=0.6730104088783264
+[NeMo I 2026-07-12 22:08:23 sortformer_diar_models:1095] batch 2: f1_acc_ats=0.6996042728424072, precision_ats=0.8156682252883911, recall_ats=0.612456738948822
+3it [00:00,  6.39it/s][NeMo I 2026-07-12 22:08:23 sortformer_diar_models:1095] batch 3: f1_acc=0.7928460240364075, precision=0.9037372469902039, recall=0.7061946988105774
+[NeMo I 2026-07-12 22:08:23 sortformer_diar_models:1095] batch 3: f1_acc_ats=0.7928460240364075, precision_ats=0.9037372469902039, recall_ats=0.7061946988105774
+4it [00:00,  7.44it/s][NeMo I 2026-07-12 22:08:23 sortformer_diar_models:1095] batch 4: f1_acc=0.7135442495346069, precision=0.8242343664169312, recall=0.6290650367736816
+[NeMo I 2026-07-12 22:08:23 sortformer_diar_models:1095] batch 4: f1_acc_ats=0.30893319845199585, precision_ats=0.3568575084209442, recall_ats=0.2723577320575714
+5it [00:00,  8.18it/s][NeMo I 2026-07-12 22:08:24 sortformer_diar_models:1095] batch 5: f1_acc=0.7808413505554199, precision=0.8696120977401733, recall=0.7085162401199341
+[NeMo I 2026-07-12 22:08:24 sortformer_diar_models:1095] batch 5: f1_acc_ats=0.5553938150405884, precision_ats=0.618534505367279, recall_ats=0.503950834274292
+6it [00:00,  8.71it/s][NeMo I 2026-07-12 22:08:24 sortformer_diar_models:1095] batch 6: f1_acc=0.751629650592804, precision=0.8781163692474365, recall=0.6569948196411133
+[NeMo I 2026-07-12 22:08:24 sortformer_diar_models:1095] batch 6: f1_acc_ats=0.5844690799713135, precision_ats=0.68282550573349, recall_ats=0.5108808279037476
+7it [00:00,  9.08it/s][NeMo I 2026-07-12 22:08:24 sortformer_diar_models:1095] batch 7: f1_acc=0.6717040538787842, precision=0.8791208863258362, recall=0.54347825050354
+[NeMo I 2026-07-12 22:08:24 sortformer_diar_models:1095] batch 7: f1_acc_ats=0.6717040538787842, precision_ats=0.8791208863258362, recall_ats=0.54347825050354
+8it [00:01,  9.34it/s][NeMo I 2026-07-12 22:08:24 sortformer_diar_models:1095] batch 8: f1_acc=0.8152322769165039, precision=0.9654788374900818, recall=0.7054516077041626
+[NeMo I 2026-07-12 22:08:24 sortformer_diar_models:1095] batch 8: f1_acc_ats=0.7409492135047913, precision_ats=0.8775055408477783, recall_ats=0.6411716938018799
+9it [00:01,  9.53it/s][NeMo I 2026-07-12 22:08:24 sortformer_diar_models:1095] batch 9: f1_acc=0.7733194828033447, precision=0.9102715253829956, recall=0.6721883416175842
+[NeMo I 2026-07-12 22:08:24 sortformer_diar_models:1095] batch 9: f1_acc_ats=0.4964889883995056, precision_ats=0.5844155550003052, recall_ats=0.43156060576438904
+10it [00:01,  9.65it/s][NeMo I 2026-07-12 22:08:24 sortformer_diar_models:1095] batch 10: f1_acc=0.8282515406608582, precision=0.9314285516738892, recall=0.7456541657447815
+[NeMo I 2026-07-12 22:08:24 sortformer_diar_models:1095] batch 10: f1_acc_ats=0.6351621747016907, precision_ats=0.7142857313156128, recall_ats=0.5718206763267517
+11it [00:01,  9.74it/s][NeMo I 2026-07-12 22:08:24 sortformer_diar_models:1095] batch 11: f1_acc=0.8230272531509399, precision=0.9114521741867065, recall=0.7502429485321045
+[NeMo I 2026-07-12 22:08:24 sortformer_diar_models:1095] batch 11: f1_acc_ats=0.2953086495399475, precision_ats=0.327036589384079, recall_ats=0.2691933810710907
+12it [00:01,  9.82it/s][NeMo I 2026-07-12 22:08:24 sortformer_diar_models:1095] batch 12: f1_acc=0.8027773499488831, precision=0.9194061756134033, recall=0.7124075889587402
+[NeMo I 2026-07-12 22:08:24 sortformer_diar_models:1095] batch 12: f1_acc_ats=0.8027773499488831, precision_ats=0.9194061756134033, recall_ats=0.7124075889587402
+13it [00:01,  9.86it/s][NeMo I 2026-07-12 22:08:24 sortformer_diar_models:1095] batch 13: f1_acc=0.8226309418678284, precision=0.8875969052314758, recall=0.7665271759033203
+[NeMo I 2026-07-12 22:08:24 sortformer_diar_models:1095] batch 13: f1_acc_ats=0.6376286149024963, precision_ats=0.6879844665527344, recall_ats=0.5941422581672668
+14it [00:01,  9.89it/s][NeMo I 2026-07-12 22:08:24 sortformer_diar_models:1095] batch 14: f1_acc=0.7927390933036804, precision=0.8883633017539978, recall=0.7157012224197388
+[NeMo I 2026-07-12 22:08:24 sortformer_diar_models:1095] batch 14: f1_acc_ats=0.5006327033042908, precision_ats=0.5610217452049255, recall_ats=0.45198169350624084
+15it [00:01,  9.92it/s][NeMo I 2026-07-12 22:08:25 sortformer_diar_models:1095] batch 15: f1_acc=0.7709380388259888, precision=0.7884417176246643, recall=0.7541954517364502
+[NeMo I 2026-07-12 22:08:25 sortformer_diar_models:1095] batch 15: f1_acc_ats=0.21493388712406158, precision_ats=0.2198142409324646, recall_ats=0.21026653051376343
+16it [00:01,  9.93it/s][NeMo I 2026-07-12 22:08:25 sortformer_diar_models:1095] batch 16: f1_acc=0.8943406343460083, precision=0.9600679874420166, recall=0.8370370268821716
+[NeMo I 2026-07-12 22:08:25 sortformer_diar_models:1095] batch 16: f1_acc_ats=0.8943406343460083, precision_ats=0.9600679874420166, recall_ats=0.8370370268821716
+17it [00:01,  9.95it/s][NeMo I 2026-07-12 22:08:25 sortformer_diar_models:1095] batch 17: f1_acc=0.9139591455459595, precision=0.9361510872840881, recall=0.8927958607673645
+[NeMo I 2026-07-12 22:08:25 sortformer_diar_models:1095] batch 17: f1_acc_ats=0.9139591455459595, precision_ats=0.9361510872840881, recall_ats=0.8927958607673645
+[NeMo I 2026-07-12 22:08:25 sortformer_diar_models:1095] batch 18: f1_acc=0.8688778877258301, precision=0.9197324514389038, recall=0.8233532905578613
+[NeMo I 2026-07-12 22:08:25 sortformer_diar_models:1095] batch 18: f1_acc_ats=0.8688778877258301, precision_ats=0.9197324514389038, recall_ats=0.8233532905578613
+19it [00:02,  9.90it/s][NeMo I 2026-07-12 22:08:25 sortformer_diar_models:1095] batch 19: f1_acc=0.7191378474235535, precision=0.8089469075202942, recall=0.6472781300544739
+[NeMo I 2026-07-12 22:08:25 sortformer_diar_models:1095] batch 19: f1_acc_ats=0.5517808198928833, precision_ats=0.6206896305084229, recall_ats=0.4966442883014679
+20it [00:02,  9.91it/s][NeMo I 2026-07-12 22:08:25 sortformer_diar_models:1095] batch 20: f1_acc=0.8931846618652344, precision=0.9286432266235352, recall=0.8603351712226868
+[NeMo I 2026-07-12 22:08:25 sortformer_diar_models:1095] batch 20: f1_acc_ats=0.7278873324394226, precision_ats=0.7567839026451111, recall_ats=0.7011173367500305
+21it [00:02,  9.92it/s][NeMo I 2026-07-12 22:08:25 sortformer_diar_models:1095] batch 21: f1_acc=0.8564894795417786, precision=0.9249753355979919, recall=0.7974467873573303
+[NeMo I 2026-07-12 22:08:25 sortformer_diar_models:1095] batch 21: f1_acc_ats=0.6608770489692688, precision_ats=0.7137216329574585, recall_ats=0.6153191328048706
+22it [00:02,  9.94it/s][NeMo I 2026-07-12 22:08:25 sortformer_diar_models:1095] batch 22: f1_acc=0.8156141042709351, precision=0.8690265417098999, recall=0.7683880925178528
+[NeMo I 2026-07-12 22:08:25 sortformer_diar_models:1095] batch 22: f1_acc_ats=0.681062638759613, precision_ats=0.7256637215614319, recall_ats=0.6416275501251221
+23it [00:02,  9.95it/s][NeMo I 2026-07-12 22:08:25 sortformer_diar_models:1095] batch 23: f1_acc=0.7656314969062805, precision=0.9005290865898132, recall=0.6658841967582703
+[NeMo I 2026-07-12 22:08:25 sortformer_diar_models:1095] batch 23: f1_acc_ats=0.4156540036201477, precision_ats=0.4888888895511627, recall_ats=0.36150234937667847
+24it [00:02,  9.95it/s][NeMo I 2026-07-12 22:08:25 sortformer_diar_models:1095] batch 24: f1_acc=0.8542090058326721, precision=0.9386281371116638, recall=0.7837226986885071
+[NeMo I 2026-07-12 22:08:25 sortformer_diar_models:1095] batch 24: f1_acc_ats=0.8542090058326721, precision_ats=0.9386281371116638, recall_ats=0.7837226986885071
+25it [00:02,  9.95it/s][NeMo I 2026-07-12 22:08:26 sortformer_diar_models:1095] batch 25: f1_acc=0.8072082996368408, precision=0.9008418917655945, recall=0.7312073111534119
+[NeMo I 2026-07-12 22:08:26 sortformer_diar_models:1095] batch 25: f1_acc_ats=0.7703264951705933, precision_ats=0.8596819639205933, recall_ats=0.6977980136871338
+26it [00:02,  9.96it/s][NeMo I 2026-07-12 22:08:26 sortformer_diar_models:1095] batch 26: f1_acc=0.8350510001182556, precision=0.9030874967575073, recall=0.7765486836433411
+[NeMo I 2026-07-12 22:08:26 sortformer_diar_models:1095] batch 26: f1_acc_ats=0.713718831539154, precision_ats=0.7718696594238281, recall_ats=0.6637167930603027
+27it [00:02,  9.97it/s][NeMo I 2026-07-12 22:08:26 sortformer_diar_models:1095] batch 27: f1_acc=0.9203931093215942, precision=0.9772079586982727, recall=0.8698225021362305
+[NeMo I 2026-07-12 22:08:26 sortformer_diar_models:1095] batch 27: f1_acc_ats=0.746868908405304, precision_ats=0.7929724454879761, recall_ats=0.7058326005935669
+28it [00:03,  9.98it/s][NeMo I 2026-07-12 22:08:26 sortformer_diar_models:1095] batch 28: f1_acc=0.8701417446136475, precision=0.9704017043113708, recall=0.7886598110198975
+[NeMo I 2026-07-12 22:08:26 sortformer_diar_models:1095] batch 28: f1_acc_ats=0.8701417446136475, precision_ats=0.9704017043113708, recall_ats=0.7886598110198975
+29it [00:03,  9.98it/s][NeMo I 2026-07-12 22:08:26 sortformer_diar_models:1095] batch 29: f1_acc=0.9047430753707886, precision=0.9583333134651184, recall=0.856829822063446
+[NeMo I 2026-07-12 22:08:26 sortformer_diar_models:1095] batch 29: f1_acc_ats=0.9047430753707886, precision_ats=0.9583333134651184, recall_ats=0.856829822063446
+30it [00:03,  9.97it/s][NeMo I 2026-07-12 22:08:26 sortformer_diar_models:1095] batch 30: f1_acc=0.694584310054779, precision=0.8446004986763, recall=0.5898221731185913
+[NeMo I 2026-07-12 22:08:26 sortformer_diar_models:1095] batch 30: f1_acc_ats=0.694584310054779, precision_ats=0.8446004986763, recall_ats=0.5898221731185913
+31it [00:03,  9.97it/s][NeMo I 2026-07-12 22:08:26 sortformer_diar_models:1095] batch 31: f1_acc=0.13333313167095184, precision=0.6216216087341309, recall=0.07467532157897949
+[NeMo I 2026-07-12 22:08:26 sortformer_diar_models:1095] batch 31: f1_acc_ats=0.08695632219314575, precision_ats=0.4054054021835327, recall_ats=0.048701297491788864
+32it [00:03,  9.96it/s][NeMo I 2026-07-12 22:08:26 sortformer_diar_models:1095] batch 32: f1_acc=0.5995419025421143, precision=0.803680956363678, recall=0.4781021773815155
+[NeMo I 2026-07-12 22:08:26 sortformer_diar_models:1095] batch 32: f1_acc_ats=0.21052584052085876, precision_ats=0.2822085916996002, recall_ats=0.16788321733474731
+33it [00:03,  9.97it/s][NeMo I 2026-07-12 22:08:26 sortformer_diar_models:1095] batch 33: f1_acc=0.7407788038253784, precision=0.9247730374336243, recall=0.6178509593009949
+[NeMo I 2026-07-12 22:08:26 sortformer_diar_models:1095] batch 33: f1_acc_ats=0.7407788038253784, precision_ats=0.9247730374336243, recall_ats=0.6178509593009949
+34it [00:03,  9.96it/s][NeMo I 2026-07-12 22:08:26 sortformer_diar_models:1095] batch 34: f1_acc=0.8447375893592834, precision=0.9236326217651367, recall=0.7782608866691589
+[NeMo I 2026-07-12 22:08:26 sortformer_diar_models:1095] batch 34: f1_acc_ats=0.6342609524726868, precision_ats=0.693498432636261, recall_ats=0.5843478441238403
+35it [00:03,  9.96it/s][NeMo I 2026-07-12 22:08:27 sortformer_diar_models:1095] batch 35: f1_acc=0.7532688975334167, precision=0.8999999761581421, recall=0.6476761698722839
+[NeMo I 2026-07-12 22:08:27 sortformer_diar_models:1095] batch 35: f1_acc_ats=0.5789009928703308, precision_ats=0.6916666626930237, recall_ats=0.4977511167526245
+36it [00:03,  9.96it/s][NeMo I 2026-07-12 22:08:27 sortformer_diar_models:1095] batch 36: f1_acc=0.7679809927940369, precision=0.9332706928253174, recall=0.6524310111999512
+[NeMo I 2026-07-12 22:08:27 sortformer_diar_models:1095] batch 36: f1_acc_ats=0.5351890325546265, precision_ats=0.6503759622573853, recall_ats=0.4546649158000946
+37it [00:03,  9.95it/s][NeMo I 2026-07-12 22:08:27 sortformer_diar_models:1095] batch 37: f1_acc=0.8179342746734619, precision=0.9183829426765442, recall=0.7372933030128479
+[NeMo I 2026-07-12 22:08:27 sortformer_diar_models:1095] batch 37: f1_acc_ats=0.4524451792240143, precision_ats=0.508009135723114, recall_ats=0.4078383445739746
+38it [00:04,  9.95it/s][NeMo I 2026-07-12 22:08:27 sortformer_diar_models:1095] batch 38: f1_acc=0.8007457852363586, precision=0.8773507475852966, recall=0.7364447712898254
+[NeMo I 2026-07-12 22:08:27 sortformer_diar_models:1095] batch 38: f1_acc_ats=0.8007457852363586, precision_ats=0.8773507475852966, recall_ats=0.7364447712898254
+39it [00:04,  9.95it/s][NeMo I 2026-07-12 22:08:27 sortformer_diar_models:1095] batch 39: f1_acc=0.8346805572509766, precision=0.9036964774131775, recall=0.7754591107368469
+[NeMo I 2026-07-12 22:08:27 sortformer_diar_models:1095] batch 39: f1_acc_ats=0.08535440266132355, precision_ats=0.09241244941949844, recall_ats=0.07929883152246475
+40it [00:04,  9.95it/s][NeMo I 2026-07-12 22:08:27 sortformer_diar_models:1095] batch 40: f1_acc=0.7862499952316284, precision=0.9061930775642395, recall=0.6943475008010864
+[NeMo I 2026-07-12 22:08:27 sortformer_diar_models:1095] batch 40: f1_acc_ats=0.7862499952316284, precision_ats=0.9061930775642395, recall_ats=0.6943475008010864
+41it [00:04,  9.95it/s][NeMo I 2026-07-12 22:08:27 sortformer_diar_models:1095] batch 41: f1_acc=0.8526896238327026, precision=0.9551122188568115, recall=0.7701072096824646
+[NeMo I 2026-07-12 22:08:27 sortformer_diar_models:1095] batch 41: f1_acc_ats=0.8526896238327026, precision_ats=0.9551122188568115, recall_ats=0.7701072096824646
+42it [00:04,  9.95it/s][NeMo I 2026-07-12 22:08:27 sortformer_diar_models:1095] batch 42: f1_acc=0.7927751541137695, precision=0.8621640205383301, recall=0.7337243556976318
+[NeMo I 2026-07-12 22:08:27 sortformer_diar_models:1095] batch 42: f1_acc_ats=0.4657789468765259, precision_ats=0.506547212600708, recall_ats=0.4310850501060486
+43it [00:04,  9.96it/s][NeMo I 2026-07-12 22:08:27 sortformer_diar_models:1095] batch 43: f1_acc=0.8131236433982849, precision=0.9539749026298523, recall=0.7085146307945251
+[NeMo I 2026-07-12 22:08:27 sortformer_diar_models:1095] batch 43: f1_acc_ats=0.8131236433982849, precision_ats=0.9539749026298523, recall_ats=0.7085146307945251
+44it [00:04,  9.96it/s][NeMo I 2026-07-12 22:08:27 sortformer_diar_models:1095] batch 44: f1_acc=0.781509518623352, precision=0.8631722331047058, recall=0.7139639854431152
+[NeMo I 2026-07-12 22:08:27 sortformer_diar_models:1095] batch 44: f1_acc_ats=0.6563940048217773, precision_ats=0.7249829769134521, recall_ats=0.599662184715271
+45it [00:04,  9.95it/s][NeMo I 2026-07-12 22:08:28 sortformer_diar_models:1095] batch 45: f1_acc=0.8020918965339661, precision=0.8949416279792786, recall=0.7266982793807983
+[NeMo I 2026-07-12 22:08:28 sortformer_diar_models:1095] batch 45: f1_acc_ats=0.3283923864364624, precision_ats=0.36640727519989014, recall_ats=0.297525018453598
+46it [00:04,  9.94it/s][NeMo I 2026-07-12 22:08:28 sortformer_diar_models:1095] batch 46: f1_acc=0.8356828689575195, precision=0.9500616788864136, recall=0.7458857893943787
+[NeMo I 2026-07-12 22:08:28 sortformer_diar_models:1095] batch 46: f1_acc_ats=0.5710408091545105, precision_ats=0.6491985321044922, recall_ats=0.5096805691719055
+47it [00:04,  9.95it/s][NeMo I 2026-07-12 22:08:28 sortformer_diar_models:1095] batch 47: f1_acc=0.7434226274490356, precision=0.8609318733215332, recall=0.6541394591331482
+[NeMo I 2026-07-12 22:08:28 sortformer_diar_models:1095] batch 47: f1_acc_ats=0.5131533145904541, precision_ats=0.5942652225494385, recall_ats=0.4515250623226166
+48it [00:05,  9.94it/s][NeMo I 2026-07-12 22:08:28 sortformer_diar_models:1095] batch 48: f1_acc=0.8033328652381897, precision=0.8925926089286804, recall=0.7303030490875244
+[NeMo I 2026-07-12 22:08:28 sortformer_diar_models:1095] batch 48: f1_acc_ats=0.8033328652381897, precision_ats=0.8925926089286804, recall_ats=0.7303030490875244
+49it [00:05,  9.94it/s][NeMo I 2026-07-12 22:08:28 sortformer_diar_models:1095] batch 49: f1_acc=0.7328339219093323, precision=0.8790007829666138, recall=0.6283482313156128
+[NeMo I 2026-07-12 22:08:28 sortformer_diar_models:1095] batch 49: f1_acc_ats=0.2811579704284668, precision_ats=0.33723652362823486, recall_ats=0.2410714328289032
+[NeMo I 2026-07-12 22:08:28 sortformer_diar_models:1095] batch 50: f1_acc=0.844850480556488, precision=0.9278273582458496, recall=0.7754974961280823
+[NeMo I 2026-07-12 22:08:28 sortformer_diar_models:1095] batch 50: f1_acc_ats=0.8096200823783875, precision_ats=0.8891369104385376, recall_ats=0.7431591749191284
+51it [00:05,  9.97it/s][NeMo I 2026-07-12 22:08:28 sortformer_diar_models:1095] batch 51: f1_acc=0.8173860907554626, precision=0.9077109694480896, recall=0.7434112429618835
+[NeMo I 2026-07-12 22:08:28 sortformer_diar_models:1095] batch 51: f1_acc_ats=0.8173860907554626, precision_ats=0.9077109694480896, recall_ats=0.7434112429618835
+52it [00:05,  9.97it/s][NeMo I 2026-07-12 22:08:28 sortformer_diar_models:1095] batch 52: f1_acc=0.8124995231628418, precision=0.8841309547424316, recall=0.7516059875488281
+[NeMo I 2026-07-12 22:08:28 sortformer_diar_models:1095] batch 52: f1_acc_ats=0.8124995231628418, precision_ats=0.8841309547424316, recall_ats=0.7516059875488281
+53it [00:05,  9.97it/s][NeMo I 2026-07-12 22:08:28 sortformer_diar_models:1095] batch 53: f1_acc=0.917488694190979, precision=0.9659185409545898, recall=0.8736842274665833
+[NeMo I 2026-07-12 22:08:28 sortformer_diar_models:1095] batch 53: f1_acc_ats=0.7429920434951782, precision_ats=0.7822111248970032, recall_ats=0.7075188159942627
+54it [00:05,  9.97it/s][NeMo I 2026-07-12 22:08:28 sortformer_diar_models:1095] batch 54: f1_acc=0.8593431711196899, precision=0.9546130895614624, recall=0.7813642024993896
+[NeMo I 2026-07-12 22:08:28 sortformer_diar_models:1095] batch 54: f1_acc_ats=0.8593431711196899, precision_ats=0.9546130895614624, recall_ats=0.7813642024993896
+[NeMo I 2026-07-12 22:08:29 sortformer_diar_models:1095] batch 55: f1_acc=0.8128526210784912, precision=0.9599666595458984, recall=0.7048377394676208
+[NeMo I 2026-07-12 22:08:29 sortformer_diar_models:1095] batch 55: f1_acc_ats=0.8128526210784912, precision_ats=0.9599666595458984, recall_ats=0.7048377394676208
+56it [00:05, 10.00it/s][NeMo I 2026-07-12 22:08:29 sortformer_diar_models:1095] batch 56: f1_acc=0.8411701917648315, precision=0.8863478899002075, recall=0.8003754615783691
+[NeMo I 2026-07-12 22:08:29 sortformer_diar_models:1095] batch 56: f1_acc_ats=0.42354437708854675, precision_ats=0.4462924599647522, recall_ats=0.4030037522315979
+[NeMo I 2026-07-12 22:08:29 sortformer_diar_models:1095] batch 57: f1_acc=0.851472020149231, precision=0.922970175743103, recall=0.7902554869651794
+[NeMo I 2026-07-12 22:08:29 sortformer_diar_models:1095] batch 57: f1_acc_ats=0.851472020149231, precision_ats=0.922970175743103, recall_ats=0.7902554869651794
+58it [00:06, 10.03it/s][NeMo I 2026-07-12 22:08:29 sortformer_diar_models:1095] batch 58: f1_acc=0.9168916940689087, precision=0.9556809067726135, recall=0.881129264831543
+[NeMo I 2026-07-12 22:08:29 sortformer_diar_models:1095] batch 58: f1_acc_ats=0.8333972096443176, precision_ats=0.8686543107032776, recall_ats=0.8008915185928345
+[NeMo I 2026-07-12 22:08:29 sortformer_diar_models:1095] batch 59: f1_acc=0.8452697396278381, precision=0.8872340321540833, recall=0.8070967793464661
+[NeMo I 2026-07-12 22:08:29 sortformer_diar_models:1095] batch 59: f1_acc_ats=0.4094589650630951, precision_ats=0.4297872483730316, recall_ats=0.3909677565097809
+60it [00:06, 10.07it/s][NeMo I 2026-07-12 22:08:29 sortformer_diar_models:1095] batch 60: f1_acc=0.8221549987792969, precision=0.9194029569625854, recall=0.7435123920440674
+[NeMo I 2026-07-12 22:08:29 sortformer_diar_models:1095] batch 60: f1_acc_ats=0.4551212787628174, precision_ats=0.5089552402496338, recall_ats=0.4115872085094452
+[NeMo I 2026-07-12 22:08:29 sortformer_diar_models:1095] batch 61: f1_acc=0.8315457105636597, precision=0.8950111865997314, recall=0.776485800743103
+[NeMo I 2026-07-12 22:08:29 sortformer_diar_models:1095] batch 61: f1_acc_ats=0.7540637850761414, precision_ats=0.8116157650947571, recall_ats=0.7041343450546265
+62it [00:06, 10.06it/s][NeMo I 2026-07-12 22:08:29 sortformer_diar_models:1095] batch 62: f1_acc=0.31348270177841187, precision=0.4894736707210541, recall=0.23057851195335388
+[NeMo I 2026-07-12 22:08:29 sortformer_diar_models:1095] batch 62: f1_acc_ats=0.28426921367645264, precision_ats=0.44385963678359985, recall_ats=0.20909090340137482
+[NeMo I 2026-07-12 22:08:29 sortformer_diar_models:1095] batch 63: f1_acc=0.7392821311950684, precision=0.907626211643219, recall=0.6236162185668945
+[NeMo I 2026-07-12 22:08:29 sortformer_diar_models:1095] batch 63: f1_acc_ats=0.7392821311950684, precision_ats=0.907626211643219, recall_ats=0.6236162185668945
+64it [00:06,  9.92it/s][NeMo I 2026-07-12 22:08:29 sortformer_diar_models:1095] batch 64: f1_acc=0.7674868106842041, precision=0.8775692582130432, recall=0.6819444298744202
+[NeMo I 2026-07-12 22:08:29 sortformer_diar_models:1095] batch 64: f1_acc_ats=0.5486513376235962, precision_ats=0.627345860004425, recall_ats=0.48750001192092896
+65it [00:06,  9.85it/s][NeMo I 2026-07-12 22:08:30 sortformer_diar_models:1095] batch 65: f1_acc=0.8642799258232117, precision=0.9546952247619629, recall=0.7895095348358154
+[NeMo I 2026-07-12 22:08:30 sortformer_diar_models:1095] batch 65: f1_acc_ats=0.5219980478286743, precision_ats=0.576606273651123, recall_ats=0.47683924436569214
+66it [00:06,  9.78it/s][NeMo I 2026-07-12 22:08:30 sortformer_diar_models:1095] batch 66: f1_acc=0.6934669017791748, precision=0.8296593427658081, recall=0.5956834554672241
+[NeMo I 2026-07-12 22:08:30 sortformer_diar_models:1095] batch 66: f1_acc_ats=0.6281402111053467, precision_ats=0.7515029907226562, recall_ats=0.5395683646202087
+67it [00:06,  9.66it/s][NeMo I 2026-07-12 22:08:30 sortformer_diar_models:1095] batch 67: f1_acc=0.8091545104980469, precision=0.9349064230918884, recall=0.7132216095924377
+[NeMo I 2026-07-12 22:08:30 sortformer_diar_models:1095] batch 67: f1_acc_ats=0.8091545104980469, precision_ats=0.9349064230918884, recall_ats=0.7132216095924377
+68it [00:07,  9.67it/s][NeMo I 2026-07-12 22:08:30 sortformer_diar_models:1095] batch 68: f1_acc=0.8177662491798401, precision=0.9581711888313293, recall=0.7132512927055359
+[NeMo I 2026-07-12 22:08:30 sortformer_diar_models:1095] batch 68: f1_acc_ats=0.7289327383041382, precision_ats=0.8540856242179871, recall_ats=0.6357711553573608
+69it [00:07,  9.56it/s][NeMo I 2026-07-12 22:08:30 sortformer_diar_models:1095] batch 69: f1_acc=0.7730650305747986, precision=0.8565539717674255, recall=0.7044067978858948
+[NeMo I 2026-07-12 22:08:30 sortformer_diar_models:1095] batch 69: f1_acc_ats=0.5811007022857666, precision_ats=0.6438581943511963, recall_ats=0.5294915437698364
+70it [00:07,  9.46it/s][NeMo I 2026-07-12 22:08:30 sortformer_diar_models:1095] batch 70: f1_acc=0.7896853089332581, precision=0.915032684803009, recall=0.6945428848266602
+[NeMo I 2026-07-12 22:08:30 sortformer_diar_models:1095] batch 70: f1_acc_ats=0.7171631455421448, precision_ats=0.8309990763664246, recall_ats=0.6307583451271057
+71it [00:07,  9.48it/s][NeMo I 2026-07-12 22:08:30 sortformer_diar_models:1095] batch 71: f1_acc=0.8481590151786804, precision=0.875, recall=0.8229166865348816
+[NeMo I 2026-07-12 22:08:30 sortformer_diar_models:1095] batch 71: f1_acc_ats=0.8481590151786804, precision_ats=0.875, recall_ats=0.8229166865348816
+72it [00:07,  9.51it/s][NeMo I 2026-07-12 22:08:30 sortformer_diar_models:1095] batch 72: f1_acc=0.901030421257019, precision=0.9066389799118042, recall=0.8954917788505554
+[NeMo I 2026-07-12 22:08:30 sortformer_diar_models:1095] batch 72: f1_acc_ats=0.901030421257019, precision_ats=0.9066389799118042, recall_ats=0.8954917788505554
+73it [00:07,  9.40it/s][NeMo I 2026-07-12 22:08:30 sortformer_diar_models:1095] batch 73: f1_acc=0.8624669313430786, precision=0.9633638858795166, recall=0.780701756477356
+[NeMo I 2026-07-12 22:08:30 sortformer_diar_models:1095] batch 73: f1_acc_ats=0.8624669313430786, precision_ats=0.9633638858795166, recall_ats=0.780701756477356
+74it [00:07,  9.29it/s][NeMo I 2026-07-12 22:08:30 sortformer_diar_models:1095] batch 74: f1_acc=0.8249175548553467, precision=0.8928318023681641, recall=0.7666057348251343
+[NeMo I 2026-07-12 22:08:31 sortformer_diar_models:1095] batch 74: f1_acc_ats=0.7567208409309387, precision_ats=0.8190205693244934, recall_ats=0.7032297253608704
+75it [00:07,  9.36it/s][NeMo I 2026-07-12 22:08:31 sortformer_diar_models:1095] batch 75: f1_acc=0.8039680123329163, precision=0.9430176615715027, recall=0.7006559371948242
+[NeMo I 2026-07-12 22:08:31 sortformer_diar_models:1095] batch 75: f1_acc_ats=0.47964370250701904, precision_ats=0.562600314617157, recall_ats=0.41800835728645325
+76it [00:07,  9.42it/s][NeMo I 2026-07-12 22:08:31 sortformer_diar_models:1095] batch 76: f1_acc=0.8243916630744934, precision=0.927888810634613, recall=0.7416666746139526
+[NeMo I 2026-07-12 22:08:31 sortformer_diar_models:1095] batch 76: f1_acc_ats=0.8243916630744934, precision_ats=0.927888810634613, recall_ats=0.7416666746139526
+77it [00:08,  9.32it/s][NeMo I 2026-07-12 22:08:31 sortformer_diar_models:1095] batch 77: f1_acc=0.784133791923523, precision=0.890043318271637, recall=0.7007498145103455
+[NeMo I 2026-07-12 22:08:31 sortformer_diar_models:1095] batch 77: f1_acc_ats=0.3707088530063629, precision_ats=0.4207792282104492, recall_ats=0.33128833770751953
+78it [00:08,  9.32it/s][NeMo I 2026-07-12 22:08:31 sortformer_diar_models:1095] batch 78: f1_acc=0.7836002111434937, precision=0.9030402898788452, recall=0.6920654773712158
+[NeMo I 2026-07-12 22:08:31 sortformer_diar_models:1095] batch 78: f1_acc_ats=0.16470538079738617, precision_ats=0.18981100618839264, recall_ats=0.14546599984169006
+79it [00:08,  9.25it/s][NeMo I 2026-07-12 22:08:31 sortformer_diar_models:1095] batch 79: f1_acc=0.8798782825469971, precision=0.9325301051139832, recall=0.8328551054000854
+[NeMo I 2026-07-12 22:08:31 sortformer_diar_models:1095] batch 79: f1_acc_ats=0.8798782825469971, precision_ats=0.9325301051139832, recall_ats=0.8328551054000854
+80it [00:08,  9.21it/s][NeMo I 2026-07-12 22:08:31 sortformer_diar_models:1095] batch 80: f1_acc=0.8623351454734802, precision=0.9662045240402222, recall=0.7786312699317932
+[NeMo I 2026-07-12 22:08:31 sortformer_diar_models:1095] batch 80: f1_acc_ats=0.8623351454734802, precision_ats=0.9662045240402222, recall_ats=0.7786312699317932
+81it [00:08,  9.19it/s][NeMo I 2026-07-12 22:08:31 sortformer_diar_models:1095] batch 81: f1_acc=0.798228919506073, precision=0.8607796430587769, recall=0.7441540360450745
+[NeMo I 2026-07-12 22:08:31 sortformer_diar_models:1095] batch 81: f1_acc_ats=0.5599404573440552, precision_ats=0.6038185954093933, recall_ats=0.5220082402229309
+82it [00:08,  9.18it/s][NeMo I 2026-07-12 22:08:31 sortformer_diar_models:1095] batch 82: f1_acc=0.7095034122467041, precision=0.8632727265357971, recall=0.6022323966026306
+[NeMo I 2026-07-12 22:08:31 sortformer_diar_models:1095] batch 82: f1_acc_ats=0.7095034122467041, precision_ats=0.8632727265357971, recall_ats=0.6022323966026306
+83it [00:08,  9.28it/s][NeMo I 2026-07-12 22:08:31 sortformer_diar_models:1095] batch 83: f1_acc=0.7542130351066589, precision=0.9404553174972534, recall=0.6295427680015564
+[NeMo I 2026-07-12 22:08:31 sortformer_diar_models:1095] batch 83: f1_acc_ats=0.2717691957950592, precision_ats=0.33887916803359985, recall_ats=0.22684642672538757
+84it [00:08,  9.24it/s][NeMo I 2026-07-12 22:08:32 sortformer_diar_models:1095] batch 84: f1_acc=0.8189618587493896, precision=0.8804173469543457, recall=0.7655268907546997
+[NeMo I 2026-07-12 22:08:32 sortformer_diar_models:1095] batch 84: f1_acc_ats=0.4643518626689911, precision_ats=0.49919742345809937, recall_ats=0.434054434299469
+85it [00:08,  9.32it/s][NeMo I 2026-07-12 22:08:32 sortformer_diar_models:1095] batch 85: f1_acc=0.7691722512245178, precision=0.8518828749656677, recall=0.7011018991470337
+[NeMo I 2026-07-12 22:08:32 sortformer_diar_models:1095] batch 85: f1_acc_ats=0.34831833839416504, precision_ats=0.38577404618263245, recall_ats=0.31749311089515686
+86it [00:09,  9.27it/s][NeMo I 2026-07-12 22:08:32 sortformer_diar_models:1095] batch 86: f1_acc=0.7353246808052063, precision=0.8709408640861511, recall=0.6362530589103699
+[NeMo I 2026-07-12 22:08:32 sortformer_diar_models:1095] batch 86: f1_acc_ats=0.659402072429657, precision_ats=0.7810158133506775, recall_ats=0.5705596208572388
+87it [00:09,  9.36it/s][NeMo I 2026-07-12 22:08:32 sortformer_diar_models:1095] batch 87: f1_acc=0.8442530035972595, precision=0.8945371508598328, recall=0.7993220090866089
+[NeMo I 2026-07-12 22:08:32 sortformer_diar_models:1095] batch 87: f1_acc_ats=0.49695613980293274, precision_ats=0.5265553593635559, recall_ats=0.47050848603248596
+88it [00:09,  9.42it/s][NeMo I 2026-07-12 22:08:32 sortformer_diar_models:1095] batch 88: f1_acc=0.7588138580322266, precision=0.8830791711807251, recall=0.6652078628540039
+[NeMo I 2026-07-12 22:08:32 sortformer_diar_models:1095] batch 88: f1_acc_ats=0.5067077875137329, precision_ats=0.589687705039978, recall_ats=0.4442013204097748
+89it [00:09,  9.39it/s][NeMo I 2026-07-12 22:08:32 sortformer_diar_models:1095] batch 89: f1_acc=0.8429747819900513, precision=0.8933120965957642, recall=0.7980085611343384
+[NeMo I 2026-07-12 22:08:32 sortformer_diar_models:1095] batch 89: f1_acc_ats=0.1855742335319519, precision_ats=0.19665604829788208, recall_ats=0.1756756752729416
+90it [00:09,  9.43it/s][NeMo I 2026-07-12 22:08:32 sortformer_diar_models:1095] batch 90: f1_acc=0.7852460145950317, precision=0.8884555101394653, recall=0.7035207152366638
+[NeMo I 2026-07-12 22:08:32 sortformer_diar_models:1095] batch 90: f1_acc_ats=0.30610084533691406, precision_ats=0.3463338613510132, recall_ats=0.2742433547973633
+91it [00:09,  9.48it/s][NeMo I 2026-07-12 22:08:32 sortformer_diar_models:1095] batch 91: f1_acc=0.8464211821556091, precision=0.9326513409614563, recall=0.7747875452041626
+[NeMo I 2026-07-12 22:08:32 sortformer_diar_models:1095] batch 91: f1_acc_ats=0.811604917049408, precision_ats=0.8942881226539612, recall_ats=0.7429178357124329
+92it [00:09,  9.51it/s][NeMo I 2026-07-12 22:08:32 sortformer_diar_models:1095] batch 92: f1_acc=0.7270969748497009, precision=0.8471910357475281, recall=0.6368243098258972
+[NeMo I 2026-07-12 22:08:32 sortformer_diar_models:1095] batch 92: f1_acc_ats=0.7270969748497009, precision_ats=0.8471910357475281, recall_ats=0.6368243098258972
+93it [00:09,  9.38it/s][NeMo I 2026-07-12 22:08:33 sortformer_diar_models:1095] batch 93: f1_acc=0.7570571899414062, precision=0.8888888955116272, recall=0.6592797636985779
+[NeMo I 2026-07-12 22:08:33 sortformer_diar_models:1095] batch 93: f1_acc_ats=0.6457251906394958, precision_ats=0.758169949054718, recall_ats=0.5623268485069275
+94it [00:09,  9.43it/s][NeMo I 2026-07-12 22:08:33 sortformer_diar_models:1095] batch 94: f1_acc=0.6457394957542419, precision=0.9290322661399841, recall=0.49484536051750183
+[NeMo I 2026-07-12 22:08:33 sortformer_diar_models:1095] batch 94: f1_acc_ats=0.6457394957542419, precision_ats=0.9290322661399841, recall_ats=0.49484536051750183
+95it [00:09,  9.37it/s][NeMo I 2026-07-12 22:08:33 sortformer_diar_models:1095] batch 95: f1_acc=0.7653802037239075, precision=0.8748509883880615, recall=0.6802595257759094
+[NeMo I 2026-07-12 22:08:33 sortformer_diar_models:1095] batch 95: f1_acc_ats=0.40041661262512207, precision_ats=0.45768773555755615, recall_ats=0.3558850884437561
+96it [00:10,  9.33it/s][NeMo I 2026-07-12 22:08:33 sortformer_diar_models:1095] batch 96: f1_acc=0.4942918121814728, precision=0.565274178981781, recall=0.43914806842803955
+[NeMo I 2026-07-12 22:08:33 sortformer_diar_models:1095] batch 96: f1_acc_ats=0.2842460572719574, precision_ats=0.3250652849674225, recall_ats=0.25253549218177795
+97it [00:10,  9.40it/s][NeMo I 2026-07-12 22:08:33 sortformer_diar_models:1095] batch 97: f1_acc=0.41919654607772827, precision=0.8953974843025208, recall=0.27365729212760925
+[NeMo I 2026-07-12 22:08:33 sortformer_diar_models:1095] batch 97: f1_acc_ats=0.24485760927200317, precision_ats=0.5230125784873962, recall_ats=0.15984654426574707
+98it [00:10,  9.45it/s][NeMo I 2026-07-12 22:08:33 sortformer_diar_models:1095] batch 98: f1_acc=0.7080491781234741, precision=0.8857715725898743, recall=0.5897265076637268
+[NeMo I 2026-07-12 22:08:33 sortformer_diar_models:1095] batch 98: f1_acc_ats=0.23788496851921082, precision_ats=0.29759520292282104, recall_ats=0.19813208281993866
+99it [00:10,  9.48it/s][NeMo I 2026-07-12 22:08:33 sortformer_diar_models:1095] batch 99: f1_acc=0.668975293636322, precision=0.9454545378684998, recall=0.517611026763916
+[NeMo I 2026-07-12 22:08:33 sortformer_diar_models:1095] batch 99: f1_acc_ats=0.2810485064983368, precision_ats=0.3972027897834778, recall_ats=0.21745789051055908
+100it [00:10,  9.50it/s][NeMo I 2026-07-12 22:08:33 sortformer_diar_models:1095] batch 100: f1_acc=0.6555179357528687, precision=0.8437884449958801, recall=0.535937488079071
+[NeMo I 2026-07-12 22:08:33 sortformer_diar_models:1095] batch 100: f1_acc_ats=0.6555179357528687, precision_ats=0.8437884449958801, recall_ats=0.535937488079071
+101it [00:10,  9.39it/s][NeMo I 2026-07-12 22:08:33 sortformer_diar_models:1095] batch 101: f1_acc=0.560553252696991, precision=0.8901098966598511, recall=0.40909090638160706
+[NeMo I 2026-07-12 22:08:33 sortformer_diar_models:1095] batch 101: f1_acc_ats=0.5273352265357971, precision_ats=0.8373626470565796, recall_ats=0.3848484754562378
+102it [00:10,  9.44it/s][NeMo I 2026-07-12 22:08:33 sortformer_diar_models:1095] batch 102: f1_acc=0.8039599061012268, precision=0.90625, recall=0.7224199175834656
+[NeMo I 2026-07-12 22:08:33 sortformer_diar_models:1095] batch 102: f1_acc_ats=0.7907586097717285, precision_ats=0.8913690447807312, recall_ats=0.7105575203895569
+[NeMo I 2026-07-12 22:08:34 sortformer_diar_models:1095] batch 103: f1_acc=0.43046310544013977, precision=0.37195995450019836, recall=0.5108054876327515
+[NeMo I 2026-07-12 22:08:34 sortformer_diar_models:1095] batch 103: f1_acc_ats=0.3360922336578369, precision_ats=0.29041486978530884, recall_ats=0.3988212049007416
+104it [00:10, 11.87it/s][NeMo I 2026-07-12 22:08:34 sortformer_diar_models:1095] batch 104: f1_acc=0.8203057050704956, precision=0.9322344064712524, recall=0.7323740720748901
+[NeMo I 2026-07-12 22:08:34 sortformer_diar_models:1095] batch 104: f1_acc_ats=0.6768730282783508, precision_ats=0.7692307829856873, recall_ats=0.6043165326118469
+[NeMo I 2026-07-12 22:08:34 sortformer_diar_models:1095] batch 105: f1_acc=0.9154108762741089, precision=0.9705159664154053, recall=0.8662280440330505
+[NeMo I 2026-07-12 22:08:34 sortformer_diar_models:1095] batch 105: f1_acc_ats=0.9130933880805969, precision_ats=0.9680589437484741, recall_ats=0.8640350699424744
+[NeMo I 2026-07-12 22:08:34 sortformer_diar_models:1095] batch 106: f1_acc=0.6227102279663086, precision=0.8333333134651184, recall=0.49707603454589844
+[NeMo I 2026-07-12 22:08:34 sortformer_diar_models:1095] batch 106: f1_acc_ats=0.6227102279663086, precision_ats=0.8333333134651184, recall_ats=0.49707603454589844
+107it [00:10, 16.12it/s]107it [00:10,  9.76it/s]
+[NeMo I 2026-07-12 22:08:34 e2e_diarize_speech:413] Batch F1Acc. MEAN: 0.7683777213096619
+[NeMo I 2026-07-12 22:08:34 e2e_diarize_speech:413] Batch Precision MEAN: 0.8891711831092834
+[NeMo I 2026-07-12 22:08:34 e2e_diarize_speech:413] Batch Recall MEAN: 0.6902890801429749
+[NeMo I 2026-07-12 22:08:34 e2e_diarize_speech:413] Batch ATS F1Acc. MEAN: 0.5993778705596924
+Running offline diarization evaluation...
+Binarization:   0%|          | 0/107 [00:00<?, ?it/s]Binarization:   1%|          | 1/107 [00:00<00:14,  7.46it/s]Binarization:   3%|▎         | 3/107 [00:00<00:09, 10.45it/s]Binarization:   5%|▍         | 5/107 [00:00<00:09, 11.22it/s]Binarization:   7%|▋         | 7/107 [00:00<00:08, 11.56it/s]Binarization:   8%|▊         | 9/107 [00:00<00:08, 11.72it/s]Binarization:  10%|█         | 11/107 [00:00<00:08, 11.80it/s]Binarization:  12%|█▏        | 13/107 [00:01<00:07, 11.84it/s]Binarization:  14%|█▍        | 15/107 [00:01<00:07, 11.92it/s]Binarization:  16%|█▌        | 17/107 [00:01<00:07, 11.98it/s]Binarization:  18%|█▊        | 19/107 [00:01<00:07, 12.04it/s]Binarization:  20%|█▉        | 21/107 [00:01<00:07, 12.05it/s]Binarization:  21%|██▏       | 23/107 [00:01<00:06, 12.08it/s]Binarization:  23%|██▎       | 25/107 [00:02<00:06, 12.02it/s]Binarization:  25%|██▌       | 27/107 [00:02<00:06, 11.96it/s]Binarization:  27%|██▋       | 29/107 [00:02<00:06, 11.96it/s]Binarization:  29%|██▉       | 31/107 [00:02<00:06, 11.98it/s]Binarization:  31%|███       | 33/107 [00:02<00:06, 11.98it/s]Binarization:  33%|███▎      | 35/107 [00:02<00:06, 11.99it/s]Binarization:  35%|███▍      | 37/107 [00:03<00:05, 12.02it/s]Binarization:  36%|███▋      | 39/107 [00:03<00:05, 12.04it/s]Binarization:  38%|███▊      | 41/107 [00:03<00:05, 12.08it/s]Binarization:  40%|████      | 43/107 [00:03<00:05, 12.07it/s]Binarization:  42%|████▏     | 45/107 [00:03<00:05, 12.04it/s]Binarization:  44%|████▍     | 47/107 [00:03<00:04, 12.02it/s]Binarization:  46%|████▌     | 49/107 [00:04<00:04, 12.12it/s]Binarization:  48%|████▊     | 51/107 [00:04<00:04, 12.08it/s]Binarization:  50%|████▉     | 53/107 [00:04<00:04, 12.03it/s]Binarization:  51%|█████▏    | 55/107 [00:04<00:04, 12.04it/s]Binarization:  53%|█████▎    | 57/107 [00:04<00:04, 12.03it/s]Binarization:  55%|█████▌    | 59/107 [00:04<00:03, 12.02it/s]Binarization:  57%|█████▋    | 61/107 [00:05<00:03, 12.09it/s]Binarization:  59%|█████▉    | 63/107 [00:05<00:03, 12.07it/s]Binarization:  61%|██████    | 65/107 [00:05<00:03, 12.08it/s]Binarization:  63%|██████▎   | 67/107 [00:05<00:03, 12.05it/s]Binarization:  64%|██████▍   | 69/107 [00:05<00:03, 12.02it/s]Binarization:  66%|██████▋   | 71/107 [00:05<00:02, 12.09it/s]Binarization:  68%|██████▊   | 73/107 [00:06<00:02, 12.07it/s]Binarization:  70%|███████   | 75/107 [00:06<00:02, 12.09it/s]Binarization:  72%|███████▏  | 77/107 [00:06<00:02, 12.06it/s]Binarization:  74%|███████▍  | 79/107 [00:06<00:02, 12.06it/s]Binarization:  76%|███████▌  | 81/107 [00:06<00:02, 12.01it/s]Binarization:  78%|███████▊  | 83/107 [00:06<00:02, 11.98it/s]Binarization:  79%|███████▉  | 85/107 [00:07<00:01, 11.94it/s]Binarization:  81%|████████▏ | 87/107 [00:07<00:01, 11.99it/s]Binarization:  83%|████████▎ | 89/107 [00:07<00:01, 11.91it/s]Binarization:  85%|████████▌ | 91/107 [00:07<00:01, 11.96it/s]Binarization:  87%|████████▋ | 93/107 [00:07<00:01, 11.97it/s]Binarization:  89%|████████▉ | 95/107 [00:07<00:01, 11.99it/s]Binarization:  91%|█████████ | 97/107 [00:08<00:00, 12.01it/s]Binarization:  93%|█████████▎| 99/107 [00:08<00:00, 11.98it/s]Binarization:  94%|█████████▍| 101/107 [00:08<00:00, 11.99it/s]Binarization:  96%|█████████▋| 103/107 [00:08<00:00, 12.71it/s]Binarization:  99%|█████████▉| 106/107 [00:08<00:00, 15.70it/s]Binarization: 100%|██████████| 107/107 [00:08<00:00, 12.28it/s]
+Evaluating the model on the 107 audio segments...
+[NeMo I 2026-07-12 22:08:42 e2e_diarize_speech:444] Wrong Spk. Count with uniq_id:...S01_0000, Ref: 4, Hyp: 1
+[NeMo I 2026-07-12 22:08:42 e2e_diarize_speech:444] Wrong Spk. Count with uniq_id:...S01_0001, Ref: 4, Hyp: 2
+[NeMo I 2026-07-12 22:08:42 e2e_diarize_speech:444] Wrong Spk. Count with uniq_id:...S01_0002, Ref: 4, Hyp: 3
+[NeMo I 2026-07-12 22:08:42 e2e_diarize_speech:444] Wrong Spk. Count with uniq_id:...S01_0003, Ref: 4, Hyp: 3
+[NeMo I 2026-07-12 22:08:43 e2e_diarize_speech:444] Wrong Spk. Count with uniq_id:...S01_0005, Ref: 4, Hyp: 3
+[NeMo I 2026-07-12 22:08:43 e2e_diarize_speech:444] Wrong Spk. Count with uniq_id:...S01_0007, Ref: 4, Hyp: 3
+[NeMo I 2026-07-12 22:08:43 e2e_diarize_speech:444] Wrong Spk. Count with uniq_id:...S01_0008, Ref: 4, Hyp: 2
+[NeMo I 2026-07-12 22:08:43 e2e_diarize_speech:444] Wrong Spk. Count with uniq_id:...S01_0011, Ref: 4, Hyp: 3
+[NeMo I 2026-07-12 22:08:43 e2e_diarize_speech:444] Wrong Spk. Count with uniq_id:...S01_0013, Ref: 4, Hyp: 3
+[NeMo I 2026-07-12 22:08:43 e2e_diarize_speech:444] Wrong Spk. Count with uniq_id:...S01_0014, Ref: 4, Hyp: 3
+[NeMo I 2026-07-12 22:08:43 e2e_diarize_speech:444] Wrong Spk. Count with uniq_id:...S01_0016, Ref: 4, Hyp: 2
+[NeMo I 2026-07-12 22:08:43 e2e_diarize_speech:444] Wrong Spk. Count with uniq_id:...S01_0017, Ref: 3, Hyp: 4
+[NeMo I 2026-07-12 22:08:43 e2e_diarize_speech:444] Wrong Spk. Count with uniq_id:...S01_0018, Ref: 4, Hyp: 3
+[NeMo I 2026-07-12 22:08:43 e2e_diarize_speech:444] Wrong Spk. Count with uniq_id:...S01_0021, Ref: 4, Hyp: 3
+[NeMo I 2026-07-12 22:08:43 e2e_diarize_speech:444] Wrong Spk. Count with uniq_id:...S01_0022, Ref: 3, Hyp: 4
+[NeMo I 2026-07-12 22:08:43 e2e_diarize_speech:444] Wrong Spk. Count with uniq_id:...S01_0026, Ref: 3, Hyp: 4
+[NeMo I 2026-07-12 22:08:43 e2e_diarize_speech:444] Wrong Spk. Count with uniq_id:...S01_0027, Ref: 3, Hyp: 2
+[NeMo I 2026-07-12 22:08:43 e2e_diarize_speech:444] Wrong Spk. Count with uniq_id:...S01_0030, Ref: 4, Hyp: 3
+[NeMo I 2026-07-12 22:08:43 e2e_diarize_speech:444] Wrong Spk. Count with uniq_id:...S03_0000, Ref: 4, Hyp: 2
+[NeMo I 2026-07-12 22:08:43 e2e_diarize_speech:444] Wrong Spk. Count with uniq_id:...S03_0001, Ref: 4, Hyp: 3
+[NeMo I 2026-07-12 22:08:43 e2e_diarize_speech:444] Wrong Spk. Count with uniq_id:...S03_0002, Ref: 4, Hyp: 3
+[NeMo I 2026-07-12 22:08:43 e2e_diarize_speech:444] Wrong Spk. Count with uniq_id:...S03_0008, Ref: 4, Hyp: 2
+[NeMo I 2026-07-12 22:08:43 e2e_diarize_speech:444] Wrong Spk. Count with uniq_id:...S03_0022, Ref: 4, Hyp: 3
+[NeMo I 2026-07-12 22:08:43 e2e_diarize_speech:444] Wrong Spk. Count with uniq_id:...S03_0024, Ref: 4, Hyp: 3
+[NeMo I 2026-07-12 22:08:43 e2e_diarize_speech:444] Wrong Spk. Count with uniq_id:...S03_0027, Ref: 4, Hyp: 3
+[NeMo I 2026-07-12 22:08:43 e2e_diarize_speech:444] Wrong Spk. Count with uniq_id:...S03_0030, Ref: 4, Hyp: 3
+[NeMo I 2026-07-12 22:08:43 e2e_diarize_speech:444] Wrong Spk. Count with uniq_id:...S06_0000, Ref: 4, Hyp: 3
+[NeMo I 2026-07-12 22:08:43 e2e_diarize_speech:444] Wrong Spk. Count with uniq_id:...S06_0001, Ref: 4, Hyp: 3
+[NeMo I 2026-07-12 22:08:43 e2e_diarize_speech:444] Wrong Spk. Count with uniq_id:...S06_0002, Ref: 4, Hyp: 3
+[NeMo I 2026-07-12 22:08:43 e2e_diarize_speech:444] Wrong Spk. Count with uniq_id:...S06_0004, Ref: 4, Hyp: 3
+[NeMo I 2026-07-12 22:08:43 e2e_diarize_speech:444] Wrong Spk. Count with uniq_id:...S06_0005, Ref: 4, Hyp: 3
+[NeMo I 2026-07-12 22:08:43 e2e_diarize_speech:444] Wrong Spk. Count with uniq_id:...S06_0006, Ref: 4, Hyp: 3
+[NeMo I 2026-07-12 22:08:43 e2e_diarize_speech:444] Wrong Spk. Count with uniq_id:...S06_0008, Ref: 4, Hyp: 3
+[NeMo I 2026-07-12 22:08:43 e2e_diarize_speech:444] Wrong Spk. Count with uniq_id:...S06_0009, Ref: 4, Hyp: 2
+[NeMo I 2026-07-12 22:08:43 e2e_diarize_speech:444] Wrong Spk. Count with uniq_id:...S06_0010, Ref: 4, Hyp: 2
+[NeMo I 2026-07-12 22:08:43 e2e_diarize_speech:444] Wrong Spk. Count with uniq_id:...S06_0011, Ref: 4, Hyp: 2
+[NeMo I 2026-07-12 22:08:43 e2e_diarize_speech:444] Wrong Spk. Count with uniq_id:...S06_0012, Ref: 4, Hyp: 3
+[NeMo I 2026-07-12 22:08:43 e2e_diarize_speech:444] Wrong Spk. Count with uniq_id:...S07_0001, Ref: 4, Hyp: 3
+[NeMo I 2026-07-12 22:08:43 e2e_diarize_speech:444] Wrong Spk. Count with uniq_id:...S07_0002, Ref: 4, Hyp: 3
+[NeMo I 2026-07-12 22:08:43 e2e_diarize_speech:444] Wrong Spk. Count with uniq_id:...S07_0003, Ref: 4, Hyp: 3
+[NeMo I 2026-07-12 22:08:43 e2e_diarize_speech:444] Wrong Spk. Count with uniq_id:...S07_0004, Ref: 3, Hyp: 2
+[NeMo I 2026-07-12 22:08:43 e2e_diarize_speech:444] Wrong Spk. Count with uniq_id:...S07_0006, Ref: 4, Hyp: 3
+[NeMo I 2026-07-12 22:08:43 e2e_diarize_speech:444] Wrong Spk. Count with uniq_id:...S07_0007, Ref: 4, Hyp: 3
+[NeMo I 2026-07-12 22:08:43 e2e_diarize_speech:444] Wrong Spk. Count with uniq_id:...S07_0009, Ref: 4, Hyp: 3
+[NeMo I 2026-07-12 22:08:43 e2e_diarize_speech:444] Wrong Spk. Count with uniq_id:...S07_0013, Ref: 4, Hyp: 3
+[NeMo I 2026-07-12 22:08:43 e2e_diarize_speech:444] Wrong Spk. Count with uniq_id:...S07_0016, Ref: 4, Hyp: 3
+[NeMo I 2026-07-12 22:08:43 e2e_diarize_speech:444] Wrong Spk. Count with uniq_id:...S08_0001, Ref: 4, Hyp: 3
+[NeMo I 2026-07-12 22:08:43 e2e_diarize_speech:444] Wrong Spk. Count with uniq_id:...S08_0002, Ref: 4, Hyp: 3
+[NeMo I 2026-07-12 22:08:43 e2e_diarize_speech:444] Wrong Spk. Count with uniq_id:...S08_0003, Ref: 4, Hyp: 3
+[NeMo I 2026-07-12 22:08:43 e2e_diarize_speech:444] Wrong Spk. Count with uniq_id:...S08_0004, Ref: 4, Hyp: 2
+[NeMo I 2026-07-12 22:08:43 e2e_diarize_speech:444] Wrong Spk. Count with uniq_id:...S08_0007, Ref: 4, Hyp: 3
+[NeMo I 2026-07-12 22:08:43 e2e_diarize_speech:444] Wrong Spk. Count with uniq_id:...S08_0008, Ref: 4, Hyp: 3
+[NeMo I 2026-07-12 22:08:43 e2e_diarize_speech:444] Wrong Spk. Count with uniq_id:...S08_0009, Ref: 4, Hyp: 3
+[NeMo I 2026-07-12 22:08:43 e2e_diarize_speech:444] Wrong Spk. Count with uniq_id:...S08_0010, Ref: 4, Hyp: 3
+[NeMo I 2026-07-12 22:08:43 e2e_diarize_speech:444] Wrong Spk. Count with uniq_id:...S07_0017, Ref: 4, Hyp: 3
+[NeMo I 2026-07-12 22:08:43 e2e_diarize_speech:444] Wrong Spk. Count with uniq_id:...S06_0013, Ref: 2, Hyp: 3
+[NeMo I 2026-07-12 22:08:43 e2e_diarize_speech:444] 
+             diarization error rate    total  correct            false alarm            missed detection            confusion           
+                                  %                            %                      %                           %                    %
+    item                                                                                                                                
+    S01_0000              97.678019    19.38     0.45   2.321981       0.000   0.000000            18.93  97.678019      0.00   0.000000
+    S01_0001              40.440846    44.46    26.88  60.458839       0.400   0.899685            13.36  30.049483      4.22   9.491678
+    S01_0002              27.139959    49.30    37.63  76.328600       1.710   3.468560            11.67  23.671400      0.00   0.000000
+    S01_0003              22.417116    51.88    41.89  80.744025       1.640   3.161141             9.56  18.427140      0.43   0.828836
+    S01_0004              35.282523    45.66    33.48  73.324573       3.930   8.607096            10.82  23.696890      1.36   2.978537
+    S01_0005              23.393607    61.94    50.12  80.917016       2.670   4.310623            10.16  16.402971      1.66   2.680013
+    S01_0006              26.193664    44.82    34.14  76.171352       1.060   2.365016             9.92  22.132976      0.76   1.695672
+    S01_0007              37.108364    34.79    23.59  67.806841       1.710   4.915206            10.05  28.887611      1.15   3.305548
+    S01_0008              21.881055    67.09    52.81  78.715159       0.400   0.596214            14.06  20.956924      0.22   0.327918
+    S01_0009              25.073285    51.17    40.36  78.874340       2.020   3.947626            10.71  20.930233      0.10   0.195427
+    S01_0010              17.661650    60.47    51.79  85.645775       2.000   3.307425             8.58  14.188854      0.10   0.165371
+    S01_0011              18.728150    60.07    49.87  83.019810       1.050   1.747961             9.73  16.197769      0.47   0.782421
+    S01_0012              23.005622    65.81    52.63  79.972649       1.960   2.978271            12.38  18.811731      0.80   1.215621
+    S01_0013              23.391648    70.88    59.15  83.450903       4.850   6.842551            10.98  15.490971      0.75   1.058126
+    S01_0014              25.768060    72.26    57.98  80.238029       4.340   6.006089            13.00  17.990590      1.28   1.771381
+    S01_0015              30.195440    61.40    50.41  82.100977       7.550  12.296417             6.81  11.091205      4.18   6.807818
+    S01_0016              10.306473    84.51    75.90  89.811857       0.100   0.118329             7.93   9.383505      0.68   0.804639
+    S01_0017               8.641975    81.81    75.91  92.788168       1.170   1.430143             5.81   7.101821      0.09   0.110011
+    S01_0018              15.420502    79.31    69.84  88.059513       2.760   3.480015             9.05  11.410919      0.42   0.529568
+    S01_0019              29.588629    73.17    53.64  73.308733       2.120   2.897362            11.23  15.347820      8.30  11.343447
+    S01_0020              11.086925    68.91    63.06  91.510666       1.790   2.597591             5.33   7.734726      0.52   0.754607
+    S01_0021              13.771731    66.15    59.06  89.281935       2.020   3.053666             6.66  10.068027      0.43   0.650038
+    S01_0022              27.003573    78.36    65.41  83.473711       8.210  10.477284            12.59  16.066871      0.36   0.459418
+    S01_0023              28.615702    58.08    43.07  74.156336       1.610   2.772039            13.85  23.846419      1.16   1.997245
+    S01_0024              18.786051    76.28    65.22  85.500787       3.270   4.286838            11.06  14.499213      0.00   0.000000
+    S01_0025              28.486998    76.14    58.35  76.635146       3.900   5.122143            16.60  21.801944      1.19   1.562910
+    S01_0026              20.844789    80.02    67.75  84.666333       4.410   5.511122            10.58  13.221695      1.69   2.111972
+    S01_0027               9.756398    81.28    73.58  90.526575       0.230   0.282972             7.70   9.473425      0.00   0.000000
+    S01_0028              17.402334    78.84    66.46  84.297311       1.340   1.699645            12.38  15.702689      0.00   0.000000
+    S01_0029               8.479922    82.43    76.27  92.526993       0.830   1.006915             6.06   7.351692      0.10   0.121315
+    S01_0030              40.193107    89.07    56.99  63.983384       3.720   4.176490            24.62  27.641181      7.46   8.375435
+    S03_0000              88.229476    10.11     1.19  11.770524       0.000   0.000000             8.07  79.821958      0.85   8.407517
+    S03_0001              46.859562    42.51    23.01  54.128440       0.420   0.988003            16.04  37.732298      3.46   8.139261
+    S03_0002              29.382246    57.79    41.29  71.448347       0.480   0.830594            16.11  27.876795      0.39   0.674857
+    S03_0003              17.105851    67.17    56.75  84.487122       1.070   1.592973             9.23  13.741254      1.19   1.771624
+    S03_0004              31.541451    61.76    44.78  72.506477       2.500   4.047927            15.88  25.712435      1.10   1.781088
+    S03_0005              27.387952    76.53    56.21  73.448321       0.640   0.836273            19.65  25.676205      0.67   0.875474
+    S03_0006              22.729767    72.90    57.44  78.792867       1.110   1.522634            14.74  20.219479      0.72   0.987654
+    S03_0007              22.382377    73.54    60.72  82.567310       3.640   4.949687            11.44  15.556160      1.38   1.876530
+    S03_0008              16.201280    68.76    59.06  85.892961       1.440   2.094241             8.76  12.739965      0.94   1.367074
+    S03_0009              21.323065    79.21    63.39  80.027774       1.070   1.350840            13.45  16.980179      2.37   2.992046
+    S03_0010              15.392535    77.70    66.38  85.431145       0.640   0.823681            10.92  14.054054      0.40   0.514801
+    S03_0011              24.562072    78.78    62.95  79.906068       3.520   4.468139            13.80  17.517136      2.03   2.576796
+    S03_0012              18.008151    78.52    64.54  82.195619       0.160   0.203770            13.81  17.587876      0.17   0.216505
+    S03_0013              25.930680    77.90    60.74  77.971759       3.040   3.902439            15.45  19.833119      1.71   2.195122
+    S03_0014              24.727681    89.05    70.11  78.731050       3.080   3.458731            17.74  19.921392      1.20   1.347558
+    S03_0015              21.315021    92.47    74.52  80.588299       1.760   1.903320            16.66  18.016654      1.29   1.395047
+    S03_0016              27.020992    67.17    52.45  78.085455       3.430   5.106446            12.77  19.011463      1.95   2.903082
+    S03_0017              24.222035    71.34    57.56  80.684048       3.500   4.906084            12.95  18.152509      0.83   1.163443
+    S03_0018              30.125401    68.58    51.07  74.467775       3.150   4.593176            16.37  23.869933      1.14   1.662292
+    S03_0019              11.882973    72.12    64.33  89.198558       0.780   1.081531             6.51   9.026622      1.28   1.774820
+    S03_0020              24.548458    90.80    71.02  78.215859       2.510   2.764317            17.41  19.174009      2.37   2.610132
+    S03_0021              22.573906    95.73    78.22  81.708973       4.100   4.282879            13.67  14.279745      3.84   4.011282
+    S03_0022               6.621787    81.70    76.30  93.390453       0.010   0.012240             5.24   6.413709      0.16   0.195838
+    S03_0023              12.486993    76.88    67.61  87.942248       0.330   0.429240             8.56  11.134235      0.71   0.923517
+    S03_0024              21.923168    84.34    66.25  78.551103       0.400   0.474271            18.09  21.448897      0.00   0.000000
+    S03_0025              19.172172    74.17    66.09  89.106108       6.140   8.278280             6.75   9.100715      1.33   1.793178
+    S03_0026              18.317757    80.25    66.96  83.439252       1.410   1.757009            12.27  15.289720      1.02   1.271028
+    S03_0027               6.299500    82.07    77.04  93.871086       0.140   0.170586             4.37   5.324723      0.66   0.804192
+    S03_0028              16.187274    80.31    69.03  85.954427       1.720   2.141701             9.00  11.206575      2.28   2.838999
+    S03_0029              17.714214    79.71    65.89  82.662150       0.300   0.376364            12.01  15.067118      1.81   2.270731
+    S03_0030              17.745276    77.26    66.19  85.671758       2.640   3.417033             9.64  12.477349      1.43   1.850893
+    S06_0000              75.193798    60.63    16.97  27.989444       1.930   3.183243            30.03  49.529936     13.63  22.480620
+    S06_0001              28.442259    63.04    45.11  71.557741       0.000   0.000000            14.86  23.572335      3.07   4.869924
+    S06_0002              24.088441    77.34    60.45  78.161365       1.740   2.249806            12.00  15.515904      4.89   6.322731
+    S06_0003              11.225040    74.12    65.96  88.990826       0.160   0.215866             7.13   9.619536      1.03   1.389638
+    S06_0004              32.745826    75.46    52.91  70.116618       2.160   2.862444            14.28  18.923933      8.27  10.959449
+    S06_0005              20.109387    78.62    64.77  82.383617       1.960   2.493004            13.48  17.145764      0.37   0.470618
+    S06_0006              17.461694    69.18    57.58  83.232148       0.480   0.693842            10.08  14.570685      1.52   2.197167
+    S06_0007              26.844767    77.11    62.25  80.728829       5.840   7.573596            12.37  16.042018      2.49   3.229153
+    S06_0008              21.403697    74.66    60.71  81.315296       2.030   2.718993            11.16  14.947763      2.79   3.736941
+    S06_0009              16.913268    83.13    73.40  88.295441       4.330   5.208709             5.39   6.483821      4.34   5.220739
+    S06_0010              13.247921    73.37    69.26  94.398255       5.610   7.646177             4.10   5.588115      0.01   0.013630
+    S06_0011              14.128878    83.80    72.52  86.539379       0.560   0.668258            10.79  12.875895      0.49   0.584726
+    S06_0012              19.674000    87.73    72.70  82.867890       2.230   2.541890             9.47  10.794483      5.56   6.337627
+    S07_0000              24.805858    90.14    68.15  75.604615       0.370   0.410473            20.54  22.786776      1.45   1.608609
+    S07_0001              19.953326    77.13    62.63  81.200570       0.890   1.153896            12.69  16.452742      1.81   2.346687
+    S07_0002              23.198381    74.10    57.00  76.923077       0.090   0.121457            14.49  19.554656      2.61   3.522267
+    S07_0003              27.322537    82.13    64.43  78.448801       4.740   5.771338            16.99  20.686716      0.71   0.864483
+    S07_0004              13.807426    79.45    70.65  88.923851       2.170   2.731278             7.39   9.301447      1.41   1.774701
+    S07_0005              17.205128    78.00    65.27  83.679487       0.690   0.884615            12.55  16.089744      0.18   0.230769
+    S07_0006              21.119802    72.87    60.09  82.461918       2.610   3.581721             9.52  13.064361      3.26   4.473720
+    S07_0007              35.326859    84.44    55.93  66.236381       1.320   1.563240            22.49  26.634297      6.02   7.129323
+    S07_0008              30.705528    92.98    65.08  69.993547       0.650   0.699075            27.16  29.210583      0.74   0.795870
+    S07_0009              23.518801    72.07    59.65  82.766755       4.530   6.285556            10.73  14.888303      1.69   2.344942
+    S07_0010              29.211564    76.10    61.11  80.302234       7.240   9.513798            12.22  16.057819      2.77   3.639947
+    S07_0011              32.013242    81.56    58.27  71.444335       2.820   3.457577            20.49  25.122609      2.80   3.433055
+    S07_0012              20.400841    80.83    69.90  86.477793       5.560   6.878634             9.61  11.889150      1.32   1.633057
+    S07_0013              29.671980    86.58    62.64  72.349272       1.750   2.021252            19.39  22.395472      4.55   5.255255
+    S07_0014              15.274822    79.87    68.55  85.826969       0.880   1.101790             6.69   8.376111      4.63   5.796920
+    S07_0015              29.272119    95.62    70.69  73.928049       3.060   3.200167            23.44  24.513700      1.49   1.558251
+    S07_0016              14.640489    76.91    66.78  86.828761       1.130   1.469250             9.61  12.495124      0.52   0.676115
+    S08_0000              27.828449    51.53    39.34  76.343877       2.150   4.172327            10.12  19.639045      2.07   4.017077
+    S08_0001              25.227483    75.83    56.86  74.983516       0.160   0.210998            14.29  18.844784      4.68   6.171700
+    S08_0002              39.677162    50.18    30.59  60.960542       0.320   0.637704            18.10  36.070147      1.49   2.969310
+    S08_0003              23.134828    59.78    46.67  78.069588       0.720   1.204416             8.28  13.850786      4.83   8.079625
+    S08_0004              53.974289    55.23    25.42  46.025711       0.000   0.000000             7.81  14.140865     22.00  39.833424
+    S08_0005              64.582361    42.86    15.18  35.417639       0.000   0.000000            26.18  61.082594      1.50   3.499767
+    S08_0006              35.367264    69.16    47.04  68.016194       2.340   3.383459            18.06  26.113360      4.06   5.870445
+    S08_0007              35.130015    58.07    37.85  65.179955       0.180   0.309971            19.19  33.046323      1.03   1.773721
+    S08_0008              38.309943    66.98    41.43  61.854285       0.110   0.164228            19.00  28.366677      6.55   9.779039
+    S08_0009              53.179085    54.89    25.70  46.820915       0.000   0.000000            27.38  49.881581      1.81   3.297504
+    S01_0031              21.917181    50.23    39.70  79.036432       0.479   0.953613             8.24  16.404539      2.29   4.559028
+    S08_0010              99.888310    26.86    15.24  56.738645      15.210  56.626955             1.53   5.696203     10.09  37.565153
+    S07_0017              16.147920    32.45    28.00  86.286595       0.790   2.434515             4.41  13.590139      0.04   0.123267
+    S06_0013               6.438938    28.25    26.63  94.265487       0.199   0.704425             1.43   5.061947      0.19   0.672566
+    S03_0031              40.050378     7.94     4.81  60.579345       0.050   0.629723             3.04  38.287154      0.09   1.133501
+    TOTAL                 24.073982  7392.08  5834.65  78.931099     222.138   3.005081          1327.73  17.961521    229.70   3.107380
+[NeMo I 2026-07-12 22:08:43 e2e_diarize_speech:444] Cumulative Results for collar 0.25 sec and ignore_overlap False: 
+    | FA: 0.0301 | MISS: 0.1796 | CER: 0.0311 | DER: 0.2407 | Spk. Count Acc. 0.4766
+    
+PostProcessingParams: {'onset': 0.5, 'offset': 0.5, 'pad_onset': 0.0, 'pad_offset': 0.0, 'min_duration_on': 0.0, 'min_duration_off': 0.0}

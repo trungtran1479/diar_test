@@ -1,0 +1,24 @@
+WARNING:root:No speaker EN2002c.D found! Skipping annotation.
+WARNING:root:No speaker EN2009b.D found! Skipping annotation.
+WARNING:root:No speaker EN2003a.D found! Skipping annotation.
+WARNING:root:No speaker IN1001.D found! Skipping annotation.
+WARNING:root:No speaker EN2009c.D found! Skipping annotation.
+WARNING:root:Segment EN2006a.FEE088.2 at time 2159.88-2160.39 has a word `do` with zero or negative duration. Skipping.
+WARNING:root:Segment EN2006a.FEE088.2 at time 2162.24-2162.576 has a word `do` with zero or negative duration. Skipping.
+WARNING:root:Segment TS3006d.MTD022ID.2 at time 674.69-682.83 has a word `intreg` with zero or negative duration. Skipping.
+WARNING:root:Segment IN1007.MIO097.1 at time 784.96-794.8 has a word `TRAPet` with zero or negative duration. Skipping.
+WARNING:root:Segment TS3011d.MTD042ID.2 at time 588.474-593.294 has a word `specic` with zero or negative duration. Skipping.
+WARNING:root:Segment EN2009d.MEE095.3 at time 2189.43-2194.78 has a word `airpa` with zero or negative duration. Skipping.
+
+Processing audio files:   0%|          | 0/169 [00:00<?, ?it/s]
+Processing audio files: 100%|██████████| 169/169 [00:00<00:00, 3287.07it/s]
+
+Preparing supervisions:   0%|          | 0/169 [00:00<?, ?it/s]
+Preparing supervisions:  27%|██▋       | 45/169 [00:00<00:00, 449.19it/s]
+Preparing supervisions:  53%|█████▎    | 90/169 [00:00<00:00, 217.10it/s]WARNING:root:More than 1 channels in recording ES2010d. Skipping this recording.
+
+Preparing supervisions:  85%|████████▍ | 143/169 [00:00<00:00, 306.87it/s]
+Preparing supervisions: 100%|██████████| 169/169 [00:00<00:00, 308.67it/s]
+WARNING:root:Removed 1 recordings with no corresponding supervisions.
+WARNING:root:Removed 6 supervisions starting after the end of the recording.
+WARNING:root:Trimmed 1 supervisions exceeding the end of the recording.

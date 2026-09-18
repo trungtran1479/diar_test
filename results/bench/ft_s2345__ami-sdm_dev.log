@@ -1,0 +1,57 @@
+/home/edabk/hoangbpm/diar/diar_new/third_party/icefall/egs/librispeech/ASR/zipformer/scaling.py:1310: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(ctx, x, y, alpha):
+/home/edabk/hoangbpm/diar/diar_new/third_party/icefall/egs/librispeech/ASR/zipformer/scaling.py:1319: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, ans_grad):
+/home/edabk/hoangbpm/diar/diar_new/third_party/icefall/egs/librispeech/ASR/zipformer/scaling.py:1529: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(
+/home/edabk/hoangbpm/diar/diar_new/third_party/icefall/egs/librispeech/ASR/zipformer/scaling.py:1568: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, ans_grad: Tensor):
+fatal: not a git repository (or any of the parent directories): .git
+fatal: not a git repository (or any of the parent directories): .git
+fatal: not a git repository (or any of the parent directories): .git
+Built Zipformer encoder: causal=True, chunk_size=(32,), left_context_frames=(128,)
+Loaded: 64556023/64556023 params (100.0%)
+Missing keys: 0
+Unexpected keys: 0
+Multi-scale hypercolumn enabled: stack dims [192, 256, 384, 512, 384, 256] -> concat dim 1984
+Detected backbone output_dim: 1984
+Loaded logs/p2_ctrl_s2345/step400.pt on cuda
+ami-sdm dev: 26 recordings, 18670 supervisions (18668 with word alignment = 100%)
+  [1/26] ES2003a (19 min)
+  [2/26] ES2003b (35 min)
+  [3/26] ES2003c (38 min)
+  [4/26] ES2003d (39 min)
+  [5/26] ES2011a (19 min)
+  [6/26] ES2011b (26 min)
+  [7/26] ES2011c (27 min)
+  [8/26] ES2011d (33 min)
+  [9/26] IB4001 (30 min)
+  [10/26] IB4002 (31 min)
+  [11/26] IB4003 (34 min)
+  [12/26] IB4004 (40 min)
+  [13/26] IB4010 (49 min)
+  [14/26] IB4011 (40 min)
+  [15/26] IS1008a (16 min)
+  [16/26] IS1008b (29 min)
+  [17/26] IS1008c (26 min)
+  [18/26] IS1008d (25 min)
+  [19/26] TS3004a (22 min)
+  [20/26] TS3004b (37 min)
+  [21/26] TS3004c (50 min)
+  [22/26] TS3004d (46 min)
+  [23/26] TS3006a (21 min)
+  [24/26] TS3006b (39 min)
+  [25/26] TS3006c (43 min)
+  [26/26] TS3006d (50 min)
+
+===== ami-sdm dev — frame-level (25 Hz) =====
+acc=0.851  mae=0.152  macroF1=0.644
+f1/cls = [0.810 0.902 0.614 0.252]
+VAD:  F1=0.954 (P=0.944 R=0.964)
+OSD (count>=2): F1=0.679 (P=0.722 R=0.641)
+OSD (aux head): F1=0.674 (P=0.742 R=0.617)
+confusion P(pred|true):  pred0   pred1   pred2   pred3
+  true0:               0.782   0.213   0.005   0.000
+  true1:               0.042   0.919   0.038   0.000
+  true2:               0.009   0.375   0.594   0.023
+  true3:               0.002   0.113   0.703   0.182

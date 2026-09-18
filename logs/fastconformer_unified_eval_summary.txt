@@ -1,0 +1,22 @@
+=== fastconformer_hc6_s2345 (2026-08-05T10:04:14+07:00) ===
+ami_test: macroF1=0.655
+dipco_eval: macroF1=0.523
+msdwild_manyval: macroF1=0.563
+voxconverse_voxlock: macroF1=0.572
+mean (4 corpora) = 0.5782
+
+=== fastconformer_hc6_s3456 (2026-08-05T10:07:46+07:00) ===
+ami_test: macroF1=0.660
+dipco_eval: macroF1=0.526
+msdwild_manyval: macroF1=0.562
+voxconverse_voxlock: macroF1=0.564
+mean (4 corpora) = 0.5780
+
+=== fastconformer_frontloaded_s1234 (2026-08-05T10:13:46+07:00) ===
+ami_test: macroF1=0.655
+dipco_eval: macroF1=0.523
+msdwild_manyval: macroF1=0.545
+voxconverse_voxlock: macroF1=0.561
+mean (4 corpora) = 0.5710
+
+PIPELINE_ALL_DONE

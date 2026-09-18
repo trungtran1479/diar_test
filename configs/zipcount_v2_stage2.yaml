@@ -1,0 +1,93 @@
+# ZipCount v2 — STAGE 2: domain adaptation on real meetings.
+#
+# Init from the LibriMix-trained v2 checkpoint (r3), then train on
+# LibriMix + AMI-SDM train + NOTSOFAR-1 train (word-aligned labels) with
+# waveform augmentation targeting the measured weaknesses:
+#   - random gain      -> kills the close-talk/far-field level gap
+#                         (zero-shot AMI needed --norm rms: VAD 0.25 -> 0.88)
+#   - random RIR       -> far-field reverb robustness (OSD precision 0.36)
+# Val = AMI-SDM dev windows (the target domain, speaker-disjoint).
+#
+# Run:
+#   PYTHONPATH=. python src/train.py --config configs/zipcount_v2_stage2.yaml \
+#       --init-from result/r3_v2_uniform_sord/best_macro_f1.pt
+
+model:
+  variant: "E"
+  encoder:
+    type: "zipformer"
+    zipformer_dir: "/home/edabk/hoangbpm/diar/diar_new/third_party/icefall/egs/librispeech/ASR/zipformer"
+    checkpoint: "/home/edabk/hoangbpm/diar/diar_new/data_ext/models/icefall-asr-librispeech-streaming-zipformer-2023-05-17/exp/pretrained.pt"
+    causal: true
+    chunk_size: "32"
+    left_context_frames: "128"
+    encoder_dim: "192,256,384,512,384,256"
+    downsampling_factor: "1,2,4,8,4,2"
+    num_encoder_layers: "2,2,3,4,3,2"
+    num_heads: "4,4,4,8,4,4"
+    feedforward_dim: "512,768,1024,1536,1024,768"
+    cnn_module_kernel: "31,31,15,15,15,31"
+    encoder_unmasked_dim: "192,192,256,256,256,192"
+    query_head_dim: 32
+    value_head_dim: 12
+    pos_head_dim: 4
+    pos_dim: 48
+    strict_load: false
+    min_load_ratio: 0.90
+    freeze_backbone: true
+    unfreeze_last_n: 0
+    multiscale: true
+  head:
+    type: "deformable_ordinal"
+    d_model: 256
+    num_layers: 2
+    num_points: 4
+    num_groups: 4
+    max_offset: 16
+    dropout: 0.1
+    head_hidden_dim: 0
+  num_count_classes: 4
+
+loss:
+  count_loss_type: "sord"
+  sord_alpha: 1.5
+  class_weights: [1.0, 1.0, 1.0, 1.0]
+  lambda_vad: 0.3
+  lambda_overlap: 0.5
+  lambda_emae: 0.2
+  lambda_consistency: 0.2
+  lambda_monotonic: 0.1
+  lambda_dice: 0.5
+  lambda_smooth: 0.02
+  smooth_type: "kl"
+
+training:
+  batch_size: 16
+  lr: 3.0e-4            # finetune LR (stage-1 was 1e-3 from scratch head)
+  warmup_steps: 500
+  max_steps: 20000      # ~2.4 epochs of the combined set
+  grad_clip: 5.0
+  use_amp: false
+  eval_interval: 1000
+  num_workers: 8
+  stage: "stage1_freeze_backbone"
+  log_dir: "logs/r5_v2_stage2"
+
+data:
+  # Combined: LibriMix (125.9k) + AMI-SDM train + NOTSOFAR-1 train windows.
+  # Build with: src/data/prepare_meeting.py, then cat the two manifests.
+  train_manifest: "/home/edabk/hoangbpm/diar/diar_new/data/combined/train_manifest.json"
+  # Val on the TARGET domain: AMI-SDM dev windows (speaker-disjoint).
+  val_manifest: "/home/edabk/hoangbpm/diar/diar_new/data/meetings/val_manifest.json"
+  stats_file: "/home/edabk/hoangbpm/diar/diar_new/data/librimix/stats.json"   # informational only (uniform weights)
+  feature_dim: 80
+  sample_rate: 16000
+  label_downsample: "majority_vote"
+  augment:
+    gain_db: [-28, 3]
+    rir_dir: "/home/edabk/hoangbpm/diar/diar_new/data_ext/RIRS_NOISES/simulated_rirs"
+    rir_prob: 0.35
+
+streaming:
+  chunk_size: 32
+  left_context_frames: 128

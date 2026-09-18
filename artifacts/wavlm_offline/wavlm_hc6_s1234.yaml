@@ -1,0 +1,113 @@
+data:
+  augment:
+    gain_db:
+    - -28
+    - 3
+    noise_dir: /home/edabk/hoangbpm/diar/diar_new/musan/noise
+    noise_prob: 0.5
+    noise_skip_sources:
+    - ami
+    - nsf
+    - alimeeting
+    - aishell4
+    - msdwild
+    - voxconverse
+    - ramc
+    noise_snr_db:
+    - 0
+    - 20
+    rir_dir: /home/edabk/hoangbpm/diar/diar_new/data_ext/RIRS_NOISES/simulated_rirs
+    rir_prob: 0.8
+    rir_skip_sources:
+    - ami
+    - nsf
+    - alimeeting
+    - aishell4
+    - msdwild
+    - voxconverse
+    - ramc
+  feature_dim: 80
+  label_downsample: majority_vote
+  sample_rate: 16000
+  stats_file: /home/edabk/hoangbpm/diar/diar_new/data/librimix/stats.json
+  train_manifest: /media/edabk/500GB Hard Disk/data_diar/manifests/train_manifest_v3.json
+  val_manifest: /home/edabk/hoangbpm/diar/diar_new/data/meetings/val_manifest.json
+distill:
+  lambda_kd: 0.0
+  teacher_dir: ''
+  temperature: 2.0
+loss:
+  class_weights:
+  - 1.0
+  - 1.0
+  - 1.5
+  - 3.0
+  count_loss_type: sord
+  event_class_weights:
+  - 12.0
+  - 1.0
+  - 12.0
+  lambda_boundary_smooth: 0.0
+  lambda_consistency: 0.2
+  lambda_dice: 0.5
+  lambda_emae: 0.2
+  lambda_event: 0.0
+  lambda_monotonic: 0.1
+  lambda_overlap: 0.5
+  lambda_raw_anchor: 0.0
+  lambda_smooth: 0.02
+  lambda_vad: 0.3
+  smooth_type: kl
+  sord_alpha: 2.5
+  type: legacy
+model:
+  encoder:
+    type: wavlm
+    pretrained_model: microsoft/wavlm-large
+    freeze_backbone: true
+    multiscale: true
+    num_hypercolumn_layers: 6
+    target_frame_rate_hz: 25.0
+  head:
+    d_model: 192
+    dropout: 0.1
+    type: tcn_ordinal
+    # Deliberate choice, not a default: the backbone is fully offline
+    # (WavLM is bidirectional by construction, no streaming budget), so the
+    # decoder is switched to the non-causal TCN variant (symmetric padding)
+    # too. Keeping it causal would be a "cheaper but pointless" restriction
+    # once the encoder already sees the whole utterance. The context-oracle
+    # track (zipcount-context-oracle memory) found the O2 fully-offline arm
+    # (non-causal encoder + non-causal head, 0.593) beat both O0
+    # (causal+causal, 0.577) and O1 (causal encoder + non-causal head,
+    # 0.569) — O1's negative head-context delta was attributed to an
+    # adaptation-budget artifact (only 800 extra steps from a causal init),
+    # which does not apply here since this run trains the head from a
+    # frozen backbone for the full 3000-step budget from scratch.
+    causal: false
+  num_count_classes: 4
+  variant: wavlm_hc6_offline
+training:
+  amp_growth_interval: 2000
+  amp_init_scale: 4096.0
+  batch_size: 24
+  early_phase_steps: 3000
+  eval_interval: 3000
+  eval_interval_early: 3000
+  freeze_backbone_all: true
+  grad_clip: 5.0
+  log_dir: logs/wavlm_hc6_s1234
+  lr: 0.001
+  lr_schedule: cosine
+  max_amp_overflows: 0
+  max_steps: 3000
+  num_workers: 12
+  reset_rng_after_init: true
+  save_best: false
+  save_every_eval: true
+  save_last: false
+  seed: 1234
+  snapshot_weights_only: true
+  stage: stage1_freeze_backbone
+  use_amp: true
+  warmup_steps: 500

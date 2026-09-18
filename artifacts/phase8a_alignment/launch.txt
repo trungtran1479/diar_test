@@ -1,0 +1,6 @@
+Phase 8A learned temporal-alignment preregistration
+launched=2026-07-23T10:44:04+07:00
+primary=vox_sel recording macro-F1 at locked step 3000
+arms=exact legacy average vs pretrained encoder-learned alignment
+seeds=1234 2345 3456
+all later pyramid/CORN/boundary/stage2 changes are OFF

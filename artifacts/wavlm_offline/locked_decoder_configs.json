@@ -1,0 +1,148 @@
+{
+  "dev_cache": "logs/logit_cache/ami_dev_s1234",
+  "priors": "artifacts/wavlm_offline/decoder_priors.npz",
+  "priors_sha256": "cda16a416a29a6882ca01911f1b4ae081c5610895e8a6e7f0c1595eedb2cb513",
+  "decode_protocol_sha256": "e2313282cf3beb7d2bd63b16ffa9b4cf272c47ba22715e0d483d3c586cc66d22",
+  "priors_meta": {
+    "manifest": "/media/edabk/500GB Hard Disk/data_diar/manifests/train_manifest_v3.json",
+    "manifest_sha256": "fee646152c558cf14f64994927645220e571071d766c3ea3dcf3bcb08cd5474a",
+    "source_prefixes": [
+      "ami_train",
+      "alimeeting_train",
+      "aishell4_train",
+      "msdwild_train",
+      "ramc_train",
+      "voxconverse_train",
+      "nsf_train"
+    ],
+    "sample_every": 10,
+    "laplace_transition": 1.0,
+    "laplace_duration_total_per_class": 1.0,
+    "n_windows_seen_matching_source": 127552,
+    "n_windows_used": 12755,
+    "n_windows_missing_label_file": 0,
+    "n_edge_censored_runs_excluded": 25308,
+    "n_segments_per_class_used_for_duration": [
+      48165,
+      108962,
+      91277,
+      25357
+    ],
+    "n_segments_capped_per_class": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "p99_duration_frames_per_class_raw": [
+      113,
+      277,
+      74,
+      69
+    ],
+    "frame_rate_hz": 25.0,
+    "max_dur_frames": 750,
+    "priors_npz_sha256": "cda16a416a29a6882ca01911f1b4ae081c5610895e8a6e7f0c1595eedb2cb513"
+  },
+  "selection_protocol": {
+    "dev": {
+      "source": "dataset",
+      "corpus_id": "ami_dev",
+      "seed": 1234,
+      "manifest_sha256": "c5e44d1e839a474049c1518fd5508f4c6ac7bca9963d4e5a2ca44fe576482961",
+      "frame_rate_hz": 25.0
+    },
+    "boundary_tol_frames": 3
+  },
+  "dev_cache_meta": {
+    "source": "dataset",
+    "corpus_id": "ami_dev",
+    "seed": 1234,
+    "manifest": "data/meetings/val_manifest.json",
+    "manifest_sha256": "c5e44d1e839a474049c1518fd5508f4c6ac7bca9963d4e5a2ca44fe576482961",
+    "config": "artifacts/wavlm_offline/wavlm_hc6_s1234.yaml",
+    "config_sha256": "c98a796abc92a27da4cbdf47c18e6f10340c631e6407ef9a4d32e721c6e2d73d",
+    "canonical_config_sha256": "972e9ac8015eb10d2d02dcc43bff799d640db8d8e6a54789e6603b92d32ec397",
+    "checkpoint": "logs/wavlm_hc6_s1234/step3000.pt",
+    "checkpoint_sha256": "5a469c9e4d8930fbabc3d73c0160f999cd6011f2fbc750409818b22ac31da711",
+    "restrict_to_dir": null,
+    "restrict_set_sha256": null,
+    "support_sha256": "f50abe40cc25a12e6c82e4268be5d15476fc94c11830a7a927c231d5be282954",
+    "content_sha256": "0ec7bcb3b118c599d0e3ef2ffe462b2f77554186a25e4de7c897065bb575f7e6",
+    "protocol_sha256": "430b43a37eac483a80c34024e94a64926a02250847708bb78cf9a252533cb2d8",
+    "frame_rate_hz": 25.0,
+    "n_recordings": 26,
+    "recordings": [
+      "ami_dev_ES2003a",
+      "ami_dev_ES2003b",
+      "ami_dev_ES2003c",
+      "ami_dev_ES2003d",
+      "ami_dev_ES2011a",
+      "ami_dev_ES2011b",
+      "ami_dev_ES2011c",
+      "ami_dev_ES2011d",
+      "ami_dev_IB4001",
+      "ami_dev_IB4002",
+      "ami_dev_IB4003",
+      "ami_dev_IB4004",
+      "ami_dev_IB4010",
+      "ami_dev_IB4011",
+      "ami_dev_IS1008a",
+      "ami_dev_IS1008b",
+      "ami_dev_IS1008c",
+      "ami_dev_IS1008d",
+      "ami_dev_TS3004a",
+      "ami_dev_TS3004b",
+      "ami_dev_TS3004c",
+      "ami_dev_TS3004d",
+      "ami_dev_TS3006a",
+      "ami_dev_TS3006b",
+      "ami_dev_TS3006c",
+      "ami_dev_TS3006d"
+    ]
+  },
+  "dev_baseline_macro_f1": 0.7122731971327241,
+  "winning_family": "hysteresis",
+  "locked_hyperparams": {
+    "hysteresis": {
+      "switch_margin": 0.05,
+      "min_duration_frames": 3
+    }
+  },
+  "dev_winner_result": {
+    "n_recordings": 26,
+    "n_spans": 26,
+    "n_frames": 1293546,
+    "macro_f1": 0.7124446177720305,
+    "f1_per_class": [
+      0.8497607352618263,
+      0.9227405548182805,
+      0.6844469246896787,
+      0.39283025631833657
+    ],
+    "acc": 0.8789992779537797,
+    "osd_f1": 0.7613784999335511,
+    "mean_edit_score": 76.15888475531628,
+    "mean_fragmentation_rate": 0.8860871732201969,
+    "mean_boundary_f1": 0.5350091005669118
+  },
+  "dev_all_candidates": {
+    "hysteresis": {
+      "n_recordings": 26,
+      "n_spans": 26,
+      "n_frames": 1293546,
+      "macro_f1": 0.7124446177720305,
+      "f1_per_class": [
+        0.8497607352618263,
+        0.9227405548182805,
+        0.6844469246896787,
+        0.39283025631833657
+      ],
+      "acc": 0.8789992779537797,
+      "osd_f1": 0.7613784999335511,
+      "mean_edit_score": 76.15888475531628,
+      "mean_fragmentation_rate": 0.8860871732201969,
+      "mean_boundary_f1": 0.5350091005669118
+    }
+  }
+}

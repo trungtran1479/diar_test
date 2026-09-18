@@ -1,0 +1,57 @@
+=== LOCKED STEP 400: C1 event supervision vs C0 ===
+=== C1  vs  C0   [macro_f1] ===
+
+per-seed (paired: same seed, same batch order):
+  seed1: C0=0.5766  C1=0.5745  delta=-0.0020
+  seed2: C0=0.5396  C1=0.5387  delta=-0.0008
+  seed3: C0=0.5672  C1=0.5666  delta=-0.0006
+  -> mean delta -0.0012, all same sign: True
+
+recording-level paired bootstrap (116 recordings, seeds averaged):
+  mean delta -0.0021   95% CI [-0.0026, -0.0016]
+  recordings improved: 29/116
+  CI excludes zero: True
+
+  most negative recordings: voxconverse_test_qlrry(-0.010), voxconverse_test_jttar(-0.010), voxconverse_test_mxdpo(-0.008), voxconverse_test_bgvvt(-0.008), voxconverse_test_sfdvy(-0.008)
+  most positive recordings: voxconverse_test_lbfnx(+0.006), voxconverse_test_fowhl(+0.006), voxconverse_test_wcxfk(+0.003), voxconverse_test_msbyq(+0.002), voxconverse_test_tpslg(+0.002)
+  top-5 recordings carry 6% of the total |delta|
+
+VERDICT: NO EFFECT / NEGATIVE
+=== LOCKED STEP 400: C2 structured system vs C1 ===
+=== C2  vs  C1   [macro_f1] ===
+
+per-seed (paired: same seed, same batch order):
+  seed1: C1=0.5745  C2=0.5435  delta=-0.0310
+  seed2: C1=0.5387  C2=0.5168  delta=-0.0219
+  seed3: C1=0.5666  C2=0.5407  delta=-0.0260
+  -> mean delta -0.0263, all same sign: True
+
+recording-level paired bootstrap (116 recordings, seeds averaged):
+  mean delta -0.0202   95% CI [-0.0251, -0.0154]
+  recordings improved: 29/116
+  CI excludes zero: True
+
+  most negative recordings: voxconverse_test_mkhie(-0.118), voxconverse_test_mxdpo(-0.096), voxconverse_test_heolf(-0.085), voxconverse_test_vgaez(-0.077), voxconverse_test_aorju(-0.074)
+  most positive recordings: voxconverse_test_isrps(+0.057), voxconverse_test_dxbbt(+0.018), voxconverse_test_gukoa(+0.017), voxconverse_test_ytmef(+0.016), voxconverse_test_ytula(+0.013)
+  top-5 recordings carry 4% of the total |delta|
+
+VERDICT: NO EFFECT / NEGATIVE
+=== LOCKED STEP 400: C2 structured system vs C0 ===
+=== C2  vs  C0   [macro_f1] ===
+
+per-seed (paired: same seed, same batch order):
+  seed1: C0=0.5766  C2=0.5435  delta=-0.0331
+  seed2: C0=0.5396  C2=0.5168  delta=-0.0228
+  seed3: C0=0.5672  C2=0.5407  delta=-0.0266
+  -> mean delta -0.0275, all same sign: True
+
+recording-level paired bootstrap (116 recordings, seeds averaged):
+  mean delta -0.0223   95% CI [-0.0273, -0.0174]
+  recordings improved: 25/116
+  CI excludes zero: True
+
+  most negative recordings: voxconverse_test_mkhie(-0.122), voxconverse_test_mxdpo(-0.104), voxconverse_test_heolf(-0.089), voxconverse_test_vgaez(-0.081), voxconverse_test_aorju(-0.078)
+  most positive recordings: voxconverse_test_isrps(+0.050), voxconverse_test_dxbbt(+0.018), voxconverse_test_ytmef(+0.014), voxconverse_test_gukoa(+0.014), voxconverse_test_ocfop(+0.012)
+  top-5 recordings carry 4% of the total |delta|
+
+VERDICT: NO EFFECT / NEGATIVE

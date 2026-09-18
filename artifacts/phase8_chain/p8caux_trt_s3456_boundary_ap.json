@@ -1,0 +1,13 @@
+{
+ "boundary_ap": 0.054299643994047374,
+ "recall_at_fp_budget": 0.09374644036906253,
+ "fp_budget": 17558,
+ "prevalence": 0.00928166234688931,
+ "n_transitions": 17558,
+ "n_scored": 1891687,
+ "checkpoint": "logs/p8caux_trt_s3456/step3000.pt",
+ "checkpoint_sha": "be99797b14a8c6f75446900f34ee23d8d4f9d9b6294aaa84c31454a5442b51e4",
+ "config_sha": "911c83609220b25a5c0c73c4c12283d0c4729f4abce4ac9f4f5d73b1d48260d1",
+ "manifest_sha": "f3de8712054f617c731c10c5de356c4b61a3c7e8db30e8704dda11f3c01f7025",
+ "protocol_sha": "402e1a97f8a5ea147637ed609ba44aff533a4a74ce0a0fc3c1f25e888de061c5"
+}

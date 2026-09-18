@@ -1,0 +1,37 @@
+{
+  "checkpoint": "logs/wavlm_lora_qv_all24_r8_800/step200.pt",
+  "config": "artifacts/wavlm_offline/partial_unfreeze/lora_qv_all24_r8_800.yaml",
+  "per_corpus": {
+    "ami_dev": {
+      "macro_f1": 0.7156808260245205,
+      "n_recordings": 1735,
+      "f1_per_class": [
+        0.8474877073155308,
+        0.922883652343305,
+        0.6849263062984683,
+        0.40742563814077776
+      ]
+    },
+    "dipco_dev": {
+      "macro_f1": 0.5024838318791286,
+      "n_recordings": 329,
+      "f1_per_class": [
+        0.591348748391382,
+        0.7671363370926543,
+        0.44281225529552865,
+        0.2086379867369495
+      ]
+    },
+    "vox_sel": {
+      "macro_f1": 0.6152154540673321,
+      "n_recordings": 2565,
+      "f1_per_class": [
+        0.7904257410272824,
+        0.9615523010606345,
+        0.5631074559913003,
+        0.1457763181901113
+      ]
+    }
+  },
+  "composite_dev_macro_f1": 0.6111267039903271
+}

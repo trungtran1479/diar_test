@@ -1,0 +1,105 @@
+# ZipCount v2 — STAGE 4 (r8): DiariZen's real corpora, 6 domains.
+#
+# r7 hit macroF1 0.649 / ovF1 0.677 on AMI-SDM and stalled; the remaining
+# error was structural (true3->pred2 0.69) and the diagnosis was that class 3+
+# needs DATA, not loss weights. This run answers that:
+#   * train_manifest_r8: 126k windows, REAL far-field share 68.5% (r7: 36%),
+#     3+ frames 5.9% (r7: 4.5%), overlap 22.9%
+#   * AliMeeting x3 — the only real corpus with a real 3+ share (6% of frames)
+#   * LibriMix capped at ~20k (was 78% of the old mix and caused the
+#     synthetic->far-field domain gap); libri3mix kept for its dense 3+ frames
+#   * RAMC subsampled (2-spk phone, ~0% overlap -> no counting value)
+#
+# CRITICAL: every real far-field source must be in rir_skip_sources. Convolving
+# a RIR onto already-reverberant audio is the exact double-reverb bug that held
+# r5 back — this now covers all six new corpora, not just ami/nsf.
+#
+# Run:
+#   bash scripts/run_stage4.sh
+# (inits from logs/r7_v2_stage3/best_macro_f1.pt — macroF1 0.649 @ step 4000)
+
+model:
+  variant: "E"
+  encoder:
+    type: "zipformer"
+    zipformer_dir: "/home/edabk/hoangbpm/diar/diar_new/third_party/icefall/egs/librispeech/ASR/zipformer"
+    checkpoint: "/home/edabk/hoangbpm/diar/diar_new/data_ext/models/icefall-asr-librispeech-streaming-zipformer-2023-05-17/exp/pretrained.pt"
+    causal: true
+    chunk_size: "32"
+    left_context_frames: "128"
+    encoder_dim: "192,256,384,512,384,256"
+    downsampling_factor: "1,2,4,8,4,2"
+    num_encoder_layers: "2,2,3,4,3,2"
+    num_heads: "4,4,4,8,4,4"
+    feedforward_dim: "512,768,1024,1536,1024,768"
+    cnn_module_kernel: "31,31,15,15,15,31"
+    encoder_unmasked_dim: "192,192,256,256,256,192"
+    query_head_dim: 32
+    value_head_dim: 12
+    pos_head_dim: 4
+    pos_dim: 48
+    strict_load: false
+    min_load_ratio: 0.90
+    freeze_backbone: true      # overridden by stage3_finetune (unfreezes all)
+    unfreeze_last_n: 0
+    multiscale: true
+  head:
+    type: "deformable_ordinal"
+    d_model: 256
+    num_layers: 2
+    num_points: 4
+    num_groups: 4
+    max_offset: 16
+    dropout: 0.1
+    head_hidden_dim: 0
+  num_count_classes: 4
+
+loss:
+  count_loss_type: "sord"
+  sord_alpha: 2.5
+  class_weights: [1.0, 1.0, 1.5, 3.0]
+  lambda_vad: 0.3
+  lambda_overlap: 0.5
+  lambda_emae: 0.2
+  lambda_consistency: 0.2
+  lambda_monotonic: 0.1
+  lambda_dice: 0.5
+  lambda_smooth: 0.02
+  smooth_type: "kl"
+
+training:
+  batch_size: 24              # needs a FREE gpu (~20 GB). Sharing? use 12.
+  lr: 3.0e-5
+  lr_schedule: "cosine"
+  warmup_steps: 500
+  max_steps: 12000            # ~2.3 epochs of the 126k-window manifest
+  grad_clip: 5.0
+  use_amp: true
+  eval_interval: 500          # r7 peaked at step 4000 — sample finer
+  num_workers: 12
+  stage: "stage3_finetune"    # full finetune of all 66M params
+  log_dir: "logs/r8_v2_stage4"
+
+data:
+  # Built with: PYTHONPATH=. python scripts/build_r8_manifest.py \
+  #   --out data/combined/train_manifest_r8.json
+  train_manifest: "/home/edabk/hoangbpm/diar/diar_new/data/combined/train_manifest_r8.json"
+  val_manifest: "/home/edabk/hoangbpm/diar/diar_new/data/meetings/val_manifest.json"
+  stats_file: "/home/edabk/hoangbpm/diar/diar_new/data/librimix/stats.json"   # informational only
+  feature_dim: 80
+  sample_rate: 16000
+  label_downsample: "majority_vote"
+  augment:
+    gain_db: [-28, 3]
+    rir_dir: "/home/edabk/hoangbpm/diar/diar_new/data_ext/RIRS_NOISES/simulated_rirs"
+    rir_prob: 0.8               # far-field sim for the synthetic remainder only
+    # all six real corpora are already far-field/reverberant -> never re-reverb
+    rir_skip_sources: ["ami", "nsf", "alimeeting", "aishell4", "msdwild", "voxconverse", "ramc"]
+    noise_dir: "/home/edabk/hoangbpm/diar/diar_new/musan/noise"
+    noise_prob: 0.5
+    noise_snr_db: [0, 20]
+    noise_skip_sources: ["ami", "nsf", "alimeeting", "aishell4", "msdwild", "voxconverse", "ramc"]
+
+streaming:
+  chunk_size: 32
+  left_context_frames: 128

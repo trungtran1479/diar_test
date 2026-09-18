@@ -1,0 +1,57 @@
+# Local datasets, downloaded models and external repositories
+/data/
+/data_ext/
+/LibriSpeech/
+/musan/
+/third_party/
+
+# Model weights, audio and prediction caches
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.onnx
+*.wav
+*.flac
+*.mp3
+*.npy
+*.npz
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+
+# Keep experiment logs and JSON metrics; omit bulky generated outputs
+/logs/download_more/
+*.rttm
+events.out.tfevents.*
+*.stale.*
+/tmux-*.log
+/.paths_rewritten
+
+# Python environments and caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.venv/
+venv/
+*.egg-info/
+
+# Local credentials and editor files
+.env
+.env.*
+!.env.example
+.DS_Store
+.idea/
+.vscode/
+
+# LaTeX intermediates (keep source and final PDFs)
+/paper/*.aux
+/paper/*.log
+/paper/*.out
+/paper/*.blg
+/paper/*.fls
+/paper/*.fdb_latexmk
+/paper/*.synctex.gz

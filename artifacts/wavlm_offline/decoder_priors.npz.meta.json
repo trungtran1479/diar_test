@@ -1,0 +1,41 @@
+{
+  "manifest": "/media/edabk/500GB Hard Disk/data_diar/manifests/train_manifest_v3.json",
+  "manifest_sha256": "fee646152c558cf14f64994927645220e571071d766c3ea3dcf3bcb08cd5474a",
+  "source_prefixes": [
+    "ami_train",
+    "alimeeting_train",
+    "aishell4_train",
+    "msdwild_train",
+    "ramc_train",
+    "voxconverse_train",
+    "nsf_train"
+  ],
+  "sample_every": 10,
+  "laplace_transition": 1.0,
+  "laplace_duration_total_per_class": 1.0,
+  "n_windows_seen_matching_source": 127552,
+  "n_windows_used": 12755,
+  "n_windows_missing_label_file": 0,
+  "n_edge_censored_runs_excluded": 25308,
+  "n_segments_per_class_used_for_duration": [
+    48165,
+    108962,
+    91277,
+    25357
+  ],
+  "n_segments_capped_per_class": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "p99_duration_frames_per_class_raw": [
+    113,
+    277,
+    74,
+    69
+  ],
+  "frame_rate_hz": 25.0,
+  "max_dur_frames": 750,
+  "priors_npz_sha256": "cda16a416a29a6882ca01911f1b4ae081c5610895e8a6e7f0c1595eedb2cb513"
+}

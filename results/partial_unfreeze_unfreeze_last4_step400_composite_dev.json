@@ -1,0 +1,37 @@
+{
+  "checkpoint": "logs/wavlm_partial_unfreeze_last4/step400.pt",
+  "config": "artifacts/wavlm_offline/partial_unfreeze/unfreeze_last4.yaml",
+  "per_corpus": {
+    "ami_dev": {
+      "macro_f1": 0.7089764628188714,
+      "n_recordings": 1735,
+      "f1_per_class": [
+        0.8532771068460142,
+        0.9216706780734643,
+        0.6662718126619204,
+        0.3946862536940866
+      ]
+    },
+    "dipco_dev": {
+      "macro_f1": 0.48820627121714544,
+      "n_recordings": 329,
+      "f1_per_class": [
+        0.5797764327819727,
+        0.7541730754473358,
+        0.41799961456928114,
+        0.20087596206999192
+      ]
+    },
+    "vox_sel": {
+      "macro_f1": 0.6132104373174482,
+      "n_recordings": 2565,
+      "f1_per_class": [
+        0.7910557149631872,
+        0.9604740820966933,
+        0.5650916104146577,
+        0.1362203417952547
+      ]
+    }
+  },
+  "composite_dev_macro_f1": 0.6034643904511551
+}

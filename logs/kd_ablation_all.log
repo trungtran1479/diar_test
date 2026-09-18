@@ -1,0 +1,49 @@
+  cfg /tmp/claude-1000/-home-edabk-hoangbpm/c22de1cf-7989-4e68-989d-f720938175c6/scratchpad/kd_lam0.yaml: lambda_kd=0.0 T=1.0 steps=1600 seed=1234
+=== arm lam0 (lambda=0.0, T=1.0) ===
+  best: macroF1=0.651
+  cfg /tmp/claude-1000/-home-edabk-hoangbpm/c22de1cf-7989-4e68-989d-f720938175c6/scratchpad/kd_lam025_T1.yaml: lambda_kd=0.25 T=1.0 steps=1600 seed=1234
+=== arm lam025_T1 (lambda=0.25, T=1.0) ===
+  best: macroF1=0.651
+  cfg /tmp/claude-1000/-home-edabk-hoangbpm/c22de1cf-7989-4e68-989d-f720938175c6/scratchpad/kd_lam025_T2.yaml: lambda_kd=0.25 T=2.0 steps=1600 seed=1234
+=== arm lam025_T2 (lambda=0.25, T=2.0) ===
+  best: macroF1=0.652
+  cfg /tmp/claude-1000/-home-edabk-hoangbpm/c22de1cf-7989-4e68-989d-f720938175c6/scratchpad/kd_lam1_T1.yaml: lambda_kd=1.0 T=1.0 steps=1600 seed=1234
+=== arm lam1_T1 (lambda=1.0, T=1.0) ===
+  best: macroF1=0.649
+=== ALL ARMS DONE ===
+--- lam0 ---
+[val@200] macroF1=0.649 f1/cls=[0.80 0.90 0.61 0.28] ovF1=0.681 vadF1=0.954
+[val@400] macroF1=0.651 f1/cls=[0.81 0.90 0.61 0.28] ovF1=0.680 vadF1=0.954
+[val@600] macroF1=0.630 f1/cls=[0.81 0.90 0.60 0.22] ovF1=0.660 vadF1=0.954
+[val@800] macroF1=0.643 f1/cls=[0.81 0.90 0.60 0.26] ovF1=0.670 vadF1=0.953
+[val@1000] macroF1=0.642 f1/cls=[0.81 0.90 0.61 0.25] ovF1=0.677 vadF1=0.954
+[val@1200] macroF1=0.644 f1/cls=[0.81 0.90 0.61 0.26] ovF1=0.674 vadF1=0.954
+[val@1400] macroF1=0.648 f1/cls=[0.81 0.90 0.61 0.27] ovF1=0.680 vadF1=0.954
+[val@1600] macroF1=0.644 f1/cls=[0.81 0.90 0.61 0.25] ovF1=0.679 vadF1=0.954
+--- lam025_T1 ---
+[val@200] macroF1=0.648 f1/cls=[0.80 0.90 0.61 0.27] ovF1=0.681 vadF1=0.954
+[val@400] macroF1=0.651 f1/cls=[0.81 0.90 0.61 0.28] ovF1=0.679 vadF1=0.954
+[val@600] macroF1=0.632 f1/cls=[0.81 0.90 0.60 0.22] ovF1=0.662 vadF1=0.954
+[val@800] macroF1=0.643 f1/cls=[0.81 0.90 0.60 0.26] ovF1=0.670 vadF1=0.953
+[val@1000] macroF1=0.641 f1/cls=[0.81 0.90 0.61 0.24] ovF1=0.677 vadF1=0.954
+[val@1200] macroF1=0.642 f1/cls=[0.81 0.90 0.61 0.25] ovF1=0.674 vadF1=0.954
+[val@1400] macroF1=0.646 f1/cls=[0.81 0.90 0.61 0.26] ovF1=0.679 vadF1=0.954
+[val@1600] macroF1=0.643 f1/cls=[0.81 0.90 0.61 0.25] ovF1=0.679 vadF1=0.954
+--- lam025_T2 ---
+[val@200] macroF1=0.649 f1/cls=[0.80 0.90 0.61 0.28] ovF1=0.681 vadF1=0.954
+[val@400] macroF1=0.652 f1/cls=[0.81 0.90 0.61 0.28] ovF1=0.680 vadF1=0.953
+[val@600] macroF1=0.632 f1/cls=[0.81 0.90 0.59 0.22] ovF1=0.658 vadF1=0.954
+[val@800] macroF1=0.642 f1/cls=[0.81 0.90 0.60 0.25] ovF1=0.671 vadF1=0.953
+[val@1000] macroF1=0.641 f1/cls=[0.81 0.90 0.61 0.24] ovF1=0.677 vadF1=0.954
+[val@1200] macroF1=0.644 f1/cls=[0.81 0.90 0.61 0.26] ovF1=0.676 vadF1=0.953
+[val@1400] macroF1=0.647 f1/cls=[0.81 0.90 0.61 0.26] ovF1=0.679 vadF1=0.954
+[val@1600] macroF1=0.643 f1/cls=[0.81 0.90 0.61 0.25] ovF1=0.679 vadF1=0.954
+--- lam1_T1 ---
+[val@200] macroF1=0.646 f1/cls=[0.81 0.90 0.61 0.26] ovF1=0.681 vadF1=0.954
+[val@400] macroF1=0.649 f1/cls=[0.81 0.90 0.61 0.27] ovF1=0.679 vadF1=0.953
+[val@600] macroF1=0.630 f1/cls=[0.81 0.90 0.60 0.21] ovF1=0.660 vadF1=0.954
+[val@800] macroF1=0.641 f1/cls=[0.81 0.90 0.60 0.25] ovF1=0.670 vadF1=0.953
+[val@1000] macroF1=0.638 f1/cls=[0.81 0.90 0.61 0.23] ovF1=0.678 vadF1=0.954
+[val@1200] macroF1=0.644 f1/cls=[0.81 0.90 0.61 0.25] ovF1=0.677 vadF1=0.954
+[val@1400] macroF1=0.644 f1/cls=[0.81 0.90 0.61 0.25] ovF1=0.678 vadF1=0.954
+[val@1600] macroF1=0.641 f1/cls=[0.81 0.90 0.61 0.24] ovF1=0.679 vadF1=0.954

@@ -1,0 +1,33 @@
+/home/edabk/miniconda3/envs/pyannote_eval/lib/python3.10/site-packages/pyannote/audio/utils/reproducibility.py:74: ReproducibilityWarning: TensorFloat-32 (TF32) has been disabled as it might lead to reproducibility issues and lower accuracy.
+It can be re-enabled by calling
+   >>> import torch
+   >>> torch.backends.cuda.matmul.allow_tf32 = True
+   >>> torch.backends.cudnn.allow_tf32 = True
+See https://github.com/pyannote/pyannote-audio/issues/1370 for more details.
+
+  warnings.warn(
+/home/edabk/miniconda3/envs/pyannote_eval/lib/python3.10/site-packages/pyannote/audio/models/blocks/pooling.py:103: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at /__w/pytorch/pytorch/aten/src/ATen/native/ReduceOps.cpp:1861.)
+  std = sequences.std(dim=-1, correction=1)
+Loaded pyannote/speaker-diarization-3.1 on cuda (cudnn disabled, see comment)
+dipco-pyannote-3.1: scoring 107 windows (restricted to the common set)
+  [1/107] S01_0000
+  [21/107] S01_0020
+  [41/107] S03_0008
+  [61/107] S03_0028
+/home/edabk/miniconda3/envs/pyannote_eval/lib/python3.10/site-packages/numpy/_core/fromnumeric.py:3860: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/home/edabk/miniconda3/envs/pyannote_eval/lib/python3.10/site-packages/numpy/_core/_methods.py:137: RuntimeWarning: invalid value encountered in divide
+  ret = um.true_divide(
+  [81/107] S07_0002
+  [101/107] S08_0004
+
+===== dipco-pyannote-3.1 (offline) — unified protocol (107 windows, 100 Hz) =====
+acc=0.713  mae=0.320  macroF1=0.464
+f1/cls = [0.634 0.828 0.393 0.000]
+VAD:  F1=0.950 (P=0.979 R=0.922)
+OSD (count>=2): F1=0.521 (P=0.799 R=0.387)
+confusion P(pred|true):  pred0   pred1   pred2   pred3
+  true0:               0.813   0.177   0.010   0.000
+  true1:               0.089   0.875   0.035   0.000
+  true2:               0.057   0.625   0.319   0.000
+  true3:               0.018   0.357   0.625   0.000

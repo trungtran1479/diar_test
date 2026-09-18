@@ -1,0 +1,18 @@
+{
+ "results": {
+  "results/p8a_average_s1234_voxsel.json": "041d58ffbeab2c3f878ff7f1fc7cd65488b28777d51586e836379810c57a4a1e",
+  "results/p8a_average_s2345_voxsel.json": "ace451dc66289732e081adb3d184875f4baf926cbaca683065098a8c766db18e",
+  "results/p8a_average_s3456_voxsel.json": "357dfe897bf5fa47e31cc09f6a498b2711d78d1233cee524b02b88d019a4806d"
+ },
+ "checkpoints": {
+  "logs/p8a_average_s1234/step3000.pt": "534b320245d106c32d36b7de56cf1af79558b83e9cb839eeab14dcb425671a60",
+  "logs/p8a_average_s2345/step3000.pt": "98c1b65d739ee9bf64d016d455e0a9fb975a773e2b3dfc6be608c83271ad4f37",
+  "logs/p8a_average_s3456/step3000.pt": "d73a2184f965a431f846e56084725a5fd8953f18af04dc0d8026bd2b6fe3bb84"
+ },
+ "configs": {
+  "artifacts/phase8a_alignment/p8a_average_s1234.yaml": "98895a169218e23300bd5f8d0fbe9eb69337ba2187cc1f84938e0c726c13ff39",
+  "artifacts/phase8a_alignment/p8a_average_s2345.yaml": "36308d835fff71ae29d79809eb09e8a36c624ff73b42ffdc4457a1082c40a253",
+  "artifacts/phase8a_alignment/p8a_average_s3456.yaml": "e651129b4aabbaa0d8af180caa4edc76e6344f406ac26123e9621dcfd82b3f53"
+ },
+ "sealed_at": "2026-07-26 22:52:02"
+}

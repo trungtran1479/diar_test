@@ -1,0 +1,5174 @@
+{
+ "checkpoint": "logs/p8a_average_s1234/step3000.pt",
+ "manifest": "/media/edabk/500GB Hard Disk/data_diar/msdwild/msdwild_manyval_LOCKED.json",
+ "n_recordings": 177,
+ "n_frames": 365499,
+ "calibration": {
+  "ece": 0.06471985910309906,
+  "brier": 0.34643247153180523,
+  "mae": 0.29259450778251106
+ },
+ "aggregate": {
+  "mean_edit_score": 56.7649625052221,
+  "mean_fragmentation_rate": 1.6097742057046676,
+  "pooled_transition_confusion": {
+   "labels": [
+    "down",
+    "stable",
+    "up"
+   ],
+   "matrix": [
+    [
+     449,
+     5814,
+     184
+    ],
+    [
+     9575,
+     333455,
+     9423
+    ],
+    [
+     174,
+     5638,
+     610
+    ]
+   ]
+  }
+ },
+ "per_recording": {
+  "msdwild_manyval_00008": {
+   "n_frames": 748,
+   "edit_score": 38.983050847457626,
+   "fragmentation_rate": 2.269230769230769,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      0,
+      12,
+      0
+     ],
+     [
+      28,
+      664,
+      30
+     ],
+     [
+      0,
+      13,
+      0
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_00059": {
+   "n_frames": 748,
+   "edit_score": 82.5,
+   "fragmentation_rate": 0.925,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      1,
+      18,
+      0
+     ],
+     [
+      17,
+      674,
+      17
+     ],
+     [
+      0,
+      19,
+      1
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_00077": {
+   "n_frames": 1763,
+   "edit_score": 47.5,
+   "fragmentation_rate": 1.9047619047619047,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      2,
+      29,
+      0
+     ],
+     [
+      55,
+      1591,
+      54
+     ],
+     [
+      2,
+      23,
+      6
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_00128": {
+   "n_frames": 748,
+   "edit_score": 59.183673469387756,
+   "fragmentation_rate": 0.673469387755102,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      2,
+      19,
+      2
+     ],
+     [
+      13,
+      672,
+      14
+     ],
+     [
+      0,
+      24,
+      1
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_00170": {
+   "n_frames": 1106,
+   "edit_score": 56.32183908045977,
+   "fragmentation_rate": 1.2794117647058822,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      1,
+      31,
+      2
+     ],
+     [
+      38,
+      962,
+      38
+     ],
+     [
+      4,
+      26,
+      3
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_00206": {
+   "n_frames": 29920,
+   "edit_score": 31.868131868131865,
+   "fragmentation_rate": 3.1379310344827585,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      20,
+      94,
+      1
+     ],
+     [
+      342,
+      28997,
+      349
+     ],
+     [
+      1,
+      101,
+      14
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_00004": {
+   "n_frames": 686,
+   "edit_score": 47.05882352941176,
+   "fragmentation_rate": 1.7586206896551724,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      3,
+      11,
+      0
+     ],
+     [
+      23,
+      611,
+      23
+     ],
+     [
+      0,
+      13,
+      1
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_00179": {
+   "n_frames": 652,
+   "edit_score": 76.47058823529412,
+   "fragmentation_rate": 0.9117647058823529,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      2,
+      13,
+      2
+     ],
+     [
+      13,
+      593,
+      12
+     ],
+     [
+      0,
+      15,
+      1
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_00162": {
+   "n_frames": 624,
+   "edit_score": 41.891891891891895,
+   "fragmentation_rate": 2.0555555555555554,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      1,
+      17,
+      0
+     ],
+     [
+      35,
+      518,
+      35
+     ],
+     [
+      0,
+      15,
+      2
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_00055": {
+   "n_frames": 564,
+   "edit_score": 72.09302325581395,
+   "fragmentation_rate": 1.131578947368421,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      0,
+      17,
+      1
+     ],
+     [
+      19,
+      489,
+      18
+     ],
+     [
+      1,
+      15,
+      3
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_00131": {
+   "n_frames": 558,
+   "edit_score": 32.91139240506329,
+   "fragmentation_rate": 2.7241379310344827,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      2,
+      12,
+      1
+     ],
+     [
+      36,
+      456,
+      37
+     ],
+     [
+      2,
+      11,
+      0
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_00025": {
+   "n_frames": 549,
+   "edit_score": 16.94915254237288,
+   "fragmentation_rate": 4.916666666666667,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      0,
+      5,
+      0
+     ],
+     [
+      28,
+      480,
+      29
+     ],
+     [
+      1,
+      5,
+      0
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_00070": {
+   "n_frames": 542,
+   "edit_score": 36.0,
+   "fragmentation_rate": 2.4193548387096775,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      4,
+      10,
+      2
+     ],
+     [
+      32,
+      444,
+      35
+     ],
+     [
+      0,
+      13,
+      1
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_00248": {
+   "n_frames": 748,
+   "edit_score": 56.14035087719298,
+   "fragmentation_rate": 1.6764705882352942,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      1,
+      15,
+      0
+     ],
+     [
+      27,
+      660,
+      27
+     ],
+     [
+      0,
+      16,
+      1
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_00269": {
+   "n_frames": 879,
+   "edit_score": 59.42028985507246,
+   "fragmentation_rate": 1.6428571428571428,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      1,
+      18,
+      2
+     ],
+     [
+      33,
+      773,
+      31
+     ],
+     [
+      1,
+      19,
+      0
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_00340": {
+   "n_frames": 1232,
+   "edit_score": 58.666666666666664,
+   "fragmentation_rate": 1.5957446808510638,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      2,
+      21,
+      0
+     ],
+     [
+      35,
+      1118,
+      32
+     ],
+     [
+      0,
+      18,
+      5
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_00392": {
+   "n_frames": 2104,
+   "edit_score": 77.14285714285715,
+   "fragmentation_rate": 0.8285714285714286,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      0,
+      17,
+      0
+     ],
+     [
+      13,
+      2042,
+      14
+     ],
+     [
+      1,
+      16,
+      0
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_00254": {
+   "n_frames": 537,
+   "edit_score": 35.08771929824561,
+   "fragmentation_rate": 2.4782608695652173,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      0,
+      10,
+      1
+     ],
+     [
+      27,
+      461,
+      26
+     ],
+     [
+      1,
+      9,
+      1
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_00398": {
+   "n_frames": 748,
+   "edit_score": 29.411764705882348,
+   "fragmentation_rate": 3.0,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      0,
+      7,
+      0
+     ],
+     [
+      25,
+      682,
+      24
+     ],
+     [
+      0,
+      8,
+      1
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_00417": {
+   "n_frames": 1379,
+   "edit_score": 74.4186046511628,
+   "fragmentation_rate": 1.0238095238095237,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      1,
+      41,
+      0
+     ],
+     [
+      40,
+      1216,
+      39
+     ],
+     [
+      1,
+      36,
+      4
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_00429": {
+   "n_frames": 748,
+   "edit_score": 61.038961038961034,
+   "fragmentation_rate": 1.5098039215686274,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      3,
+      21,
+      1
+     ],
+     [
+      35,
+      627,
+      35
+     ],
+     [
+      0,
+      23,
+      2
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_00430": {
+   "n_frames": 1399,
+   "edit_score": 70.1492537313433,
+   "fragmentation_rate": 1.1964285714285714,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      0,
+      27,
+      1
+     ],
+     [
+      33,
+      1279,
+      31
+     ],
+     [
+      0,
+      26,
+      1
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_00443": {
+   "n_frames": 889,
+   "edit_score": 72.36842105263158,
+   "fragmentation_rate": 1.1176470588235294,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      1,
+      31,
+      1
+     ],
+     [
+      37,
+      750,
+      34
+     ],
+     [
+      0,
+      32,
+      2
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_00471": {
+   "n_frames": 952,
+   "edit_score": 36.76470588235294,
+   "fragmentation_rate": 2.5185185185185186,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      1,
+      22,
+      3
+     ],
+     [
+      64,
+      771,
+      63
+     ],
+     [
+      3,
+      23,
+      1
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_00523": {
+   "n_frames": 926,
+   "edit_score": 46.15384615384615,
+   "fragmentation_rate": 1.9782608695652173,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      2,
+      20,
+      0
+     ],
+     [
+      42,
+      795,
+      43
+     ],
+     [
+      1,
+      20,
+      2
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_00548": {
+   "n_frames": 2921,
+   "edit_score": 62.874251497005986,
+   "fragmentation_rate": 1.3688524590163935,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      1,
+      57,
+      3
+     ],
+     [
+      79,
+      2642,
+      78
+     ],
+     [
+      2,
+      55,
+      3
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_00401": {
+   "n_frames": 734,
+   "edit_score": 50.0,
+   "fragmentation_rate": 1.2,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      1,
+      2,
+      1
+     ],
+     [
+      4,
+      715,
+      5
+     ],
+     [
+      0,
+      5,
+      0
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_00600": {
+   "n_frames": 748,
+   "edit_score": 78.18181818181819,
+   "fragmentation_rate": 1.1702127659574468,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      2,
+      21,
+      0
+     ],
+     [
+      24,
+      649,
+      28
+     ],
+     [
+      0,
+      23,
+      0
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_00616": {
+   "n_frames": 1232,
+   "edit_score": 60.65573770491803,
+   "fragmentation_rate": 1.4698795180722892,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      6,
+      34,
+      1
+     ],
+     [
+      53,
+      1040,
+      56
+     ],
+     [
+      2,
+      36,
+      3
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_00646": {
+   "n_frames": 3549,
+   "edit_score": 71.23287671232876,
+   "fragmentation_rate": 1.1317829457364341,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      3,
+      57,
+      3
+     ],
+     [
+      68,
+      3287,
+      65
+     ],
+     [
+      1,
+      59,
+      5
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_00663": {
+   "n_frames": 1143,
+   "edit_score": 43.20987654320988,
+   "fragmentation_rate": 2.189189189189189,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      1,
+      17,
+      0
+     ],
+     [
+      38,
+      1028,
+      40
+     ],
+     [
+      1,
+      17,
+      0
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_00714": {
+   "n_frames": 2244,
+   "edit_score": 41.666666666666664,
+   "fragmentation_rate": 2.375,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      4,
+      41,
+      3
+     ],
+     [
+      104,
+      1938,
+      106
+     ],
+     [
+      6,
+      37,
+      4
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_00554": {
+   "n_frames": 581,
+   "edit_score": 42.42424242424242,
+   "fragmentation_rate": 1.736842105263158,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      1,
+      17,
+      1
+     ],
+     [
+      30,
+      484,
+      29
+     ],
+     [
+      2,
+      14,
+      2
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_00692": {
+   "n_frames": 581,
+   "edit_score": 67.34693877551021,
+   "fragmentation_rate": 1.1666666666666667,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      0,
+      19,
+      2
+     ],
+     [
+      23,
+      496,
+      20
+     ],
+     [
+      1,
+      17,
+      2
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_00678": {
+   "n_frames": 524,
+   "edit_score": 62.295081967213115,
+   "fragmentation_rate": 1.4523809523809523,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      2,
+      17,
+      0
+     ],
+     [
+      27,
+      427,
+      28
+     ],
+     [
+      1,
+      19,
+      2
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_00656": {
+   "n_frames": 522,
+   "edit_score": 65.21739130434783,
+   "fragmentation_rate": 1.1219512195121952,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      1,
+      18,
+      1
+     ],
+     [
+      21,
+      440,
+      20
+     ],
+     [
+      0,
+      18,
+      2
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_00721": {
+   "n_frames": 2992,
+   "edit_score": 70.70707070707071,
+   "fragmentation_rate": 1.2375,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      3,
+      37,
+      0
+     ],
+     [
+      45,
+      2820,
+      47
+     ],
+     [
+      1,
+      36,
+      2
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_00727": {
+   "n_frames": 1496,
+   "edit_score": 60.526315789473685,
+   "fragmentation_rate": 1.4615384615384615,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      3,
+      33,
+      2
+     ],
+     [
+      53,
+      1313,
+      52
+     ],
+     [
+      0,
+      36,
+      3
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_00760": {
+   "n_frames": 1009,
+   "edit_score": 67.10526315789474,
+   "fragmentation_rate": 1.3571428571428572,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      2,
+      25,
+      1
+     ],
+     [
+      34,
+      884,
+      35
+     ],
+     [
+      1,
+      24,
+      2
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_00769": {
+   "n_frames": 1868,
+   "edit_score": 61.702127659574465,
+   "fragmentation_rate": 1.3177570093457944,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      2,
+      49,
+      2
+     ],
+     [
+      68,
+      1631,
+      62
+     ],
+     [
+      0,
+      47,
+      6
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_00776": {
+   "n_frames": 927,
+   "edit_score": 50.0,
+   "fragmentation_rate": 1.8571428571428572,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      2,
+      19,
+      0
+     ],
+     [
+      35,
+      816,
+      34
+     ],
+     [
+      2,
+      14,
+      4
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_00746": {
+   "n_frames": 644,
+   "edit_score": 62.5,
+   "fragmentation_rate": 1.0526315789473684,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      0,
+      19,
+      0
+     ],
+     [
+      20,
+      569,
+      17
+     ],
+     [
+      0,
+      16,
+      2
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_00816": {
+   "n_frames": 3299,
+   "edit_score": 50.0,
+   "fragmentation_rate": 1.8383838383838385,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      6,
+      41,
+      1
+     ],
+     [
+      82,
+      3033,
+      85
+     ],
+     [
+      3,
+      43,
+      4
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_00820": {
+   "n_frames": 748,
+   "edit_score": 57.14285714285714,
+   "fragmentation_rate": 1.302325581395349,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      1,
+      20,
+      0
+     ],
+     [
+      26,
+      656,
+      23
+     ],
+     [
+      1,
+      16,
+      4
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_00840": {
+   "n_frames": 2412,
+   "edit_score": 76.19047619047619,
+   "fragmentation_rate": 1.0,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      0,
+      10,
+      0
+     ],
+     [
+      10,
+      2371,
+      10
+     ],
+     [
+      0,
+      10,
+      0
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_00841": {
+   "n_frames": 1863,
+   "edit_score": 31.79723502304147,
+   "fragmentation_rate": 2.9324324324324325,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      2,
+      34,
+      1
+     ],
+     [
+      106,
+      1580,
+      103
+     ],
+     [
+      0,
+      32,
+      4
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_00780": {
+   "n_frames": 653,
+   "edit_score": 53.84615384615385,
+   "fragmentation_rate": 1.0263157894736843,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      2,
+      16,
+      1
+     ],
+     [
+      17,
+      580,
+      18
+     ],
+     [
+      0,
+      18,
+      0
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_00783": {
+   "n_frames": 646,
+   "edit_score": 43.58974358974359,
+   "fragmentation_rate": 2.1666666666666665,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      1,
+      7,
+      0
+     ],
+     [
+      18,
+      593,
+      17
+     ],
+     [
+      0,
+      7,
+      2
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_00777": {
+   "n_frames": 582,
+   "edit_score": 68.0,
+   "fragmentation_rate": 0.8,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      2,
+      21,
+      1
+     ],
+     [
+      16,
+      498,
+      18
+     ],
+     [
+      1,
+      23,
+      1
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_00823": {
+   "n_frames": 559,
+   "edit_score": 54.83870967741935,
+   "fragmentation_rate": 1.4090909090909092,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      0,
+      10,
+      0
+     ],
+     [
+      14,
+      507,
+      16
+     ],
+     [
+      0,
+      11,
+      0
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_00877": {
+   "n_frames": 1069,
+   "edit_score": 54.08163265306123,
+   "fragmentation_rate": 1.4,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      3,
+      33,
+      0
+     ],
+     [
+      44,
+      909,
+      46
+     ],
+     [
+      2,
+      29,
+      2
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_00884": {
+   "n_frames": 20725,
+   "edit_score": 64.84098939929328,
+   "fragmentation_rate": 1.3958076448828607,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      34,
+      364,
+      9
+     ],
+     [
+      525,
+      18883,
+      506
+     ],
+     [
+      8,
+      346,
+      49
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_00906": {
+   "n_frames": 661,
+   "edit_score": 63.04347826086957,
+   "fragmentation_rate": 1.3142857142857143,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      0,
+      16,
+      1
+     ],
+     [
+      22,
+      585,
+      19
+     ],
+     [
+      1,
+      14,
+      2
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_00919": {
+   "n_frames": 2244,
+   "edit_score": 38.297872340425535,
+   "fragmentation_rate": 2.3979591836734695,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      4,
+      41,
+      4
+     ],
+     [
+      106,
+      1935,
+      105
+     ],
+     [
+      5,
+      33,
+      10
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_00927": {
+   "n_frames": 6967,
+   "edit_score": 51.56794425087108,
+   "fragmentation_rate": 1.8516129032258064,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      7,
+      68,
+      2
+     ],
+     [
+      134,
+      6538,
+      140
+     ],
+     [
+      1,
+      74,
+      2
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_00934": {
+   "n_frames": 883,
+   "edit_score": 42.50000000000001,
+   "fragmentation_rate": 2.0,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      1,
+      9,
+      0
+     ],
+     [
+      18,
+      826,
+      19
+     ],
+     [
+      0,
+      8,
+      1
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_00913": {
+   "n_frames": 581,
+   "edit_score": 77.41935483870968,
+   "fragmentation_rate": 1.1071428571428572,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      0,
+      13,
+      0
+     ],
+     [
+      13,
+      526,
+      14
+     ],
+     [
+      1,
+      11,
+      2
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_00935": {
+   "n_frames": 921,
+   "edit_score": 62.295081967213115,
+   "fragmentation_rate": 1.3555555555555556,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      1,
+      19,
+      2
+     ],
+     [
+      30,
+      821,
+      25
+     ],
+     [
+      0,
+      20,
+      2
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_00938": {
+   "n_frames": 2244,
+   "edit_score": 67.17557251908397,
+   "fragmentation_rate": 1.0396825396825398,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      4,
+      54,
+      5
+     ],
+     [
+      60,
+      2003,
+      55
+     ],
+     [
+      1,
+      56,
+      5
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_00939": {
+   "n_frames": 931,
+   "edit_score": 31.775700934579444,
+   "fragmentation_rate": 3.1470588235294117,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      1,
+      15,
+      1
+     ],
+     [
+      50,
+      795,
+      52
+     ],
+     [
+      2,
+      14,
+      0
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_00978": {
+   "n_frames": 1444,
+   "edit_score": 45.50898203592815,
+   "fragmentation_rate": 2.141025641025641,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      5,
+      31,
+      2
+     ],
+     [
+      76,
+      1215,
+      75
+     ],
+     [
+      1,
+      31,
+      7
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_01003": {
+   "n_frames": 1496,
+   "edit_score": 61.34453781512605,
+   "fragmentation_rate": 1.451219512195122,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      1,
+      36,
+      3
+     ],
+     [
+      58,
+      1304,
+      52
+     ],
+     [
+      1,
+      37,
+      3
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_01011": {
+   "n_frames": 888,
+   "edit_score": 49.09090909090909,
+   "fragmentation_rate": 1.71875,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      0,
+      15,
+      0
+     ],
+     [
+      26,
+      804,
+      26
+     ],
+     [
+      0,
+      14,
+      2
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_01012": {
+   "n_frames": 639,
+   "edit_score": 43.05555555555556,
+   "fragmentation_rate": 2.25,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      1,
+      14,
+      1
+     ],
+     [
+      35,
+      539,
+      33
+     ],
+     [
+      0,
+      14,
+      1
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_00990": {
+   "n_frames": 624,
+   "edit_score": 61.29032258064516,
+   "fragmentation_rate": 0.9354838709677419,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      1,
+      14,
+      0
+     ],
+     [
+      13,
+      567,
+      13
+     ],
+     [
+      0,
+      14,
+      1
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_01008": {
+   "n_frames": 568,
+   "edit_score": 59.57446808510638,
+   "fragmentation_rate": 1.3823529411764706,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      0,
+      17,
+      0
+     ],
+     [
+      22,
+      492,
+      20
+     ],
+     [
+      1,
+      12,
+      3
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_01036": {
+   "n_frames": 1402,
+   "edit_score": 58.92857142857143,
+   "fragmentation_rate": 1.382716049382716,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      2,
+      36,
+      2
+     ],
+     [
+      53,
+      1219,
+      49
+     ],
+     [
+      0,
+      35,
+      5
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_01039": {
+   "n_frames": 987,
+   "edit_score": 77.17391304347827,
+   "fragmentation_rate": 1.1358024691358024,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      4,
+      36,
+      0
+     ],
+     [
+      39,
+      825,
+      42
+     ],
+     [
+      3,
+      34,
+      3
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_01065": {
+   "n_frames": 20777,
+   "edit_score": 29.885057471264364,
+   "fragmentation_rate": 3.3461538461538463,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      7,
+      45,
+      0
+     ],
+     [
+      167,
+      20340,
+      166
+     ],
+     [
+      0,
+      44,
+      7
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_01067": {
+   "n_frames": 2392,
+   "edit_score": 71.72413793103448,
+   "fragmentation_rate": 1.141732283464567,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      2,
+      59,
+      2
+     ],
+     [
+      69,
+      2129,
+      67
+     ],
+     [
+      0,
+      59,
+      4
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_01097": {
+   "n_frames": 978,
+   "edit_score": 71.64179104477613,
+   "fragmentation_rate": 1.098360655737705,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      3,
+      28,
+      0
+     ],
+     [
+      30,
+      856,
+      31
+     ],
+     [
+      1,
+      27,
+      1
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_01104": {
+   "n_frames": 2244,
+   "edit_score": 73.91304347826086,
+   "fragmentation_rate": 1.055045871559633,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      2,
+      53,
+      0
+     ],
+     [
+      55,
+      2029,
+      51
+     ],
+     [
+      0,
+      47,
+      6
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_01112": {
+   "n_frames": 748,
+   "edit_score": 59.25925925925925,
+   "fragmentation_rate": 0.7037037037037037,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      1,
+      12,
+      0
+     ],
+     [
+      8,
+      705,
+      8
+     ],
+     [
+      0,
+      12,
+      1
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_01118": {
+   "n_frames": 2398,
+   "edit_score": 61.68224299065421,
+   "fragmentation_rate": 1.2298850574712643,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      2,
+      38,
+      2
+     ],
+     [
+      50,
+      2216,
+      45
+     ],
+     [
+      1,
+      37,
+      6
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_01111": {
+   "n_frames": 593,
+   "edit_score": 79.16666666666666,
+   "fragmentation_rate": 1.0909090909090908,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      2,
+      8,
+      0
+     ],
+     [
+      8,
+      550,
+      13
+     ],
+     [
+      0,
+      11,
+      0
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_01068": {
+   "n_frames": 559,
+   "edit_score": 67.74193548387098,
+   "fragmentation_rate": 1.1071428571428572,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      0,
+      13,
+      0
+     ],
+     [
+      14,
+      501,
+      16
+     ],
+     [
+      0,
+      14,
+      0
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_01151": {
+   "n_frames": 29920,
+   "edit_score": 34.392265193370164,
+   "fragmentation_rate": 2.8616600790513833,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      9,
+      116,
+      1
+     ],
+     [
+      350,
+      28966,
+      351
+     ],
+     [
+      3,
+      114,
+      9
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_01166": {
+   "n_frames": 1145,
+   "edit_score": 19.82758620689655,
+   "fragmentation_rate": 5.043478260869565,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      1,
+      8,
+      2
+     ],
+     [
+      56,
+      1011,
+      55
+     ],
+     [
+      0,
+      10,
+      1
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_01242": {
+   "n_frames": 2476,
+   "edit_score": 68.75,
+   "fragmentation_rate": 1.309090909090909,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      8,
+      45,
+      1
+     ],
+     [
+      62,
+      2238,
+      66
+     ],
+     [
+      1,
+      49,
+      5
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_01219": {
+   "n_frames": 658,
+   "edit_score": 61.53846153846154,
+   "fragmentation_rate": 0.7307692307692307,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      0,
+      11,
+      1
+     ],
+     [
+      9,
+      615,
+      8
+     ],
+     [
+      0,
+      13,
+      0
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_01247": {
+   "n_frames": 608,
+   "edit_score": 61.40350877192983,
+   "fragmentation_rate": 1.1875,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      3,
+      22,
+      0
+     ],
+     [
+      24,
+      512,
+      24
+     ],
+     [
+      1,
+      17,
+      4
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_01253": {
+   "n_frames": 878,
+   "edit_score": 69.84126984126983,
+   "fragmentation_rate": 1.3125,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      1,
+      22,
+      1
+     ],
+     [
+      30,
+      773,
+      27
+     ],
+     [
+      1,
+      20,
+      2
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_01265": {
+   "n_frames": 5219,
+   "edit_score": 66.44067796610169,
+   "fragmentation_rate": 1.293859649122807,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      10,
+      102,
+      2
+     ],
+     [
+      136,
+      4719,
+      136
+     ],
+     [
+      2,
+      103,
+      8
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_01337": {
+   "n_frames": 1379,
+   "edit_score": 50.51546391752577,
+   "fragmentation_rate": 1.7962962962962963,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      3,
+      23,
+      1
+     ],
+     [
+      46,
+      1237,
+      42
+     ],
+     [
+      0,
+      22,
+      4
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_01345": {
+   "n_frames": 960,
+   "edit_score": 43.99999999999999,
+   "fragmentation_rate": 2.0833333333333335,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      1,
+      12,
+      0
+     ],
+     [
+      24,
+      888,
+      24
+     ],
+     [
+      0,
+      10,
+      0
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_01267": {
+   "n_frames": 739,
+   "edit_score": 69.6969696969697,
+   "fragmentation_rate": 1.1785714285714286,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      2,
+      10,
+      0
+     ],
+     [
+      13,
+      685,
+      13
+     ],
+     [
+      1,
+      11,
+      3
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_01340": {
+   "n_frames": 618,
+   "edit_score": 71.42857142857143,
+   "fragmentation_rate": 1.1136363636363635,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      2,
+      19,
+      1
+     ],
+     [
+      21,
+      532,
+      21
+     ],
+     [
+      0,
+      18,
+      3
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_01261": {
+   "n_frames": 510,
+   "edit_score": 31.818181818181824,
+   "fragmentation_rate": 2.0,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      0,
+      3,
+      0
+     ],
+     [
+      11,
+      479,
+      9
+     ],
+     [
+      0,
+      6,
+      1
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_01368": {
+   "n_frames": 1496,
+   "edit_score": 51.515151515151516,
+   "fragmentation_rate": 1.6097560975609757,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      2,
+      35,
+      4
+     ],
+     [
+      59,
+      1295,
+      60
+     ],
+     [
+      3,
+      34,
+      3
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_01372": {
+   "n_frames": 1829,
+   "edit_score": 72.8,
+   "fragmentation_rate": 1.1682242990654206,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      2,
+      48,
+      3
+     ],
+     [
+      59,
+      1612,
+      51
+     ],
+     [
+      1,
+      44,
+      8
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_01491": {
+   "n_frames": 1026,
+   "edit_score": 37.5,
+   "fragmentation_rate": 2.4347826086956523,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      4,
+      7,
+      0
+     ],
+     [
+      22,
+      956,
+      25
+     ],
+     [
+      1,
+      7,
+      3
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_01497": {
+   "n_frames": 906,
+   "edit_score": 57.971014492753625,
+   "fragmentation_rate": 1.1694915254237288,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      2,
+      26,
+      1
+     ],
+     [
+      31,
+      786,
+      30
+     ],
+     [
+      0,
+      25,
+      4
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_01559": {
+   "n_frames": 748,
+   "edit_score": 34.32835820895522,
+   "fragmentation_rate": 2.576923076923077,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      1,
+      11,
+      1
+     ],
+     [
+      30,
+      659,
+      33
+     ],
+     [
+      1,
+      11,
+      0
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_01580": {
+   "n_frames": 1883,
+   "edit_score": 71.42857142857143,
+   "fragmentation_rate": 0.7857142857142857,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      0,
+      26,
+      2
+     ],
+     [
+      20,
+      1788,
+      19
+     ],
+     [
+      2,
+      25,
+      0
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_01521": {
+   "n_frames": 739,
+   "edit_score": 41.666666666666664,
+   "fragmentation_rate": 0.8333333333333334,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      1,
+      4,
+      0
+     ],
+     [
+      4,
+      719,
+      4
+     ],
+     [
+      0,
+      6,
+      0
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_01554": {
+   "n_frames": 535,
+   "edit_score": 59.25925925925925,
+   "fragmentation_rate": 1.2857142857142858,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      1,
+      8,
+      1
+     ],
+     [
+      10,
+      492,
+      12
+     ],
+     [
+      1,
+      8,
+      1
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_01434": {
+   "n_frames": 533,
+   "edit_score": 44.230769230769226,
+   "fragmentation_rate": 2.1666666666666665,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      2,
+      10,
+      0
+     ],
+     [
+      24,
+      461,
+      24
+     ],
+     [
+      0,
+      10,
+      1
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_01458": {
+   "n_frames": 516,
+   "edit_score": 75.0,
+   "fragmentation_rate": 0.90625,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      0,
+      16,
+      0
+     ],
+     [
+      14,
+      457,
+      13
+     ],
+     [
+      0,
+      14,
+      1
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_01461": {
+   "n_frames": 501,
+   "edit_score": 68.42105263157895,
+   "fragmentation_rate": 1.1875,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      0,
+      8,
+      0
+     ],
+     [
+      9,
+      468,
+      8
+     ],
+     [
+      0,
+      6,
+      1
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_01596": {
+   "n_frames": 1378,
+   "edit_score": 45.45454545454546,
+   "fragmentation_rate": 2.1463414634146343,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      1,
+      19,
+      0
+     ],
+     [
+      41,
+      1255,
+      41
+     ],
+     [
+      1,
+      16,
+      3
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_01616": {
+   "n_frames": 4488,
+   "edit_score": 64.11290322580645,
+   "fragmentation_rate": 1.3932584269662922,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      5,
+      81,
+      3
+     ],
+     [
+      119,
+      4077,
+      114
+     ],
+     [
+      0,
+      82,
+      6
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_01641": {
+   "n_frames": 748,
+   "edit_score": 67.24137931034483,
+   "fragmentation_rate": 1.16,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      2,
+      22,
+      1
+     ],
+     [
+      26,
+      647,
+      25
+     ],
+     [
+      0,
+      21,
+      3
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_01649": {
+   "n_frames": 1190,
+   "edit_score": 71.9298245614035,
+   "fragmentation_rate": 1.1875,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      0,
+      22,
+      1
+     ],
+     [
+      27,
+      1088,
+      27
+     ],
+     [
+      1,
+      23,
+      0
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_01662": {
+   "n_frames": 1496,
+   "edit_score": 52.89855072463768,
+   "fragmentation_rate": 1.6428571428571428,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      2,
+      38,
+      1
+     ],
+     [
+      67,
+      1283,
+      62
+     ],
+     [
+      1,
+      37,
+      4
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_01663": {
+   "n_frames": 748,
+   "edit_score": 42.42424242424242,
+   "fragmentation_rate": 1.9411764705882353,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      0,
+      7,
+      1
+     ],
+     [
+      16,
+      700,
+      15
+     ],
+     [
+      0,
+      8,
+      0
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_01668": {
+   "n_frames": 3633,
+   "edit_score": 51.037344398340245,
+   "fragmentation_rate": 1.8257575757575757,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      5,
+      59,
+      1
+     ],
+     [
+      114,
+      3273,
+      114
+     ],
+     [
+      2,
+      60,
+      4
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_01691": {
+   "n_frames": 2037,
+   "edit_score": 66.05504587155964,
+   "fragmentation_rate": 1.345679012345679,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      1,
+      38,
+      0
+     ],
+     [
+      52,
+      1854,
+      50
+     ],
+     [
+      1,
+      36,
+      4
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_01694": {
+   "n_frames": 1966,
+   "edit_score": 67.58620689655173,
+   "fragmentation_rate": 1.2608695652173914,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      7,
+      49,
+      1
+     ],
+     [
+      63,
+      1722,
+      66
+     ],
+     [
+      1,
+      50,
+      6
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_01703": {
+   "n_frames": 3429,
+   "edit_score": 56.363636363636374,
+   "fragmentation_rate": 1.6666666666666667,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      2,
+      47,
+      0
+     ],
+     [
+      77,
+      3175,
+      78
+     ],
+     [
+      2,
+      42,
+      5
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_01744": {
+   "n_frames": 1036,
+   "edit_score": 75.0,
+   "fragmentation_rate": 0.9333333333333333,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      2,
+      28,
+      0
+     ],
+     [
+      25,
+      926,
+      25
+     ],
+     [
+      1,
+      26,
+      2
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_01793": {
+   "n_frames": 748,
+   "edit_score": 62.82051282051282,
+   "fragmentation_rate": 1.3928571428571428,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      1,
+      28,
+      0
+     ],
+     [
+      37,
+      621,
+      34
+     ],
+     [
+      0,
+      21,
+      5
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_01954": {
+   "n_frames": 1008,
+   "edit_score": 67.07317073170731,
+   "fragmentation_rate": 1.4137931034482758,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      1,
+      27,
+      1
+     ],
+     [
+      36,
+      878,
+      36
+     ],
+     [
+      2,
+      21,
+      5
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_01955": {
+   "n_frames": 2774,
+   "edit_score": 55.61497326203209,
+   "fragmentation_rate": 1.5714285714285714,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      3,
+      56,
+      1
+     ],
+     [
+      90,
+      2482,
+      83
+     ],
+     [
+      1,
+      49,
+      8
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_01984": {
+   "n_frames": 1435,
+   "edit_score": 58.51063829787234,
+   "fragmentation_rate": 1.2702702702702702,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      1,
+      33,
+      2
+     ],
+     [
+      46,
+      1274,
+      41
+     ],
+     [
+      0,
+      34,
+      3
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_01820": {
+   "n_frames": 741,
+   "edit_score": 51.85185185185186,
+   "fragmentation_rate": 1.7419354838709677,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      0,
+      14,
+      1
+     ],
+     [
+      27,
+      661,
+      22
+     ],
+     [
+      0,
+      12,
+      3
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_01803": {
+   "n_frames": 705,
+   "edit_score": 50.0,
+   "fragmentation_rate": 1.4705882352941178,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      0,
+      15,
+      1
+     ],
+     [
+      23,
+      626,
+      22
+     ],
+     [
+      2,
+      14,
+      1
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_01771": {
+   "n_frames": 704,
+   "edit_score": 37.93103448275862,
+   "fragmentation_rate": 2.32,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      1,
+      9,
+      1
+     ],
+     [
+      26,
+      626,
+      27
+     ],
+     [
+      0,
+      11,
+      2
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_01768": {
+   "n_frames": 627,
+   "edit_score": 68.75,
+   "fragmentation_rate": 1.1428571428571428,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      1,
+      26,
+      0
+     ],
+     [
+      29,
+      512,
+      30
+     ],
+     [
+      1,
+      25,
+      2
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_01865": {
+   "n_frames": 625,
+   "edit_score": 21.83908045977011,
+   "fragmentation_rate": 3.107142857142857,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      2,
+      11,
+      1
+     ],
+     [
+      41,
+      516,
+      40
+     ],
+     [
+      0,
+      11,
+      2
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_01935": {
+   "n_frames": 571,
+   "edit_score": 67.44186046511628,
+   "fragmentation_rate": 0.9069767441860465,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      1,
+      20,
+      0
+     ],
+     [
+      19,
+      491,
+      18
+     ],
+     [
+      0,
+      21,
+      0
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_01997": {
+   "n_frames": 1275,
+   "edit_score": 57.74647887323944,
+   "fragmentation_rate": 1.126984126984127,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      3,
+      29,
+      1
+     ],
+     [
+      32,
+      1148,
+      32
+     ],
+     [
+      0,
+      27,
+      2
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_02040": {
+   "n_frames": 3920,
+   "edit_score": 49.42084942084942,
+   "fragmentation_rate": 1.8905109489051095,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      6,
+      61,
+      1
+     ],
+     [
+      119,
+      3543,
+      121
+     ],
+     [
+      4,
+      57,
+      7
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_02071": {
+   "n_frames": 1031,
+   "edit_score": 70.76923076923076,
+   "fragmentation_rate": 1.1016949152542372,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      1,
+      25,
+      2
+     ],
+     [
+      29,
+      913,
+      30
+     ],
+     [
+      1,
+      28,
+      1
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_02130": {
+   "n_frames": 981,
+   "edit_score": 75.0,
+   "fragmentation_rate": 1.0909090909090908,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      1,
+      32,
+      0
+     ],
+     [
+      33,
+      849,
+      33
+     ],
+     [
+      2,
+      28,
+      2
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_02144": {
+   "n_frames": 2196,
+   "edit_score": 51.53846153846153,
+   "fragmentation_rate": 1.7567567567567568,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      4,
+      32,
+      1
+     ],
+     [
+      60,
+      2002,
+      60
+     ],
+     [
+      1,
+      32,
+      3
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_02116": {
+   "n_frames": 612,
+   "edit_score": 70.58823529411764,
+   "fragmentation_rate": 1.2439024390243902,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      3,
+      18,
+      0
+     ],
+     [
+      22,
+      526,
+      23
+     ],
+     [
+      0,
+      17,
+      2
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_02162": {
+   "n_frames": 1438,
+   "edit_score": 71.42857142857143,
+   "fragmentation_rate": 1.1529411764705881,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      3,
+      38,
+      1
+     ],
+     [
+      45,
+      1266,
+      42
+     ],
+     [
+      0,
+      36,
+      6
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_02180": {
+   "n_frames": 2092,
+   "edit_score": 66.30434782608697,
+   "fragmentation_rate": 1.1219512195121952,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      0,
+      41,
+      0
+     ],
+     [
+      45,
+      1924,
+      41
+     ],
+     [
+      1,
+      35,
+      4
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_02209": {
+   "n_frames": 1627,
+   "edit_score": 26.262626262626267,
+   "fragmentation_rate": 3.3,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      0,
+      28,
+      2
+     ],
+     [
+      96,
+      1377,
+      94
+     ],
+     [
+      4,
+      24,
+      1
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_02239": {
+   "n_frames": 1036,
+   "edit_score": 41.9753086419753,
+   "fragmentation_rate": 1.975609756097561,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      0,
+      19,
+      1
+     ],
+     [
+      40,
+      918,
+      37
+     ],
+     [
+      0,
+      18,
+      2
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_02243": {
+   "n_frames": 7734,
+   "edit_score": 60.7843137254902,
+   "fragmentation_rate": 1.5740740740740742,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      6,
+      73,
+      1
+     ],
+     [
+      121,
+      7338,
+      113
+     ],
+     [
+      0,
+      68,
+      13
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_02242": {
+   "n_frames": 556,
+   "edit_score": 64.86486486486487,
+   "fragmentation_rate": 0.7297297297297297,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      0,
+      16,
+      2
+     ],
+     [
+      13,
+      498,
+      8
+     ],
+     [
+      1,
+      15,
+      2
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_02258": {
+   "n_frames": 1075,
+   "edit_score": 71.62162162162163,
+   "fragmentation_rate": 0.7837837837837838,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      4,
+      31,
+      2
+     ],
+     [
+      24,
+      957,
+      20
+     ],
+     [
+      0,
+      29,
+      7
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_02289": {
+   "n_frames": 1621,
+   "edit_score": 78.57142857142857,
+   "fragmentation_rate": 1.105263157894737,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      3,
+      34,
+      1
+     ],
+     [
+      39,
+      1470,
+      36
+     ],
+     [
+      0,
+      33,
+      4
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_02311": {
+   "n_frames": 1333,
+   "edit_score": 33.5195530726257,
+   "fragmentation_rate": 2.8870967741935485,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      3,
+      25,
+      3
+     ],
+     [
+      88,
+      1102,
+      81
+     ],
+     [
+      0,
+      27,
+      3
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_02250": {
+   "n_frames": 734,
+   "edit_score": 65.3061224489796,
+   "fragmentation_rate": 1.3611111111111112,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      0,
+      16,
+      2
+     ],
+     [
+      23,
+      653,
+      22
+     ],
+     [
+      0,
+      16,
+      1
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_02260": {
+   "n_frames": 603,
+   "edit_score": 41.55844155844156,
+   "fragmentation_rate": 2.264705882352941,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      0,
+      15,
+      2
+     ],
+     [
+      37,
+      497,
+      35
+     ],
+     [
+      1,
+      14,
+      1
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_02329": {
+   "n_frames": 1803,
+   "edit_score": 24.32432432432432,
+   "fragmentation_rate": 4.111111111111111,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      0,
+      18,
+      0
+     ],
+     [
+      73,
+      1621,
+      73
+     ],
+     [
+      0,
+      16,
+      1
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_02339": {
+   "n_frames": 748,
+   "edit_score": 70.83333333333333,
+   "fragmentation_rate": 0.7916666666666666,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      1,
+      22,
+      0
+     ],
+     [
+      18,
+      665,
+      17
+     ],
+     [
+      0,
+      23,
+      1
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_02341": {
+   "n_frames": 17952,
+   "edit_score": 70.08032128514057,
+   "fragmentation_rate": 1.3174603174603174,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      27,
+      342,
+      7
+     ],
+     [
+      462,
+      16283,
+      451
+     ],
+     [
+      8,
+      331,
+      40
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_02399": {
+   "n_frames": 987,
+   "edit_score": 52.04081632653062,
+   "fragmentation_rate": 1.75,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      3,
+      24,
+      1
+     ],
+     [
+      45,
+      840,
+      46
+     ],
+     [
+      1,
+      25,
+      1
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_02404": {
+   "n_frames": 7137,
+   "edit_score": 41.30434782608695,
+   "fragmentation_rate": 2.271604938271605,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      12,
+      142,
+      7
+     ],
+     [
+      348,
+      6127,
+      338
+     ],
+     [
+      7,
+      132,
+      23
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_02409": {
+   "n_frames": 1480,
+   "edit_score": 39.43661971830986,
+   "fragmentation_rate": 2.1194029850746268,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      2,
+      31,
+      0
+     ],
+     [
+      66,
+      1280,
+      67
+     ],
+     [
+      3,
+      27,
+      3
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_02441": {
+   "n_frames": 6890,
+   "edit_score": 70.32967032967032,
+   "fragmentation_rate": 1.2297297297297298,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      16,
+      131,
+      1
+     ],
+     [
+      165,
+      6259,
+      170
+     ],
+     [
+      2,
+      136,
+      9
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_02436": {
+   "n_frames": 554,
+   "edit_score": 74.28571428571429,
+   "fragmentation_rate": 1.0294117647058822,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      0,
+      16,
+      0
+     ],
+     [
+      16,
+      487,
+      17
+     ],
+     [
+      0,
+      16,
+      1
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_02418": {
+   "n_frames": 553,
+   "edit_score": 68.96551724137932,
+   "fragmentation_rate": 0.896551724137931,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      1,
+      13,
+      0
+     ],
+     [
+      11,
+      502,
+      11
+     ],
+     [
+      1,
+      12,
+      1
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_02443": {
+   "n_frames": 1496,
+   "edit_score": 40.833333333333336,
+   "fragmentation_rate": 2.0338983050847457,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      5,
+      22,
+      0
+     ],
+     [
+      50,
+      1330,
+      57
+     ],
+     [
+      3,
+      24,
+      4
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_02497": {
+   "n_frames": 2639,
+   "edit_score": 36.36363636363637,
+   "fragmentation_rate": 2.626865671641791,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      9,
+      56,
+      1
+     ],
+     [
+      167,
+      2172,
+      166
+     ],
+     [
+      1,
+      59,
+      7
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_02541": {
+   "n_frames": 4226,
+   "edit_score": 58.26771653543308,
+   "fragmentation_rate": 1.4682080924855492,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      2,
+      84,
+      1
+     ],
+     [
+      123,
+      3806,
+      124
+     ],
+     [
+      2,
+      82,
+      1
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_02446": {
+   "n_frames": 652,
+   "edit_score": 65.625,
+   "fragmentation_rate": 0.96875,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      0,
+      16,
+      0
+     ],
+     [
+      15,
+      590,
+      15
+     ],
+     [
+      0,
+      15,
+      0
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_02552": {
+   "n_frames": 1496,
+   "edit_score": 44.776119402985074,
+   "fragmentation_rate": 1.763157894736842,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      2,
+      14,
+      2
+     ],
+     [
+      30,
+      1396,
+      32
+     ],
+     [
+      0,
+      19,
+      0
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_02584": {
+   "n_frames": 965,
+   "edit_score": 60.0,
+   "fragmentation_rate": 1.25,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      0,
+      31,
+      1
+     ],
+     [
+      39,
+      824,
+      38
+     ],
+     [
+      0,
+      30,
+      1
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_02646": {
+   "n_frames": 1727,
+   "edit_score": 50.64935064935065,
+   "fragmentation_rate": 1.75,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      2,
+      41,
+      1
+     ],
+     [
+      71,
+      1497,
+      71
+     ],
+     [
+      4,
+      35,
+      4
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_02707": {
+   "n_frames": 1324,
+   "edit_score": 69.87951807228916,
+   "fragmentation_rate": 1.0121951219512195,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      2,
+      39,
+      0
+     ],
+     [
+      38,
+      1166,
+      38
+     ],
+     [
+      1,
+      36,
+      3
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_02737": {
+   "n_frames": 882,
+   "edit_score": 72.41379310344827,
+   "fragmentation_rate": 1.1153846153846154,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      3,
+      22,
+      1
+     ],
+     [
+      26,
+      778,
+      26
+     ],
+     [
+      0,
+      24,
+      1
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_02644": {
+   "n_frames": 692,
+   "edit_score": 57.14285714285714,
+   "fragmentation_rate": 1.6153846153846154,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      3,
+      17,
+      0
+     ],
+     [
+      29,
+      599,
+      25
+     ],
+     [
+      0,
+      13,
+      5
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_02712": {
+   "n_frames": 606,
+   "edit_score": 33.333333333333336,
+   "fragmentation_rate": 2.823529411764706,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      2,
+      6,
+      0
+     ],
+     [
+      22,
+      544,
+      23
+     ],
+     [
+      0,
+      8,
+      0
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_02709": {
+   "n_frames": 557,
+   "edit_score": 47.76119402985075,
+   "fragmentation_rate": 1.6341463414634145,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      3,
+      17,
+      0
+     ],
+     [
+      28,
+      458,
+      30
+     ],
+     [
+      3,
+      15,
+      2
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_02752": {
+   "n_frames": 1824,
+   "edit_score": 54.92957746478873,
+   "fragmentation_rate": 1.6511627906976745,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      1,
+      41,
+      0
+     ],
+     [
+      69,
+      1603,
+      66
+     ],
+     [
+      0,
+      38,
+      5
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_02790": {
+   "n_frames": 748,
+   "edit_score": 70.0,
+   "fragmentation_rate": 1.1538461538461537,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      1,
+      10,
+      1
+     ],
+     [
+      13,
+      697,
+      12
+     ],
+     [
+      0,
+      11,
+      2
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_02808": {
+   "n_frames": 2641,
+   "edit_score": 67.96116504854368,
+   "fragmentation_rate": 0.8058252427184466,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      7,
+      94,
+      2
+     ],
+     [
+      74,
+      2294,
+      67
+     ],
+     [
+      1,
+      87,
+      14
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_02825": {
+   "n_frames": 2489,
+   "edit_score": 90.9090909090909,
+   "fragmentation_rate": 0.9818181818181818,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      4,
+      22,
+      1
+     ],
+     [
+      23,
+      2387,
+      24
+     ],
+     [
+      0,
+      26,
+      1
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_02846": {
+   "n_frames": 1331,
+   "edit_score": 53.333333333333336,
+   "fragmentation_rate": 1.6935483870967742,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      1,
+      30,
+      0
+     ],
+     [
+      49,
+      1170,
+      50
+     ],
+     [
+      2,
+      26,
+      2
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_02795": {
+   "n_frames": 554,
+   "edit_score": 68.57142857142857,
+   "fragmentation_rate": 1.1666666666666667,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      3,
+      11,
+      0
+     ],
+     [
+      13,
+      496,
+      15
+     ],
+     [
+      0,
+      12,
+      3
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_02868": {
+   "n_frames": 2943,
+   "edit_score": 69.56521739130434,
+   "fragmentation_rate": 1.055045871559633,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      2,
+      52,
+      1
+     ],
+     [
+      55,
+      2725,
+      54
+     ],
+     [
+      1,
+      51,
+      1
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_02878": {
+   "n_frames": 1161,
+   "edit_score": 30.555555555555557,
+   "fragmentation_rate": 3.085714285714286,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      1,
+      15,
+      1
+     ],
+     [
+      51,
+      1026,
+      49
+     ],
+     [
+      1,
+      12,
+      4
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_02904": {
+   "n_frames": 2805,
+   "edit_score": 57.57575757575757,
+   "fragmentation_rate": 1.5529411764705883,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      4,
+      78,
+      3
+     ],
+     [
+      126,
+      2391,
+      118
+     ],
+     [
+      1,
+      72,
+      11
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_02913": {
+   "n_frames": 946,
+   "edit_score": 55.696202531645575,
+   "fragmentation_rate": 1.5192307692307692,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      1,
+      24,
+      1
+     ],
+     [
+      37,
+      822,
+      35
+     ],
+     [
+      1,
+      21,
+      3
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_02951": {
+   "n_frames": 2537,
+   "edit_score": 45.907473309608534,
+   "fragmentation_rate": 2.051094890510949,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      5,
+      61,
+      2
+     ],
+     [
+      132,
+      2136,
+      132
+     ],
+     [
+      2,
+      59,
+      7
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_02895": {
+   "n_frames": 703,
+   "edit_score": 74.4186046511628,
+   "fragmentation_rate": 1.0,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      0,
+      21,
+      0
+     ],
+     [
+      20,
+      622,
+      18
+     ],
+     [
+      1,
+      17,
+      3
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_02870": {
+   "n_frames": 657,
+   "edit_score": 50.76923076923077,
+   "fragmentation_rate": 1.6666666666666667,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      1,
+      16,
+      2
+     ],
+     [
+      28,
+      560,
+      30
+     ],
+     [
+      2,
+      16,
+      1
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_03010": {
+   "n_frames": 1461,
+   "edit_score": 53.2258064516129,
+   "fragmentation_rate": 1.4761904761904763,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      0,
+      20,
+      0
+     ],
+     [
+      30,
+      1359,
+      30
+     ],
+     [
+      0,
+      20,
+      1
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_03020": {
+   "n_frames": 1430,
+   "edit_score": 55.6338028169014,
+   "fragmentation_rate": 1.6511627906976745,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      2,
+      39,
+      1
+     ],
+     [
+      65,
+      1210,
+      69
+     ],
+     [
+      2,
+      39,
+      2
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_03031": {
+   "n_frames": 2201,
+   "edit_score": 47.27272727272728,
+   "fragmentation_rate": 1.9879518072289157,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      2,
+      37,
+      2
+     ],
+     [
+      80,
+      1964,
+      74
+     ],
+     [
+      0,
+      35,
+      6
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_03047": {
+   "n_frames": 1496,
+   "edit_score": 66.3716814159292,
+   "fragmentation_rate": 1.1649484536082475,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      0,
+      46,
+      2
+     ],
+     [
+      53,
+      1296,
+      50
+     ],
+     [
+      1,
+      41,
+      6
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_03114": {
+   "n_frames": 748,
+   "edit_score": 61.702127659574465,
+   "fragmentation_rate": 1.5161290322580645,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      2,
+      13,
+      0
+     ],
+     [
+      20,
+      674,
+      23
+     ],
+     [
+      1,
+      14,
+      0
+     ]
+    ]
+   }
+  },
+  "msdwild_manyval_03141": {
+   "n_frames": 1496,
+   "edit_score": 67.85714285714286,
+   "fragmentation_rate": 0.8333333333333334,
+   "transition_confusion": {
+    "labels": [
+     "down",
+     "stable",
+     "up"
+    ],
+    "matrix": [
+     [
+      1,
+      40,
+      1
+     ],
+     [
+      34,
+      1349,
+      29
+     ],
+     [
+      0,
+      37,
+      4
+     ]
+    ]
+   }
+  }
+ }
+}

@@ -1,0 +1,133 @@
+/home/edabk/miniconda3/envs/pyannote_eval/lib/python3.10/site-packages/pyannote/audio/utils/reproducibility.py:74: ReproducibilityWarning: TensorFloat-32 (TF32) has been disabled as it might lead to reproducibility issues and lower accuracy.
+It can be re-enabled by calling
+   >>> import torch
+   >>> torch.backends.cuda.matmul.allow_tf32 = True
+   >>> torch.backends.cudnn.allow_tf32 = True
+See https://github.com/pyannote/pyannote-audio/issues/1370 for more details.
+
+  warnings.warn(
+/home/edabk/miniconda3/envs/pyannote_eval/lib/python3.10/site-packages/pyannote/audio/models/blocks/pooling.py:103: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at /__w/pytorch/pytorch/aten/src/ATen/native/ReduceOps.cpp:1861.)
+  std = sequences.std(dim=-1, correction=1)
+Loaded pyannote/speaker-diarization-3.1 on cuda (cudnn disabled, see comment)
+vc-pyannote-3.1: scoring 1868 windows
+  [1/1868] aepyx_0000
+  [21/1868] aorju_0012
+  [41/1868] bgvvt_0012
+  [61/1868] bmsyn_0002
+  [81/1868] bvqnu_0002
+  [101/1868] cawnd_0001
+  [121/1868] cpebh_0003
+  [141/1868] crylr_0002
+  [161/1868] dgvwu_0003
+  [181/1868] dkabn_0000
+  [201/1868] dlast_0006
+  [221/1868] dxbbt_0000
+  [241/1868] eauve_0004
+  [261/1868] eoyaz_0001
+  [281/1868] eqsta_0004
+  [301/1868] fijfi_0005
+  [321/1868] fuzfh_0000
+  [341/1868] fyqoe_0000
+  [361/1868] gcvrb_0007
+  [381/1868] gtjow_0005
+  [401/1868] gtnjb_0011
+  [421/1868] gwloo_0001
+  [441/1868] gzhwb_0005
+  [461/1868] heolf_0010
+  [481/1868] hqhrb_0002
+  [501/1868] iacod_0006
+  [521/1868] ibrnm_0012
+  [541/1868] iiprr_0013
+  [561/1868] iowob_0009
+  [581/1868] jbowg_0011
+  [601/1868] jeymh_0003
+  [621/1868] jgiyq_0009
+  [641/1868] jrfaz_0000
+  [661/1868] jsbdo_0006
+  [681/1868] jttar_0004
+  [701/1868] jxpom_0002
+  [721/1868] kajfh_0001
+  [741/1868] kgjaa_0010
+  [761/1868] ktvto_0003
+/home/edabk/miniconda3/envs/pyannote_eval/lib/python3.10/site-packages/numpy/_core/fromnumeric.py:3860: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/home/edabk/miniconda3/envs/pyannote_eval/lib/python3.10/site-packages/numpy/_core/_methods.py:137: RuntimeWarning: invalid value encountered in divide
+  ret = um.true_divide(
+  [781/1868] kvkje_0013
+  [801/1868] lbfnx_0001
+  [821/1868] leneg_0002
+  [841/1868] ljpes_0000
+  [861/1868] lpola_0003
+  [881/1868] lubpm_0000
+  [901/1868] mhwyr_0012
+  [921/1868] mqtep_0001
+  [941/1868] mxduo_0009
+  [961/1868] nitgx_0007
+  [981/1868] nlvdr_0002
+  [1001/1868] nqyqm_0001
+  [1021/1868] ocfop_0009
+  [1041/1868] olzkb_0001
+  [1061/1868] otmpf_0000
+  [1081/1868] ouvtt_0008
+  [1101/1868] ppexo_0001
+  [1121/1868] pwnsw_0011
+  [1141/1868] qajyo_0003
+  [1161/1868] qoarn_0003
+  [1181/1868] qxana_0004
+  [1201/1868] rarij_0008
+  [1221/1868] rsypp_0008
+  [1241/1868] ryken_0000
+/home/edabk/miniconda3/envs/pyannote_eval/lib/python3.10/site-packages/numpy/_core/fromnumeric.py:3860: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/home/edabk/miniconda3/envs/pyannote_eval/lib/python3.10/site-packages/numpy/_core/_methods.py:137: RuntimeWarning: invalid value encountered in divide
+  ret = um.true_divide(
+  [1261/1868] sebyw_0003
+  [1281/1868] sexgc_0009
+  [1301/1868] swbnm_0003
+  [1321/1868] tbjqx_0005
+  [1341/1868] tiido_0002
+  [1361/1868] tpnyf_0000
+  [1381/1868] tvtoe_0001
+  [1401/1868] uedkc_0013
+  [1421/1868] uicid_0006
+  [1441/1868] usqam_0001
+  [1461/1868] vdlvr_0001
+  [1481/1868] vgevv_0005
+  [1501/1868] vncid_0013
+  [1521/1868] vuewy_0011
+  [1541/1868] wcxfk_0001
+  [1561/1868] wlfsf_0000
+  [1581/1868] wwvcs_0000
+  [1601/1868] wwzsk_0006
+  [1621/1868] xggbk_0006
+  [1641/1868] xkmqx_0000
+  [1661/1868] xlyov_0005
+  [1681/1868] xqxkt_0012
+/home/edabk/miniconda3/envs/pyannote_eval/lib/python3.10/site-packages/numpy/_core/fromnumeric.py:3860: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/home/edabk/miniconda3/envs/pyannote_eval/lib/python3.10/site-packages/numpy/_core/_methods.py:137: RuntimeWarning: invalid value encountered in divide
+  ret = um.true_divide(
+  [1701/1868] ygrip_0001
+  [1721/1868] ylzez_0003
+  [1741/1868] ytula_0003
+  [1761/1868] yzvon_0001
+  [1781/1868] zedtj_0011
+  [1801/1868] zowse_0001
+  [1821/1868] zqidv_0007
+  [1841/1868] zzsba_0001
+/home/edabk/miniconda3/envs/pyannote_eval/lib/python3.10/site-packages/numpy/_core/fromnumeric.py:3860: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/home/edabk/miniconda3/envs/pyannote_eval/lib/python3.10/site-packages/numpy/_core/_methods.py:137: RuntimeWarning: invalid value encountered in divide
+  ret = um.true_divide(
+  [1861/1868] zzyyo_0005
+
+===== vc-pyannote-3.1 (offline) — unified protocol (1868 windows, 100 Hz) =====
+acc=0.932  mae=0.070  macroF1=0.582
+f1/cls = [0.772 0.962 0.596 0.000]
+VAD:  F1=0.974 (P=0.971 R=0.977)
+OSD (count>=2): F1=0.612 (P=0.590 R=0.635)
+confusion P(pred|true):  pred0   pred1   pred2   pred3
+  true0:               0.754   0.236   0.010   0.000
+  true1:               0.024   0.964   0.013   0.000
+  true2:               0.016   0.354   0.631   0.000
+  true3:               0.037   0.204   0.760   0.000

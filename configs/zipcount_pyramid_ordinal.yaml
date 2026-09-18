@@ -1,0 +1,127 @@
+# Target gated-pyramid ordinal system described in
+# ../PYRAMID_ORDINAL_ROADMAP.md.
+#
+# This file makes every new component explicit.  It is a target-system config,
+# not permission to attribute a joint gain to any one component: use the
+# staged Phase-8 runners for scientific comparisons.
+
+model:
+  variant: "gated_pyramid_ordinal"
+  encoder:
+    type: "zipformer"
+    zipformer_dir: "/home/edabk/hoangbpm/diar/diar_new/third_party/icefall/egs/librispeech/ASR/zipformer"
+    checkpoint: "/home/edabk/hoangbpm/diar/diar_new/data_ext/models/icefall-asr-librispeech-streaming-zipformer-2023-05-17/exp/pretrained.pt"
+    causal: true
+    chunk_size: "32"
+    left_context_frames: "128"
+    encoder_dim: "192,256,384,512,384,256"
+    downsampling_factor: "1,2,4,8,4,2"
+    num_encoder_layers: "2,2,3,4,3,2"
+    num_heads: "4,4,4,8,4,4"
+    feedforward_dim: "512,768,1024,1536,1024,768"
+    cnn_module_kernel: "31,31,15,15,15,31"
+    encoder_unmasked_dim: "192,192,256,256,256,192"
+    query_head_dim: 32
+    value_head_dim: 12
+    pos_head_dim: 4
+    pos_dim: 48
+    strict_load: false
+    min_load_ratio: 0.90
+    freeze_backbone: true
+    unfreeze_last_n: 0
+    multiscale: true
+    # The historical fixed average remains available as an ablation.  The
+    # target system reuses Zipformer's trained two-phase output downsampler.
+    multiscale_alignment: "encoder_learned"
+    multiscale_include_final: true
+  head:
+    type: "gated_pyramid_ordinal"
+    d_model: 192
+    dilations: [1, 2, 4, 8, 16, 32]
+    kernel: 3
+    dropout: 0.1
+    gate_mode: "framewise"
+    ordinal_mode: "corn"
+    edge_hidden_dim: 96
+    use_stage2: true
+  num_count_classes: 4
+
+loss:
+  type: "pyramid_structured"
+  count_loss_type: "corn"
+  class_weights: [1.0, 1.0, 1.5, 3.0]
+  # Real mixed-batch gradient audit: 0.30 produced exactly 30% of the final
+  # count gradient at zero-init stage 2, above the preregistered 20% ceiling.
+  lambda_stage1: 0.20
+  lambda_boundary: 0.10
+  lambda_direction: 0.05
+  lambda_t_mse: 0.05
+  lambda_segment: 0.05
+  # Enable only after the boundary branch passes its localization gate.
+  lambda_delta: 0.00
+  boundary_kernel: [0.25, 0.75, 1.0, 0.75, 0.25]
+  t_mse_tau: 4.0
+  direction_class_weights: [1.0, 1.0]
+  # Distinct legacy knobs are pinned off to make accidental double-smoothing
+  # visible in both the config and training log.
+  lambda_boundary_smooth: 0.0
+  lambda_smooth: 0.0
+  lambda_vad: 0.0
+  lambda_overlap: 0.0
+  lambda_emae: 0.0
+  lambda_consistency: 0.0
+  lambda_monotonic: 0.0
+  lambda_dice: 0.0
+  lambda_event: 0.0
+  lambda_raw_anchor: 0.0
+
+training:
+  # Target graduation regime.  Phase-8 screening overrides this with a frozen
+  # backbone, lr=1e-3 and 3000 steps.
+  batch_size: 24
+  lr: 3.0e-5
+  lr_schedule: "cosine"
+  warmup_steps: 500
+  max_steps: 800
+  grad_clip: 5.0
+  use_amp: true
+  amp_init_scale: 4096.0
+  amp_growth_interval: 2000
+  eval_interval: 200
+  eval_interval_early: 200
+  early_phase_steps: 800
+  num_workers: 12
+  stage: "stage3_finetune"
+  freeze_backbone_all: false
+  save_every_eval: true
+  snapshot_weights_only: true
+  save_best: false
+  save_last: false
+  log_dir: "logs/pyramid_ordinal_target"
+
+data:
+  train_manifest: "/media/edabk/500GB Hard Disk/data_diar/manifests/train_manifest_v3.json"
+  val_manifest: "/home/edabk/hoangbpm/diar/diar_new/data/meetings/val_manifest.json"
+  stats_file: "/home/edabk/hoangbpm/diar/diar_new/data/librimix/stats.json"
+  feature_dim: 80
+  sample_rate: 16000
+  label_downsample: "majority_vote"
+  augment:
+    gain_db: [-28, 3]
+    rir_dir: "/home/edabk/hoangbpm/diar/diar_new/data_ext/RIRS_NOISES/simulated_rirs"
+    rir_prob: 0.8
+    rir_skip_sources: ["ami", "nsf", "alimeeting", "aishell4", "msdwild", "voxconverse", "ramc"]
+    noise_dir: "/home/edabk/hoangbpm/diar/diar_new/musan/noise"
+    noise_prob: 0.5
+    noise_snr_db: [0, 20]
+    noise_skip_sources: ["ami", "nsf", "alimeeting", "aishell4", "msdwild", "voxconverse", "ramc"]
+
+distill:
+  teacher_dir: ""
+  lambda_kd: 0.0
+  temperature: 1.0
+  mask_mode: "agree"
+
+streaming:
+  chunk_size: 32
+  left_context_frames: 128

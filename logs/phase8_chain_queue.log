@@ -1,0 +1,4 @@
+phase8 chain starting; phases=['a1', 'b', 'b2', 'c', 'd1', 'd2', 'e']
+
+===== PHASE p8a1 =====
+    [run ] p8a1_ctl_s1234 config_sha=94a247ce1669

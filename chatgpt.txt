@@ -1,0 +1,163 @@
+Đánh giá nhanh: **v2 này đã ra đúng “ngách paper” hơn v1 rất nhiều**. Nó không còn là “gắn head count lên Zipformer” nữa, mà đã có 3 claim rõ:
+
+```text
+1. Speaker-count là ordinal temporal segmentation, không phải binary overlap đơn giản.
+2. Zipformer U-Net/multi-rate hidden có thể dùng như backbone speaker-state streaming.
+3. Causal deformable temporal block là điểm mới để học context quá khứ adaptive thay vì fixed kernel.
+```
+
+Các quyết định thiết kế của bạn có cơ sở tốt. Powerset paper cho thấy chuyển từ multi-label sang powerset multi-class giúp bỏ threshold nhạy và cải thiện chủ yếu ở missed overlapping speech; họ báo cáo powerset compound training tốt hơn multi-label trung bình 8% relative in-domain và 11% relative trên DIHARD domain-mismatch. ([arXiv][1]) Count softmax 4-class của bạn là bản rút gọn đúng hướng: không cần identity, chỉ cần trạng thái `0/1/2/3+`.
+
+## Chốt: v2 có đáng train thật không?
+
+**Có. Nên train thật ngay.** Smoke test của bạn đủ để đi tiếp, vì đã pass 3 thứ quan trọng nhất:
+
+```text
+forward/backward ổn
+backbone frozen đúng
+streaming/offline gần khớp 99.2%
+```
+
+Nhưng khi viết paper, đừng claim quá sớm là “deformable causal là novelty tuyệt đối trong audio”. Đã có deformable temporal convolution cho speech separation, trong đó tác giả dùng deformable convolution để TCN có receptive field động, đạt 11.1 dB SI-SDR improvement trên WHAMR và model nhỏ 1.3M params vẫn cạnh tranh với model lớn hơn. ([arXiv][2]) Claim an toàn hơn là:
+
+> Causal deformable temporal aggregation for **streaming speaker-count / overlap-state estimation** on top of a frozen Zipformer ASR encoder.
+
+Tức là novelty nằm ở **bài toán + streaming constraint + speaker-count head**, không phải “deformable 1D chưa từng có”.
+
+## Các khối hiện tại hợp lý như nào?
+
+**Hypercolumn từ 6 stack Zipformer** là điểm rất tốt. Zipformer paper mô tả rõ kiến trúc có “U-Net-like encoder structure”, trong đó các middle stacks chạy ở frame-rate thấp hơn để nhanh và tiết kiệm hơn. ([arXiv][3]) Việc bạn lấy per-stack hidden và để gate tự học scale nào chứa speaker information là rất đáng giá, vì nó biến một lựa chọn kiến trúc thành **finding thực nghiệm**.
+
+**StackGatedProjection** có thể là phần reviewer thích nhất nếu bạn log tốt. Nếu gate dồn về stack giữa/tầng nén, bạn có câu chuyện: speaker-count cần context dài hơn phonetic frame-level. Nếu gate dồn về stack nông, câu chuyện là speaker/energy cue nằm ở acoustic layer. UME cũng ủng hộ hướng multi-layer: họ dùng hidden từ nhiều layer dưới dạng residual weighted-sum encoding để tận dụng thông tin ở nhiều semantic levels cho diarization, separation và ASR. ([arXiv][4])
+
+**OrdinalConsistentHead** cũng đúng. CORN/CORAL literature nhấn mạnh cross-entropy thường bỏ qua thứ tự tự nhiên của nhãn ordinal, còn ordinal regression tận dụng quan hệ rank giữa class. CORN còn nói framework của họ không phụ thuộc kiến trúc và có thể dùng với classifier neural bất kỳ. ([arXiv][5]) Với count, lỗi `1→2` không nên bị coi ngang `0→3`, nên SORD + cumulative `P(≥1), P(≥2)` là hợp lý.
+
+**Dice overlap** hợp lý, nhưng đừng để nó kéo false alarm quá mạnh. EEND-M2F là bằng chứng tốt rằng tư duy image segmentation chuyển sang diarization được: paper nối thẳng diarization với image segmentation, dùng Mask2Former-style masked attention, không cần clustering và đạt SOTA trên nhiều public datasets, nổi bật DIHARD-III DER 16.07%. ([arXiv][6]) Nhưng với bạn, Dice chỉ nên là auxiliary để cứu rare class overlap, không nên thay objective count chính.
+
+## Điều cần cẩn thận nhất
+
+**1. 99.2% streaming/offline agreement chưa đủ.**
+Nó chứng minh implementation streaming gần đúng, nhưng cần soi riêng các frame biên chunk. Hãy log:
+
+```text
+agreement_all
+agreement_near_chunk_boundary ±160ms
+agreement_on_overlap_frames
+agreement_on_speaker_change_frames
+```
+
+Nếu 0.8% mismatch chủ yếu rơi vào overlap hoặc turn boundary thì vẫn có thể hại ASR routing.
+
+**2. Deformable offset phải được kiểm soát.**
+Cần log histogram offset:
+
+```text
+offset_mean_ms
+offset_std_ms
+offset_min/max
+offset_by_class: silence / single / overlap
+```
+
+Nếu offset luôn sát 0 thì block không đóng góp. Nếu offset luôn max look-back 640 ms thì model đang dùng nó như fixed long-context block, không thật sự adaptive.
+
+**3. Cumulative head phải thật sự monotonic.**
+Vì bạn có `P(≥1)=VAD`, `P(≥2)=OSD`, nên phải log violation:
+
+```text
+monotonic_violation = mean(P_ge2 > P_ge1)
+```
+
+Nếu có constraint rồi thì metric này nên gần 0. Nếu không, reviewer sẽ hỏi tại sao gọi là ordinal-consistent.
+
+**4. Count 3+ rất dễ thành class chết.**
+Nếu data thật ít 3 speaker overlap, class `3+` có thể không học. Tạm thời nên báo cáo 2 metric:
+
+```text
+4-class count accuracy: 0/1/2/3+
+3-class collapsed: 0/1/2+
+```
+
+Nếu `3+` quá sparse, paper chính có thể dùng `0/1/2+`, còn `3+` để ablation.
+
+## Bảng ablation nên chốt
+
+Bạn nói đúng: v1 không phải stage riêng nữa, mà là dòng ablation. Tôi sẽ dựng bảng như này:
+
+| Variant | Frozen Zipformer |   Hypercolumn | Conv/Temporal | Deformable |    Ordinal/SORD | Dice | Mục đích               |
+| ------- | ---------------: | ------------: | ------------: | ---------: | --------------: | ---: | ---------------------- |
+| A       |                ✓ |    layer cuối |        linear |          ✗ |              CE |    ✗ | baseline tối thiểu     |
+| B       |                ✓ |    layer cuối |   causal conv |          ✗ |              CE |    ✗ | fixed temporal context |
+| C       |                ✓ | gated 6-stack |   causal conv |          ✗ |              CE |    ✗ | đo lợi ích multi-scale |
+| D       |                ✓ | gated 6-stack |    deformable |          ✓ |              CE |    ✗ | đo lợi ích deformable  |
+| E       |                ✓ | gated 6-stack |    deformable |          ✓ | SORD+cumulative |    ✓ | full v2                |
+
+Metric chính không nên là DER. Nên dùng:
+
+```text
+Count Acc / Count MAE
+Overlap F1, Overlap Recall, Overlap Precision
+VAD F1
+Boundary-window Count F1
+Streaming latency, RTF
+Downstream ASR routing WER/cpWER/tcpWER
+```
+
+## Training recipe tôi khuyên
+
+Đừng bật tất cả loss mạnh ngay từ đầu. Dùng 3 phase:
+
+```text
+Phase 1: CE count + VAD/OSD cumulative nhẹ
+- học ổn target cơ bản
+- dice = 0
+- sord_alpha = 1.0
+
+Phase 2: bật SORD + monotonic mạnh hơn
+- sord_alpha 1.0–2.0
+- kiểm tra count MAE và calibration
+
+Phase 3: bật Dice overlap
+- tăng lambda_dice nếu overlap recall thấp
+- nếu false alarm overlap tăng mạnh thì giảm dice trước, đừng tăng threshold tùy tiện
+```
+
+Tuning đúng như bạn ghi: **nếu overlap recall thấp, tăng `lambda_dice` trước class weight**. Class weight dễ làm model over-call overlap ở vùng speech mạnh một người.
+
+## Claim paper nên viết thế này
+
+Claim mạnh nhưng an toàn:
+
+> We propose a streaming speaker-state estimator built on a frozen Zipformer ASR encoder. Instead of estimating global speaker identity, the model predicts ordinal local speaker count and overlap state. The architecture uses gated hypercolumn fusion over Zipformer’s multi-rate stacks, causal deformable temporal aggregation with past-only offsets, and ordinal-consistent count supervision with overlap Dice regularization.
+
+Đừng viết:
+
+```text
+first deformable audio diarization model
+```
+
+Nên viết:
+
+```text
+to our knowledge, the first causal deformable temporal aggregation module targeting streaming speaker-count/overlap estimation on a frozen ASR Zipformer backbone
+```
+
+## Kết luận
+
+Tôi đồng ý với hướng v2. **Đây là cấu trúc có thể thành paper hơn v1**, vì mỗi block đều có vai trò rõ và có ablation chứng minh được:
+
+```text
+Hypercolumn gate → speaker info nằm ở stack nào?
+Deformable causal → context quá khứ adaptive có hơn fixed conv không?
+Ordinal head → count ordinal có hơn CE thường không?
+Dice overlap → có cứu rare overlap mà không tăng false alarm quá mức không?
+Streaming agreement → có deploy được không?
+```
+
+Việc tiếp theo nên làm ngay là train A/B/C/D/E cùng data, cùng seed ít nhất 2–3 seed nếu kịp. Nếu E chỉ thắng overlap F1 nhưng làm count MAE xấu, nó vẫn là finding; nếu E thắng cả count MAE và overlap recall ở cùng latency, đây là trục contribution rất rõ.
+
+[1]: https://arxiv.org/abs/2310.13025 "Powerset multi-class cross entropy loss for neural speaker diarization"
+[2]: https://arxiv.org/abs/2210.15305 "[2210.15305] Deformable Temporal Convolutional Networks for Monaural Noisy Reverberant Speech Separation"
+[3]: https://arxiv.org/abs/2310.11230?utm_source=chatgpt.com "Zipformer: A faster and better encoder for automatic speech recognition"
+[4]: https://arxiv.org/abs/2508.20474 "[2508.20474] Unifying Diarization, Separation, and ASR with Multi-Speaker Encoder"
+[5]: https://arxiv.org/abs/2111.08851 "[2111.08851] Deep Neural Networks for Rank-Consistent Ordinal Regression Based On Conditional Probabilities"
+[6]: https://arxiv.org/abs/2401.12600 "[2401.12600] EEND-M2F: Masked-attention mask transformers for speaker diarization"

@@ -1,0 +1,13 @@
+{
+ "boundary_ap": 0.020364185583707523,
+ "recall_at_fp_budget": 0.04146258115958537,
+ "fp_budget": 17558,
+ "prevalence": 0.00928166234688931,
+ "n_transitions": 17558,
+ "n_scored": 1891687,
+ "checkpoint": "logs/p8a0_pyr_s1234/step3000.pt",
+ "checkpoint_sha": "d8c7b649a4066c5dbd8b50f2cadbe8456bdac918efc8db759c6f1e863c30c394",
+ "config_sha": "1bcf48a91f09157912a88736394df9faaf0ea6cc65343046243628cf4f8e7e9a",
+ "manifest_sha": "f3de8712054f617c731c10c5de356c4b61a3c7e8db30e8704dda11f3c01f7025",
+ "protocol_sha": "402e1a97f8a5ea147637ed609ba44aff533a4a74ce0a0fc3c1f25e888de061c5"
+}

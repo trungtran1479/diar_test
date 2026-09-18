@@ -1,0 +1,62 @@
+data:
+  feature_dim: 80
+  label_downsample: majority_vote
+  librispeech_dir: /home/pc/v2t/data/en/LibriSpeech
+  lsmix_dir: /home/pc/v2t/sep_data_en/lsmix_train_1to3to6_300h
+  musan_manifest: /home/pc/v2t/data/musan_lhotse/musan_recordings_noise.jsonl.gz
+  sample_rate: 16000
+  stats_file: /home/pc/diar_new/data/stats.json
+  train_manifest: /home/pc/diar_new/data/train_manifest.json
+  val_manifest: /home/pc/diar_new/data/val_manifest.json
+loss:
+  class_weights: auto
+  count_loss_type: focal
+  focal_gamma: 2.0
+  lambda_overlap: 0.5
+  lambda_smooth: 0.05
+  lambda_vad: 0.3
+  smooth_type: kl
+model:
+  encoder:
+    causal: true
+    checkpoint: ''
+    chunk_size: '32'
+    cnn_module_kernel: 31,31,15,15,15,31
+    downsampling_factor: 1,2,4,8,4,2
+    encoder_dim: 192,256,384,512,384,256
+    encoder_unmasked_dim: 192,192,256,256,256,192
+    feedforward_dim: 512,768,1024,1536,1024,768
+    freeze_backbone: true
+    left_context_frames: '128'
+    min_load_ratio: 0.9
+    num_encoder_layers: 2,2,3,4,3,2
+    num_heads: 4,4,4,8,4,4
+    output_dim: 512
+    pos_dim: 48
+    pos_head_dim: 4
+    print_state_dict_summary: true
+    query_head_dim: 32
+    strict_load: false
+    type: mock
+    unfreeze_last_n: 0
+    value_head_dim: 12
+    zipformer_dir: /home/pc/icefall/egs/librispeech/ASR/zipformer
+  head:
+    adapter_dim: 256
+    adapter_dropout: 0.1
+    adapter_kernel_size: 5
+    type: temporal_adaptive
+    use_local_attention: false
+  num_count_classes: 4
+  variant: C
+streaming:
+  chunk_size: 32
+  left_context_frames: 128
+training:
+  batch_size: 1
+  grad_clip: 5.0
+  lr: 0.001
+  max_steps: 50000
+  stage: stage1_freeze_backbone
+  use_amp: true
+  warmup_steps: 1000

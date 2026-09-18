@@ -1,0 +1,1859 @@
+/home/edabk/hoangbpm/diar/diar_new/third_party/DiariZen/pyannote-audio/pyannote/audio/pipelines/speaker_verification.py:43: UserWarning: Module 'speechbrain.pretrained' was deprecated, redirecting to 'speechbrain.inference'. Please update your script. This is a change from SpeechBrain 1.0. See: https://github.com/speechbrain/speechbrain/releases/tag/v1.0.0
+  from speechbrain.pretrained import (
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 50972.44it/s]
+/home/edabk/hoangbpm/diar/diar_new/third_party/DiariZen/pyannote-audio/pyannote/audio/utils/reproducibility.py:74: ReproducibilityWarning: TensorFloat-32 (TF32) has been disabled as it might lead to reproducibility issues and lower accuracy.
+It can be re-enabled by calling
+   >>> import torch
+   >>> torch.backends.cuda.matmul.allow_tf32 = True
+   >>> torch.backends.cudnn.allow_tf32 = True
+See https://github.com/pyannote/pyannote-audio/issues/1370 for more details.
+
+  warnings.warn(
+Loaded configuration: {'model': {'path': 'diarizen.models.eend.model_wavlm_conformer.Model', 'args': {'wavlm_src': 'wavlm_large_s80_md', 'wavlm_layer_num': 25, 'wavlm_feat_dim': 1024, 'attention_in': 256, 'ffn_hidden': 1024, 'num_head': 4, 'num_layer': 4, 'dropout': 0.1, 'max_speakers_per_chunk': 4, 'max_speakers_per_frame': 4, 'chunk_size': 16, 'use_posi': False, 'output_activate_function': False, 'selected_channel': 0}}, 'inference': {'args': {'seg_duration': 16, 'segmentation_step': 0.1, 'batch_size': 32, 'apply_median_filtering': True}}, 'clustering': {'args': {'method': 'VBxClustering', 'min_speakers': 1, 'max_speakers': 20, 'ahc_criterion': 'distance', 'ahc_threshold': 0.6, 'Fa': 0.07, 'Fb': 0.8, 'lda_dim': 128, 'max_iters': 20}}}
+self.embedding: /home/edabk/.cache/huggingface/hub/models--pyannote--wespeaker-voxceleb-resnet34-LM/snapshots/837717ddb9ff5507820346191109dc79c958d614/pytorch_model.bin
+DiariZen BUT-FIT/diarizen-wavlm-large-s80-md-v2: 583 windows -> logs/diarizen_ami_test/pred_rttms
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+  [20/583] EN2002a_0019
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+  [40/583] EN2002b_0015
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+  [60/583] EN2002c_0015
+/home/edabk/miniconda3/envs/diarizen/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/home/edabk/miniconda3/envs/diarizen/lib/python3.10/site-packages/numpy/core/_methods.py:121: RuntimeWarning: invalid value encountered in divide
+  ret = um.true_divide(
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+  !! SKIP EN2002c_0033 (dur=2.256s): ValueError: negative dimensions are not allowed
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+  [80/583] EN2002d_0001
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+  [100/583] EN2002d_0021
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+  [120/583] ES2004b_0004
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+  [140/583] ES2004b_0024
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+  [160/583] ES2004c_0017
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+  [180/583] ES2004d_0011
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+  [200/583] ES2014a_0006
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+  [220/583] ES2014b_0013
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+  [240/583] ES2014c_0007
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+  [260/583] ES2014d_0001
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+  [280/583] ES2014d_0021
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+  [300/583] IS1009a_0008
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+  [320/583] IS1009b_0018
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+  [340/583] IS1009c_0015
+/home/edabk/miniconda3/envs/diarizen/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/home/edabk/miniconda3/envs/diarizen/lib/python3.10/site-packages/numpy/core/_methods.py:121: RuntimeWarning: invalid value encountered in divide
+  ret = um.true_divide(
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+  !! SKIP IS1009c_0020 (dur=20.843s): ValueError: negative dimensions are not allowed
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+  [360/583] IS1009d_0014
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+  [380/583] TS3003a_0012
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+  [400/583] TS3003b_0015
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+  [420/583] TS3003c_0010
+/home/edabk/miniconda3/envs/diarizen/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/home/edabk/miniconda3/envs/diarizen/lib/python3.10/site-packages/numpy/core/_methods.py:121: RuntimeWarning: invalid value encountered in divide
+  ret = um.true_divide(
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+  !! SKIP TS3003c_0026 (dur=90.0s): ValueError: negative dimensions are not allowed
+/home/edabk/miniconda3/envs/diarizen/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/home/edabk/miniconda3/envs/diarizen/lib/python3.10/site-packages/numpy/core/_methods.py:121: RuntimeWarning: invalid value encountered in divide
+  ret = um.true_divide(
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+  !! SKIP TS3003c_0028 (dur=50.0s): ValueError: negative dimensions are not allowed
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+  [440/583] TS3003d_0001
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+  [460/583] TS3003d_0021
+/home/edabk/miniconda3/envs/diarizen/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/home/edabk/miniconda3/envs/diarizen/lib/python3.10/site-packages/numpy/core/_methods.py:121: RuntimeWarning: invalid value encountered in divide
+  ret = um.true_divide(
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+  !! SKIP TS3003d_0029 (dur=8.2s): ValueError: negative dimensions are not allowed
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+  [480/583] TS3007a_0011
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+  [500/583] TS3007b_0013
+/home/edabk/miniconda3/envs/diarizen/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/home/edabk/miniconda3/envs/diarizen/lib/python3.10/site-packages/numpy/core/_methods.py:121: RuntimeWarning: invalid value encountered in divide
+  ret = um.true_divide(
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+  !! SKIP TS3007b_0028 (dur=90.0s): ValueError: negative dimensions are not allowed
+/home/edabk/miniconda3/envs/diarizen/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/home/edabk/miniconda3/envs/diarizen/lib/python3.10/site-packages/numpy/core/_methods.py:121: RuntimeWarning: invalid value encountered in divide
+  ret = um.true_divide(
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+  !! SKIP TS3007b_0029 (dur=90.0s): ValueError: negative dimensions are not allowed
+/home/edabk/miniconda3/envs/diarizen/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/home/edabk/miniconda3/envs/diarizen/lib/python3.10/site-packages/numpy/core/_methods.py:121: RuntimeWarning: invalid value encountered in divide
+  ret = um.true_divide(
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+  !! SKIP TS3007b_0030 (dur=90.0s): ValueError: negative dimensions are not allowed
+/home/edabk/miniconda3/envs/diarizen/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/home/edabk/miniconda3/envs/diarizen/lib/python3.10/site-packages/numpy/core/_methods.py:121: RuntimeWarning: invalid value encountered in divide
+  ret = um.true_divide(
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+  !! SKIP TS3007b_0031 (dur=90.0s): ValueError: negative dimensions are not allowed
+/home/edabk/miniconda3/envs/diarizen/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/home/edabk/miniconda3/envs/diarizen/lib/python3.10/site-packages/numpy/core/_methods.py:121: RuntimeWarning: invalid value encountered in divide
+  ret = um.true_divide(
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+  !! SKIP TS3007b_0032 (dur=90.0s): ValueError: negative dimensions are not allowed
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+  [520/583] TS3007b_0033
+/home/edabk/miniconda3/envs/diarizen/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/home/edabk/miniconda3/envs/diarizen/lib/python3.10/site-packages/numpy/core/_methods.py:121: RuntimeWarning: invalid value encountered in divide
+  ret = um.true_divide(
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+  !! SKIP TS3007b_0034 (dur=90.0s): ValueError: negative dimensions are not allowed
+/home/edabk/miniconda3/envs/diarizen/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/home/edabk/miniconda3/envs/diarizen/lib/python3.10/site-packages/numpy/core/_methods.py:121: RuntimeWarning: invalid value encountered in divide
+  ret = um.true_divide(
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+  !! SKIP TS3007b_0036 (dur=90.0s): ValueError: negative dimensions are not allowed
+/home/edabk/miniconda3/envs/diarizen/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/home/edabk/miniconda3/envs/diarizen/lib/python3.10/site-packages/numpy/core/_methods.py:121: RuntimeWarning: invalid value encountered in divide
+  ret = um.true_divide(
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+  !! SKIP TS3007b_0037 (dur=24.859s): ValueError: negative dimensions are not allowed
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+  [540/583] TS3007c_0015
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+  [560/583] TS3007d_0008
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+  [580/583] TS3007d_0028
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+Extracting segmentations.
+Extracting Embeddings.
+Clustering.
+  [583/583] TS3007d_0031
+Done. 13 failed windows (empty RTTM written).

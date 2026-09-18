@@ -1,0 +1,438 @@
+OneLogger: Setting error_handling_strategy to DISABLE_QUIETLY_AND_REPORT_METRIC_ERROR for rank (rank=0) with OneLogger disabled. To override: explicitly set error_handling_strategy parameter.
+No exporters were provided. This means that no telemetry data will be collected.
+[NeMo W 2026-07-12 21:35:33 warnings:109] /home/edabk/miniconda3/envs/.zipformer/lib/python3.10/site-packages/pydub/utils.py:170: RuntimeWarning: Couldn't find ffmpeg or avconv - defaulting to ffmpeg, but may not work
+      warn("Couldn't find ffmpeg or avconv - defaulting to ffmpeg, but may not work", RuntimeWarning)
+    
+[NeMo W 2026-07-12 21:35:34 sortformer_diar_models:94] If you intend to do training or fine-tuning, please call the ModelPT.setup_training_data() method and provide a valid configuration file to setup the train data loader.
+    Train config : 
+    manifest_filepath: null
+    sample_rate: 16000
+    num_spks: 4
+    session_len_sec: 90
+    soft_label_thres: 0.5
+    soft_targets: false
+    labels: null
+    batch_size: 4
+    shuffle: true
+    num_workers: 18
+    validation_mode: false
+    use_lhotse: false
+    use_bucketing: false
+    num_buckets: 10
+    bucket_duration_bins:
+    - 10
+    - 20
+    - 30
+    - 40
+    - 50
+    - 60
+    - 70
+    - 80
+    - 90
+    pin_memory: true
+    min_duration: 80
+    max_duration: 90
+    batch_duration: 400
+    quadratic_duration: 1200
+    bucket_buffer_size: 20000
+    shuffle_buffer_size: 10000
+    window_stride: 0.01
+    subsampling_factor: 8
+    
+[NeMo W 2026-07-12 21:35:34 sortformer_diar_models:94] If you intend to do validation, please call the ModelPT.setup_validation_data() or ModelPT.setup_multiple_validation_data() method and provide a valid configuration file to setup the validation data loader(s). 
+    Validation config : 
+    manifest_filepath: null
+    is_tarred: false
+    tarred_audio_filepaths: null
+    sample_rate: 16000
+    num_spks: 4
+    session_len_sec: 90
+    soft_label_thres: 0.5
+    soft_targets: false
+    labels: null
+    batch_size: 4
+    shuffle: false
+    num_workers: 18
+    validation_mode: true
+    use_lhotse: false
+    use_bucketing: false
+    drop_last: false
+    pin_memory: true
+    window_stride: 0.01
+    subsampling_factor: 8
+    
+[NeMo W 2026-07-12 21:35:34 sortformer_diar_models:94] Please call the ModelPT.setup_test_data() or ModelPT.setup_multiple_test_data() method and provide a valid configuration file to setup the test data loader(s).
+    Test config : 
+    manifest_filepath: null
+    is_tarred: false
+    tarred_audio_filepaths: null
+    sample_rate: 16000
+    num_spks: 4
+    session_len_sec: 90
+    soft_label_thres: 0.5
+    soft_targets: false
+    labels: null
+    batch_size: 4
+    shuffle: false
+    seq_eval_mode: true
+    num_workers: 18
+    validation_mode: true
+    use_lhotse: false
+    use_bucketing: false
+    drop_last: false
+    pin_memory: true
+    window_stride: 0.01
+    subsampling_factor: 8
+    
+[NeMo I 2026-07-12 21:35:35 modelPT:501] Model SortformerEncLabelModel was successfully restored from /home/edabk/.cache/huggingface/hub/models--nvidia--diar_sortformer_4spk-v1/snapshots/9f17b10df44c0a4c8f3c86fbddc9ee2d6ab9ac08/diar_sortformer_4spk-v1.nemo.
+Loaded nvidia/diar_sortformer_4spk-v1
+AMI-SDM test: 24 recordings, win=90.0s
+[NeMo I 2026-07-12 21:35:35 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:35:35 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:35:36 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:35:36 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:35:37 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:35:37 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:35:38 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:35:38 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:35:38 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:35:38 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:35:39 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:35:39 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+  [1/24] EN2002a (36 min)
+[NeMo I 2026-07-12 21:35:40 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:35:40 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:35:41 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:35:41 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:35:41 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:35:41 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:35:42 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:35:42 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:35:43 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:35:43 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+  [2/24] EN2002b (30 min)
+[NeMo I 2026-07-12 21:35:44 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:35:44 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:35:44 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:35:44 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:35:45 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:35:45 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:35:46 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:35:46 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:35:46 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:35:46 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:35:47 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:35:47 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:35:48 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:35:48 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:35:48 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:35:48 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:35:49 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:35:49 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+  [3/24] EN2002c (50 min)
+[NeMo I 2026-07-12 21:35:50 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:35:50 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:35:50 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:35:50 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:35:51 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:35:51 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:35:52 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:35:52 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:35:52 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:35:52 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:35:53 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:35:53 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:35:54 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:35:54 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+  [4/24] EN2002d (37 min)
+[NeMo I 2026-07-12 21:35:54 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:35:54 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:35:54 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:35:54 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:35:55 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:35:55 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+  [5/24] ES2004a (17 min)
+[NeMo I 2026-07-12 21:35:56 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:35:56 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:35:57 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:35:57 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:35:57 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:35:57 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:35:58 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:35:58 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:35:59 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:35:59 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:35:59 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:35:59 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:00 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:00 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+  [6/24] ES2004b (39 min)
+[NeMo I 2026-07-12 21:36:01 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:01 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:01 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:02 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:02 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:02 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:03 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:03 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:04 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:04 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:04 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:04 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:05 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:05 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+  [7/24] ES2004c (39 min)
+[NeMo I 2026-07-12 21:36:05 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:05 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:06 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:06 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:07 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:07 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:07 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:07 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:08 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:08 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:09 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:09 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:09 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:09 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+  [8/24] ES2004d (37 min)
+[NeMo I 2026-07-12 21:36:10 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:10 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:10 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:10 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:11 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:11 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:12 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:12 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+  [9/24] ES2014a (19 min)
+[NeMo I 2026-07-12 21:36:12 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:12 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:13 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:13 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:14 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:14 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:14 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:14 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:15 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:15 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:16 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:16 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:16 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:16 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+  [10/24] ES2014b (39 min)
+[NeMo I 2026-07-12 21:36:17 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:17 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:17 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:17 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:18 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:18 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:19 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:19 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:19 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:19 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:20 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:20 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:21 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:21 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+  [11/24] ES2014c (38 min)
+[NeMo I 2026-07-12 21:36:21 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:22 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:22 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:22 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:23 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:23 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:24 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:24 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:24 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:24 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:25 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:25 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:26 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:26 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:26 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:26 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:27 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:27 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+  [12/24] ES2014d (49 min)
+[NeMo I 2026-07-12 21:36:27 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:27 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:28 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:28 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:28 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:28 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+  [13/24] IS1009a (14 min)
+[NeMo I 2026-07-12 21:36:29 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:29 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:30 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:30 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:30 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:30 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:31 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:31 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:32 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:32 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:32 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:32 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+  [14/24] IS1009b (34 min)
+[NeMo I 2026-07-12 21:36:33 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:33 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:34 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:34 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:34 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:34 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:35 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:35 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:36 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:36 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:36 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:36 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+  [15/24] IS1009c (30 min)
+[NeMo I 2026-07-12 21:36:37 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:37 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:37 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:37 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:38 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:38 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:39 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:39 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:39 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:39 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:40 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:40 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+  [16/24] IS1009d (32 min)
+[NeMo I 2026-07-12 21:36:41 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:41 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:41 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:41 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:42 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:42 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:43 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:43 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:43 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:43 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+  [17/24] TS3003a (25 min)
+[NeMo I 2026-07-12 21:36:44 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:44 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:44 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:44 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:45 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:45 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:46 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:46 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:46 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:46 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:47 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:47 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:48 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:48 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+  [18/24] TS3003b (37 min)
+[NeMo I 2026-07-12 21:36:48 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:48 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:49 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:49 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:49 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:49 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:50 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:50 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:51 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:51 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:51 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:51 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:52 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:52 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:53 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:53 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+  [19/24] TS3003c (43 min)
+[NeMo I 2026-07-12 21:36:53 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:53 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:54 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:54 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:54 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:54 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:55 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:55 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:56 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:56 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:56 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:56 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:57 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:57 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:58 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:58 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+  [20/24] TS3003d (44 min)
+[NeMo I 2026-07-12 21:36:58 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:58 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:36:59 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:36:59 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:37:00 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:37:00 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:37:00 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:37:00 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:37:01 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:37:01 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+  [21/24] TS3007a (27 min)
+[NeMo I 2026-07-12 21:37:02 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:37:02 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:37:02 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:37:02 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:37:03 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:37:03 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:37:04 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:37:04 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:37:04 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:37:04 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:37:05 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:37:05 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:37:06 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:37:06 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:37:06 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:37:06 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:37:07 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:37:07 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:37:08 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:37:08 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+  [22/24] TS3007b (56 min)
+[NeMo I 2026-07-12 21:37:08 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:37:08 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:37:09 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:37:09 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:37:10 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:37:10 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:37:10 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:37:10 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:37:11 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:37:11 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:37:12 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:37:12 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:37:12 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:37:12 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+  [23/24] TS3007c (40 min)
+[NeMo I 2026-07-12 21:37:13 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:37:13 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:37:14 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:37:14 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:37:14 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:37:14 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:37:15 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:37:15 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:37:16 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:37:16 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:37:17 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:37:17 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:37:17 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:37:17 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+[NeMo I 2026-07-12 21:37:18 diarization:203] Postprocessing YAML file 'configs/sortformer_pp_dihard3.yaml' has been loaded.
+[NeMo W 2026-07-12 21:37:18 dataloader:335] The following configuration keys are ignored by Lhotse dataloader: session_len_sec,num_spks,soft_label_thres
+  [24/24] TS3007d (47 min)
+
+===== Sortformer 4spk-v1 (offline) — AMI-SDM test, frame-level (100 Hz) =====
+acc=0.797  mae=0.223  macroF1=0.564
+f1/cls = [0.740 0.861 0.471 0.185]
+VAD:  F1=0.908 (P=0.980 R=0.847)
+OSD (count>=2): F1=0.530 (P=0.836 R=0.388)
+confusion P(pred|true):  pred0   pred1   pred2   pred3
+  true0:               0.933   0.065   0.001   0.000
+  true1:               0.159   0.829   0.011   0.000
+  true2:               0.112   0.521   0.354   0.012
+  true3:               0.127   0.347   0.415   0.111

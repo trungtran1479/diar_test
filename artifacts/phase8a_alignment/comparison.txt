@@ -1,0 +1,18 @@
+=== encoder-learned  vs  fixed-average   [macro_f1] ===
+
+per-seed (paired: same seed, same batch order):
+  seed1: fixed-average=0.5615  encoder-learned=0.5613  delta=-0.0002
+  seed2: fixed-average=0.5660  encoder-learned=0.5648  delta=-0.0012
+  seed3: fixed-average=0.5652  encoder-learned=0.5634  delta=-0.0018
+  -> mean delta -0.0011, all same sign: True
+
+recording-level paired bootstrap (116 recordings, seeds averaged):
+  mean delta -0.0004   95% CI [-0.0011, +0.0003]
+  recordings improved: 46/116
+  CI excludes zero: False
+
+  most negative recordings: voxconverse_test_lbfnx(-0.011), voxconverse_test_vylyk(-0.009), voxconverse_test_gtjow(-0.007), voxconverse_test_gfneh(-0.006), voxconverse_test_wwzsk(-0.006)
+  most positive recordings: voxconverse_test_fowhl(+0.024), voxconverse_test_eucfa(+0.008), voxconverse_test_vuewy(+0.006), voxconverse_test_wcxfk(+0.005), voxconverse_test_mjmgr(+0.005)
+  top-5 recordings carry 17% of the total |delta|
+
+VERDICT: NO EFFECT / NEGATIVE

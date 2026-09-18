@@ -1,0 +1,11 @@
+[ami_train] 117 recordings, 85228 sups (100% word-aligned)
+[nsf_train] missing manifests, skip:
+  MISSING data/manifests/notsofar1/notsofar1_sdm_train_set_240825.1_train_recordings.jsonl.gz
+  MISSING data/manifests/notsofar1/notsofar1_sdm_train_set_240825.1_train_supervisions.jsonl.gz
+[train] 8372 windows (69.4h, dropped 0 extra silence windows) -> data/meetings/train_manifest.json
+[train] frame dist (before silence cap): {0: 0.1786, 1: 0.7106, 2: 0.1001, 3: 0.0106}
+[ami_dev] 26 recordings, 18670 sups (100% word-aligned)
+[val] 1735 windows (14.4h, dropped 0 extra silence windows) -> data/meetings/val_manifest.json
+[val] frame dist (before silence cap): {0: 0.1999, 1: 0.6878, 2: 0.1019, 3: 0.0104}
+done. Combine with librimix:
+  mkdir -p data/combined && cat data/librimix/train_manifest.json data/meetings/train_manifest.json > data/combined/train_manifest.json

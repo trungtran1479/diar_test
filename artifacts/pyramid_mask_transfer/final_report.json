@@ -1,0 +1,188 @@
+{
+  "comparisons": {
+    "pre012_vs_all6_pyramid": {
+      "bootstrap": {
+        "ci95": [
+          -0.00014883504220570849,
+          0.0070685841879624565
+        ],
+        "mean_delta": 0.0035091724306198623,
+        "n_boot": 20000,
+        "n_improved": 80,
+        "n_recordings": 116,
+        "rng_seed": 0,
+        "seeds_averaged_within_recording": true,
+        "unit": "recording"
+      },
+      "control": "all6",
+      "delta_f1_2": 0.027042745078535046,
+      "delta_osd": 0.03243835230986388,
+      "evidence": "SUGGESTIVE",
+      "mean_pooled_delta": 0.007303287274660934,
+      "operational_mean_only_noninferior": true,
+      "per_seed": {
+        "1234": 0.008109884199587913,
+        "2345": 0.0036917293991430844,
+        "3456": 0.010108248225251804
+      },
+      "practical_adoption": true,
+      "practical_r2": true,
+      "practical_r3": true,
+      "strict_noninferior": true,
+      "treatment": "pre012"
+    },
+    "pyramid_all6_vs_tcn_root": {
+      "bootstrap": {
+        "ci95": [
+          -0.0045111914447705575,
+          -0.001760975858094453
+        ],
+        "mean_delta": -0.0031666327300085687,
+        "n_boot": 20000,
+        "n_improved": 28,
+        "n_recordings": 116,
+        "rng_seed": 0,
+        "seeds_averaged_within_recording": true,
+        "unit": "recording"
+      },
+      "control": "p8a_average",
+      "delta_f1_2": -0.02063027075391934,
+      "delta_osd": -0.017606400108730973,
+      "descriptive_only": true,
+      "evidence": "NEGATIVE",
+      "mean_pooled_delta": -0.006676066833623724,
+      "per_seed": {
+        "1234": -0.00255729053431053,
+        "2345": -0.007044779637430665,
+        "3456": -0.010426130329129979
+      },
+      "root_result_shas": {
+        "1234": "041d58ffbeab2c3f878ff7f1fc7cd65488b28777d51586e836379810c57a4a1e",
+        "2345": "ace451dc66289732e081adb3d184875f4baf926cbaca683065098a8c766db18e",
+        "3456": "357dfe897bf5fa47e31cc09f6a498b2711d78d1233cee524b02b88d019a4806d"
+      },
+      "treatment": "all6"
+    }
+  },
+  "decision": {
+    "chain_base_mask_recommendation": "pre012",
+    "complexity_gate_reference": "immutable TCN root (unchanged)",
+    "phase8_base_mutated": false,
+    "reason": "pre012 passes operational NI and R2/R3 on the pyramid family; recommend stack_input_mask [1,1,1,0,0,0] in the chain base before sealing the root (requires explicit approval)"
+  },
+  "generated_at": "2026-07-26T15:30:21.314488+00:00",
+  "lineage": {
+    "all6": {
+      "1234": {
+        "outputs": {
+          "checkpoint_sha": "742a5384f434baa276bb5685ef9a780c9ac611e731bc48341654e4e123988ea7",
+          "config_file_sha": "365bbc4bb3939b708ac1c276153999c076d7f9a703494cc8471dd252f8236f4b",
+          "config_sha": "365bbc4bb3939b708ac1c276153999c076d7f9a703494cc8471dd252f8236f4b",
+          "n_recordings": 116,
+          "result_sha": "4a9a36bafa576c16b549a31a47246457540431a2b18e2c59e16b436444aeaacf"
+        },
+        "result": "results/pyrmask_all6_s1234_voxsel.json",
+        "sidecar_sha": "98cfd2bd8ff75ffa2da24f96fd637ee909d554bc33f70ed84f7ebab90aad568c"
+      },
+      "2345": {
+        "outputs": {
+          "checkpoint_sha": "a336263a1961af84bbe5307fe4fe7a0874463343416509a21e686e932e229d56",
+          "config_file_sha": "d99bb02d82d662746969187bcdc48574af5cb22f67b9f0dfad23c87db4f72500",
+          "config_sha": "d99bb02d82d662746969187bcdc48574af5cb22f67b9f0dfad23c87db4f72500",
+          "n_recordings": 116,
+          "result_sha": "788df599c70a163c027574b58d576524d8d6e96299e3bf6ffe6a72544049f4bb"
+        },
+        "result": "results/pyrmask_all6_s2345_voxsel.json",
+        "sidecar_sha": "5b3956769adb73c4e9a01482d9574bee141e9c97a05b3ede1443734a89d6c402"
+      },
+      "3456": {
+        "outputs": {
+          "checkpoint_sha": "55ce5434ee3d676d291386c44d8adbca31c2a7b71bced06f3a10f38062449d75",
+          "config_file_sha": "a4c1a5133d41582da22779ba4ac7ba2a48bca77afdca8c102608aaa19594d32c",
+          "config_sha": "a4c1a5133d41582da22779ba4ac7ba2a48bca77afdca8c102608aaa19594d32c",
+          "n_recordings": 116,
+          "result_sha": "676d60b2c066d64fe114e63368a463d3fe59402862402da04ccd53a3c628f2f4"
+        },
+        "result": "results/pyrmask_all6_s3456_voxsel.json",
+        "sidecar_sha": "ffeee2967d452839bdfd033f9ed7e4bd8f179bcc141ed51f8186f7f59087796c"
+      }
+    },
+    "pre012": {
+      "1234": {
+        "outputs": {
+          "checkpoint_sha": "74df83d5f02a3ae19c6e71d6144776c729578e363eb1d102aa5ab52bf0bec238",
+          "config_file_sha": "6582c4a37851b33b50781ec77a1f3bc9d9e944c1486a656fcb98b1948c417e07",
+          "config_sha": "6582c4a37851b33b50781ec77a1f3bc9d9e944c1486a656fcb98b1948c417e07",
+          "n_recordings": 116,
+          "result_sha": "49b9b2ebec74716d2f3c91cf6ae4e0302d4a179b97d1e8abd4502bc21a1312f8"
+        },
+        "result": "results/pyrmask_pre012_s1234_voxsel.json",
+        "sidecar_sha": "b5356cd9e668983abf0f9894ccf658d24e9e11e8ed85d38bf2f7852f66583591"
+      },
+      "2345": {
+        "outputs": {
+          "checkpoint_sha": "33db08e4816f8940f1a09e379d310d781ebc83f5b9104e039a873d0c8315332d",
+          "config_file_sha": "819b6f7b53d4f9fb5648f677079befed56be6d7913629f73912044f893aad3b8",
+          "config_sha": "819b6f7b53d4f9fb5648f677079befed56be6d7913629f73912044f893aad3b8",
+          "n_recordings": 116,
+          "result_sha": "356856369d46db97269d715b7850eaff19518a7b86d8d7e53972a1c93a54df5a"
+        },
+        "result": "results/pyrmask_pre012_s2345_voxsel.json",
+        "sidecar_sha": "b4b1fa285ae50f76701881804d48219b023fc40d3fdeb34161ac7d0164cc9257"
+      },
+      "3456": {
+        "outputs": {
+          "checkpoint_sha": "4c160c0a22bd094a13bcc494b501961175cd18beeb61f701928fd7a258db00e5",
+          "config_file_sha": "d44cd9d78c4466ddba1bac670058cf54fa0a4ac93c857f7a9b6b7e38ec2cb840",
+          "config_sha": "d44cd9d78c4466ddba1bac670058cf54fa0a4ac93c857f7a9b6b7e38ec2cb840",
+          "n_recordings": 116,
+          "result_sha": "4ed3f0a94fceceb7bce06e229c7402b77207b84c21062bf782852ceddaa646ab"
+        },
+        "result": "results/pyrmask_pre012_s3456_voxsel.json",
+        "sidecar_sha": "5a75506450ea6a5b21329cc3fb987b077ebbe94414da0efd610921fd8fcd1a4f"
+      }
+    }
+  },
+  "protocol": "pyramid-mask-transfer-v1",
+  "rules": {
+    "noninferiority_margin": -0.002,
+    "r2": "mean pooled delta >= +0.005",
+    "r3": "delta class-2 or OSD >= +0.010 and macro delta >= -0.002",
+    "strict_noninferiority": "all seed deltas >= margin and bootstrap lower CI > margin"
+  },
+  "source_snapshot": {
+    "combined_sha": "5dcc39052c035f6f9c380b9c24a53cc3567b24ff09d3109277c6e78641052ccd",
+    "files": {
+      "PYRAMID_MASK_TRANSFER_PREREG.md": "09e8fb0eb33844b7fab3b76d904786d90673dc017aef2664e99c4f2790a0ee70",
+      "configs/zipcount_pyramid_ordinal.yaml": "6cc0a54a56029a5081d541f192968baa19d4a785cd70a065cf843aac571fdc6e",
+      "configs/zipcount_v4_distill.yaml": "edea34380ba7a5df302ec7ecb238c2b8e3ab66b5603e85701341bf644c4754f3",
+      "scripts/eval_per_recording.py": "f9146f0f31caa078e0666cf84ff84bb8f64a0ada4afee6c5f5fdbc6a664d501a",
+      "scripts/phase8_chain_driver.py": "aa76d913c5e17da0c3675edfd8cd7194b0da9e6ed26d1ad91990a3d7a472c238",
+      "scripts/run_pyramid_mask_transfer.py": "3b2b5fb73d5b1d946cdd79be65b5b4e2757e6ed4c0904e92e18ac79accfaec38",
+      "scripts/run_stack_mask_graduation.py": "c2569416c0e9667144e105eb0eeb216796bc2ccbee34a2219a524e6b568de590",
+      "src/data/dataset.py": "45e84003e60134994a8dcad9f5b795169c480c6a1c2ce65950128e39855a65b8",
+      "src/data/feature_extractor.py": "101e9050c7be40c1521024864dfc6abc66bd3136c21ef5647e376dcf1f4a86bd",
+      "src/data/label_utils.py": "306da20c9967cbb50e23f1da387b7717c62a5452097ff6c381c0e47a019907c1",
+      "src/models/crnn_baseline.py": "a25a1f419f2d1bf1fa435b69228121a2b554099dd37d658a4f361cde47f3e8bb",
+      "src/models/deformable.py": "6acaae916badfdc3e1f921ac5bd09574672fbf927fd2597b3bc57e29422cb0d6",
+      "src/models/heads.py": "d5071fe0c045b9dd85bbfe8747498cf948b5f4b1afda0ce59b8bf83f1750cab2",
+      "src/models/losses.py": "5844b96e9e9547966da340773644c5dd181d0372e604567092abe7f53b2d92ff",
+      "src/models/pyramid_head.py": "babc975e760478c413091c32375332db786b2d446f433e348fc1b02bdbbec13d",
+      "src/models/structured_losses.py": "9ce2681f94da92e5c786347912396685627f9df8d0a7422c90092cc968de0e08",
+      "src/models/zipcount_v1.py": "86a643a74f0777a10626336537ec892f73da3dfcac705e6718726d18d68d1954",
+      "src/models/zipformer_wrapper.py": "90c917f48db24250db99f46e1fec6c195e349ece63fb6d85049b53e049fcb9b0",
+      "src/train.py": "29fb9302fef95fc8563b2f8270dfff18a455fbad88784f9791855b643770822f",
+      "src/utils/metrics.py": "914f617f74e6be7f8495bd02bf74b6f1227a3cfd01f64c9665e714aa8f5661b9",
+      "third_party/icefall/egs/librispeech/ASR/zipformer/asr_datamodule.py": "a7dd8e1fc26413d2f0097931fa3ccc77e514068d2761ce2b5140d65bf8c1c036",
+      "third_party/icefall/egs/librispeech/ASR/zipformer/decoder.py": "92ee967e4b927a3ef2e4cc2d900756609a191f859c956a400cfe642d6ef0cf52",
+      "third_party/icefall/egs/librispeech/ASR/zipformer/encoder_interface.py": "fc70f530c33e2489435ff2cb4bb0dad8b9d6f58a248c425cbd6100c62f628569",
+      "third_party/icefall/egs/librispeech/ASR/zipformer/finetune.py": "e7a563db28d1e5fc4639bc39fb1bdf40e057971bf4be6f80e2f361c3287c718d",
+      "third_party/icefall/egs/librispeech/ASR/zipformer/joiner.py": "2d924a5a00f7a2bb2340c1a991f8a71037bcfbc7e98cbabe26527ffa7d4030d4",
+      "third_party/icefall/egs/librispeech/ASR/zipformer/model.py": "1e516fec1ad65220470a7db69bf3d16e4736a0b9943ef8f5ad75bb962d7a3296",
+      "third_party/icefall/egs/librispeech/ASR/zipformer/optim.py": "7282cd6db1d234e086110feb1f39f076a76095a6b026b939cebc81f2ed0f5d45",
+      "third_party/icefall/egs/librispeech/ASR/zipformer/scaling.py": "06e17bccb7669bb022545fba18fec87f0f5c62167ba7edb006ecaea8656b922b",
+      "third_party/icefall/egs/librispeech/ASR/zipformer/subsampling.py": "e04de281f136560e2d44b5f7df174d0364b5feb2c22608173b60de02630c2a66",
+      "third_party/icefall/egs/librispeech/ASR/zipformer/zipformer.py": "794a05ae32cc5ef6d96a4d16ba30df97822c841a0453b654335e98b328067638"
+    }
+  }
+}
