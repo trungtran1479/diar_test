@@ -348,7 +348,60 @@ Báo cáo cùng lúc macro-F1, F1 class 2/3+, OSD F1, boundary precision/recall,
 
 Điểm có thể viết thành contribution không phải “thêm một TCN”, mà là: **một causal count decoder học trạng thái và thời lượng đoạn, với objective được suy ra từ precision/fragmentation/missed-overlap diagnostics và có layer routing theo vai trò temporal**. Cần giữ cách diễn đạt đây là giả thuyết kiến trúc cho đến khi có ablation độc lập trên `vox_lock` và các corpus còn lại.
 
-## 12. Tài liệu nguồn cần đối chiếu
+## 12. Không khóa vào TCN: decoder bake-off
+
+TCN không phải temporal decoder duy nhất của project. Những hướng đã có code hoặc đã chạy gồm:
+
+| Họ decoder | Trạng thái bằng chứng | Kết quả/giới hạn |
+|---|---|---|
+| Linear | Có code và variant lịch sử | Có dùng làm baseline, nhưng chưa có bảng unified sạch tương đương chain hiện tại |
+| Causal temporal adapter | Đã chạy trong V1 | Depthwise conv `k=5` + gated residual; kết quả cũ bị trộn với regime dữ liệu/loss khác |
+| Causal deformable | Đã chạy 3 seed | `0,5594` so với TCN `0,5643` trên `vox_sel`; là đối chứng sạch nhất hiện có |
+| Dual-dilation TCN | Đã chạy 3 seed (192), 1 seed (256) | Decoder streaming mạnh nhất đã xác nhận, chưa chứng minh tối ưu toàn cục |
+| Event-state/Markov | Đã chạy 3 seed | Filter làm giảm điểm; prior DOWN/STAY/UP cố định quá cứng |
+| Gated pyramid + TCN | Đã chạy nhiều ablation | Có frame gate, boundary/direction/segment loss; chưa vượt TCN root theo complexity gate |
+| Hysteresis/duration hậu xử lý | Đã đánh giá held-out | Mean delta `−0,000142`, không adopt; không nên dùng kết quả này để bác bỏ learned duration decoder |
+| CRNN/GRU | Có code/config | Chưa có benchmark đáng tin cậy trong snapshot |
+
+Các thí nghiệm WavLM và FastConformer chủ yếu thay **backbone** rồi vẫn dùng TCN làm temporal head. Vì vậy project đã thử nhiều biểu diễn, nhưng chưa có một cuộc so sánh rộng giữa các temporal decoder hiện đại. Tuyên bố chính xác hiện tại là: **TCN thắng deformable trong một phép thử sạch**, không phải “TCN là decoder tốt nhất”.
+
+Các họ cần mở ngay trong cùng framework:
+
+1. causal Conformer hoặc chunk attention;
+2. GRU/LSTM/QRNN một hoặc hai lớp;
+3. diagonal state-space/gated state-space (họ S4/Mamba nhẹ, có cache chính xác);
+4. MS-TCN++/ASFormer nhiều stage;
+5. decoder segmental semi-Markov với emission, transition hazard và duration;
+6. boundary refiner cục bộ sau một decoder coarse;
+7. mixture-of-experts/router để chọn temporal scale theo state.
+
+### Giao thức so sánh bắt buộc
+
+Để tránh biến bake-off thành một tập module chắp vá, mọi decoder phải dùng cùng:
+
+```text
+frozen r8_v3 backbone
+→ cùng hypercolumn 1984D
+→ cùng fusion 1984→192
+→ temporal decoder duy nhất
+→ cùng OrdinalCount/VAD/OSD output
+→ cùng loss, seed, frame support và evaluator
+```
+
+Bộ control nên gồm `linear`, `temporal_adaptive`, `deformable`, `tcn`, `gru`, `causal_attention`, `state_space` và `semi_markov`. Mỗi họ được giữ trong ngân sách tham số gần nhau (khoảng 1–2M head), chạy ba seed trên `vox_lock` và ít nhất một corpus ngoài miền. Chỉ sau khi chọn được hai decoder tốt nhất mới mở fine-tune backbone.
+
+Ngoài macro-F1, bảng quyết định phải có OSD F1, F1 class 2/3+, boundary precision/recall, fragmentation, missed/partial overlap, onset/offset bias, RTF, memory và cache size. Một decoder chỉ tăng macro-F1 nhờ dự đoán class 0/1 nhưng làm overlap hoặc boundary tệ hơn không được gọi là winner.
+
+### Thứ tự biến đổi ngay
+
+1. Chuẩn hóa interface `forward(x)` và `forward_streaming(x, cache)` cho mọi decoder; test offline/chunked bằng cùng input.
+2. Chạy bake-off head-only trên một backbone frozen. Đây là phép thử rẻ nhất để biết giới hạn nằm ở temporal inductive bias hay representation.
+3. Với hai decoder đứng đầu, thêm objective hazard/occupancy và layer routing; giữ một control không có các term mới.
+4. Chỉ sau đó mới thử full fine-tuning, KD từ WavLM/Conformer và thay backbone.
+
+Nếu decoder mới không vượt TCN ở cùng latency và ngân sách, TCN được giữ vì có bằng chứng. Nếu GRU, attention, state-space hoặc semi-Markov thắng, toàn bộ thiết kế sẽ chuyển sang họ đó; TCN chỉ còn là baseline. Quy trình này cho phép biến đổi mọi phần có thể thay mà vẫn biết chính xác gain đến từ đâu.
+
+## 13. Tài liệu nguồn cần đối chiếu
 
 - [README tổng hợp kết quả](README_MODELS_RESULTS.md)
 - [Mã factory và các head](src/models/zipcount_v1.py), [TCN/pyramid heads](src/models/heads.py), [pyramid](src/models/pyramid_head.py)
