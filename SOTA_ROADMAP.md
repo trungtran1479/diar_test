@@ -249,7 +249,106 @@ Trong ngắn hạn, chọn **Mục tiêu A**: xây một `ZipCount-SSL` teacher 
 
 Chỉ chuyển sang **Mục tiêu B** khi sản phẩm thực sự cần “who spoke when”. Khi đó hãy coi ZipCount hiện tại là count/OSD auxiliary module và xây speaker embedding + clustering pipeline theo kiểu DiariZen. Một head TCN dự đoán bốn số đếm không thể tự tạo ra speaker identity.
 
-## 11. Tài liệu nguồn cần đối chiếu
+## 11. Ý tưởng mới rút ra trực tiếp từ lỗi của TCN
+
+Các lỗi hiện tại đủ cụ thể để thiết kế một decoder có giả thuyết rõ ràng, thay vì tiếp tục ghép thêm một block. Trong diagnostic `phase8_chain`, ZipCount có fragmentation overlap **3,307**, boundary F1 **0,386** với precision chỉ **0,260** và recall **0,746**. Strict overlap onset/offset recall lần lượt là **0,639/0,576**; trong các overlap thật, **19,4%** bị bỏ sót hoàn toàn và **42,6%** chỉ được bắt một phần. Như vậy TCN không chỉ thiếu context. Nó đang có hai lỗi đối nghịch: tạo nhiều transition giả và không duy trì đủ coverage cho overlap thật.
+
+### 11.1. Thay smoothness chung bằng decoder trạng thái đoạn
+
+TCN hiện dự đoán từng frame rồi dùng symmetric KL để kéo posterior của hai frame kề nhau lại gần. Loss này không biết một đoạn overlap nên dài bao lâu, transition hợp lệ nằm ở đâu, hoặc một đoạn dương ngắn là lỗi hay một overlap thật. Event-state filter trước đó cũng không giải quyết được vì nó áp một prior sticky cố định và chỉ cho DOWN/STAY/UP; prior đó làm hại các transition nhanh, multi-jump và các đoạn có confidence thấp.
+
+Đề xuất decoder gồm ba đầu ra từ cùng representation:
+
+```text
+TCN / temporal backend
+  ├─ emission z_t          : count 0/1/2/3+
+  ├─ transition hazard h_t : xác suất bắt đầu/kết thúc một trạng thái
+  └─ duration state d_t    : tuổi hoặc thời lượng còn lại của đoạn
+```
+
+Thay vì lọc bằng một ma trận chuyển trạng thái cố định, dùng hazard phụ thuộc vào state, duration và context:
+
+```text
+p_t(s, d) = normalize( emission_t(s)
+                        × transition_t(s, d | s_prev, d_prev) )
+```
+
+Hazard phải cho phép `stay`, `up1`, `up2+`, `down1` và `down2+`; không ép mọi thay đổi thành một bước. Duration có thể bắt đầu bằng vài bucket (`1–2`, `3–5`, `6–12`, `13+` frame) để giữ decoder nhỏ. Đây là một semi-Markov filter nhân quả học được, không phải một hậu xử lý cố định. Nó tạo ra persistence thích nghi: mạnh ở đoạn ổn định, nhưng có thể chuyển nhanh khi có evidence rõ.
+
+### 11.2. Loss phải đo đúng lỗi mà diagnostic đã chỉ ra
+
+Giữ CE/count và OSD, nhưng thay smoothness toàn cục bằng các thành phần có ý nghĩa segment:
+
+```text
+L = L_count
+  + λ_h   L_hazard
+  + λ_occ L_occupancy
+  + λ_run L_transition_count
+  + λ_cal L_calibration
+  + λ_hard L_overlap_boundary
+```
+
+- `L_hazard`: target onset/offset của mỗi đoạn với tolerance 1–2 frame; focal weighting cho các transition hiếm.
+- `L_transition_count`: so sánh tổng hazard dự kiến với số onset/offset thật. Ngoài vùng boundary, phạt hazard dương để trực tiếp tăng boundary precision và giảm fragmentation.
+- `L_occupancy`: với từng overlap run, buộc trung bình `p(count>=2)` trên toàn đoạn phải cao và ngoài đoạn phải thấp. Chuẩn hóa theo từng run để một đoạn dài không lấn át nhiều đoạn ngắn.
+- `L_overlap_boundary`: Tversky/Focal-Tversky bất đối xứng cho class `2/3+`, trong đó false positive và false negative có trọng số khác nhau. Có thể tăng trọng số false positive ở negative interval để sửa precision `0,260`, rồi tăng false negative ở các run bị missed/partial để sửa coverage.
+- `L_calibration`: Brier hoặc soft-ECE cho emission/hazard; decoder chỉ được chuyển trạng thái khi confidence tương xứng.
+
+Một surrogate đơn giản để kiểm tra ý tưởng trước khi viết semi-Markov đầy đủ là:
+
+```text
+L_false_boundary = Σ_{t không gần boundary thật} h_t
+L_run_coverage   = Σ_{run thật} | mean(p_overlap[run]) - target_coverage |
+L_run_count      = | Σ_t h_t - số transition thật |
+```
+
+Ba term này có thể thêm vào TCN hiện tại mà không đổi backbone. Nếu chúng làm fragmentation giảm và boundary precision tăng mà macro-F1 không giảm, đó là bằng chứng loss mới đang sửa đúng cơ chế lỗi.
+
+### 11.3. Dùng bằng chứng layer để phân vai, không concat tất cả vào một head
+
+Nếu probe layer của project xác nhận final layer ổn định nhất, hãy coi đó là bằng chứng về **vai trò** chứ không phải bằng chứng rằng các layer trước vô ích:
+
+- final layer làm `slow state branch`: count ổn định và duration dài;
+- early/middle layer làm `fast event branch`: onset, offset và thay đổi overlap;
+- một router theo state/hazard học trọng số hai nhánh theo từng frame.
+
+Có thể triển khai trước bằng hai projection nhỏ và một gate:
+
+```text
+s_t = P_final(h_final)
+e_t = P_event([h_early - h_early_prev, h_mid - h_mid_prev])
+g_t = sigmoid(MLP([s_t, e_t, entropy(z_t)]))
+u_t = g_t * e_t + (1 - g_t) * s_t
+```
+
+Boundary head dùng `e_t`, emission/duration head dùng `u_t`. Cách này biến bằng chứng “final tốt hơn” thành một kiến trúc có vai trò rõ ràng; nó khác với việc ghép sáu stack rồi hy vọng TCN tự phân biệt thông tin.
+
+Một biến thể có giá trị nghiên cứu là **residual error refiner**: head thứ hai chỉ được phép sinh `Δz_t` khi entropy emission cao, hai nhánh temporal bất đồng hoặc đang gần boundary. Loss của head này chỉ tập trung vào frame overlap, missed/partial và boundary. Nó khai thác bản đồ lỗi của TCN thay vì thêm capacity đều trên mọi frame.
+
+### 11.4. Ablation tối thiểu để biết ý tưởng có thật sự mới và có ích
+
+Không cần chạy lại toàn bộ không gian kiến trúc. Giữ checkpoint/backbone và dùng cùng `vox_lock`, strict evaluator, 3 seed:
+
+| Run | Thay đổi | Giả thuyết cần kiểm tra |
+|---|---|---|
+| A0 | TCN hiện tại | Control và số liệu lỗi gốc |
+| A1 | Thêm hazard + `L_hazard` + `L_false_boundary` | Precision biên tăng, fragmentation giảm |
+| A2 | A1 + occupancy/transition-count loss | Missed/partial overlap giảm, coverage tăng |
+| A3 | A2 + learned duration/semi-Markov filter | Giữ đoạn đúng mà không làm trễ boundary |
+| A4 | A3 + event/state layer router | Early/mid chỉ hỗ trợ event, final giữ count ổn định |
+
+Báo cáo cùng lúc macro-F1, F1 class 2/3+, OSD F1, boundary precision/recall, fragmentation, missed/partial overlap, onset/offset bias và Brier/ECE. Go/no-go ban đầu nên là: boundary precision tăng rõ từ `0,260`, fragmentation giảm từ `3,307`, trong khi OSD recall không giảm quá mức và macro-F1 giữ được khoảng hiện tại. Các ngưỡng này là tiêu chí nghiên cứu cần xác nhận, không phải kết quả đã đạt.
+
+### 11.5. Thứ tự triển khai thực tế
+
+1. Sửa frame-support mismatch và tắt nhánh `labels[:, :T]` silent slice trước khi train; nếu không, loss mới có thể chỉ học cách bù lỗi alignment.
+2. Thêm hazard head và ba surrogate loss vào TCN hiện tại, chưa thêm semi-Markov. Đây là test rẻ nhất để xác minh cơ chế.
+3. Nếu A1/A2 cải thiện đúng diagnostic, thay hậu xử lý bằng learned duration filter và chạy latency/cache test.
+4. Sau đó mới thử layer router và distill từ WavLM/Conformer teacher. Teacher vẫn là trục để nâng trần accuracy; decoder mới giải quyết lỗi segment và latency của student.
+
+Điểm có thể viết thành contribution không phải “thêm một TCN”, mà là: **một causal count decoder học trạng thái và thời lượng đoạn, với objective được suy ra từ precision/fragmentation/missed-overlap diagnostics và có layer routing theo vai trò temporal**. Cần giữ cách diễn đạt đây là giả thuyết kiến trúc cho đến khi có ablation độc lập trên `vox_lock` và các corpus còn lại.
+
+## 12. Tài liệu nguồn cần đối chiếu
 
 - [README tổng hợp kết quả](README_MODELS_RESULTS.md)
 - [Mã factory và các head](src/models/zipcount_v1.py), [TCN/pyramid heads](src/models/heads.py), [pyramid](src/models/pyramid_head.py)
