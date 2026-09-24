@@ -361,19 +361,45 @@ TCN không phải temporal decoder duy nhất của project. Những hướng đ
 | Event-state/Markov | Đã chạy 3 seed | Filter làm giảm điểm; prior DOWN/STAY/UP cố định quá cứng |
 | Gated pyramid + TCN | Đã chạy nhiều ablation | Có frame gate, boundary/direction/segment loss; chưa vượt TCN root theo complexity gate |
 | Hysteresis/duration hậu xử lý | Đã đánh giá held-out | Mean delta `−0,000142`, không adopt; không nên dùng kết quả này để bác bỏ learned duration decoder |
-| CRNN/GRU | Có code/config | Chưa có benchmark đáng tin cậy trong snapshot |
+| CRNN backbone / GRU head | CRNN lịch sử và GRU head mới có code/config | Chưa có benchmark đáng tin cậy; không gán điểm trước khi train |
 
 Các thí nghiệm WavLM và FastConformer chủ yếu thay **backbone** rồi vẫn dùng TCN làm temporal head. Vì vậy project đã thử nhiều biểu diễn, nhưng chưa có một cuộc so sánh rộng giữa các temporal decoder hiện đại. Tuyên bố chính xác hiện tại là: **TCN thắng deformable trong một phép thử sạch**, không phải “TCN là decoder tốt nhất”.
 
-Các họ cần mở ngay trong cùng framework:
+Các họ cần mở trong cùng framework:
 
-1. causal Conformer hoặc chunk attention;
-2. GRU/LSTM/QRNN một hoặc hai lớp;
-3. diagonal state-space/gated state-space (họ S4/Mamba nhẹ, có cache chính xác);
+1. causal Conformer hoặc local/chunk attention;
+2. GRU/LSTM/QRNN;
+3. diagonal/selective state-space có cache chính xác;
 4. MS-TCN++/ASFormer nhiều stage;
 5. decoder segmental semi-Markov với emission, transition hazard và duration;
 6. boundary refiner cục bộ sau một decoder coarse;
 7. mixture-of-experts/router để chọn temporal scale theo state.
+
+### Trạng thái implementation ngày 25/09/2026
+
+Ba decoder độc lập với TCN đã được thêm vào model factory; đây mới là code đã kiểm thử, **chưa phải kết quả accuracy**:
+
+| Arm bake-off | `head.type` | Cấu hình matched | Số tham số head |
+|---|---|---|---:|
+| TCN control | `tcn_ordinal` | 6 block, dilation `1..32`, width 192 | 1.284.812 |
+| Deformable control | `deformable_ordinal` | 4 block, width 192 | 1.305.676 |
+| GRU | `gru_ordinal` | 4 layer, hidden 192 | 1.275.596 |
+| Selective state-space | `ssm_ordinal` | 4 layer, state 384 | 1.280.972 |
+| Local causal attention | `attention_ordinal` | 3 block, 4 head, context 128, relative-time bias | 1.278.860 |
+
+Mọi head dùng cùng `StackGatedProjection`, mask `pre012`, `OrdinalConsistentHead` và có `forward_streaming` với cache. Unit test kiểm tra causality, full-vs-arbitrary-chunk equivalence, bounded attention cache, gradient và factory wiring. Runner [run_decoder_bakeoff.py](scripts/run_decoder_bakeoff.py) sinh config cho 5 arm × 3 seed và từ chối chạy nếu parameter budget lệch quá ±5%.
+
+```bash
+# Chỉ sinh config và in lệnh train; không tự chạy job dài.
+/home/edabk/miniconda3/envs/.zipformer/bin/python \
+  scripts/run_decoder_bakeoff.py
+
+# Chạy sau khi phục hồi đúng historical train manifest/data.
+/home/edabk/miniconda3/envs/.zipformer/bin/python \
+  scripts/run_decoder_bakeoff.py --execute
+```
+
+Checkpoint paper còn lại chứa đúng backbone r8 đã bị đóng băng, nên runner dùng nó qua `init_backbone_only` và bỏ toàn bộ TCN head cũ. Historical manifest vẫn trỏ tới ổ ngoài không có trong snapshot; runner fail-closed thay vì âm thầm đổi data. Vì vậy bước tiếp theo về thực nghiệm là phục hồi data hoặc đặt tên một protocol dữ liệu mới rồi chạy đủ seed.
 
 ### Giao thức so sánh bắt buộc
 

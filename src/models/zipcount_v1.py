@@ -8,6 +8,9 @@ from .fastconformer_wrapper import FastConformerBackbone
 from .wavlm_wrapper import WavLMBackbone
 from .crnn_baseline import CRNNBackbone
 from .heads import (
+    CausalAttentionCountHead,
+    CausalGRUCountHead,
+    CausalSSMCountHead,
     DeformableCountHead,
     LinearCountHead,
     TCNCountHead,
@@ -174,6 +177,8 @@ def build_model(config: dict) -> ZipCountModel:
             dropout=head_cfg.get("dropout", 0.1),
             stack_dims=stack_dims,
             head_hidden_dim=head_cfg.get("head_hidden_dim", 0),
+            stack_input_mask=head_cfg.get("stack_input_mask"),
+            renormalize_active_gate=head_cfg.get("renormalize_active_gate", False),
         )
     elif head_type == "tcn_ordinal":
         stack_dims = getattr(backbone, "stack_dims", None) if encoder_cfg.get("multiscale", False) else None
@@ -187,6 +192,52 @@ def build_model(config: dict) -> ZipCountModel:
             stack_dims=stack_dims,
             head_hidden_dim=head_cfg.get("head_hidden_dim", 0),
             causal=head_cfg.get("causal", True),
+            stack_indices=head_cfg.get("stack_indices"),
+            stack_input_mask=head_cfg.get("stack_input_mask"),
+            renormalize_active_gate=head_cfg.get("renormalize_active_gate", False),
+        )
+    elif head_type == "gru_ordinal":
+        stack_dims = getattr(backbone, "stack_dims", None) if encoder_cfg.get("multiscale", False) else None
+        head = CausalGRUCountHead(
+            d_in=output_dim,
+            num_classes=num_classes,
+            d_model=head_cfg.get("d_model", 256),
+            num_layers=head_cfg.get("num_layers", 2),
+            dropout=head_cfg.get("dropout", 0.1),
+            stack_dims=stack_dims,
+            head_hidden_dim=head_cfg.get("head_hidden_dim", 0),
+            stack_indices=head_cfg.get("stack_indices"),
+            stack_input_mask=head_cfg.get("stack_input_mask"),
+            renormalize_active_gate=head_cfg.get("renormalize_active_gate", False),
+        )
+    elif head_type == "ssm_ordinal":
+        stack_dims = getattr(backbone, "stack_dims", None) if encoder_cfg.get("multiscale", False) else None
+        head = CausalSSMCountHead(
+            d_in=output_dim,
+            num_classes=num_classes,
+            d_model=head_cfg.get("d_model", 256),
+            state_dim=head_cfg.get("state_dim"),
+            num_layers=head_cfg.get("num_layers", 3),
+            dropout=head_cfg.get("dropout", 0.1),
+            stack_dims=stack_dims,
+            head_hidden_dim=head_cfg.get("head_hidden_dim", 0),
+            stack_indices=head_cfg.get("stack_indices"),
+            stack_input_mask=head_cfg.get("stack_input_mask"),
+            renormalize_active_gate=head_cfg.get("renormalize_active_gate", False),
+        )
+    elif head_type == "attention_ordinal":
+        stack_dims = getattr(backbone, "stack_dims", None) if encoder_cfg.get("multiscale", False) else None
+        head = CausalAttentionCountHead(
+            d_in=output_dim,
+            num_classes=num_classes,
+            d_model=head_cfg.get("d_model", 256),
+            num_heads=head_cfg.get("num_heads", 4),
+            num_layers=head_cfg.get("num_layers", 3),
+            max_context=head_cfg.get("max_context", 128),
+            ffn_multiplier=head_cfg.get("ffn_multiplier", 2),
+            dropout=head_cfg.get("dropout", 0.1),
+            stack_dims=stack_dims,
+            head_hidden_dim=head_cfg.get("head_hidden_dim", 0),
             stack_indices=head_cfg.get("stack_indices"),
             stack_input_mask=head_cfg.get("stack_input_mask"),
             renormalize_active_gate=head_cfg.get("renormalize_active_gate", False),

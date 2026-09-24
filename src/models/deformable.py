@@ -131,6 +131,10 @@ class CausalDeformableTemporalBlock(nn.Module):
     ) -> Tuple[torch.Tensor, List[torch.Tensor]]:
         if caches is None:
             caches = [None] * len(self.layers)
+        elif len(caches) != len(self.layers):
+            raise ValueError(
+                f"expected {len(self.layers)} deformable caches, "
+                f"got {len(caches)}")
         new_caches = []
         for layer, c in zip(self.layers, caches):
             x, nc = layer(x, cache=c)

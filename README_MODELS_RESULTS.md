@@ -390,6 +390,8 @@ Nguồn: [rev-8 log](logs/phase8_chain_rev8_run.log), [final state](artifacts/ph
 
 Native CORN (`q1=c1, q2=c1c2, q3=c1c2c3`), hai-stage refinement, capacity-matched refinement control và delta consistency được mô tả trong [pyramid roadmap](PYRAMID_ORDINAL_ROADMAP.md). Target config có 2 stage, framewise gate, learned alignment, final residual và CORN. Roadmap ghi smoke/unit/gradient audit và head 2,381M; **không tìm thấy kết quả long-run tương ứng đầy đủ để gán điểm F1 cho target đó**. Không diễn giải kết quả âm tính cumulative-softmax là đã bác bỏ native CORN hoặc mọi kiến trúc 2-stage.
 
+Ngày 25/09/2026, factory được mở thêm ba temporal head streaming để chuẩn bị một bake-off không khóa vào TCN: `gru_ordinal`, `ssm_ordinal` (selective diagonal state-space) và `attention_ordinal` (local causal attention có relative-time bias). Cùng với TCN và deformable, runner giữ mask/fusion/output/loss giống nhau và cân bằng head quanh 1,28M tham số. Các head mới đã có test causality, cache và gradient nhưng **chưa được train/evaluate**, nên không có F1 để đưa vào các bảng kết quả ở trên. Xem [runner bake-off](scripts/run_decoder_bakeoff.py) và [roadmap](SOTA_ROADMAP.md#12-không-khóa-vào-tcn-decoder-bake-off).
+
 Các nhánh acoustic energy/flux/flatness, multi-harmonic/F0/F1 và multichannel IPD/GCC-PHAT mới là đề xuất; chưa có kết quả model trong snapshot.
 
 ## 9. Fine-tune pyramid và độ nhạy seed

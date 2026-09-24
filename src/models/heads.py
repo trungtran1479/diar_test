@@ -411,6 +411,501 @@ class TCNCountHead(nn.Module):
         return self.head(h), new_caches
 
 
+class _CausalAlternativeHeadBase(nn.Module):
+    """Shared hypercolumn selection/fusion for non-TCN temporal heads.
+
+    Keeping this path separate from :class:`TCNCountHead` makes alternative
+    temporal decoders clean bake-off controls: old TCN modules and checkpoint
+    keys are left untouched, while every new decoder sees the same fused
+    representation when configured with the same ``stack_dims``.
+    """
+
+    def __init__(
+        self,
+        d_in: int,
+        d_model: int,
+        dropout: float = 0.1,
+        stack_dims: Optional[List[int]] = None,
+        stack_indices: Optional[List[int]] = None,
+        stack_input_mask: Optional[List[int]] = None,
+        renormalize_active_gate: bool = False,
+    ):
+        super().__init__()
+        if stack_input_mask is not None and stack_indices is not None:
+            raise ValueError(
+                "stack_input_mask cannot be combined with stack_indices")
+        if stack_input_mask is not None and not stack_dims:
+            raise ValueError("stack_input_mask requires stack_dims")
+        self._slices: Optional[List[tuple]] = None
+        if stack_indices is not None:
+            if not stack_dims:
+                raise ValueError("stack_indices requires stack_dims")
+            idx = [int(i) for i in stack_indices]
+            if (not idx or len(set(idx)) != len(idx)
+                    or any(i < 0 or i >= len(stack_dims) for i in idx)):
+                raise ValueError(
+                    f"stack_indices must be distinct indices into "
+                    f"{len(stack_dims)} stacks, got {stack_indices}")
+            offsets = [0]
+            for dim in stack_dims:
+                offsets.append(offsets[-1] + int(dim))
+            self._slices = [(offsets[i], offsets[i + 1]) for i in idx]
+            stack_dims = [int(stack_dims[i]) for i in idx]
+            d_selected = sum(stack_dims)
+        else:
+            d_selected = d_in
+
+        if stack_dims:
+            if sum(stack_dims) != d_selected:
+                raise ValueError(
+                    f"stack_dims sum {sum(stack_dims)} does not match input "
+                    f"dimension {d_selected}")
+            self.fusion = StackGatedProjection(
+                stack_dims,
+                d_out=d_model,
+                dropout=dropout,
+                stack_input_mask=stack_input_mask,
+                renormalize_active_gate=renormalize_active_gate,
+            )
+        else:
+            self.fusion = nn.Sequential(
+                nn.LayerNorm(d_selected), nn.Linear(d_selected, d_model))
+
+    def _select(self, x: torch.Tensor) -> torch.Tensor:
+        if self._slices is None:
+            return x
+        return torch.cat([x[..., start:end] for start, end in self._slices], dim=-1)
+
+    def _fuse(self, x: torch.Tensor) -> torch.Tensor:
+        if x.ndim != 3:
+            raise ValueError(f"expected [B,T,D] input, got {tuple(x.shape)}")
+        return self.fusion(self._select(x))
+
+
+class CausalGRUCountHead(_CausalAlternativeHeadBase):
+    """Unidirectional GRU count decoder with an exact streaming cache.
+
+    The cache is the GRU hidden state ``[num_layers, B, d_model]``.  Fusion is
+    frame-local, so carrying this state is sufficient for chunked inference to
+    match a full causal forward pass exactly (in evaluation mode).
+    """
+
+    def __init__(
+        self,
+        d_in: int,
+        num_classes: int = 4,
+        d_model: int = 256,
+        num_layers: int = 2,
+        dropout: float = 0.1,
+        stack_dims: Optional[List[int]] = None,
+        head_hidden_dim: int = 0,
+        stack_indices: Optional[List[int]] = None,
+        stack_input_mask: Optional[List[int]] = None,
+        renormalize_active_gate: bool = False,
+    ):
+        super().__init__(
+            d_in=d_in,
+            d_model=d_model,
+            dropout=dropout,
+            stack_dims=stack_dims,
+            stack_indices=stack_indices,
+            stack_input_mask=stack_input_mask,
+            renormalize_active_gate=renormalize_active_gate,
+        )
+        if num_layers < 1:
+            raise ValueError(f"num_layers must be >=1, got {num_layers}")
+        self.num_layers = int(num_layers)
+        self.d_model = int(d_model)
+        self.temporal = nn.GRU(
+            input_size=d_model,
+            hidden_size=d_model,
+            num_layers=self.num_layers,
+            batch_first=True,
+            dropout=dropout if self.num_layers > 1 else 0.0,
+        )
+        self.head = OrdinalConsistentHead(
+            d_model, num_classes, hidden_dim=head_hidden_dim, dropout=dropout)
+
+    def forward(self, x: torch.Tensor):
+        h = self._fuse(x)
+        h, _ = self.temporal(h)
+        return self.head(h)
+
+    def forward_streaming(
+        self,
+        x: torch.Tensor,
+        cache: Optional[torch.Tensor] = None,
+    ):
+        h = self._fuse(x)
+        if h.shape[1] == 0:
+            raise ValueError("streaming chunks must contain at least one frame")
+        expected = (self.num_layers, h.shape[0], self.d_model)
+        if cache is None:
+            cache = h.new_zeros(expected)
+        elif (tuple(cache.shape) != expected or cache.dtype != h.dtype
+              or cache.device != h.device):
+            raise ValueError(
+                f"cache has shape {tuple(cache.shape)}, dtype {cache.dtype}, "
+                f"device {cache.device}; expected {expected}, {h.dtype}, "
+                f"{h.device}")
+        h, new_cache = self.temporal(h, cache)
+        return self.head(h), new_cache
+
+
+class CausalSSMCache(NamedTuple):
+    """Per-layer recurrent state for :class:`CausalSSMCountHead`."""
+
+    states: Tuple[torch.Tensor, ...]
+
+
+class _SelectiveStateSpaceBlock(nn.Module):
+    """A compact selective diagonal state-space block.
+
+    The state transition remains diagonal and stable, while the forget gate
+    is conditioned on the current frame.  This tests adaptive memory without
+    importing a particular S4/Mamba implementation or a custom CUDA kernel.
+    """
+
+    def __init__(
+        self,
+        d_model: int,
+        state_dim: int,
+        dropout: float,
+    ):
+        super().__init__()
+        self.d_model = int(d_model)
+        self.state_dim = int(state_dim)
+        self.input_norm = nn.LayerNorm(d_model)
+        self.candidate_proj = nn.Linear(d_model, state_dim)
+        self.gate_proj = nn.Linear(d_model, state_dim)
+        init_alpha = torch.linspace(0.15, 0.98, state_dim)
+        self.decay_logits = nn.Parameter(torch.logit(init_alpha))
+        # Start from the multi-timescale diagonal recurrence.  Training can
+        # then make forgetting content-dependent without a random gate
+        # overwhelming those useful initial time constants.
+        nn.init.zeros_(self.gate_proj.weight)
+        nn.init.zeros_(self.gate_proj.bias)
+        self.state_norm = nn.LayerNorm(state_dim)
+        self.output_proj = nn.Linear(state_dim, d_model)
+        self.dropout = nn.Dropout(dropout)
+
+    def forward_sequence(
+        self,
+        x: torch.Tensor,
+        state: Optional[torch.Tensor] = None,
+    ) -> Tuple[torch.Tensor, torch.Tensor]:
+        expected = (x.shape[0], self.state_dim)
+        if state is None:
+            state = x.new_zeros(expected)
+        elif (tuple(state.shape) != expected or state.dtype != x.dtype
+              or state.device != x.device):
+            raise ValueError(
+                f"state has shape {tuple(state.shape)}, dtype {state.dtype}, "
+                f"device {state.device}; expected {expected}, {x.dtype}, "
+                f"{x.device}")
+
+        z = self.input_norm(x)
+        candidate = torch.tanh(self.candidate_proj(z))
+        gate_delta = self.gate_proj(z)
+        base = self.decay_logits.to(device=x.device, dtype=x.dtype)
+        outputs = []
+        for t in range(x.shape[1]):
+            keep = torch.sigmoid(base + gate_delta[:, t])
+            state = keep * state + (1.0 - keep) * candidate[:, t]
+            update = self.output_proj(self.state_norm(state))
+            outputs.append(x[:, t] + self.dropout(update))
+        return torch.stack(outputs, dim=1), state
+
+
+class CausalSSMCountHead(_CausalAlternativeHeadBase):
+    """Stacked selective diagonal state-space count decoder.
+
+    Every layer carries one fixed-size state across chunks.  Unlike a TCN's
+    fixed dilation schedule, each state channel learns a time constant and a
+    content-dependent forget gate.  This is a lightweight state-space
+    control, not a claim to reproduce a specific S4 or Mamba implementation.
+    """
+
+    def __init__(
+        self,
+        d_in: int,
+        num_classes: int = 4,
+        d_model: int = 256,
+        state_dim: Optional[int] = None,
+        num_layers: int = 3,
+        dropout: float = 0.1,
+        stack_dims: Optional[List[int]] = None,
+        head_hidden_dim: int = 0,
+        stack_indices: Optional[List[int]] = None,
+        stack_input_mask: Optional[List[int]] = None,
+        renormalize_active_gate: bool = False,
+    ):
+        super().__init__(
+            d_in=d_in,
+            d_model=d_model,
+            dropout=dropout,
+            stack_dims=stack_dims,
+            stack_indices=stack_indices,
+            stack_input_mask=stack_input_mask,
+            renormalize_active_gate=renormalize_active_gate,
+        )
+        self.state_dim = int(state_dim or 2 * d_model)
+        if self.state_dim < 1:
+            raise ValueError(f"state_dim must be >=1, got {state_dim}")
+        self.num_layers = int(num_layers)
+        if self.num_layers < 1:
+            raise ValueError(f"num_layers must be >=1, got {num_layers}")
+        self.blocks = nn.ModuleList([
+            _SelectiveStateSpaceBlock(d_model, self.state_dim, dropout)
+            for _ in range(self.num_layers)
+        ])
+        self.head = OrdinalConsistentHead(
+            d_model, num_classes, hidden_dim=head_hidden_dim, dropout=dropout)
+
+    def _run(
+        self,
+        h: torch.Tensor,
+        cache: Optional[CausalSSMCache] = None,
+    ) -> Tuple[torch.Tensor, CausalSSMCache]:
+        if h.shape[1] == 0:
+            raise ValueError("streaming chunks must contain at least one frame")
+        if cache is None:
+            states = (None,) * self.num_layers
+        elif (not isinstance(cache, CausalSSMCache)
+              or len(cache.states) != self.num_layers):
+            raise ValueError(
+                f"cache must contain {self.num_layers} SSM states")
+        else:
+            states = cache.states
+
+        new_states = []
+        for block, state in zip(self.blocks, states):
+            h, state = block.forward_sequence(h, state)
+            new_states.append(state)
+        return h, CausalSSMCache(tuple(new_states))
+
+    def forward(self, x: torch.Tensor):
+        h, _ = self._run(self._fuse(x))
+        return self.head(h)
+
+    def forward_streaming(
+        self,
+        x: torch.Tensor,
+        cache: Optional[CausalSSMCache] = None,
+    ):
+        h, new_cache = self._run(self._fuse(x), cache)
+        return self.head(h), new_cache
+
+
+class CausalAttentionLayerCache(NamedTuple):
+    """Bounded key/value history for one causal attention block."""
+
+    key: torch.Tensor
+    value: torch.Tensor
+
+
+class CausalAttentionCache(NamedTuple):
+    """Per-layer cache for :class:`CausalAttentionCountHead`."""
+
+    layers: Tuple[CausalAttentionLayerCache, ...]
+
+
+class _CausalAttentionBlock(nn.Module):
+    """Pre-norm local causal attention with relative-time bias and FFN."""
+
+    def __init__(
+        self,
+        d_model: int,
+        num_heads: int,
+        max_context: int,
+        ffn_multiplier: int,
+        dropout: float,
+    ):
+        super().__init__()
+        if d_model % num_heads:
+            raise ValueError(
+                f"d_model={d_model} must be divisible by num_heads={num_heads}")
+        if max_context < 1:
+            raise ValueError(f"max_context must be >=1, got {max_context}")
+        if ffn_multiplier < 1:
+            raise ValueError(
+                f"ffn_multiplier must be >=1, got {ffn_multiplier}")
+        self.d_model = int(d_model)
+        self.num_heads = int(num_heads)
+        self.head_dim = self.d_model // self.num_heads
+        self.max_context = int(max_context)
+        self.norm1 = nn.LayerNorm(d_model)
+        self.q_proj = nn.Linear(d_model, d_model)
+        self.k_proj = nn.Linear(d_model, d_model)
+        self.v_proj = nn.Linear(d_model, d_model)
+        self.out_proj = nn.Linear(d_model, d_model)
+        # Index 0 is the current frame, index k is k frames in the past.
+        self.relative_bias = nn.Parameter(
+            torch.zeros(num_heads, self.max_context))
+        self.norm2 = nn.LayerNorm(d_model)
+        ffn_dim = int(ffn_multiplier) * d_model
+        self.ffn = nn.Sequential(
+            nn.Linear(d_model, ffn_dim),
+            nn.GELU(),
+            nn.Dropout(dropout),
+            nn.Linear(ffn_dim, d_model),
+        )
+        self.dropout = nn.Dropout(dropout)
+
+    def _qkv(self, x: torch.Tensor):
+        h = self.norm1(x)
+        shape = (h.shape[0], h.shape[1], self.num_heads, self.head_dim)
+        q = self.q_proj(h).view(shape).transpose(1, 2)
+        k = self.k_proj(h).view(shape).transpose(1, 2)
+        v = self.v_proj(h).view(shape).transpose(1, 2)
+        return q, k, v
+
+    def forward_chunk(
+        self,
+        x: torch.Tensor,
+        cache: Optional[CausalAttentionLayerCache] = None,
+    ) -> Tuple[torch.Tensor, CausalAttentionLayerCache]:
+        q, k_new, v_new = self._qkv(x)
+        prefix = 0
+        if cache is None:
+            key, value = k_new, v_new
+        else:
+            if not isinstance(cache, CausalAttentionLayerCache):
+                raise ValueError(
+                    "each attention layer cache must contain key/value tensors")
+            if (cache.key.ndim != 4 or cache.value.shape != cache.key.shape
+                    or cache.key.shape[0] != x.shape[0]
+                    or cache.key.shape[1] != self.num_heads
+                    or cache.key.shape[3] != self.head_dim
+                    or cache.key.shape[2] > self.max_context - 1
+                    or cache.key.dtype != x.dtype
+                    or cache.value.dtype != x.dtype
+                    or cache.key.device != x.device
+                    or cache.value.device != x.device):
+                raise ValueError(
+                    "attention layer cache must be [B,H,Tpast,head_dim] "
+                    "and match the input batch/device/dtype")
+            prefix = cache.key.shape[2]
+            key = torch.cat([cache.key, k_new], dim=2)
+            value = torch.cat([cache.value, v_new], dim=2)
+
+        scores = torch.matmul(q, key.transpose(-2, -1)) / (self.head_dim ** 0.5)
+        key_position = torch.arange(key.shape[2], device=x.device)[None, :]
+        query_position = prefix + torch.arange(
+            x.shape[1], device=x.device)[:, None]
+        distance = query_position - key_position
+        allowed = (distance >= 0) & (distance < self.max_context)
+        bias_index = distance.clamp(0, self.max_context - 1).long()
+        bias = self.relative_bias[:, bias_index]
+        scores = scores + bias.unsqueeze(0)
+        scores = scores.masked_fill(~allowed[None, None], float("-inf"))
+        attention = torch.softmax(scores, dim=-1)
+        update = torch.matmul(attention, value)
+        update = update.transpose(1, 2).reshape_as(x)
+        x = x + self.dropout(self.out_proj(update))
+        x = x + self.dropout(self.ffn(self.norm2(x)))
+
+        keep = min(self.max_context - 1, key.shape[2])
+        if keep:
+            new_cache = CausalAttentionLayerCache(
+                key[:, :, -keep:].contiguous(),
+                value[:, :, -keep:].contiguous(),
+            )
+        else:
+            new_cache = CausalAttentionLayerCache(
+                key[:, :, :0].contiguous(), value[:, :, :0].contiguous())
+        return x, new_cache
+
+
+class CausalAttentionCountHead(_CausalAlternativeHeadBase):
+    """Stacked local causal self-attention count decoder.
+
+    Each block has a learned relative-time bias and a bounded key/value cache,
+    so it is sensitive to temporal distance while memory is independent of
+    stream length.  Three blocks at width 192 give a parameter budget close to
+    the current TCN-192 and form a useful non-convolutional bake-off arm.
+    """
+
+    def __init__(
+        self,
+        d_in: int,
+        num_classes: int = 4,
+        d_model: int = 256,
+        num_heads: int = 4,
+        num_layers: int = 3,
+        max_context: int = 128,
+        ffn_multiplier: int = 2,
+        dropout: float = 0.1,
+        stack_dims: Optional[List[int]] = None,
+        head_hidden_dim: int = 0,
+        stack_indices: Optional[List[int]] = None,
+        stack_input_mask: Optional[List[int]] = None,
+        renormalize_active_gate: bool = False,
+    ):
+        super().__init__(
+            d_in=d_in,
+            d_model=d_model,
+            dropout=dropout,
+            stack_dims=stack_dims,
+            stack_indices=stack_indices,
+            stack_input_mask=stack_input_mask,
+            renormalize_active_gate=renormalize_active_gate,
+        )
+        self.d_model = int(d_model)
+        self.num_heads = int(num_heads)
+        self.num_layers = int(num_layers)
+        if self.num_layers < 1:
+            raise ValueError(f"num_layers must be >=1, got {num_layers}")
+        self.max_context = int(max_context)
+        self.blocks = nn.ModuleList([
+            _CausalAttentionBlock(
+                d_model=d_model,
+                num_heads=num_heads,
+                max_context=max_context,
+                ffn_multiplier=ffn_multiplier,
+                dropout=dropout,
+            )
+            for _ in range(self.num_layers)
+        ])
+        self.head = OrdinalConsistentHead(
+            d_model, num_classes, hidden_dim=head_hidden_dim, dropout=dropout)
+
+    def _run(
+        self,
+        h: torch.Tensor,
+        cache: Optional[CausalAttentionCache] = None,
+    ) -> Tuple[torch.Tensor, CausalAttentionCache]:
+        if h.shape[1] == 0:
+            raise ValueError("streaming chunks must contain at least one frame")
+        if cache is None:
+            layer_caches = (None,) * self.num_layers
+        elif (not isinstance(cache, CausalAttentionCache)
+              or len(cache.layers) != self.num_layers):
+            raise ValueError(
+                f"attention cache must contain {self.num_layers} layers")
+        else:
+            layer_caches = cache.layers
+
+        new_caches = []
+        for block, layer_cache in zip(self.blocks, layer_caches):
+            h, layer_cache = block.forward_chunk(h, layer_cache)
+            new_caches.append(layer_cache)
+        return h, CausalAttentionCache(tuple(new_caches))
+
+    def forward(self, x: torch.Tensor):
+        h = self._fuse(x)
+        h, _ = self._run(h)
+        return self.head(h)
+
+    def forward_streaming(
+        self,
+        x: torch.Tensor,
+        cache: Optional[CausalAttentionCache] = None,
+    ):
+        h, new_cache = self._run(self._fuse(x), cache)
+        return self.head(h), new_cache
+
+
 class EventStateOutput(NamedTuple):
     """Stable output contract for :class:`TCNEventStateCountHead`.
 
@@ -742,11 +1237,21 @@ class DeformableCountHead(nn.Module):
         dropout: float = 0.1,
         stack_dims: Optional[List[int]] = None,
         head_hidden_dim: int = 0,
+        stack_input_mask: Optional[List[int]] = None,
+        renormalize_active_gate: bool = False,
     ):
         super().__init__()
         if stack_dims:
             assert sum(stack_dims) == d_in, (stack_dims, d_in)
-            self.fusion = StackGatedProjection(stack_dims, d_out=d_model, dropout=dropout)
+            self.fusion = StackGatedProjection(
+                stack_dims,
+                d_out=d_model,
+                dropout=dropout,
+                stack_input_mask=stack_input_mask,
+                renormalize_active_gate=renormalize_active_gate,
+            )
+        elif stack_input_mask is not None:
+            raise ValueError("stack_input_mask requires stack_dims")
         else:
             self.fusion = nn.Sequential(nn.LayerNorm(d_in), nn.Linear(d_in, d_model))
         self.temporal = CausalDeformableTemporalBlock(
