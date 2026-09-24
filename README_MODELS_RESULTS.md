@@ -10,6 +10,7 @@ Tài liệu bao quát lịch sử v1 → deformable v2/v3/v4 → TCN → event-s
 - [FastConformer và WavLM](#11-thay-backbone-fastconformer-và-wavlm)
 - [Partial unfreeze, LoRA và decoder](#12-wavlm-partial-unfreeze-và-lora)
 - [Những điểm chưa khớp trong báo cáo cũ](#15-các-điểm-cần-đọc-đúng-khi-sử-dụng-báo-cáo)
+- [Lộ trình nâng lên SOTA và cạnh tranh DiariZen](SOTA_ROADMAP.md)
 - [CSV kết quả từng artifact](reports/model_results.csv), [CSV validation từng run](reports/training_validation.csv), [danh mục nguồn và SHA-256](reports/source_inventory.csv).
 
 ## 1. Bài toán và cách đọc các con số

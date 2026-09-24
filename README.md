@@ -1,6 +1,6 @@
 # ZipCount — Streaming Frame-Level Active Speaker Counting
 
-> **Tổng hợp kiến trúc và kết quả toàn dự án:** xem [README_MODELS_RESULTS.md](README_MODELS_RESULTS.md), bao gồm v1–v4, TCN, event-state, pyramid, FastConformer, WavLM/LoRA, các ablation và kết quả từng model. Phần dưới giữ nội dung hướng dẫn và báo cáo lịch sử ban đầu.
+> **Tổng hợp kiến trúc và kết quả toàn dự án:** xem [README_MODELS_RESULTS.md](README_MODELS_RESULTS.md), bao gồm v1–v4, TCN, event-state, pyramid, FastConformer, WavLM/LoRA, các ablation và kết quả từng model. Xem [SOTA_ROADMAP.md](SOTA_ROADMAP.md) để biết ưu/nhược điểm và lộ trình cạnh tranh với DiariZen. Phần dưới giữ nội dung hướng dẫn và báo cáo lịch sử ban đầu.
 
 Đếm số người đang nói tại **mỗi frame** (40ms) trong audio streaming 1 kênh:
 
